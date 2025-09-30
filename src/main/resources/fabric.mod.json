@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "lawnchair",
+  "version": "${version}",
+  "name": "Lawnchair",
+  "description": "",
+  "authors": [
+    "epiccool",
+    "xanth"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/user/epiccool/",
+    "sources": "https://github.com/epic-cool/lawnchair",
+    "issues": ""
+  },
+  "license": "MIT",
+  "icon": "assets/lawnchair/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.epiccool.lawnchair.Lawnchair"
+    ],
+    "client": [
+      "net.epiccool.lawnchair.LawnchairClient"
+    ],
+    "fabric-datagen": [
+      "net.epiccool.lawnchair.LawnchairDataGenerator"
+    ]
+  },
+  "mixins": [
+    "lawnchair.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "~1.21.9",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
