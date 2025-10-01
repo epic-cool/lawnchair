@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "group": "lawnchair",
   "key": {
     "0": "minecraft:snowball",
     "1": "minecraft:stick"

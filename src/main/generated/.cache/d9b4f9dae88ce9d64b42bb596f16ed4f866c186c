@@ -1,3 +1,5 @@
 // 1.21.9	-999999999-01-01T00:00:00	Lawnchair/LawnchairRecipeProvider
+f31750653108ea3e59338454d4d58304ea5705b6 data/lawnchair/advancement/recipes/decorations/ladder.json
 4d10acccc71a4cf049a6cb902bd6443e22675c8b data/lawnchair/advancement/recipes/tools/ice_pick.json
-a318914671a423e1475cb01e9d713e604cc241d2 data/lawnchair/recipe/ice_pick.json
+a88cb24e1fd9db8bc60d1c6334eaca9367d2940f data/lawnchair/recipe/ice_pick.json
+a9a0ce9313a7867db2625ec0f97befa0409250d0 data/lawnchair/recipe/ladder.json

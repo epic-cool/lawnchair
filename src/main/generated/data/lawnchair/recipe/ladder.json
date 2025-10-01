@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:ladder"
+  },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:ladder"
+  }
+}

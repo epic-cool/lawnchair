@@ -1,8 +1,9 @@
 package net.epiccool.lawnchair;
 
+import net.epiccool.lawnchair.effect.ModEffects;
+import net.epiccool.lawnchair.effect.potion.ModPotions;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,8 @@ public class Lawnchair implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        ModItems.initialize();
+        ModItems.Initialize();
+        ModEffects.Initialize();
+        ModPotions.Initialize();
 	}
 }

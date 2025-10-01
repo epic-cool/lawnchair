@@ -2,6 +2,7 @@
   "---------------------------------------Category I": "ItemGroups ------------------------------------------------",
   "itemGroup.lawnchair.generic": "Lawnchair: Generic",
   "itemGroup.lawnchair.colored": "Lawnchair: Colored",
+  "itemGroup.lawnchair.potions": "Lawnchair: Potions",
 
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
@@ -14,5 +15,27 @@
 
 
   "---------------------------------------Category IV": "Entities ------------------------------------------------",
-  "entity.lawnchair.white_item_frame": "White Item Frame"
+  "entity.lawnchair.white_item_frame": "White Item Frame",
+
+
+  "---------------------------------------Category V": "Effects ------------------------------------------------",
+  "effect.lawnchair.sticky": "Sticky",
+  "item.minecraft.lingering_potion.effect.sticky": "Lingering Sticky Potion",
+  "item.minecraft.lingering_potion.effect.sticky_strong": "Lingering Sticky Potion",
+  "item.minecraft.lingering_potion.effect.sticky_strong1": "Lingering Sticky Potion",
+  "item.minecraft.lingering_potion.effect.sticky_strong2": "Lingering Sticky Potion",
+  "item.minecraft.lingering_potion.effect.sticky_strong3": "Lingering Sticky Potion",
+  "item.minecraft.lingering_potion.effect.sticky_long": "Lingering Sticky Potion",
+  "item.minecraft.potion.effect.sticky": "Sticky Potion",
+  "item.minecraft.potion.effect.sticky_long": "Sticky Potion",
+  "item.minecraft.potion.effect.sticky_strong": "Sticky Potion",
+  "item.minecraft.potion.effect.sticky_strong1": "Sticky Potion",
+  "item.minecraft.potion.effect.sticky_strong2": "Sticky Potion",
+  "item.minecraft.potion.effect.sticky_strong3": "Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky": "Splashing Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky_strong": "Splashing Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky_strong1": "Splashing Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky_strong2": "Splashing Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky_strong3": "Splashing Sticky Potion",
+  "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion"
 }

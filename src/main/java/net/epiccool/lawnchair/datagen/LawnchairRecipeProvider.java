@@ -30,9 +30,16 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .pattern("1 ")
                         .input('0', Items.SNOWBALL)
                         .input('1', Items.STICK)
-                        .group("lawnchair")
                         .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.DECORATIONS, Items.LADDER, 9)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.LADDER)
+                        .criterion(hasItem(Items.LADDER), conditionsFromItem(Items.LADDER))
                         .offerTo(exporter);
             }
         };
