@@ -3,6 +3,7 @@ package net.epiccool.lawnchair.item.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,14 +16,30 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Consumer;
 
 public class IcePickItem extends Item {
     public IcePickItem(Settings settings) {
         super(settings);
     }
+
+    /*
+    Other action!
+
+        1. Climb on ice blocks. Stick like honey.
+
+        2. ChooseRandom 1,3 incl. if 1 damage else do nothing
+
+     */
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
@@ -84,5 +101,43 @@ public class IcePickItem extends Item {
             return 10.0F;
         }
         return super.getMiningSpeed(stack, state);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
+        if (!(entity instanceof PlayerEntity player)) return;
+        if (!ItemStack.areEqual(player.getOffHandStack(), stack)) return;
+        BlockPos pos = player.getBlockPos();
+        Direction facing = player.getHorizontalFacing();
+        BlockState blockState = world.getBlockState(pos.offset(facing));
+        if (blockState.isOf(Blocks.ICE) || blockState.isOf(Blocks.PACKED_ICE) || blockState.isOf(Blocks.BLUE_ICE)) {
+            Vec3d motion = player.getVelocity();
+            double stickX = 0;
+            double stickZ = 0;
+            switch (facing) {
+                case NORTH -> stickZ = -0.05;
+                case SOUTH -> stickZ = 0.05;
+                case WEST -> stickX = -0.05;
+                case EAST -> stickX = 0.05;
+            }
+            double y = 0;
+            if (!player.isOnGround()) {
+                y = 0.2;
+            }
+            if (player.isSneaking()) {
+                y = -0.1;
+            }
+            player.setVelocity(stickX, y, stickZ);
+            player.fallDistance = 0;
+            player.velocityModified = true;
+
+            //~209 blocks
+            if (!world.isClient() && world.getTime() % 10 == 0) {
+                if (world.random.nextInt(3) == 0) {
+                    stack.damage(1, player, Hand.OFF_HAND);
+                }
+            }
+        }
+        super.inventoryTick(stack, world, entity, slot);
     }
 }

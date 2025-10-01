@@ -10,6 +10,7 @@
 
   "---------------------------------------Category III": "Tools, Armour ------------------------------------------------",
   "item.lawnchair.ice_pick": "Ice Pick",
+  "item.lawnchair.ice_pick.tooltip": "Offhand: Climb Ice\nLeft: Mine\nRight: Cycle ice types",
 
 
   "---------------------------------------Category IV": "Entities ------------------------------------------------",
