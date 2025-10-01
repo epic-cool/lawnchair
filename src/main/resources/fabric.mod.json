@@ -11,7 +11,7 @@
   "contact": {
     "homepage": "https://modrinth.com/user/epiccool/",
     "sources": "https://github.com/epic-cool/lawnchair",
-    "issues": ""
+    "issues": "https://github.com/epic-cool/lawnchair/issues"
   },
   "license": "MIT",
   "icon": "assets/lawnchair/icon.png",

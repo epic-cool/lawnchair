@@ -1,0 +1,17 @@
+{
+  "---------------------------------------Category I": "ItemGroups ------------------------------------------------",
+  "itemGroup.lawnchair.generic": "Lawnchair: Generic",
+  "itemGroup.lawnchair.colored": "Lawnchair: Colored",
+
+
+  "---------------------------------------Category II": "Items ------------------------------------------------",
+  "item.lawnchair.white_item_frame": "White Item Frame",
+
+
+  "---------------------------------------Category III": "Tools, Armour ------------------------------------------------",
+  "item.lawnchair.ice_pick": "Ice Pick",
+
+
+  "---------------------------------------Category IV": "Entities ------------------------------------------------",
+  "entity.lawnchair.white_item_frame": "White Item Frame"
+}
