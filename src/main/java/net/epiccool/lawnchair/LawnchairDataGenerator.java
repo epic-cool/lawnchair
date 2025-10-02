@@ -1,7 +1,6 @@
 package net.epiccool.lawnchair;
 
-import net.epiccool.lawnchair.datagen.LawnchairModelProvider;
-import net.epiccool.lawnchair.datagen.LawnchairRecipeProvider;
+import net.epiccool.lawnchair.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -12,5 +11,8 @@ public class LawnchairDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(LawnchairModelProvider::new);
         pack.addProvider(LawnchairRecipeProvider::new);
+        pack.addProvider(LawnchairItemTagProvider::new);
+        pack.addProvider(LawnchairBlockTagProvider::new);
+        pack.addProvider(LawnchairBlockLootTableProvider::new);
     }
 }

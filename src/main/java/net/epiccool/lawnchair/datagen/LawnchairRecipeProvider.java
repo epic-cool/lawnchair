@@ -1,12 +1,16 @@
 package net.epiccool.lawnchair.datagen;
 
+import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
+import net.minecraft.data.recipe.StonecuttingRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -41,6 +45,68 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input('0', Items.LADDER)
                         .criterion(hasItem(Items.LADDER), conditionsFromItem(Items.LADDER))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHARCOAL_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.CHARCOAL)
+                        .criterion(hasItem(Items.CHARCOAL), conditionsFromItem(Items.CHARCOAL))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.CHARCOAL, 9)
+                        .input(ModBlocks.CHARCOAL_BLOCK)
+                        .criterion(hasItem(ModBlocks.CHARCOAL_BLOCK), conditionsFromItem(ModBlocks.CHARCOAL_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STEEL_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.STEEL_INGOT, 9)
+                        .input(ModBlocks.STEEL_BLOCK)
+                        .criterion(hasItem(ModBlocks.STEEL_BLOCK), conditionsFromItem(ModBlocks.STEEL_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.IRON_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.IRON_CHAIN)
+                        .criterion(hasItem(Items.IRON_CHAIN), conditionsFromItem(Items.IRON_CHAIN))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.IRON_CHAIN, 9)
+                        .input(ModBlocks.IRON_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.IRON_CHAIN_BLOCK), conditionsFromItem(ModBlocks.IRON_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.GRAVEL, 4)
+                        .input(Items.COBBLESTONE)
+                        .criterion(hasItem(Items.COBBLESTONE), conditionsFromItem(Items.COBBLESTONE))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Items.BLACK_DYE, 64)
+                        .input(Items.DRAGON_EGG)
+                        .criterion(hasItem(Items.DRAGON_EGG), conditionsFromItem(Items.DRAGON_EGG))
+                        .offerTo(exporter);
+
+                StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItem(Items.GRAVEL), RecipeCategory.BUILDING_BLOCKS, Items.COBBLESTONE, 1);
+
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItem(Items.COAL),
+                                Ingredient.ofItem(Items.IRON_INGOT),
+                                Ingredient.ofItem(Items.IRON_INGOT),
+                                RecipeCategory.MISC,
+                                ModItems.STEEL_INGOT
+                        )
+                        .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(this.exporter, getItemPath(ModItems.STEEL_INGOT) + "_smithing");
             }
         };
     }

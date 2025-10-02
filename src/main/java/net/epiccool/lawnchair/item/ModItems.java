@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.item;
 
 import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.effect.potion.ModPotions;
 import net.epiccool.lawnchair.item.custom.IcePickItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -31,7 +32,7 @@ public class ModItems {
 
     public static final RegistryKey<ItemGroup> POTIONS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "potions_group"));
     public static final ItemGroup POTIONS_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(Items.STICK))
+            .icon(() -> new ItemStack(Items.POTION))
             .displayName(Text.translatable("itemGroup.lawnchair.potions"))
             .build();
 
@@ -43,17 +44,23 @@ public class ModItems {
     }
 
     public static void Initialize() {
+        Lawnchair.LOGGER.info("Registering Mod Items for " + Lawnchair.MODID);
         Registry.register(Registries.ITEM_GROUP, GENERIC_ITEM_GROUP_KEY, GENERIC_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
+            entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
+            entries.add(ModItems.STEEL_INGOT);
         });
 
         ItemGroupEvents.modifyEntriesEvent(POTIONS_ITEM_GROUP_KEY).register(ModItems::addStickyPotions);
     }
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
+    public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
 
 
     private static void addStickyPotions(ItemGroup.Entries entries) {

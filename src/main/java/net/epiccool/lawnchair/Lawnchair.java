@@ -1,5 +1,6 @@
 package net.epiccool.lawnchair;
 
+import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.effect.ModEffects;
 import net.epiccool.lawnchair.effect.potion.ModPotions;
 import net.epiccool.lawnchair.item.ModItems;
@@ -16,5 +17,6 @@ public class Lawnchair implements ModInitializer {
         ModItems.Initialize();
         ModEffects.Initialize();
         ModPotions.Initialize();
+        ModBlocks.Initialize();
 	}
 }

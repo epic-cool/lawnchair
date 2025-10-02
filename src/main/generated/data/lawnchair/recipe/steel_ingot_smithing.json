@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:iron_ingot",
+  "base": "minecraft:iron_ingot",
+  "result": {
+    "id": "lawnchair:steel_ingot"
+  },
+  "template": "minecraft:coal"
+}

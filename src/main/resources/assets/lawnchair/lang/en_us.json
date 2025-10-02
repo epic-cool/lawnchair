@@ -7,18 +7,25 @@
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
   "item.lawnchair.white_item_frame": "White Item Frame",
+  "item.lawnchair.steel_ingot": "Steel Ingot",
 
 
-  "---------------------------------------Category III": "Tools, Armour ------------------------------------------------",
+  "---------------------------------------Category III": "Blocks ------------------------------------------------",
+  "block.lawnchair.charcoal_block": "Block of Charcoal",
+  "block.lawnchair.iron_chain_block": "Block of Iron Chains",
+  "block.lawnchair.steel_block": "Block of Steel",
+
+
+  "---------------------------------------Category IV": "Tools, Armour ------------------------------------------------",
   "item.lawnchair.ice_pick": "Ice Pick",
   "item.lawnchair.ice_pick.tooltip": "Offhand: Climb Ice\nLeft: Mine\nRight: Cycle ice types",
 
 
-  "---------------------------------------Category IV": "Entities ------------------------------------------------",
+  "---------------------------------------Category V": "Entities ------------------------------------------------",
   "entity.lawnchair.white_item_frame": "White Item Frame",
 
 
-  "---------------------------------------Category V": "Effects ------------------------------------------------",
+  "---------------------------------------Category VI": "Effects ------------------------------------------------",
   "effect.lawnchair.sticky": "Sticky",
   "item.minecraft.lingering_potion.effect.sticky": "Lingering Sticky Potion",
   "item.minecraft.lingering_potion.effect.sticky_strong": "Lingering Sticky Potion",
@@ -37,5 +44,8 @@
   "item.minecraft.splash_potion.effect.sticky_strong1": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_strong2": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_strong3": "Splashing Sticky Potion",
-  "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion"
+  "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion",
+
+
+  "--------------------------------------------------": "--------------------------------------------------------"
 }
