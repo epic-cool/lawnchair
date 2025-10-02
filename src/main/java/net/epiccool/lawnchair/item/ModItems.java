@@ -7,6 +7,7 @@ import net.epiccool.lawnchair.item.custom.IcePickItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -53,6 +54,7 @@ public class ModItems {
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
+            entries.add(ModItems.PUMPKIN_SLICE);
             entries.add(ModItems.STEEL_INGOT);
         });
 
@@ -61,6 +63,7 @@ public class ModItems {
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
+    public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.3F).build()));
 
 
     private static void addStickyPotions(ItemGroup.Entries entries) {

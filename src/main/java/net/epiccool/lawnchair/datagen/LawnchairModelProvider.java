@@ -24,6 +24,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.ICE_PICK, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PUMPKIN_SLICE, Models.GENERATED);
     }
 
     @Override

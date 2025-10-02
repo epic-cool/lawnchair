@@ -4,6 +4,7 @@ import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
@@ -70,6 +71,24 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.STEEL_INGOT, 9)
                         .input(ModBlocks.STEEL_BLOCK)
                         .criterion(hasItem(ModBlocks.STEEL_BLOCK), conditionsFromItem(ModBlocks.STEEL_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Items.PUMPKIN_SEEDS, 1)
+                        .input(ModItems.PUMPKIN_SLICE)
+                        .criterion(hasItem(ModItems.PUMPKIN_SLICE), conditionsFromItem(ModItems.PUMPKIN_SLICE))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Items.MELON_SEEDS, 9)
+                        .input(Blocks.MELON)
+                        .criterion(hasItem(Blocks.MELON), conditionsFromItem(Blocks.MELON))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, Blocks.PUMPKIN, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModItems.PUMPKIN_SLICE)
+                        .criterion(hasItem(ModItems.PUMPKIN_SLICE), conditionsFromItem(ModItems.PUMPKIN_SLICE))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.IRON_CHAIN_BLOCK, 1)
