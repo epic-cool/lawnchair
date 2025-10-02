@@ -4,7 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AbstractMinecartEntityMixin",
-    "SnowballEntityMixin"
+    "SnowballEntityMixin",
+    "ZombieEntityMixin",
+    "ZombieEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
