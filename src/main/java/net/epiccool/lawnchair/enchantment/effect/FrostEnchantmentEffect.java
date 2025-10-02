@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public record FrostEnchantmentEffect(EnchantmentLevelBasedValue amount) implements EnchantmentEntityEffect {
+    //I'm just gonna not let this work for the time-being
     public static final MapCodec<FrostEnchantmentEffect> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     EnchantmentLevelBasedValue.CODEC.fieldOf("amount").forGetter(FrostEnchantmentEffect::amount)
