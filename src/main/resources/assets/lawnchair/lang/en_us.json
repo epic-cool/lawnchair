@@ -10,26 +10,26 @@
   "item.lawnchair.steel_ingot": "Steel Ingot",
 
 
-  "---------------------------------------Category II.I": "Foodstuffs ------------------------------------------------",
+  "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
   "item.lawnchair.pumpkin_slice": "Pumpkin Slice",
 
 
-  "---------------------------------------Category III": "Blocks ------------------------------------------------",
+  "---------------------------------------Category IV": "Blocks ------------------------------------------------",
   "block.lawnchair.charcoal_block": "Block of Charcoal",
   "block.lawnchair.iron_chain_block": "Block of Iron Chains",
   "block.lawnchair.steel_block": "Block of Steel",
 
 
-  "---------------------------------------Category IV": "Tools, Armour ------------------------------------------------",
+  "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
   "item.lawnchair.ice_pick": "Ice Pick",
   "item.lawnchair.ice_pick.tooltip": "Offhand: Climb Ice\nLeft: Mine\nRight: Cycle ice types",
 
 
-  "---------------------------------------Category V": "Entities ------------------------------------------------",
+  "---------------------------------------Category VI": "Entities ------------------------------------------------",
   "entity.lawnchair.white_item_frame": "White Item Frame",
 
 
-  "---------------------------------------Category VI": "Effects ------------------------------------------------",
+  "---------------------------------------Category VII": "Effects ------------------------------------------------",
   "effect.lawnchair.sticky": "Sticky",
   "item.minecraft.lingering_potion.effect.sticky": "Lingering Sticky Potion",
   "item.minecraft.lingering_potion.effect.sticky_strong": "Lingering Sticky Potion",
@@ -49,6 +49,10 @@
   "item.minecraft.splash_potion.effect.sticky_strong2": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_strong3": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion",
+
+
+  "---------------------------------------Category VIII": "Enchantments ------------------------------------------------",
+  "enchantment.lawnchair.frost": "Frost",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

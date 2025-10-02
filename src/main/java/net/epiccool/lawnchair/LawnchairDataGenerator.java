@@ -14,5 +14,6 @@ public class LawnchairDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(LawnchairItemTagProvider::new);
         pack.addProvider(LawnchairBlockTagProvider::new);
         pack.addProvider(LawnchairBlockLootTableProvider::new);
+        pack.addProvider(LawnchairEnchantmentProvider::new);
     }
 }
