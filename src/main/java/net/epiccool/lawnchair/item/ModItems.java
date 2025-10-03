@@ -51,10 +51,14 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
+            entries.add(ModItems.COOKED_BACON);
+            entries.add(ModItems.COOKED_SAUSAGE);
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
             entries.add(ModItems.PUMPKIN_SLICE);
+            entries.add(ModItems.RAW_BACON);
+            entries.add(ModItems.RAW_SAUSAGE);
             entries.add(ModItems.STEEL_INGOT);
         });
 
@@ -63,7 +67,11 @@ public class ModItems {
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
-    public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.3F).build()));
+    public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
+    public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item RAW_SAUSAGE = register("raw_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
 
 
     private static void addStickyPotions(ItemGroup.Entries entries) {

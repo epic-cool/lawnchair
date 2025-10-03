@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": [
+    "lawnchair:raw_sausage"
+  ],
+  "result": {
+    "id": "lawnchair:cooked_sausage"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

@@ -12,6 +12,10 @@
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
   "item.lawnchair.pumpkin_slice": "Pumpkin Slice",
+  "item.lawnchair.raw_bacon": "Raw Bacon",
+  "item.lawnchair.cooked_bacon": "Cooked Bacon",
+  "item.lawnchair.raw_sausage": "Raw Sausage",
+  "item.lawnchair.cooked_sausage": "Cooked Sausage",
 
 
   "---------------------------------------Category IV": "Blocks ------------------------------------------------",

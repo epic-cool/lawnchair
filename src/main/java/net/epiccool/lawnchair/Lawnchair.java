@@ -4,6 +4,7 @@ import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.effect.ModEffects;
 import net.epiccool.lawnchair.effect.potion.ModPotions;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
+import net.epiccool.lawnchair.entity.VariantTagger;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -20,5 +21,6 @@ public class Lawnchair implements ModInitializer {
         ModPotions.Initialize();
         ModBlocks.Initialize();
         ModEnchantmentEffects.Initialize();
+        VariantTagger.Initialize();
 	}
 }
