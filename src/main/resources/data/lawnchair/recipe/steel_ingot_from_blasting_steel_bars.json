@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "ingredient": [
+    "lawnchair:steel_bars"
+  ],
+  "result": {
+    "id": "lawnchair:steel_ingot"
+  },
+  "experience": 0.2,
+  "cookingtime": 140
+}

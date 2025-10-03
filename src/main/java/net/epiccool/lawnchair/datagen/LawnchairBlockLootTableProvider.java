@@ -17,6 +17,7 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.CHARCOAL_BLOCK);
         addDrop(ModBlocks.STEEL_BLOCK);
         addDrop(ModBlocks.IRON_CHAIN_BLOCK);
+        addDrop(ModBlocks.STEEL_BARS);
 
         addDrop(ModBlocks.COPPER_CHAIN_BLOCK);
         addDrop(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK);

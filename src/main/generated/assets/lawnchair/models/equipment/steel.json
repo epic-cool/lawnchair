@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lawnchair:textures/entity/equipment/humanoid/steel.png",
+    "layer1": "lawnchair:textures/entity/equipment/humanoid_leggings/steel.png"
+  }
+}

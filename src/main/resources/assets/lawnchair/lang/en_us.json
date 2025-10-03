@@ -3,6 +3,8 @@
   "itemGroup.lawnchair.generic": "Lawnchair: Generic",
   "itemGroup.lawnchair.colored": "Lawnchair: Colored",
   "itemGroup.lawnchair.potions": "Lawnchair: Potions",
+  "itemGroup.lawnchair.copper": "Lawnchair: Copper",
+  "itemGroup.lawnchair.combat": "Lawnchair: Combat",
 
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
@@ -30,11 +32,21 @@
   "block.lawnchair.waxed_exposed_copper_chain_block": "Waxed Block of Exposed Copper Chains",
   "block.lawnchair.waxed_weathered_copper_chain_block": "Waxed Block of Weathered Copper Chains",
   "block.lawnchair.waxed_oxidized_copper_chain_block": "Waxed Block of Oxidized Copper Chains",
+  "block.lawnchair.steel_bars": "Steel Bars",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
   "item.lawnchair.ice_pick": "Ice Pick",
   "item.lawnchair.ice_pick.tooltip": "Offhand: Climb Ice\nLeft: Mine\nRight: Cycle ice types",
+  "item.lawnchair.steel_helmet": "Steel Helmet",
+  "item.lawnchair.steel_chestplate": "Steel Chestplate",
+  "item.lawnchair.steel_leggings": "Steel Leggings",
+  "item.lawnchair.steel_boots": "Steel Boots",
+  "item.lawnchair.steel_sword": "Steel Sword",
+  "item.lawnchair.steel_pickaxe": "Steel Pickaxe",
+  "item.lawnchair.steel_axe": "Steel Axe",
+  "item.lawnchair.steel_shovel": "Steel Shovel",
+  "item.lawnchair.steel_hoe": "Steel Hoe",
 
 
   "---------------------------------------Category VI": "Entities ------------------------------------------------",

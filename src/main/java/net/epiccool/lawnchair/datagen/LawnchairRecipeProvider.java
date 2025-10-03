@@ -65,6 +65,13 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STEEL_BARS, 16)
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.STEEL_INGOT, 9)
                         .input(ModBlocks.STEEL_BLOCK)
                         .criterion(hasItem(ModBlocks.STEEL_BLOCK), conditionsFromItem(ModBlocks.STEEL_BLOCK))
@@ -229,6 +236,89 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.waxedOxidized(), 9)
                         .input(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK)
                         .criterion(hasItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+
+
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD, 1)
+                        .pattern("0")
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_AXE, 1)
+                        .pattern("00")
+                        .pattern("10")
+                        .pattern("1 ")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.TOOLS, ModItems.STEEL_PICKAXE, 1)
+                        .pattern("000")
+                        .pattern(" 1 ")
+                        .pattern(" 1 ")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.TOOLS, ModItems.STEEL_SHOVEL, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .pattern("1")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.TOOLS, ModItems.STEEL_HOE, 1)
+                        .pattern("00")
+                        .pattern("1 ")
+                        .pattern("1 ")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_HELMET, 1)
+                        .pattern("000")
+                        .pattern("0 0")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_CHESTPLATE, 1)
+                        .pattern("0 0")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_LEGGINGS, 1)
+                        .pattern("000")
+                        .pattern("0 0")
+                        .pattern("0 0")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.STEEL_BOOTS, 1)
+                        .pattern("0 0")
+                        .pattern("0 0")
+                        .input('0', ModItems.STEEL_INGOT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                         .offerTo(exporter);
             }
         };
