@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "0": "minecraft:waxed_weathered_copper_chain"
+  },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:waxed_weathered_copper_chain_block"
+  }
+}

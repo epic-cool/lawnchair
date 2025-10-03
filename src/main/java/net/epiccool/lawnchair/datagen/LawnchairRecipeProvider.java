@@ -123,6 +123,113 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
                         .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                         .offerTo(this.exporter, getItemPath(ModItems.STEEL_INGOT) + "_smithing");
+
+
+                //Copper chains
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.unaffected())
+                        .criterion(hasItem(Items.COPPER_CHAINS.unaffected()), conditionsFromItem(Items.COPPER_CHAINS.unaffected()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.exposed())
+                        .criterion(hasItem(Items.COPPER_CHAINS.exposed()), conditionsFromItem(Items.COPPER_CHAINS.exposed()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.weathered())
+                        .criterion(hasItem(Items.COPPER_CHAINS.weathered()), conditionsFromItem(Items.COPPER_CHAINS.weathered()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.oxidized())
+                        .criterion(hasItem(Items.COPPER_CHAINS.oxidized()), conditionsFromItem(Items.COPPER_CHAINS.oxidized()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAXED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.waxed())
+                        .criterion(hasItem(Items.COPPER_CHAINS.waxed()), conditionsFromItem(Items.COPPER_CHAINS.waxed()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.waxedExposed())
+                        .criterion(hasItem(Items.COPPER_CHAINS.waxedExposed()), conditionsFromItem(Items.COPPER_CHAINS.waxedExposed()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.waxedWeathered())
+                        .criterion(hasItem(Items.COPPER_CHAINS.waxedWeathered()), conditionsFromItem(Items.COPPER_CHAINS.waxedWeathered()))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.COPPER_CHAINS.waxedOxidized())
+                        .criterion(hasItem(Items.COPPER_CHAINS.waxedOxidized()), conditionsFromItem(Items.COPPER_CHAINS.waxedOxidized()))
+                        .offerTo(exporter);
+
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.unaffected(), 9)
+                        .input(ModBlocks.COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.exposed(), 9)
+                        .input(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.weathered(), 9)
+                        .input(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.oxidized(), 9)
+                        .input(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.waxed(), 9)
+                        .input(ModBlocks.WAXED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.WAXED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WAXED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.waxedExposed(), 9)
+                        .input(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.waxedWeathered(), 9)
+                        .input(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_CHAINS.waxedOxidized(), 9)
+                        .input(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK)
+                        .criterion(hasItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK), conditionsFromItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK))
+                        .offerTo(exporter);
             }
         };
     }

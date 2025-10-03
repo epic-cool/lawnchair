@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lawnchair:block/copper_chain_block"
+    }
+  }
+}

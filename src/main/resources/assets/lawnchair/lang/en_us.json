@@ -22,6 +22,14 @@
   "block.lawnchair.charcoal_block": "Block of Charcoal",
   "block.lawnchair.iron_chain_block": "Block of Iron Chains",
   "block.lawnchair.steel_block": "Block of Steel",
+  "block.lawnchair.copper_chain_block": "Block of Copper Chains",
+  "block.lawnchair.exposed_copper_chain_block": "Block of Exposed Copper Chains",
+  "block.lawnchair.weathered_copper_chain_block": "Block of Weathered Copper Chains",
+  "block.lawnchair.oxidized_copper_chain_block": "Block of Oxidized Copper Chains",
+  "block.lawnchair.waxed_copper_chain_block": "Waxed Block of Copper Chains",
+  "block.lawnchair.waxed_exposed_copper_chain_block": "Waxed Block of Exposed Copper Chains",
+  "block.lawnchair.waxed_weathered_copper_chain_block": "Waxed Block of Weathered Copper Chains",
+  "block.lawnchair.waxed_oxidized_copper_chain_block": "Waxed Block of Oxidized Copper Chains",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",

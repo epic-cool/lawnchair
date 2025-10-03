@@ -2,6 +2,14 @@
   "values": [
     "lawnchair:iron_chain_block",
     "lawnchair:steel_block",
-    "lawnchair:charcoal_block"
+    "lawnchair:charcoal_block",
+    "lawnchair:copper_chain_block",
+    "lawnchair:exposed_copper_chain_block",
+    "lawnchair:weathered_copper_chain_block",
+    "lawnchair:oxidized_copper_chain_block",
+    "lawnchair:waxed_copper_chain_block",
+    "lawnchair:waxed_exposed_copper_chain_block",
+    "lawnchair:waxed_weathered_copper_chain_block",
+    "lawnchair:waxed_oxidized_copper_chain_block"
   ]
 }

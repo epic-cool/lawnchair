@@ -18,7 +18,17 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
         valueLookupBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.IRON_CHAIN_BLOCK)
                 .add(ModBlocks.STEEL_BLOCK)
-                .add(ModBlocks.CHARCOAL_BLOCK);
+                .add(ModBlocks.CHARCOAL_BLOCK)
+
+                .add(ModBlocks.COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK)
+
+                .add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK)
+                .add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
 
         valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
                 .add(ModBlocks.CHARCOAL_BLOCK);

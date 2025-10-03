@@ -37,6 +37,12 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.potions"))
             .build();
 
+    public static final RegistryKey<ItemGroup> COPPER_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "copper_group"));
+    public static final ItemGroup COPPER_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModBlocks.COPPER_CHAIN_BLOCK))
+            .displayName(Text.translatable("itemGroup.lawnchair.copper"))
+            .build();
+
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
@@ -48,21 +54,41 @@ public class ModItems {
         Lawnchair.LOGGER.info("Registering Mod Items for " + Lawnchair.MODID);
         Registry.register(Registries.ITEM_GROUP, GENERIC_ITEM_GROUP_KEY, GENERIC_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, COPPER_ITEM_GROUP_KEY, COPPER_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
             entries.add(ModItems.COOKED_BACON);
             entries.add(ModItems.COOKED_SAUSAGE);
+            entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
+            entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModItems.PUMPKIN_SLICE);
             entries.add(ModItems.RAW_BACON);
             entries.add(ModItems.RAW_SAUSAGE);
             entries.add(ModItems.STEEL_INGOT);
+            entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(POTIONS_ITEM_GROUP_KEY).register(ModItems::addStickyPotions);
+
+        ItemGroupEvents.modifyEntriesEvent(COPPER_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
+        });
     }
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));

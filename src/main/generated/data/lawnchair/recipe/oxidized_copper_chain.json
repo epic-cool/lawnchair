@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "lawnchair:oxidized_copper_chain_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:oxidized_copper_chain"
+  }
+}

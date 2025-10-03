@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "lawnchair:waxed_exposed_copper_chain_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:waxed_exposed_copper_chain"
+  }
+}
