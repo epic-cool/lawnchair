@@ -79,5 +79,11 @@
   "enchantment.lawnchair.frost": "Frost",
 
 
+  "---------------------------------------Category IX": "Commands ------------------------------------------------",
+  "commands.lawnchair.grav.disabled": "Gravity disabled",
+  "commands.lawnchair.grav.enabled": "Gravity enabled",
+  "commands.creeperExplosions": "Do creeper explosions ",
+
+
   "--------------------------------------------------": "--------------------------------------------------------"
 }

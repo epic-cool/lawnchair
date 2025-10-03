@@ -2,24 +2,20 @@ package net.epiccool.lawnchair.item;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
-import net.epiccool.lawnchair.effect.potion.ModPotions;
 import net.epiccool.lawnchair.item.custom.IcePickItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentAsset;
 import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvents;
@@ -120,7 +116,7 @@ public class ModItems {
             entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK.asItem());
         });
 
-        ItemGroupEvents.modifyEntriesEvent(POTIONS_ITEM_GROUP_KEY).register(ModItems::addStickyPotions);
+//        ItemGroupEvents.modifyEntriesEvent(POTIONS_ITEM_GROUP_KEY).register(ModItems::addStickyPotions);
 
         ItemGroupEvents.modifyEntriesEvent(COPPER_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
@@ -213,36 +209,35 @@ public class ModItems {
                     .maxDamage(EquipmentType.BOOTS.getMaxDamage(33))
     );
 
-    private static void addStickyPotions(ItemGroup.Entries entries) {
-        Potion[] stickyPotions = new Potion[] {
-                ModPotions.STICKY_POTION,
-                ModPotions.STICKY_POTION_LONG,
-                ModPotions.STICKY_POTION_STRONG,
-                ModPotions.STICKY_POTION_STRONG1,
-                ModPotions.STICKY_POTION_STRONG2,
-                ModPotions.STICKY_POTION_STRONG3
-        };
+//    private static void addStickyPotions(ItemGroup.Entries entries) {
+//        Potion[] stickyPotions = new Potion[] {
+//                ModPotions.STICKY_POTION,
+//                ModPotions.STICKY_POTION_LONG,
+//                ModPotions.STICKY_POTION_STRONG,
+//                ModPotions.STICKY_POTION_STRONG1,
+//                ModPotions.STICKY_POTION_STRONG2,
+//                ModPotions.STICKY_POTION_STRONG3
+//        };
 
-        for (Potion potion : stickyPotions) {
-            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
-            ItemStack stack = new ItemStack(Items.POTION);
-            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
-            entries.add(stack);
-        }
-
-        for (Potion potion : stickyPotions) {
-            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
-            ItemStack stack = new ItemStack(Items.SPLASH_POTION);
-            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
-            entries.add(stack);
-        }
-
-        for (Potion potion : stickyPotions) {
-            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
-            ItemStack stack = new ItemStack(Items.LINGERING_POTION);
-            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
-            entries.add(stack);
-        }
-
-    }
+//        for (Potion potion : stickyPotions) {
+//            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
+//            ItemStack stack = new ItemStack(Items.POTION);
+//            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
+//            entries.add(stack);
+//        }
+//
+//        for (Potion potion : stickyPotions) {
+//            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
+//            ItemStack stack = new ItemStack(Items.SPLASH_POTION);
+//            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
+//            entries.add(stack);
+//        }
+//
+//        for (Potion potion : stickyPotions) {
+//            RegistryEntry<Potion> entry = Registries.POTION.getEntry(potion);
+//            ItemStack stack = new ItemStack(Items.LINGERING_POTION);
+//            stack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(entry));
+//            entries.add(stack);
+//        }
+//    }
 }
