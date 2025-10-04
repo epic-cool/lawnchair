@@ -21,6 +21,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -98,6 +99,7 @@ public class ModItems {
             entries.add(ModItems.PUMPKIN_SLICE);
             entries.add(ModItems.RAW_BACON);
             entries.add(ModItems.RAW_SAUSAGE);
+            entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
             entries.add(ModItems.STEEL_AXE);
             entries.add(ModBlocks.STEEL_BARS.asItem());
             entries.add(ModItems.STEEL_BOOTS);
@@ -109,6 +111,8 @@ public class ModItems {
             entries.add(ModItems.STEEL_PICKAXE);
             entries.add(ModItems.STEEL_SHOVEL);
             entries.add(ModItems.STEEL_SWORD);
+            entries.add(ModBlocks.UNLIT_LANTERN.asItem());
+            entries.add(ModItems.UNLIT_TORCH);
             entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
@@ -208,6 +212,13 @@ public class ModItems {
             new Item.Settings().armor(STEEL_ARMOR_MATERIAL, EquipmentType.BOOTS)
                     .maxDamage(EquipmentType.BOOTS.getMaxDamage(33))
     );
+
+    public static final Item UNLIT_TORCH = register(
+            "unlit_torch",
+            settings -> new VerticallyAttachableBlockItem(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH, Direction.DOWN, settings),
+            new Item.Settings()
+    );
+
 
 //    private static void addStickyPotions(ItemGroup.Entries entries) {
 //        Potion[] stickyPotions = new Potion[] {

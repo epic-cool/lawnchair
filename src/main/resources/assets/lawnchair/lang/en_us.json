@@ -10,6 +10,7 @@
   "---------------------------------------Category II": "Items ------------------------------------------------",
   "item.lawnchair.white_item_frame": "White Item Frame",
   "item.lawnchair.steel_ingot": "Steel Ingot",
+  "item.lawnchair.unlit_torch": "Unlit Torch",
 
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
@@ -33,6 +34,8 @@
   "block.lawnchair.waxed_weathered_copper_chain_block": "Waxed Block of Weathered Copper Chains",
   "block.lawnchair.waxed_oxidized_copper_chain_block": "Waxed Block of Oxidized Copper Chains",
   "block.lawnchair.steel_bars": "Steel Bars",
+  "block.lawnchair.soul_jack_o_lantern": "Soul Jack o'Lantern",
+  "block.lawnchair.unlit_lantern": "Unlit Lantern",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",

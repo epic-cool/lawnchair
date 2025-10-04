@@ -29,8 +29,9 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
-
         blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
+        blockStateModelGenerator.registerTorch(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH);
+        blockStateModelGenerator.registerLantern(ModBlocks.UNLIT_LANTERN);
     }
 
     @Override

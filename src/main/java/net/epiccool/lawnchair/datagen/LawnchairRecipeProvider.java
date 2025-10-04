@@ -320,6 +320,34 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input('0', ModItems.STEEL_INGOT)
                         .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.UNLIT_TORCH, 4)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Items.CHARCOAL)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(Items.CHARCOAL), conditionsFromItem(Items.CHARCOAL))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SOUL_JACK_O_LANTERN, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Items.CARVED_PUMPKIN)
+                        .input('1', Items.SOUL_LANTERN)
+                        .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
+                        .criterion(hasItem(Items.SOUL_LANTERN), conditionsFromItem(Items.SOUL_LANTERN))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.UNLIT_LANTERN, 1)
+                        .pattern("000")
+                        .pattern("010")
+                        .pattern("000")
+                        .input('0', Items.IRON_NUGGET)
+                        .input('1', ModItems.UNLIT_TORCH)
+                        .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                        .criterion(hasItem(ModItems.UNLIT_TORCH), conditionsFromItem(ModItems.UNLIT_TORCH))
+                        .offerTo(exporter);
             }
         };
     }

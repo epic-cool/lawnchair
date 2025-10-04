@@ -8,7 +8,7 @@
       {
         "affected": "victim",
         "effect": {
-          "type": "lawnchair:lightning_effect",
+          "type": "lawnchair:frost_effect",
           "amount": {
             "type": "minecraft:linear",
             "base": 4.0,
@@ -19,7 +19,6 @@
       }
     ]
   },
-  "exclusive_set": "#minecraft:exclusive_set/fire_aspect_frost",
   "max_cost": {
     "base": 1,
     "per_level_above_first": 30

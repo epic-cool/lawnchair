@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class ModEnchantmentEffects {
     public static final RegistryKey<Enchantment> FROST = of("frost");
-    public static MapCodec<FrostEnchantmentEffect> FROST_EFFECT = register("lightning_effect", FrostEnchantmentEffect.CODEC);
+    public static MapCodec<FrostEnchantmentEffect> FROST_EFFECT = register("frost_effect", FrostEnchantmentEffect.CODEC);
 
     private static RegistryKey<Enchantment> of(String path) {
         Identifier id = Identifier.of(Lawnchair.MODID, path);
@@ -26,5 +26,6 @@ public class ModEnchantmentEffects {
 
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering EnchantmentEffects for" + Lawnchair.MODID);
+        FrostEnchantmentEffect.Initialize();
     }
 }

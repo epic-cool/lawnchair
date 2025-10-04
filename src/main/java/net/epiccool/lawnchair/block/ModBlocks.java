@@ -2,8 +2,10 @@ package net.epiccool.lawnchair.block;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -42,6 +44,16 @@ public class ModBlocks {
         return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
     }
 
+    private static AbstractBlock.Settings copyLootTable(Block block, boolean copyTranslationKey) {
+        AbstractBlock.Settings settings = block.getSettings();
+        AbstractBlock.Settings settings2 = AbstractBlock.Settings.create().lootTable(block.getLootTableKey());
+        if (copyTranslationKey) {
+            settings2 = settings2.overrideTranslationKey(block.getTranslationKey());
+        }
+
+        return settings2;
+    }
+
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Blocks for " + Lawnchair.MODID);
     }
@@ -50,6 +62,10 @@ public class ModBlocks {
     public static final Block STEEL_BLOCK = register("steel_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK), true);
     public static final Block IRON_CHAIN_BLOCK = register("iron_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_CHAIN), true);
     public static final Block STEEL_BARS = register("steel_bars", PaneBlock::new, AbstractBlock.Settings.create().requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.IRON).nonOpaque(), true);
+    public static final Block UNLIT_TORCH = register("unlit_torch", settings -> new TorchBlock(ParticleTypes.ASH, settings), AbstractBlock.Settings.create().noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);
+	public static final Block UNLIT_WALL_TORCH = register("unlit_wall_torch", settings -> new WallTorchBlock(ParticleTypes.ASH, settings), copyLootTable(UNLIT_TORCH, true).noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);
+    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).strength(1.0F).sounds(BlockSoundGroup.WOOD).luminance(state -> 10).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY), true);
+    public static final Block UNLIT_LANTERN = register("unlit_lantern", LanternBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).solid().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 0).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:charcoal",
+    "1": "minecraft:stick"
+  },
+  "pattern": [
+    "0",
+    "1"
+  ],
+  "result": {
+    "count": 4,
+    "id": "lawnchair:unlit_torch"
+  }
+}

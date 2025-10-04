@@ -18,7 +18,6 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.STEEL_BLOCK);
         addDrop(ModBlocks.IRON_CHAIN_BLOCK);
         addDrop(ModBlocks.STEEL_BARS);
-
         addDrop(ModBlocks.COPPER_CHAIN_BLOCK);
         addDrop(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK);
         addDrop(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK);
@@ -27,5 +26,8 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
         addDrop(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
         addDrop(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
+        addDrop(ModBlocks.UNLIT_TORCH);
+        addDrop(ModBlocks.SOUL_JACK_O_LANTERN);
+        addDrop(ModBlocks.UNLIT_LANTERN);
     }
 }

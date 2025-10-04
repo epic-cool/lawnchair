@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:iron_nugget",
+    "1": "lawnchair:unlit_torch"
+  },
+  "pattern": [
+    "000",
+    "010",
+    "000"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:unlit_lantern"
+  }
+}

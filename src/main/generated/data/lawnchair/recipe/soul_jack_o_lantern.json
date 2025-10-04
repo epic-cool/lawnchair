@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "0": "minecraft:carved_pumpkin",
+    "1": "minecraft:soul_lantern"
+  },
+  "pattern": [
+    "0",
+    "1"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:soul_jack_o_lantern"
+  }
+}

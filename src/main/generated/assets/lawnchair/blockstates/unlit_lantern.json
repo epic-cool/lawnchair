@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "lawnchair:block/unlit_lantern"
+    },
+    "hanging=true": {
+      "model": "lawnchair:block/unlit_lantern_hanging"
+    }
+  }
+}
