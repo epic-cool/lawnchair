@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+//Create steel robots (can do whatever idc i want robots)
+//think iron golem but more useful
+
 public class Lawnchair implements ModInitializer {
 	public static final String MODID = "lawnchair";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);

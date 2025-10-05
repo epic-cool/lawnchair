@@ -52,6 +52,7 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
                                 )
                         )
         );
+
     }
 
     private void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {

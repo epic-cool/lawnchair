@@ -20,6 +20,10 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARCOAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
+        blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
+        blockStateModelGenerator.registerTorch(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH);
+        blockStateModelGenerator.registerLantern(ModBlocks.UNLIT_LANTERN);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK);
@@ -29,9 +33,6 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
-        blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
-        blockStateModelGenerator.registerTorch(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH);
-        blockStateModelGenerator.registerLantern(ModBlocks.UNLIT_LANTERN);
     }
 
     @Override
@@ -43,13 +44,13 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_SAUSAGE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_BACON, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_BACON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROBOT_CORE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_PICKAXE, Models.HANDHELD);
-
         itemModelGenerator.registerArmor(ModItems.STEEL_HELMET, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
         itemModelGenerator.registerArmor(ModItems.STEEL_CHESTPLATE, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
         itemModelGenerator.registerArmor(ModItems.STEEL_LEGGINGS, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);

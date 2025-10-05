@@ -14,7 +14,6 @@ import net.minecraft.util.Identifier;
 public class ModEnchantmentEffects {
     public static final RegistryKey<Enchantment> FROST = of("frost");
     public static MapCodec<FrostEnchantmentEffect> FROST_EFFECT = register("frost_effect", FrostEnchantmentEffect.CODEC);
-
     private static RegistryKey<Enchantment> of(String path) {
         Identifier id = Identifier.of(Lawnchair.MODID, path);
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, id);

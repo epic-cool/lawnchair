@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_block",
+    "lawnchair:robot_core"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:iron_block_with_robot_core"
+  }
+}

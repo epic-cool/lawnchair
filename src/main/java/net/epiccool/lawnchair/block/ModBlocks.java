@@ -60,6 +60,7 @@ public class ModBlocks {
 
     public static final Block CHARCOAL_BLOCK = register("charcoal_block", Block::new, AbstractBlock.Settings.copy(Blocks.COAL_BLOCK), true);
     public static final Block STEEL_BLOCK = register("steel_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK), true);
+    public static final Block IRON_BLOCK_WITH_ROBOT_CORE = register("iron_block_with_robot_core", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK), true);
     public static final Block IRON_CHAIN_BLOCK = register("iron_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_CHAIN), true);
     public static final Block STEEL_BARS = register("steel_bars", PaneBlock::new, AbstractBlock.Settings.create().requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.IRON).nonOpaque(), true);
     public static final Block UNLIT_TORCH = register("unlit_torch", settings -> new TorchBlock(ParticleTypes.ASH, settings), AbstractBlock.Settings.create().noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);

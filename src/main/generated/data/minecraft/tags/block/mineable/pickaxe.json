@@ -11,6 +11,7 @@
     "lawnchair:waxed_exposed_copper_chain_block",
     "lawnchair:waxed_weathered_copper_chain_block",
     "lawnchair:waxed_oxidized_copper_chain_block",
-    "lawnchair:steel_bars"
+    "lawnchair:steel_bars",
+    "lawnchair:iron_block_with_robot_core"
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:redstone",
+    "1": "minecraft:iron_block",
+    "2": "lawnchair:steel_block"
+  },
+  "pattern": [
+    "010",
+    "121",
+    "010"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:robot_core"
+  }
+}

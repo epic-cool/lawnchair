@@ -239,8 +239,6 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter);
 
 
-
-
                 createShaped(RecipeCategory.COMBAT, ModItems.STEEL_SWORD, 1)
                         .pattern("0")
                         .pattern("0")
@@ -347,6 +345,33 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input('1', ModItems.UNLIT_TORCH)
                         .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                         .criterion(hasItem(ModItems.UNLIT_TORCH), conditionsFromItem(ModItems.UNLIT_TORCH))
+                        .offerTo(exporter);
+
+                //Robots
+                createShaped(RecipeCategory.MISC, ModItems.ROBOT_CORE, 1)
+                        .pattern("010")
+                        .pattern("121")
+                        .pattern("010")
+                        .input('0', Items.REDSTONE)
+                        .input('1', Blocks.IRON_BLOCK)
+                        .input('2', ModBlocks.STEEL_BLOCK)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
+                        .criterion(hasItem(ModBlocks.STEEL_BLOCK), conditionsFromItem(ModBlocks.STEEL_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE, 1)
+                        .input(Blocks.IRON_BLOCK)
+                        .input(ModItems.ROBOT_CORE)
+                        .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
+                        .criterion(hasItem(ModItems.ROBOT_CORE), conditionsFromItem(ModItems.ROBOT_CORE))
+                        .offerTo(exporter);
+
+
+
+                createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
+                        .input(Blocks.NETHER_WART_BLOCK)
+                        .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))
                         .offerTo(exporter);
             }
         };

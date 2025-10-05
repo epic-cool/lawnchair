@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lawnchair:block/iron_block_with_robot_core"
+    }
+  }
+}

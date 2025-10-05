@@ -11,6 +11,7 @@
   "item.lawnchair.white_item_frame": "White Item Frame",
   "item.lawnchair.steel_ingot": "Steel Ingot",
   "item.lawnchair.unlit_torch": "Unlit Torch",
+  "item.lawnchair.robot_core": "Robot Core",
 
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
@@ -36,6 +37,7 @@
   "block.lawnchair.steel_bars": "Steel Bars",
   "block.lawnchair.soul_jack_o_lantern": "Soul Jack o'Lantern",
   "block.lawnchair.unlit_lantern": "Unlit Lantern",
+  "block.lawnchair.iron_block_with_robot_core": "Iron Block with Robot Core",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
@@ -80,6 +82,7 @@
 
   "---------------------------------------Category VIII": "Enchantments ------------------------------------------------",
   "enchantment.lawnchair.frost": "Frost",
+  "enchantment.lawnchair.felling": "Felling",
 
 
   "---------------------------------------Category IX": "Commands ------------------------------------------------",

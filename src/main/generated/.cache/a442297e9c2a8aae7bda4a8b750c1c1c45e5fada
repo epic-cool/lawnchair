@@ -1,3 +1,4 @@
 // 1.21.9	-999999999-01-01T00:00:00	Lawnchair/Tags for minecraft:block
 2da5f16525c01f1d58d13a33312ac939f5f23680 data/minecraft/tags/block/infiniburn_overworld.json
-ac7259ed38ac19d23025a75da457caab95e49553 data/minecraft/tags/block/mineable/pickaxe.json
+caee8f908500b4417f13b82f571605997e7ee11c data/minecraft/tags/block/mineable/pickaxe.json
+0ed7df924beedefa2dbbb7499442c29272019910 data/minecraft/tags/block/needs_stone_tool.json

@@ -51,6 +51,12 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.copper"))
             .build();
 
+    public static final RegistryKey<ItemGroup> ROBOT_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "robot_group"));
+    public static final ItemGroup ROBOT_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModItems.ROBOT_CORE))
+            .displayName(Text.translatable("itemGroup.lawnchair.robot"))
+            .build();
+
     public static final TagKey<Item> REPAIRS_STEEL = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Lawnchair.MODID, "steel_tool_materials"));
 
     public static final RegistryKey<EquipmentAsset> STEEL_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Lawnchair.MODID, "steel"));
@@ -85,6 +91,7 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COPPER_ITEM_GROUP_KEY, COPPER_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COMBAT_ITEM_GROUP_KEY, COMBAT_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, ROBOT_ITEM_GROUP_KEY, ROBOT_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
@@ -92,6 +99,7 @@ public class ModItems {
             entries.add(ModItems.COOKED_SAUSAGE);
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
@@ -99,6 +107,7 @@ public class ModItems {
             entries.add(ModItems.PUMPKIN_SLICE);
             entries.add(ModItems.RAW_BACON);
             entries.add(ModItems.RAW_SAUSAGE);
+            entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
             entries.add(ModItems.STEEL_AXE);
             entries.add(ModBlocks.STEEL_BARS.asItem());
@@ -144,10 +153,16 @@ public class ModItems {
             entries.add(ModItems.STEEL_AXE);
             entries.add(ModItems.STEEL_HOE);
         });
+
+        ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModItems.ROBOT_CORE);
+            entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
+        });
     }
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
+    public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
     public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
     public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats

@@ -30,7 +30,11 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK)
                 .add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK)
 
-                .add(ModBlocks.STEEL_BARS);
+                .add(ModBlocks.STEEL_BARS)
+                .add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
+
+        valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
 
         valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
                 .add(ModBlocks.CHARCOAL_BLOCK);
