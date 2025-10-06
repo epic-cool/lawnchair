@@ -9,10 +9,13 @@ import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelBasedValue;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -25,6 +28,11 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
+        var enchantmentRegistry = registries.getOrThrow(RegistryKeys.ENCHANTMENT);
+
+        RegistryEntry<Enchantment> fireAspect = enchantmentRegistry.getOrThrow(Enchantments.FIRE_ASPECT);
+        RegistryEntryList<Enchantment> frostExclusive = RegistryEntryList.of(fireAspect);
+
         register(entries, ModEnchantmentEffects.FROST, Enchantment.builder(
                                 Enchantment.definition(
                                         registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
@@ -51,6 +59,7 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
                                         EnchantmentLevelBasedValue.linear(4.0f, 4.0f) // duration scales linearly per level
                                 )
                         )
+                .exclusiveSet(frostExclusive)
         );
 
     }

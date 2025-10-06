@@ -10,6 +10,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -45,6 +46,38 @@ public class Lawnchair implements ModInitializer {
 //        ModEffects.Initialize();
 //        ModPotions.Initialize();
         ModBlocks.Initialize();
+        LOGGER.info("Creating Copper Blocks for " + MODID);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.COPPER_CHAIN_BLOCK,
+                ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK
+        );
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK,
+                ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK
+        );
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK,
+                ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK
+        );
+
+        LOGGER.info("Creating Waxed Copper Blocks for " + MODID);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.COPPER_CHAIN_BLOCK,
+                ModBlocks.WAXED_COPPER_CHAIN_BLOCK
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK,
+                ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK,
+                ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK,
+                ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK
+        );
+
         ModEnchantmentEffects.Initialize();
         VariantTagger.Initialize();
 

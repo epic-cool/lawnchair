@@ -19,6 +19,7 @@
       }
     ]
   },
+  "exclusive_set": "minecraft:fire_aspect",
   "max_cost": {
     "base": 1,
     "per_level_above_first": 30
