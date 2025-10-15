@@ -21,6 +21,7 @@ public class ModTrimMaterials {
             Identifier.of(Lawnchair.MODID, "steel"));
 
     public static void bootstrap(Registerable<ArmorTrimMaterial> registerable) {
+        System.out.println("[DEBUG] ModTrimMaterials.bootstrap called");
         register(registerable, STEEL, Registries.ITEM.getEntry(ModItems.STEEL_INGOT),
                 Style.EMPTY.withColor(TextColor.parse("#737373").getOrThrow()));
     }
@@ -30,6 +31,7 @@ public class ModTrimMaterials {
         ArmorTrimMaterial trimMaterial = new ArmorTrimMaterial(ArmorTrimAssets.of("steel"),
                 Text.translatable(Util.createTranslationKey("trim_material", armorTrimKey.getValue())).fillStyle(style));
 
+        System.out.println("[DEBUG] Registering trim material: " + armorTrimKey.getValue());
         registerable.register(armorTrimKey, trimMaterial);
     }
 }
