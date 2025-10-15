@@ -8,22 +8,15 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentAsset;
-import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
-import java.util.Map;
 import java.util.function.Function;
 
 public class ModItems {
@@ -57,32 +50,16 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.robot"))
             .build();
 
-    public static final TagKey<Item> REPAIRS_STEEL = TagKey.of(Registries.ITEM.getKey(), Identifier.of(Lawnchair.MODID, "steel_tool_materials"));
-
-    public static final RegistryKey<EquipmentAsset> STEEL_ARMOR_MATERIAL_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(Lawnchair.MODID, "steel"));
-
-    public static final ToolMaterial STEEL_TOOL_MATERIAL = new ToolMaterial(
-            BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
-            525,
-            7.0F,
-            2.5F,
-            28,
-            REPAIRS_STEEL
-    );
-    public static final ArmorMaterial STEEL_ARMOR_MATERIAL = new ArmorMaterial(
-            33,
-            Map.of(
-                    EquipmentType.HELMET, 3,
-                    EquipmentType.CHESTPLATE, 8,
-                    EquipmentType.LEGGINGS, 6,
-                    EquipmentType.BOOTS, 3), 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F, 0.0F, REPAIRS_STEEL, STEEL_ARMOR_MATERIAL_KEY
-    );
-
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
         Registry.register(Registries.ITEM, itemKey, item);
         return item;
+    }
+
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, Identifier.of(Lawnchair.MODID, name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name)))));
     }
 
     public static void Initialize() {
@@ -173,59 +150,51 @@ public class ModItems {
     public static final Item STEEL_SWORD = register(
             "steel_sword",
             Item::new,
-            new Item.Settings().sword(STEEL_TOOL_MATERIAL, 1f, 1f)
+            new Item.Settings().sword(ModToolMaterials.STEEL, 3f, -2.4f)
     );
 
     public static final Item STEEL_PICKAXE = register(
             "steel_pickaxe",
             Item::new,
-            new Item.Settings().pickaxe(STEEL_TOOL_MATERIAL, 1f, 1f)
+            new Item.Settings().pickaxe(ModToolMaterials.STEEL, 1f, -2.8f)
     );
 
-    public static final Item STEEL_SHOVEL = register(
-            "steel_shovel",
-            Item::new,
-            new Item.Settings().shovel(STEEL_TOOL_MATERIAL, 1f, 1f)
-    );
+    public static final Item STEEL_SHOVEL = registerItem(
+            "steel_shovel", setting -> new ShovelItem(ModToolMaterials.STEEL, 1.5f, -3.0f, setting));
 
-    public static final Item STEEL_AXE = register(
-            "steel_axe",
-            Item::new,
-            new Item.Settings().axe(STEEL_TOOL_MATERIAL, 1f, 1f)
-    );
+    public static final Item STEEL_AXE = registerItem(
+            "steel_axe", setting -> new AxeItem(ModToolMaterials.STEEL, 6, -3.2f, setting));
 
-    public static final Item STEEL_HOE = register(
-            "steel_hoe",
-            Item::new,
-            new Item.Settings().hoe(STEEL_TOOL_MATERIAL, 1f, 1f)
-    );
+    public static final Item STEEL_HOE = registerItem(
+            "steel_hoe", setting -> new HoeItem(ModToolMaterials.STEEL, 0, -3.0f, setting));
 
+    //Steel Armor
     public static final Item STEEL_HELMET = register(
             "steel_helmet",
             Item::new,
-            new Item.Settings().armor(STEEL_ARMOR_MATERIAL, EquipmentType.HELMET)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(33))
+            new Item.Settings().armor(ModArmorMaterials.STEEL_ARMOR_MATERIAL, EquipmentType.HELMET)
+//                    .maxDamage(EquipmentType.HELMET.getMaxDamage(33))
     );
 
     public static final Item STEEL_CHESTPLATE = register(
             "steel_chestplate",
             Item::new,
-            new Item.Settings().armor(STEEL_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
-                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(33))
+            new Item.Settings().armor(ModArmorMaterials.STEEL_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
+//                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(33))
     );
 
     public static final Item STEEL_LEGGINGS = register(
             "steel_leggings",
             Item::new,
-            new Item.Settings().armor(STEEL_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
-                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(33))
+            new Item.Settings().armor(ModArmorMaterials.STEEL_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
+//                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(33))
     );
 
     public static final Item STEEL_BOOTS = register(
             "steel_boots",
             Item::new,
-            new Item.Settings().armor(STEEL_ARMOR_MATERIAL, EquipmentType.BOOTS)
-                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(33))
+            new Item.Settings().armor(ModArmorMaterials.STEEL_ARMOR_MATERIAL, EquipmentType.BOOTS)
+//                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(33))
     );
 
     public static final Item UNLIT_TORCH = register(

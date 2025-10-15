@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "lawnchair:block/alloy_mixer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "lawnchair:block/alloy_mixer"
+    },
+    "facing=south": {
+      "model": "lawnchair:block/alloy_mixer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "lawnchair:block/alloy_mixer",
+      "y": 270
+    }
+  }
+}

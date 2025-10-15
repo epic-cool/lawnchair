@@ -30,5 +30,6 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.SOUL_JACK_O_LANTERN);
         addDrop(ModBlocks.UNLIT_LANTERN);
         addDrop(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
+//        addDrop(ModBlocks.ALLOY_MIXER);
     }
 }

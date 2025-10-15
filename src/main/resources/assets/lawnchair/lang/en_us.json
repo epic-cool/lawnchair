@@ -38,6 +38,7 @@
   "block.lawnchair.soul_jack_o_lantern": "Soul Jack o'Lantern",
   "block.lawnchair.unlit_lantern": "Unlit Lantern",
   "block.lawnchair.iron_block_with_robot_core": "Iron Block with Robot Core",
+  "block.lawnchair.alloy_mixer": "Alloy Mixer",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
@@ -88,7 +89,24 @@
   "---------------------------------------Category IX": "Commands ------------------------------------------------",
   "commands.lawnchair.grav.disabled": "Gravity disabled",
   "commands.lawnchair.grav.enabled": "Gravity enabled",
-  "commands.creeperExplosions": "Do creeper explosions ",
+  "commands.creeperExplosions": "Do creeper explosions",
+
+
+  "---------------------------------------Category X": "Containers ------------------------------------------------",
+  "container.lawnchair.alloy_mixer": "Alloy Mixer",
+
+
+  "---------------------------------------Category XI": "Stats ------------------------------------------------",
+  "stat.minecraft.interact_with_alloy_mixer": "Interactions with Alloy Mixer",
+
+
+  "---------------------------------------Category XII": "Tags ------------------------------------------------",
+  "tag.item.lawnchair.incorrect_for_steel_tool": "Incorrect for Steel Tools",
+  "tag.block.lawnchair.steel_repair": "Repairs with Steel Ingot",
+
+
+  "---------------------------------------Category XIII": "Trims ------------------------------------------------",
+  "trim_material.lawnchair.steel": "Steel Material",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

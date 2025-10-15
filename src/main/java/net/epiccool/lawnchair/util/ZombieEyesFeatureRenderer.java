@@ -1,4 +1,4 @@
-package net.epiccool.lawnchair.helper;
+package net.epiccool.lawnchair.util;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

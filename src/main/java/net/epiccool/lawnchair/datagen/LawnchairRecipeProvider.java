@@ -347,6 +347,21 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.UNLIT_TORCH), conditionsFromItem(ModItems.UNLIT_TORCH))
                         .offerTo(exporter);
 
+                createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
+                        .input(Blocks.NETHER_WART_BLOCK)
+                        .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))
+                        .offerTo(exporter);
+
+//                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
+//                        .pattern("000")
+//                        .pattern("010")
+//                        .pattern("000")
+//                        .input('0', Items.IRON_NUGGET)
+//                        .input('1', Items.CRAFTING_TABLE)
+//                        .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+//                        .criterion(hasItem(Items.CRAFTING_TABLE), conditionsFromItem(Items.CRAFTING_TABLE))
+//                        .offerTo(exporter);
+
                 //Robots
                 createShaped(RecipeCategory.MISC, ModItems.ROBOT_CORE, 1)
                         .pattern("010")
@@ -365,13 +380,6 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input(ModItems.ROBOT_CORE)
                         .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
                         .criterion(hasItem(ModItems.ROBOT_CORE), conditionsFromItem(ModItems.ROBOT_CORE))
-                        .offerTo(exporter);
-
-
-
-                createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
-                        .input(Blocks.NETHER_WART_BLOCK)
-                        .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))
                         .offerTo(exporter);
             }
         };

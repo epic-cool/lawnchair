@@ -1,6 +1,6 @@
 package net.epiccool.lawnchair.mixin;
 
-import net.epiccool.lawnchair.helper.ZombieEyesFeatureRenderer;
+import net.epiccool.lawnchair.util.ZombieEyesFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ZombieBaseEntityRenderer;
 import net.minecraft.client.render.entity.ZombieEntityRenderer;

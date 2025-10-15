@@ -6,6 +6,7 @@ import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
 import net.epiccool.lawnchair.entity.VariantTagger;
 import net.epiccool.lawnchair.item.ModItems;
+import net.epiccool.lawnchair.stat.ModStats;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
@@ -26,6 +27,9 @@ import java.nio.file.Path;
 
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
+
+//disableSlimeSpawning gamerule
+//Hunger mechanic in peaceful
 
 public class Lawnchair implements ModInitializer {
 	public static final String MODID = "lawnchair";
@@ -88,6 +92,10 @@ public class Lawnchair implements ModInitializer {
                     .executes(Lawnchair::toggleGravity)
             );
         });
+
+        ModStats.Initialize();
+//        ModBlockEntities.Initialize();
+//        ModRecipes.registerRecipes();
     }
 
     private static int toggleGravity(CommandContext<ServerCommandSource> context) {

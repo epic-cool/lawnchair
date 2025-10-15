@@ -1,14 +1,13 @@
 package net.epiccool.lawnchair.datagen;
 
-import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.item.ModArmorMaterials;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
-import net.minecraft.util.Identifier;
 
 public class LawnchairModelProvider extends FabricModelProvider {
     public LawnchairModelProvider(FabricDataOutput output) {
@@ -33,6 +32,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
+
+//        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
     }
 
     @Override
@@ -51,11 +52,12 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.registerArmor(ModItems.STEEL_HELMET, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
-        itemModelGenerator.registerArmor(ModItems.STEEL_CHESTPLATE, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
-        itemModelGenerator.registerArmor(ModItems.STEEL_LEGGINGS, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
-        itemModelGenerator.registerArmor(ModItems.STEEL_BOOTS, ModItems.STEEL_ARMOR_MATERIAL_KEY, Identifier.of(Lawnchair.MODID, "trim"), false);
-        itemModelGenerator.uploadArmor(Identifier.of(Lawnchair.MODID, "equipment/steel"), Identifier.of(Lawnchair.MODID, "textures/entity/equipment/humanoid/steel.png"), Identifier.of(Lawnchair.MODID, "textures/entity/equipment/humanoid_leggings/steel.png"));
+
+        itemModelGenerator.registerArmor(ModItems.STEEL_HELMET, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.STEEL_CHESTPLATE, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.STEEL_LEGGINGS, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.STEEL_BOOTS, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+
     }
 
     @Override
