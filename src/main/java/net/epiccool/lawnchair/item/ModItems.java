@@ -74,7 +74,7 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
-            entries.add(ModItems.COOKED_BACON);
+            entries.add(ModItems.COOKED_HAM);
             entries.add(ModItems.COOKED_SAUSAGE);
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
@@ -86,7 +86,7 @@ public class ModItems {
             entries.add(ModItems.ICE_PICK);
             entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModItems.PUMPKIN_SLICE);
-            entries.add(ModItems.RAW_BACON);
+            entries.add(ModItems.RAW_HAM);
             entries.add(ModItems.RAW_SAUSAGE);
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
@@ -146,8 +146,8 @@ public class ModItems {
     public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", EvilGoopFragmentItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
     public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
-    public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item RAW_HAM = register("raw_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item COOKED_HAM = register("cooked_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item RAW_SAUSAGE = register("raw_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
 

@@ -19,8 +19,8 @@
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
   "item.lawnchair.pumpkin_slice": "Pumpkin Slice",
-  "item.lawnchair.raw_bacon": "Raw Bacon",
-  "item.lawnchair.cooked_bacon": "Cooked Bacon",
+  "item.lawnchair.raw_ham": "Raw Ham",
+  "item.lawnchair.cooked_ham": "Cooked Ham",
   "item.lawnchair.raw_sausage": "Raw Sausage",
   "item.lawnchair.cooked_sausage": "Cooked Sausage",
 
@@ -42,7 +42,7 @@
   "block.lawnchair.unlit_lantern": "Unlit Lantern",
   "block.lawnchair.iron_block_with_robot_core": "Iron Block with Robot Core",
   "block.lawnchair.alloy_mixer": "Alloy Mixer",
-  "block.lawnchair.evil_goop": "Alloy Mixer",
+  "block.lawnchair.evil_goop": "Evil Goop",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",

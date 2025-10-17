@@ -48,8 +48,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PUMPKIN_SLICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_SAUSAGE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_SAUSAGE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.RAW_BACON, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COOKED_BACON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_HAM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_HAM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROBOT_CORE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD, Models.HANDHELD);

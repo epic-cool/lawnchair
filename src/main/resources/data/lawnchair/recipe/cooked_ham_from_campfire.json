@@ -2,10 +2,10 @@
   "type": "minecraft:campfire_cooking",
   "category": "food",
   "ingredient": [
-    "lawnchair:raw_bacon"
+    "lawnchair:raw_ham"
   ],
   "result": {
-    "id": "lawnchair:cooked_bacon"
+    "id": "lawnchair:cooked_ham"
   },
   "experience": 0.35,
   "cookingtime": 600
