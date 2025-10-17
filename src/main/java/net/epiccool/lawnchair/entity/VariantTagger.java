@@ -1,5 +1,6 @@
 package net.epiccool.lawnchair.entity;
 
+import net.epiccool.lawnchair.Lawnchair;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -8,6 +9,7 @@ import net.minecraft.server.world.ServerWorld;
 
 public class VariantTagger {
     public static void Initialize() {
+        Lawnchair.LOGGER.info("Tagging Variants with " + Lawnchair.MODID);
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             for (ServerWorld world : server.getWorlds()) {
                 for (Entity entity : world.iterateEntities()) {

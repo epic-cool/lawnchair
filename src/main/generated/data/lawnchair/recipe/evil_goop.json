@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "lawnchair:evil_goop_fragment"
+  },
+  "pattern": [
+    "00",
+    "00"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:evil_goop"
+  }
+}

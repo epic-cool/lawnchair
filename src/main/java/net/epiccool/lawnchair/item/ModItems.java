@@ -2,6 +2,7 @@ package net.epiccool.lawnchair.item;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.item.custom.EvilGoopFragmentItem;
 import net.epiccool.lawnchair.item.custom.IcePickItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -15,6 +16,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Direction;
 
 import java.util.function.Function;
@@ -76,6 +78,8 @@ public class ModItems {
             entries.add(ModItems.COOKED_SAUSAGE);
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.EVIL_GOOP.asItem());
+            entries.add(ModItems.EVIL_GOOP_FRAGMENT);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.STEEL_BLOCK.asItem());
@@ -139,6 +143,7 @@ public class ModItems {
 
     public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
+    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", EvilGoopFragmentItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
     public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
     public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
     public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_evil_goop_fragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lawnchair:evil_goop_fragment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lawnchair:evil_goop"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_evil_goop_fragment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lawnchair:evil_goop"
+    ]
+  }
+}

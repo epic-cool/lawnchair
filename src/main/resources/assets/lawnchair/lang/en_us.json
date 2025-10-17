@@ -5,6 +5,7 @@
   "itemGroup.lawnchair.potions": "Lawnchair: Potions",
   "itemGroup.lawnchair.copper": "Lawnchair: Copper",
   "itemGroup.lawnchair.combat": "Lawnchair: Combat",
+  "itemGroup.lawnchair.robot": "Lawnchair: Robots",
 
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
@@ -12,6 +13,8 @@
   "item.lawnchair.steel_ingot": "Steel Ingot",
   "item.lawnchair.unlit_torch": "Unlit Torch",
   "item.lawnchair.robot_core": "Robot Core",
+  "item.lawnchair.evil_goop_fragment": "Evil Goop Fragment",
+  "item.lawnchair.evil_goop_fragment.tooltip": "Use on mob to make it into an evil goop variant! [not implemented]",
 
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
@@ -39,6 +42,7 @@
   "block.lawnchair.unlit_lantern": "Unlit Lantern",
   "block.lawnchair.iron_block_with_robot_core": "Iron Block with Robot Core",
   "block.lawnchair.alloy_mixer": "Alloy Mixer",
+  "block.lawnchair.evil_goop": "Alloy Mixer",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
@@ -90,6 +94,9 @@
   "commands.lawnchair.grav.disabled": "Gravity disabled",
   "commands.lawnchair.grav.enabled": "Gravity enabled",
   "commands.creeperExplosions": "Do creeper explosions",
+  "commands.slimeSpawning": "Slimes spawn",
+  "gamerule.creeperExplosions": "Do creeper explosions",
+  "gamerule.slimeSpawning": "Slimes spawn",
 
 
   "---------------------------------------Category X": "Containers ------------------------------------------------",

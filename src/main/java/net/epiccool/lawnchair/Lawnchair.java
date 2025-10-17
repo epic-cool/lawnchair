@@ -28,13 +28,13 @@ import java.nio.file.Path;
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
 
-//disableSlimeSpawning gamerule
-//Hunger mechanic in peaceful
+//Hunger mechanic in peaceful - drain to 5
 
 public class Lawnchair implements ModInitializer {
-	public static final String MODID = "lawnchair";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+    public static final String MODID = "lawnchair";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
     public static boolean creeperExplosions = true;
+    public static boolean slimeSpawning = true;
     private static final Path CONFIG = FabricLoader.getInstance().getConfigDir().resolve("lawnchair-config.json");
 
     public static final GameRules.Key<GameRules.BooleanRule> CREEPER_EXPLOSIONS =
@@ -43,7 +43,7 @@ public class Lawnchair implements ModInitializer {
                     GameRuleFactory.createBooleanRule(true));
 
     @Override
-	public void onInitialize() {
+    public void onInitialize() {
         loadConfig();
         ModItems.Initialize();
 //        StickyEffectListener.Initialize();
@@ -116,6 +116,7 @@ public class Lawnchair implements ModInitializer {
                 String json = Files.readString(CONFIG);
                 LOGGER.info("Loading config for " + MODID);
                 creeperExplosions = !json.contains("false");
+                slimeSpawning = !json.contains("false");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -26,7 +26,6 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
         return new RecipeGenerator(registryLookup, exporter) {
             @Override
             public void generate() {
-
                 createShaped(RecipeCategory.TOOLS, ModItems.ICE_PICK)
                         .pattern(" 0")
                         .pattern("1 ")
@@ -347,9 +346,47 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.UNLIT_TORCH), conditionsFromItem(ModItems.UNLIT_TORCH))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, ModItems.EVIL_GOOP_FRAGMENT, 1)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', Items.ROTTEN_FLESH)
+                        .criterion(hasItem(Items.ROTTEN_FLESH), conditionsFromItem(Items.ROTTEN_FLESH))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.EVIL_GOOP, 1)
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', ModItems.EVIL_GOOP_FRAGMENT)
+                        .criterion(hasItem(ModItems.EVIL_GOOP_FRAGMENT), conditionsFromItem(ModItems.EVIL_GOOP_FRAGMENT))
+                        .offerTo(exporter);
+
                 createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
                         .input(Blocks.NETHER_WART_BLOCK)
                         .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Blocks.SPONGE, 4)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Items.KELP)
+                        .input(Items.KELP)
+                        .criterion(hasItem(Blocks.YELLOW_WOOL), conditionsFromItem(Blocks.YELLOW_WOOL))
+                        .criterion(hasItem(Items.KELP), conditionsFromItem(Items.KELP))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Blocks.WET_SPONGE, 4)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Blocks.YELLOW_WOOL)
+                        .input(Items.KELP)
+                        .input(Items.KELP)
+                        .input(Items.WATER_BUCKET)
+                        .criterion(hasItem(Blocks.YELLOW_WOOL), conditionsFromItem(Blocks.YELLOW_WOOL))
+                        .criterion(hasItem(Items.KELP), conditionsFromItem(Items.KELP))
+                        .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                        .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
                         .offerTo(exporter);
 
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
