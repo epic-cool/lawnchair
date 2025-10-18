@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "ingredient": [
+    "lawnchair:raw_bacon"
+  ],
+  "result": {
+    "id": "lawnchair:cooked_bacon"
+  },
+  "experience": 0.35,
+  "cookingtime": 600
+}

@@ -16,7 +16,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Direction;
 
 import java.util.function.Function;
@@ -74,24 +73,27 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
+            entries.add(ModItems.COOKED_BACON);
             entries.add(ModItems.COOKED_HAM);
             entries.add(ModItems.COOKED_SAUSAGE);
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EVIL_GOOP.asItem());
             entries.add(ModItems.EVIL_GOOP_FRAGMENT);
+            entries.add(ModItems.GAS_MASK);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
             entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModItems.PUMPKIN_SLICE);
+            entries.add(ModItems.RAW_BACON);
             entries.add(ModItems.RAW_HAM);
             entries.add(ModItems.RAW_SAUSAGE);
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
             entries.add(ModItems.STEEL_AXE);
             entries.add(ModBlocks.STEEL_BARS.asItem());
+            entries.add(ModBlocks.STEEL_BLOCK.asItem());
             entries.add(ModItems.STEEL_BOOTS);
             entries.add(ModItems.STEEL_CHESTPLATE);
             entries.add(ModItems.STEEL_HELMET);
@@ -141,13 +143,22 @@ public class ModItems {
         });
     }
 
-    public static final Item ICE_PICK = register("ice_pick", IcePickItem::new, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()));
+    public static final Item ICE_PICK = register("ice_pick", settings -> new IcePickItem(settings) {
+//        @Override
+//        public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+//            textConsumer.accept(Text.translatable("item.lawnchair.ice_pick.tooltip"));
+//            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
+//        }
+    }, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()).enchantable(4));
+
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
-    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", EvilGoopFragmentItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", settings -> new EvilGoopFragmentItem(settings) {}, new Item.Settings());
     public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
     public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
     public static final Item RAW_HAM = register("raw_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item COOKED_HAM = register("cooked_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item RAW_SAUSAGE = register("raw_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
     public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
 
@@ -206,6 +217,12 @@ public class ModItems {
             "unlit_torch",
             settings -> new VerticallyAttachableBlockItem(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH, Direction.DOWN, settings),
             new Item.Settings()
+    );
+
+    public static final Item GAS_MASK = register(
+            "gas_mask",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.GAS_MASK, EquipmentType.HELMET).maxCount(1)
     );
 
 

@@ -50,6 +50,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_SAUSAGE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_HAM, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_HAM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_BACON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_BACON, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROBOT_CORE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD, Models.HANDHELD);
@@ -62,6 +64,9 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(ModItems.STEEL_CHESTPLATE, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.STEEL_LEGGINGS, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.STEEL_BOOTS, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+
+
+        itemModelGenerator.registerArmor(ModItems.GAS_MASK, ModArmorMaterials.GAS_MASK_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
 
     }
 

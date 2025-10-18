@@ -4,6 +4,7 @@ import net.epiccool.lawnchair.item.ModItems;
 import net.epiccool.lawnchair.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -18,6 +19,8 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         valueLookupBuilder(ModTags.Items.STEEL_REPAIR)
                 .add(ModItems.STEEL_INGOT);
+        valueLookupBuilder(ModTags.Items.GAS_MASK_REPAIR)
+                .add(Items.IRON_INGOT);
 
         valueLookupBuilder(ItemTags.SWORDS)
                 .add(ModItems.STEEL_SWORD);

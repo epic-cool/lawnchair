@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.block.custom;
 
 import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EquipmentSlot;
@@ -8,14 +9,19 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
@@ -35,6 +41,28 @@ public class EvilGoopBlock extends Block {
     public EvilGoopBlock(Settings settings) {
         super(settings.ticksRandomly());
         this.setDefaultState(this.stateManager.getDefaultState().with(DORMANT, false));
+    }
+
+    @Override
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient() && stack.getItem() == Items.GLASS_BOTTLE) {
+            ItemStack fullBottle = new ItemStack(ModItems.EVIL_GOOP_FRAGMENT);
+
+            stack.decrementUnlessCreative(1, player);
+
+            if (!player.getInventory().insertStack(fullBottle)) {
+                player.dropItem(fullBottle, false);
+            }
+
+            if (!state.get(DORMANT)) {
+                world.setBlockState(pos, state.with(DORMANT, true));
+            }
+
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, net.minecraft.sound.SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+            return ActionResult.SUCCESS;
+        }
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     @Override
@@ -120,11 +148,11 @@ public class EvilGoopBlock extends Block {
             );
 
             for (PlayerEntity player : world.getEntitiesByClass(PlayerEntity.class, area, p -> true)) {
-                if (player.getEquippedStack(EquipmentSlot.HEAD).getItem() == Items.IRON_HELMET) continue;
+                if (player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.GAS_MASK) continue;
 
                 double distance = player.squaredDistanceTo(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
                 double normalized = Math.max(0, 1.0 - (Math.sqrt(distance) / maxRadius));
-                int amplifier = (int)(normalized * 3);
+                int amplifier = (int) (normalized * 3);
 
                 if (amplifier > 0) {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 40, amplifier));

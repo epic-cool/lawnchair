@@ -361,6 +361,16 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.EVIL_GOOP_FRAGMENT), conditionsFromItem(ModItems.EVIL_GOOP_FRAGMENT))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, ModItems.GAS_MASK, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 0 ")
+                        .input('0', Items.IRON_INGOT)
+                        .input('1', Items.LEATHER_HELMET)
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .criterion(hasItem(Items.LEATHER_HELMET), conditionsFromItem(Items.LEATHER_HELMET))
+                        .offerTo(exporter);
+
                 createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
                         .input(Blocks.NETHER_WART_BLOCK)
                         .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))

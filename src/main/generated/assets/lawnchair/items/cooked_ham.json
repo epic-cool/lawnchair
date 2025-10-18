@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "lawnchair:item/cooked_bacon"
+    "model": "lawnchair:item/cooked_ham"
   }
 }

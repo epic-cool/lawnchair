@@ -16,6 +16,7 @@ import java.util.EnumMap;
 public class ModArmorMaterials {
     static RegistryKey<? extends Registry<EquipmentAsset>> REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.ofVanilla("equipment_asset"));
     public static final RegistryKey<EquipmentAsset> STEEL_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(Lawnchair.MODID, "steel"));
+    public static final RegistryKey<EquipmentAsset> GAS_MASK_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(Lawnchair.MODID, "gas_mask"));
 
     public static final ArmorMaterial STEEL_ARMOR_MATERIAL = new ArmorMaterial(500, Util.make(new EnumMap<>(EquipmentType.class), map -> {
         map.put(EquipmentType.BOOTS, 3);
@@ -24,4 +25,12 @@ public class ModArmorMaterials {
         map.put(EquipmentType.HELMET, 3);
         map.put(EquipmentType.BODY, 10);
     }), 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON,0,0, ModTags.Items.STEEL_REPAIR, STEEL_KEY);
+
+    public static final ArmorMaterial GAS_MASK = new ArmorMaterial(25, Util.make(new EnumMap<>(EquipmentType.class), map -> {
+        map.put(EquipmentType.BOOTS, 0);
+        map.put(EquipmentType.LEGGINGS, 0);
+        map.put(EquipmentType.CHESTPLATE, 0);
+        map.put(EquipmentType.HELMET, 0);
+        map.put(EquipmentType.BODY, 0);
+    }), 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON,0,0, ModTags.Items.GAS_MASK_REPAIR, GAS_MASK_KEY);
 }
