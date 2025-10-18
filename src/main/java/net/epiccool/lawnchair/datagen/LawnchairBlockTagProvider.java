@@ -36,6 +36,9 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
         valueLookupBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocks.EVIL_GOOP);
 
+        valueLookupBuilder(BlockTags.WOOL)
+                .add(ModBlocks.RAINBOW_WOOL);
+
         valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
 

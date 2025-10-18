@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:iron_ingot",
+    "1": "minecraft:leather_helmet"
+  },
+  "pattern": [
+    " 0 ",
+    "010",
+    " 0 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:gas_mask"
+  }
+}

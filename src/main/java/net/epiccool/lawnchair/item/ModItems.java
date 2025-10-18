@@ -51,6 +51,12 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.robot"))
             .build();
 
+    public static final RegistryKey<ItemGroup> COLORED_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "colored_group"));
+    public static final ItemGroup COLORED_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(Items.BARRIER))
+            .displayName(Text.translatable("itemGroup.lawnchair.colored"))
+            .build();
+
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
@@ -70,6 +76,7 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, COPPER_ITEM_GROUP_KEY, COPPER_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COMBAT_ITEM_GROUP_KEY, COMBAT_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, ROBOT_ITEM_GROUP_KEY, ROBOT_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, COLORED_ITEM_GROUP_KEY, COLORED_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
@@ -140,6 +147,10 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.RAINBOW_WOOL.asItem());
         });
     }
 
