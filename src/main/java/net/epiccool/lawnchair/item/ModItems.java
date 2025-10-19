@@ -236,7 +236,6 @@ public class ModItems {
             new Item.Settings().armor(ModArmorMaterials.GAS_MASK, EquipmentType.HELMET).maxCount(1)
     );
 
-
 //    private static void addStickyPotions(ItemGroup.Entries entries) {
 //        Potion[] stickyPotions = new Potion[] {
 //                ModPotions.STICKY_POTION,

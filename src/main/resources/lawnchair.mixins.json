@@ -7,9 +7,9 @@
     "CarvedPumpkinBlockMixin",
     "CreeperEntityMixin",
     "SnowballEntityMixin",
-    "ZombieEntityMixin",
-    "ZombieEntityRendererMixin"
+    "ZombieEntityMixin"
   ],
+
   "injectors": {
     "defaultRequire": 1
   },

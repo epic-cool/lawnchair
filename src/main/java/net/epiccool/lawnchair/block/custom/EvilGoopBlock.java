@@ -1,9 +1,11 @@
 package net.epiccool.lawnchair.block.custom;
 
 import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -39,14 +41,14 @@ public class EvilGoopBlock extends Block {
     private static final TagKey<Block> IMMUNE_TAG = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Lawnchair.MODID, "evil_goop_immune"));
 
     public EvilGoopBlock(Settings settings) {
-        super(settings.ticksRandomly());
+        super(settings.ticksRandomly().allowsSpawning((state, world, pos, type) -> false));
         this.setDefaultState(this.stateManager.getDefaultState().with(DORMANT, false));
     }
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient() && stack.getItem() == Items.GLASS_BOTTLE) {
-            ItemStack fullBottle = new ItemStack(ModItems.EVIL_GOOP_FRAGMENT);
+            ItemStack fullBottle = new ItemStack(ModItems.EVIL_GOOP_FRAGMENT); //todo: Evil goop effect
 
             stack.decrementUnlessCreative(1, player);
 
@@ -80,9 +82,7 @@ public class EvilGoopBlock extends Block {
             BlockPos neighborPos = pos.offset(dir);
             BlockState neighborState = world.getBlockState(neighborPos);
 
-            if (neighborState.isAir()) continue;
             if (neighborState.isIn(IMMUNE_TAG)) continue;
-            if (neighborState.getBlock() instanceof EvilGoopBlock) continue;
 
             hasValidNeighbor = true;
             if (random.nextDouble() < SPREAD_CHANCE) {
@@ -103,11 +103,39 @@ public class EvilGoopBlock extends Block {
             BlockPos neighborPos = pos.offset(dir);
             BlockState neighborState = world.getBlockState(neighborPos);
 
-            if (neighborState.isAir()) continue;
-            if (neighborState.isIn(IMMUNE_TAG)) continue;
-            if (neighborState.getBlock() instanceof EvilGoopBlock) continue;
+            if (neighborState.isAir() ||
+                    neighborState.getBlock() == Blocks.OBSIDIAN ||
+                    neighborState.getBlock() == ModBlocks.STEEL_BLOCK ||
+                    neighborState.getBlock() == ModBlocks.EVIL_GOOP ||
+                    neighborState.getBlock() == Blocks.BARRIER ||
+                    neighborState.getBlock() == Blocks.BEDROCK ||
+                    neighborState.getBlock() == Blocks.CHAIN_COMMAND_BLOCK ||
+                    neighborState.getBlock() == Blocks.COMMAND_BLOCK ||
+                    neighborState.getBlock() == Blocks.DRAGON_EGG ||
+                    neighborState.getBlock() == Blocks.JIGSAW ||
+                    neighborState.getBlock() == Blocks.LIGHT ||
+                    neighborState.getBlock() == Blocks.REPEATING_COMMAND_BLOCK ||
+                    neighborState.getBlock() == Blocks.STRUCTURE_BLOCK ||
+                    neighborState.getBlock() == Blocks.STRUCTURE_VOID ||
+                    neighborState.getBlock() == Blocks.TEST_BLOCK ||
+                    neighborState.getBlock() == Blocks.TEST_INSTANCE_BLOCK) {
+                continue;
+            }
 
             world.setBlockState(pos, state.with(DORMANT, false), Block.NOTIFY_ALL);
+
+            for (int x = -5; x <= 5; x++) {
+                for (int y = -5; y <= 5; y++) {
+                    for (int z = -5; z <= 5; z++) {
+                        BlockPos targetPos = pos.add(x, y, z);
+                        BlockState targetState = world.getBlockState(targetPos);
+
+                        if (targetState.getBlock() == Blocks.WATER || targetState.getBlock() == Blocks.LAVA) {
+                            world.setBlockState(targetPos, Blocks.BEDROCK.getDefaultState(), Block.NOTIFY_ALL);
+                        }
+                    }
+                }
+            }
             break;
         }
     }
@@ -155,12 +183,11 @@ public class EvilGoopBlock extends Block {
                 int amplifier = (int) (normalized * 3);
 
                 if (amplifier > 0) {
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 40, amplifier));
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 40, amplifier)); //todo: Evil goop effect
                 }
             }
 
             world.scheduleBlockTick(pos, this, 20);
         }
     }
-
 }
