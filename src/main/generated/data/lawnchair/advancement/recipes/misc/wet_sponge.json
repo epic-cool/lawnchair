@@ -11,6 +11,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_cactus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cactus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_kelp": {
       "conditions": {
         "items": [
@@ -54,7 +64,8 @@
       "has_yellow_wool",
       "has_kelp",
       "has_bucket",
-      "has_water_bucket"
+      "has_water_bucket",
+      "has_cactus"
     ]
   ],
   "rewards": {

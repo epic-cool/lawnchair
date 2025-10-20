@@ -148,10 +148,6 @@ public class ModItems {
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
         });
-
-        ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(entries -> {
-            entries.add(ModBlocks.RAINBOW_WOOL.asItem());
-        });
     }
 
     public static final Item ICE_PICK = register("ice_pick", settings -> new IcePickItem(settings) {

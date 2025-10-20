@@ -2,6 +2,7 @@ package net.epiccool.lawnchair;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
+import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
 import net.epiccool.lawnchair.entity.VariantTagger;
@@ -34,8 +35,13 @@ public class Lawnchair implements ModInitializer {
     public static final String MODID = "lawnchair";
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
     public static boolean creeperExplosions = true;
-    public static boolean slimeSpawning = true;
+    public static boolean slimeSpawning = true; //doesn't work
     private static final Path CONFIG = FabricLoader.getInstance().getConfigDir().resolve("lawnchair-config.json");
+    //    public static FlowableFluid EVIL_FLUID_STILL;
+//    public static FlowableFluid EVIL_FLUID_FLOWING;
+//    public static Item EVIL_FLUID_BUCKET;
+//    public static Block EVIL_FLUID;
+
 
     public static final GameRules.Key<GameRules.BooleanRule> CREEPER_EXPLOSIONS =
             GameRuleRegistry.register("creeperExplosions",
@@ -94,8 +100,16 @@ public class Lawnchair implements ModInitializer {
         });
 
         ModStats.Initialize();
-//        ModBlockEntities.Initialize();
+        ModBlockEntities.Initialize();
+
 //        ModRecipes.registerRecipes();
+
+        //Fluids
+//        EVIL_FLUID_STILL = Registry.register(Registries.FLUID, Identifier.of(MODID, "evil_fluid"), new EvilFluid.Still());
+//        EVIL_FLUID_FLOWING = Registry.register(Registries.FLUID, Identifier.of(MODID, "flowing_evil_fluid"), new EvilFluid.Flowing());
+//        EVIL_FLUID = Registry.register(Registries.BLOCK, Identifier.of(MODID, "evil_fluid"), new FluidBlock(EVIL_FLUID_STILL, AbstractBlock.Settings.create().mapColor(MapColor.LIME).replaceable().noCollision().ticksRandomly().strength(100.0F).luminance((state) -> 3).pistonBehavior(PistonBehavior.DESTROY).dropsNothing().liquid().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY)));
+//        EVIL_FLUID_BUCKET = Registry.register(Registries.ITEM, Identifier.of(MODID, "evil_fluid_bucket"),
+//                new BucketItem(EVIL_FLUID_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
 
     private static int toggleGravity(CommandContext<ServerCommandSource> context) {
@@ -116,13 +130,14 @@ public class Lawnchair implements ModInitializer {
                 String json = Files.readString(CONFIG);
                 LOGGER.info("Loading config for " + MODID);
                 creeperExplosions = !json.contains("false");
-                slimeSpawning = !json.contains("false");
+                slimeSpawning = !json.contains("false"); //doesn't work
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
+    //Why not used?
     public static void saveConfig() {
         try {
             Files.writeString(CONFIG, "{ \"creeperExplosions\": " + creeperExplosions + " }");

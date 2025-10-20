@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "lawnchair:steel_block",
+    "lawnchair:evil_goop",
+    "minecraft:obsidian",
+    "minecraft:barrier",
+    "minecraft:bedrock",
+    "minecraft:chain_command_block",
+    "minecraft:command_block",
+    "minecraft:dragon_egg",
+    "minecraft:jigsaw",
+    "minecraft:light",
+    "minecraft:repeating_command_block",
+    "minecraft:structure_block",
+    "minecraft:structure_void",
+    "minecraft:test_block",
+    "minecraft:test_instance_block",
+    "minecraft:crying_obsidian"
+  ]
+}

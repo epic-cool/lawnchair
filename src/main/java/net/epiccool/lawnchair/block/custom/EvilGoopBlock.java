@@ -1,7 +1,6 @@
 package net.epiccool.lawnchair.block.custom;
 
 import net.epiccool.lawnchair.Lawnchair;
-import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,19 +10,13 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
@@ -41,30 +34,8 @@ public class EvilGoopBlock extends Block {
     private static final TagKey<Block> IMMUNE_TAG = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Lawnchair.MODID, "evil_goop_immune"));
 
     public EvilGoopBlock(Settings settings) {
-        super(settings.ticksRandomly().allowsSpawning((state, world, pos, type) -> false));
+        super(settings.ticksRandomly());
         this.setDefaultState(this.stateManager.getDefaultState().with(DORMANT, false));
-    }
-
-    @Override
-    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient() && stack.getItem() == Items.GLASS_BOTTLE) {
-            ItemStack fullBottle = new ItemStack(ModItems.EVIL_GOOP_FRAGMENT); //todo: Evil goop effect
-
-            stack.decrementUnlessCreative(1, player);
-
-            if (!player.getInventory().insertStack(fullBottle)) {
-                player.dropItem(fullBottle, false);
-            }
-
-            if (!state.get(DORMANT)) {
-                world.setBlockState(pos, state.with(DORMANT, true));
-            }
-
-            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, net.minecraft.sound.SoundCategory.BLOCKS, 1.0F, 1.0F);
-
-            return ActionResult.SUCCESS;
-        }
-        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     @Override
@@ -82,7 +53,12 @@ public class EvilGoopBlock extends Block {
             BlockPos neighborPos = pos.offset(dir);
             BlockState neighborState = world.getBlockState(neighborPos);
 
+            if (neighborState.isAir()) continue;
             if (neighborState.isIn(IMMUNE_TAG)) continue;
+            if (neighborState.getBlock() == Blocks.WATER || neighborState.getBlock() == Blocks.LAVA) {
+                hasValidNeighbor = true;
+                continue;
+            }
 
             hasValidNeighbor = true;
             if (random.nextDouble() < SPREAD_CHANCE) {
@@ -97,30 +73,16 @@ public class EvilGoopBlock extends Block {
 
     @Override
     protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
-        if (world.isClient() || !state.get(DORMANT)) return;
+        if (world.isClient()) return;
+        fluidLogic(world, pos);
+        if (!state.get(DORMANT)) return;
 
         for (Direction dir : Direction.values()) {
             BlockPos neighborPos = pos.offset(dir);
             BlockState neighborState = world.getBlockState(neighborPos);
 
-            if (neighborState.isAir() ||
-                    neighborState.getBlock() == Blocks.OBSIDIAN ||
-                    neighborState.getBlock() == ModBlocks.STEEL_BLOCK ||
-                    neighborState.getBlock() == ModBlocks.EVIL_GOOP ||
-                    neighborState.getBlock() == Blocks.BARRIER ||
-                    neighborState.getBlock() == Blocks.BEDROCK ||
-                    neighborState.getBlock() == Blocks.CHAIN_COMMAND_BLOCK ||
-                    neighborState.getBlock() == Blocks.COMMAND_BLOCK ||
-                    neighborState.getBlock() == Blocks.DRAGON_EGG ||
-                    neighborState.getBlock() == Blocks.JIGSAW ||
-                    neighborState.getBlock() == Blocks.LIGHT ||
-                    neighborState.getBlock() == Blocks.REPEATING_COMMAND_BLOCK ||
-                    neighborState.getBlock() == Blocks.STRUCTURE_BLOCK ||
-                    neighborState.getBlock() == Blocks.STRUCTURE_VOID ||
-                    neighborState.getBlock() == Blocks.TEST_BLOCK ||
-                    neighborState.getBlock() == Blocks.TEST_INSTANCE_BLOCK) {
-                continue;
-            }
+            if (neighborState.isAir()) continue;
+            if (neighborState.isIn(IMMUNE_TAG)) continue;
 
             world.setBlockState(pos, state.with(DORMANT, false), Block.NOTIFY_ALL);
 
@@ -160,6 +122,7 @@ public class EvilGoopBlock extends Block {
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         if (!world.isClient()) {
+            fluidLogic(world, pos);
             world.scheduleBlockTick(pos, this, 20);
         }
     }
@@ -188,6 +151,17 @@ public class EvilGoopBlock extends Block {
             }
 
             world.scheduleBlockTick(pos, this, 20);
+        }
+    }
+
+    private void fluidLogic(World world, BlockPos pos) {
+        for (Direction dir : Direction.values()) {
+            BlockPos neighborPos = pos.offset(dir);
+            BlockState neighborState = world.getBlockState(neighborPos);
+
+            if (neighborState.getBlock() == Blocks.WATER || neighborState.getBlock() == Blocks.LAVA) {
+                world.setBlockState(neighborPos, Blocks.BEDROCK.getDefaultState(), Block.NOTIFY_ALL);
+            }
         }
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:cobblestone",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:cobbled_deepslate"
+  }
+}

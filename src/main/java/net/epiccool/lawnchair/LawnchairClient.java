@@ -3,9 +3,6 @@ package net.epiccool.lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.render.BlockRenderLayer;
 
 public class LawnchairClient implements ClientModInitializer {
@@ -16,29 +13,23 @@ public class LawnchairClient implements ClientModInitializer {
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);
 
-        //Rainbow wool
-        BlockColorProvider rainbowProvider = (state, world, pos, tintIndex) -> {
-            if (world == null || pos == null) return 0xFFFFFF;
+        //Fluid
+//        FluidRenderHandlerRegistry.INSTANCE.register(Lawnchair.EVIL_FLUID_STILL, Lawnchair.EVIL_FLUID_FLOWING, new SimpleFluidRenderHandler(
+//                Identifier.of("minecraft:block/water_still"),
+//                Identifier.of("minecraft:block/water_flow"),
+//                0x4CC248
+//        ));
+//
+//        BlockRenderLayerMap.putFluids(BlockRenderLayer.TRANSLUCENT, Lawnchair.EVIL_FLUID_STILL, Lawnchair.EVIL_FLUID_FLOWING);
 
-            var client = MinecraftClient.getInstance();
-            if (client.world == null) return 0xFFFFFF;
+        //if you want to use custom textures they needs to be registered.
+        //In this example this is unnecessary because the vanilla water textures are already registered.
+        //To register your custom textures use this method.
+        //ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
+        //    registry.register(new Identifier("tutorial:block/custom_fluid_still"));
+        //    registry.register(new Identifier("tutorial:block/custom_fluid_flowing"));
+        //});
 
-            float tickDelta = client.getRenderTickCounter().getTickProgress(false);
-            double time = (client.world.getTime() + tickDelta);
-
-            double speed = 100.0;
-            double baseHue = (time / speed) % 1.0;
-
-            long seed = pos.asLong();
-            double offset = ((seed * 0.0001) % 1.0 + 1.0) % 1.0;
-            double hue = (baseHue + offset) % 1.0;
-
-            int rgb = java.awt.Color.HSBtoRGB((float) hue, 1.0f, 1.0f);
-
-            return rgb & 0xFFFFFF;
-        };
-
-
-        ColorProviderRegistry.BLOCK.register(rainbowProvider, ModBlocks.RAINBOW_WOOL);
+        // ...
     }
 }

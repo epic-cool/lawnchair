@@ -371,56 +371,66 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.LEATHER_HELMET), conditionsFromItem(Items.LEATHER_HELMET))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModBlocks.RAINBOW_WOOL, 8)
-                        .pattern("012")
-                        .pattern("384")
-                        .pattern("567")
-                        .input('0', Items.RED_DYE)
-                        .input('1', Items.ORANGE_DYE)
-                        .input('2', Items.YELLOW_DYE)
-                        .input('3', Items.LIME_DYE)
-                        .input('4', Items.LIGHT_BLUE_DYE)
-                        .input('5', Items.PURPLE_DYE)
-                        .input('6', Items.PINK_DYE)
-                        .input('7', Items.BLACK_DYE)
-                        .input('8', Items.WHITE_WOOL)
-                        .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
-                        .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
-                        .criterion(hasItem(Items.ORANGE_DYE), conditionsFromItem(Items.ORANGE_DYE))
-                        .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
-                        .criterion(hasItem(Items.LIME_DYE), conditionsFromItem(Items.LIME_DYE))
-                        .criterion(hasItem(Items.LIGHT_BLUE_DYE), conditionsFromItem(Items.LIGHT_BLUE_DYE))
-                        .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
-                        .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
-                        .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
-                        .offerTo(exporter);
-
                 createShapeless(RecipeCategory.MISC, Items.NETHER_WART, 9)
                         .input(Blocks.NETHER_WART_BLOCK)
                         .criterion(hasItem(Blocks.NETHER_WART_BLOCK), conditionsFromItem(Blocks.NETHER_WART_BLOCK))
+                        .offerTo(exporter);
+
+                //stone -> deepslate
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 1)
+                        .input(Blocks.STONE)
+                        .input(Items.BLACK_DYE)
+                        .criterion(hasItem(Blocks.DEEPSLATE), conditionsFromItem(Blocks.DEEPSLATE))
+                        .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
+                        .offerTo(exporter);
+
+                //deepslate -> stone
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.STONE, 1)
+                        .input(Blocks.DEEPSLATE)
+                        .input(Items.WHITE_DYE)
+                        .criterion(hasItem(Blocks.DEEPSLATE), conditionsFromItem(Blocks.DEEPSLATE))
+                        .criterion(hasItem(Items.WHITE_DYE), conditionsFromItem(Items.WHITE_DYE))
+                        .offerTo(exporter);
+
+                //cobblestone -> cobbled deepslate
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COBBLED_DEEPSLATE, 1)
+                        .input(Blocks.COBBLESTONE)
+                        .input(Items.BLACK_DYE)
+                        .criterion(hasItem(Blocks.COBBLESTONE), conditionsFromItem(Blocks.COBBLESTONE))
+                        .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
+                        .offerTo(exporter);
+
+                //cobbled deepslate -> cobblestone
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, Items.COBBLESTONE, 1)
+                        .input(Blocks.COBBLED_DEEPSLATE)
+                        .input(Items.WHITE_DYE)
+                        .criterion(hasItem(Blocks.COBBLED_DEEPSLATE), conditionsFromItem(Blocks.COBBLED_DEEPSLATE))
+                        .criterion(hasItem(Items.WHITE_DYE), conditionsFromItem(Items.WHITE_DYE))
                         .offerTo(exporter);
 
                 createShapeless(RecipeCategory.MISC, Blocks.SPONGE, 4)
                         .input(Blocks.YELLOW_WOOL)
                         .input(Blocks.YELLOW_WOOL)
                         .input(Blocks.YELLOW_WOOL)
-                        .input(Items.KELP)
+                        .input(Items.CACTUS)
                         .input(Items.KELP)
                         .criterion(hasItem(Blocks.YELLOW_WOOL), conditionsFromItem(Blocks.YELLOW_WOOL))
                         .criterion(hasItem(Items.KELP), conditionsFromItem(Items.KELP))
+                        .criterion(hasItem(Items.CACTUS), conditionsFromItem(Items.CACTUS))
                         .offerTo(exporter);
 
                 createShapeless(RecipeCategory.MISC, Blocks.WET_SPONGE, 4)
                         .input(Blocks.YELLOW_WOOL)
                         .input(Blocks.YELLOW_WOOL)
                         .input(Blocks.YELLOW_WOOL)
-                        .input(Items.KELP)
+                        .input(Items.CACTUS)
                         .input(Items.KELP)
                         .input(Items.WATER_BUCKET)
                         .criterion(hasItem(Blocks.YELLOW_WOOL), conditionsFromItem(Blocks.YELLOW_WOOL))
                         .criterion(hasItem(Items.KELP), conditionsFromItem(Items.KELP))
                         .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
                         .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
+                        .criterion(hasItem(Items.CACTUS), conditionsFromItem(Items.CACTUS))
                         .offerTo(exporter);
 
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)

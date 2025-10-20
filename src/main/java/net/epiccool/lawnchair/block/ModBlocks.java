@@ -72,8 +72,6 @@ public class ModBlocks {
 //    public static final Block ALLOY_MIXER = register("alloy_mixer", AlloyMixerBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.GRAY).strength(2F, 2F).sounds(BlockSoundGroup.STONE), true);
     public static final Block WARPED_WART = register("warped_wart", WarpedWartBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.CYAN).noCollision().ticksRandomly().sounds(BlockSoundGroup.NETHER_WART).pistonBehavior(PistonBehavior.DESTROY), true);
     public static final Block EVIL_GOOP = register("evil_goop", EvilGoopBlock::new, AbstractBlock.Settings.create().strength(0.1F, 0.1F).sounds(BlockSoundGroup.SLIME).luminance(state -> 3).breakInstantly(), true); //todo: prevent spawning
-    public static final Block RAINBOW_WOOL = register("rainbow_wool", Block::new, AbstractBlock.Settings.copy(Blocks.WHITE_WOOL), true);
-//        WHITE_WOOL = register("white_wool", Settings.create().mapColor(MapColor.WHITE).instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sounds(BlockSoundGroup.WOOL).burnable());
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(
