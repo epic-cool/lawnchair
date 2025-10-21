@@ -18,6 +18,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> STEEL_REPAIR = createTag("steel_repair");
+        public static final TagKey<Item> EMERALD_REPAIR = createTag("steel_repair");
         public static final TagKey<Item> GAS_MASK_REPAIR = createTag("gas_mask_repair");
 
         private static TagKey<Item> createTag(String name) {

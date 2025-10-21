@@ -6,10 +6,11 @@
     "AbstractMinecartEntityMixin",
     "CarvedPumpkinBlockMixin",
     "CreeperEntityMixin",
+    "EndermanEntityMixin",
+    "GameModeCommandMixin",
     "SnowballEntityMixin",
     "ZombieEntityMixin"
   ],
-
   "injectors": {
     "defaultRequire": 1
   },

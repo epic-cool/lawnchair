@@ -12,12 +12,18 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.village.TradeOffer;
+import net.minecraft.village.TradedItem;
+import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -101,6 +107,27 @@ public class Lawnchair implements ModInitializer {
 
         ModStats.Initialize();
         ModBlockEntities.Initialize();
+
+        LOGGER.info("Registering Villager Trades for " + MODID);
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 32 + random.nextInt(64)),
+                    new ItemStack(ModItems.EMERALD_BOOTS, 1), 1, 2, 0));
+
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 56 + random.nextInt(64)),
+                    new ItemStack(ModItems.EMERALD_LEGGINGS, 1), 1, 2, 0));
+        });
+
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 5, factories -> {
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 40 + random.nextInt(64)),
+                    new ItemStack(ModItems.EMERALD_HELMET, 1), 1, 2, 0));
+
+            factories.add((entity, random) -> new TradeOffer(
+                    new TradedItem(Items.EMERALD, 64 + random.nextInt(64)),
+                    new ItemStack(ModItems.EMERALD_CHESTPLATE, 1), 1, 2, 0));
+        });
 
 //        ModRecipes.registerRecipes();
 

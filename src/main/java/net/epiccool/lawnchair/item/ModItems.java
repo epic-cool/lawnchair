@@ -142,6 +142,11 @@ public class ModItems {
             entries.add(ModItems.STEEL_SHOVEL);
             entries.add(ModItems.STEEL_AXE);
             entries.add(ModItems.STEEL_HOE);
+            entries.add(ModItems.EMERALD_HELMET);
+            entries.add(ModItems.EMERALD_CHESTPLATE);
+            entries.add(ModItems.EMERALD_LEGGINGS);
+            entries.add(ModItems.EMERALD_BOOTS);
+            entries.add(ModItems.GAS_MASK);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
@@ -219,6 +224,32 @@ public class ModItems {
             new Item.Settings().armor(ModArmorMaterials.STEEL_ARMOR_MATERIAL, EquipmentType.BOOTS)
 //                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(33))
     );
+
+    //Emerald Armor
+    public static final Item EMERALD_HELMET = register(
+            "emerald_helmet",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.HELMET)
+    );
+
+    public static final Item EMERALD_CHESTPLATE = register(
+            "emerald_chestplate",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
+    );
+
+    public static final Item EMERALD_LEGGINGS = register(
+            "emerald_leggings",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
+    );
+
+    public static final Item EMERALD_BOOTS = register(
+            "emerald_boots",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.BOOTS)
+    );
+
 
     public static final Item UNLIT_TORCH = register(
             "unlit_torch",

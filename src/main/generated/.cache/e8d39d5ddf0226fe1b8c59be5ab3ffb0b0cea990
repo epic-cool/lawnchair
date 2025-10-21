@@ -1,10 +1,15 @@
 // 1.21.10	-999999999-01-01T00:00:00	Lawnchair/Tags for minecraft:item
 736f4ef35696340b932cdb679c5a32e7b28db783 data/lawnchair/tags/item/gas_mask_repair.json
-9b6c7cb3914547f21e7a11e94d5a3043235547e9 data/lawnchair/tags/item/steel_repair.json
+4121f1baa41f5525bc2e2d105e978a48cc6313b7 data/lawnchair/tags/item/steel_repair.json
 92f814eb69ff72b35d96bb62c6c4b6bdea1af2ab data/minecraft/tags/item/axes.json
+20458fe5dfae2233941f31dcee2ac55f9f739900 data/minecraft/tags/item/dyeable.json
+38350b3a2440e40f44ae7824133e98e1aea163ba data/minecraft/tags/item/enchantable/chest_armor.json
+22f22fefd9236abac92b27b465a1c2e46c105c30 data/minecraft/tags/item/enchantable/foot_armor.json
+2232d4200898b97bd087ebfb4c153acd778d208c data/minecraft/tags/item/enchantable/head_armor.json
+cc230767c36dfbc1d1d81155737b6985fc03cd00 data/minecraft/tags/item/enchantable/leg_armor.json
 2f94c224cf7845a451b89c3b1072ae6a78aceb7a data/minecraft/tags/item/hoes.json
 1cd4490ccfe98d25a07d1bb3c21fbcfe1facf5d2 data/minecraft/tags/item/pickaxes.json
 8bb0c9ba27a69c660e8801250d3ae9b9752cc70b data/minecraft/tags/item/shovels.json
 e20075d3da2a707ae9e0aee57f0df784f507406a data/minecraft/tags/item/swords.json
 9b6c7cb3914547f21e7a11e94d5a3043235547e9 data/minecraft/tags/item/trim_materials.json
-508584a8514259099ebfbf19bf1fbd3e1d7f5a4c data/minecraft/tags/item/trimmable_armor.json
+5d7243e02b4170f94a8dbc9ae8f7fef1bfa5d0d2 data/minecraft/tags/item/trimmable_armor.json

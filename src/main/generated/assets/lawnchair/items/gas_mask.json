@@ -5,84 +5,156 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_quartz_trim"
+          "model": "lawnchair:item/gas_mask_quartz_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:quartz"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_iron_trim"
+          "model": "lawnchair:item/gas_mask_iron_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:iron"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_netherite_trim"
+          "model": "lawnchair:item/gas_mask_netherite_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:netherite"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_redstone_trim"
+          "model": "lawnchair:item/gas_mask_redstone_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:redstone"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_copper_trim"
+          "model": "lawnchair:item/gas_mask_copper_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:copper"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_gold_trim"
+          "model": "lawnchair:item/gas_mask_gold_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:gold"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_emerald_trim"
+          "model": "lawnchair:item/gas_mask_emerald_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:emerald"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_diamond_trim"
+          "model": "lawnchair:item/gas_mask_diamond_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:diamond"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_lapis_trim"
+          "model": "lawnchair:item/gas_mask_lapis_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:lapis"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_amethyst_trim"
+          "model": "lawnchair:item/gas_mask_amethyst_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:amethyst"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "lawnchair:item/gas_mask_resin_trim"
+          "model": "lawnchair:item/gas_mask_resin_trim",
+          "tints": [
+            {
+              "type": "minecraft:dye",
+              "default": -6265536
+            }
+          ]
         },
         "when": "minecraft:resin"
       }
     ],
     "fallback": {
       "type": "minecraft:model",
-      "model": "lawnchair:item/gas_mask"
+      "model": "lawnchair:item/gas_mask",
+      "tints": [
+        {
+          "type": "minecraft:dye",
+          "default": -6265536
+        }
+      ]
     },
     "property": "minecraft:trim_material"
   }

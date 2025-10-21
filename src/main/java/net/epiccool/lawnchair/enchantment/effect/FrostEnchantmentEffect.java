@@ -33,6 +33,7 @@ public record FrostEnchantmentEffect(EnchantmentLevelBasedValue amount) implemen
             int slownessDuration = freezeTicks + 15;
             int slownessLevel = Math.min(3, level);
             victim.setFrozenTicks(freezeTicks);
+            victim.setFireTicks(0);
             victim.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, slownessDuration, slownessLevel, false, false, true));
             addFrozenEntity(victim);
         }

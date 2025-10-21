@@ -4,7 +4,7 @@
   "itemGroup.lawnchair.colored": "Lawnchair: Colored",
   "itemGroup.lawnchair.potions": "Lawnchair: Potions",
   "itemGroup.lawnchair.copper": "Lawnchair: Copper",
-  "itemGroup.lawnchair.combat": "Lawnchair: Combat",
+  "itemGroup.lawnchair.combat": "Lawnchair: Equipment",
   "itemGroup.lawnchair.robot": "Lawnchair: Robots",
 
 
@@ -23,6 +23,8 @@
   "item.lawnchair.cooked_ham": "Cooked Ham",
   "item.lawnchair.raw_sausage": "Raw Sausage",
   "item.lawnchair.cooked_sausage": "Cooked Sausage",
+  "item.lawnchair.raw_bacon": "Raw Bacon",
+  "item.lawnchair.cooked_bacon": "Cooked Bacon",
 
 
   "---------------------------------------Category IV": "Blocks ------------------------------------------------",
@@ -57,6 +59,11 @@
   "item.lawnchair.steel_axe": "Steel Axe",
   "item.lawnchair.steel_shovel": "Steel Shovel",
   "item.lawnchair.steel_hoe": "Steel Hoe",
+  "item.lawnchair.emerald_helmet": "Emerald Helmet",
+  "item.lawnchair.emerald_chestplate": "Emerald Chestplate",
+  "item.lawnchair.emerald_leggings": "Emerald Leggings",
+  "item.lawnchair.emerald_boots": "Emerald Boots",
+  "item.lawnchair.gas_mask": "Gas Mask",
 
 
   "---------------------------------------Category VI": "Entities ------------------------------------------------",
@@ -93,10 +100,11 @@
   "---------------------------------------Category IX": "Commands ------------------------------------------------",
   "commands.lawnchair.grav.disabled": "Gravity disabled",
   "commands.lawnchair.grav.enabled": "Gravity enabled",
-  "commands.creeperExplosions": "Do creeper explosions",
+  "commands.creeperExplosions": "Creeper explosions destroy blocks",
   "commands.slimeSpawning": "Slimes spawn",
-  "gamerule.creeperExplosions": "Do creeper explosions",
-  "gamerule.slimeSpawning": "Slimes spawn",
+  "gamerule.creeperExplosions": "Creeper explosions destroy blocks",
+  "gamerule.slimeSpawning": "[Broken] Slimes spawn",
+  "commands.gamemode.invalid": "Unknown gamemode: %s",
 
 
   "---------------------------------------Category X": "Containers ------------------------------------------------",
@@ -114,6 +122,10 @@
 
   "---------------------------------------Category XIII": "Trims ------------------------------------------------",
   "trim_material.lawnchair.steel": "Steel Material",
+
+
+  "---------------------------------------Category XIV": "Damage ------------------------------------------------",
+  "damage.lawnchair.ran_over": "Ran over",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

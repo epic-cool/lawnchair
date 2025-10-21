@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "lawnchair:item/gas_mask"
+    "layer0": "lawnchair:item/gas_mask",
+    "layer1": "lawnchair:item/gas_mask_overlay"
   }
 }
