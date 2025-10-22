@@ -1,0 +1,33 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "player": {
+          "location": {
+            "position": {
+              "y": {
+                "min": 300
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "title": {
+      "translate": "advancements.lawnchair.mile_high.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.mile_high.description"
+    },
+    "icon": {
+      "id": "minecraft:wheat"
+    }
+  },
+  "requirements": [
+    ["bred"]
+  ]
+}

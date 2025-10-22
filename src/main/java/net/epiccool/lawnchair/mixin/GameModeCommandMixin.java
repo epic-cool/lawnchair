@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import net.epiccool.lawnchair.Lawnchair;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
@@ -73,6 +74,10 @@ public abstract class GameModeCommandMixin {
             case "1", "c", "creative" -> GameMode.CREATIVE;
             case "2", "a", "adventure" -> GameMode.ADVENTURE;
             case "3", "sp", "spectator" -> GameMode.SPECTATOR;
+            case "9" -> {
+                Lawnchair.LOGGER.info("Lawnchair: easter egg or sum shit");
+                yield GameMode.SURVIVAL;
+            }
             default -> throw new SimpleCommandExceptionType(Text.translatable("commands.gamemode.invalid", input.toLowerCase())).create();
         };
     }

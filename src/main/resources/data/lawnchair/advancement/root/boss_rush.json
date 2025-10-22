@@ -1,0 +1,114 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "minecraft:elder_guardian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:elder_guardian"
+            }
+          }
+        ]
+      }
+    },
+    "minecraft:wither": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:wither"
+            }
+          }
+        ]
+      }
+    },
+    "lawnchair:goliath": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "lawnchair:goliath"
+            }
+          }
+        ]
+      }
+    },
+    "minecraft:warden": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:warden"
+            }
+          }
+        ]
+      }
+    },
+    "minecraft:ravager": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ravager"
+            }
+          }
+        ]
+      }
+    },
+    "minecraft:ender_dragon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ender_dragon"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["minecraft:ender_dragon"],
+    ["minecraft:elder_guardian"],
+    ["minecraft:wither"],
+    ["lawnchair:goliath"],
+    ["minecraft:warden"],
+    ["minecraft:ravager"]
+  ],
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.boss_rush.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "minecraft:netherite_sword",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.lawnchair.boss_rush.title"
+    }
+  },
+  "rewards": {
+    "loot": [],
+    "experience": 250
+  }
+}

@@ -2,25 +2,35 @@ package net.epiccool.lawnchair;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
-import net.epiccool.lawnchair.entity.VariantTagger;
+import net.epiccool.lawnchair.entity.ModEntities;
+import net.epiccool.lawnchair.entity.custom.GoliathEntity;
 import net.epiccool.lawnchair.item.ModItems;
 import net.epiccool.lawnchair.stat.ModStats;
+import net.epiccool.lawnchair.util.Tagger;
+import net.epiccool.lawnchair.util.UnnamedHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
@@ -31,6 +41,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
@@ -43,6 +56,7 @@ public class Lawnchair implements ModInitializer {
     public static boolean creeperExplosions = true;
     public static boolean slimeSpawning = true; //doesn't work
     private static final Path CONFIG = FabricLoader.getInstance().getConfigDir().resolve("lawnchair-config.json");
+    private static final Map<String, BlockPos> PLAYER_HOMES = new HashMap<>();
     //    public static FlowableFluid EVIL_FLUID_STILL;
 //    public static FlowableFluid EVIL_FLUID_FLOWING;
 //    public static Item EVIL_FLUID_BUCKET;
@@ -58,10 +72,18 @@ public class Lawnchair implements ModInitializer {
     public void onInitialize() {
         loadConfig();
         ModItems.Initialize();
+        ModBlocks.Initialize();
+        ModEntities.Initialize();
+        ModEnchantmentEffects.Initialize();
+        Tagger.Initialize();
+        ModStats.Initialize();
+        ModBlockEntities.Initialize();
+        UnnamedHelper.Initialize();
 //        StickyEffectListener.Initialize();
 //        ModEffects.Initialize();
 //        ModPotions.Initialize();
-        ModBlocks.Initialize();
+//        ModRecipes.registerRecipes();
+
         LOGGER.info("Creating Copper Blocks for " + MODID);
         OxidizableBlocksRegistry.registerOxidizableBlockPair(
                 ModBlocks.COPPER_CHAIN_BLOCK,
@@ -94,8 +116,6 @@ public class Lawnchair implements ModInitializer {
                 ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK
         );
 
-        ModEnchantmentEffects.Initialize();
-        VariantTagger.Initialize();
 
         LOGGER.info("Registering /grav for " + MODID);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
@@ -105,8 +125,27 @@ public class Lawnchair implements ModInitializer {
             );
         });
 
-        ModStats.Initialize();
-        ModBlockEntities.Initialize();
+        LOGGER.info("Registering /home for " + MODID);
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+            dispatcher.register(CommandManager.literal("home")
+                    .requires(source -> source.hasPermissionLevel(2))
+                    .executes(ctx -> executeHome(ctx, null))
+                    .then(CommandManager.argument("player", EntityArgumentType.player())
+                            .executes(ctx -> executeHome(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
+                    .then(CommandManager.literal("reset")
+                            .executes(ctx -> resetHome(ctx, null))
+                            .then(CommandManager.argument("player", EntityArgumentType.player())
+                                    .executes(ctx -> resetHome(ctx, EntityArgumentType.getPlayer(ctx, "player")))))
+                    .then(CommandManager.literal("set")
+                            .executes(ctx -> setHome(ctx, null, null))
+                            .then(CommandManager.argument("player", EntityArgumentType.player())
+                                    .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"), null))
+                                    .then(CommandManager.argument("pos", Vec3ArgumentType.vec3())
+                                            .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
+                                                    Vec3ArgumentType.getVec3(ctx, "pos"))))))
+            );
+        });
+
 
         LOGGER.info("Registering Villager Trades for " + MODID);
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {
@@ -129,14 +168,14 @@ public class Lawnchair implements ModInitializer {
                     new ItemStack(ModItems.EMERALD_CHESTPLATE, 1), 1, 2, 0));
         });
 
-//        ModRecipes.registerRecipes();
-
         //Fluids
 //        EVIL_FLUID_STILL = Registry.register(Registries.FLUID, Identifier.of(MODID, "evil_fluid"), new EvilFluid.Still());
 //        EVIL_FLUID_FLOWING = Registry.register(Registries.FLUID, Identifier.of(MODID, "flowing_evil_fluid"), new EvilFluid.Flowing());
 //        EVIL_FLUID = Registry.register(Registries.BLOCK, Identifier.of(MODID, "evil_fluid"), new FluidBlock(EVIL_FLUID_STILL, AbstractBlock.Settings.create().mapColor(MapColor.LIME).replaceable().noCollision().ticksRandomly().strength(100.0F).luminance((state) -> 3).pistonBehavior(PistonBehavior.DESTROY).dropsNothing().liquid().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY)));
 //        EVIL_FLUID_BUCKET = Registry.register(Registries.ITEM, Identifier.of(MODID, "evil_fluid_bucket"),
 //                new BucketItem(EVIL_FLUID_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
+        FabricDefaultAttributeRegistry.register(ModEntities.GOLIATH, GoliathEntity.createGoliathAttributes());
     }
 
     private static int toggleGravity(CommandContext<ServerCommandSource> context) {
@@ -171,5 +210,48 @@ public class Lawnchair implements ModInitializer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static int executeHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) throws CommandSyntaxException {
+        ServerPlayerEntity executor = ctx.getSource().getPlayer();
+        if (target == null) target = executor;
+
+        ServerWorld world = target.getEntityWorld();
+        BlockPos home = PLAYER_HOMES.getOrDefault(target.getUuidAsString(), world.getSpawnPoint().getPos());
+
+        if (home == null) {
+            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.not_set"), false);
+            return 0;
+        }
+
+        executor.teleport(world, home.getX(), home.getY(), home.getZ(), Set.of(), executor.getYaw(), executor.getPitch(), true);
+        ServerPlayerEntity finalTarget = target;
+        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.teleported", finalTarget.getName()), true);
+        return Command.SINGLE_SUCCESS;
+    }
+
+    private static int resetHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) throws CommandSyntaxException {
+        ServerPlayerEntity executor = ctx.getSource().getPlayer();
+        if (target == null) target = executor;
+
+        ServerWorld world = executor.getEntityWorld();
+        BlockPos spawn = world.getSpawnPoint().getPos();
+        PLAYER_HOMES.put(target.getUuidAsString(), spawn);
+
+        ServerPlayerEntity finalTarget = target;
+        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.reset", finalTarget.getName()), true);
+        return Command.SINGLE_SUCCESS;
+    }
+
+    private static int setHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target, Vec3d position) throws CommandSyntaxException {
+        ServerPlayerEntity executor = ctx.getSource().getPlayer();
+        if (target == null) target = executor;
+
+        BlockPos blockPos = new BlockPos((int) position.x, (int) position.y, (int) position.z);
+        PLAYER_HOMES.put(target.getUuidAsString(), blockPos);
+
+        ServerPlayerEntity finalTarget = target;
+        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.set", finalTarget.getName(), blockPos.toShortString()), true);
+        return Command.SINGLE_SUCCESS;
     }
 }

@@ -4,11 +4,13 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AbstractMinecartEntityMixin",
+    "BlockMixin",
     "CarvedPumpkinBlockMixin",
     "CreeperEntityMixin",
     "EndermanEntityMixin",
     "GameModeCommandMixin",
     "SnowballEntityMixin",
+    "SquidEntityMixin",
     "ZombieEntityMixin"
   ],
   "injectors": {

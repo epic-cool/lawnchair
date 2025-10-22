@@ -6,6 +6,7 @@
   "itemGroup.lawnchair.copper": "Lawnchair: Copper",
   "itemGroup.lawnchair.combat": "Lawnchair: Equipment",
   "itemGroup.lawnchair.robot": "Lawnchair: Robots",
+  "itemGroup.lawnchair.spawn_egg": "Lawnchair: Spawn Eggs",
 
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
@@ -15,6 +16,7 @@
   "item.lawnchair.robot_core": "Robot Core",
   "item.lawnchair.evil_goop_fragment": "Evil Goop Fragment",
   "item.lawnchair.evil_goop_fragment.tooltip": "Use on mob to make it into an evil goop variant! [not implemented]",
+  "item.lawnchair.goliath_spawn_egg": "Goliath Spawn Egg",
 
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
@@ -25,6 +27,8 @@
   "item.lawnchair.cooked_sausage": "Cooked Sausage",
   "item.lawnchair.raw_bacon": "Raw Bacon",
   "item.lawnchair.cooked_bacon": "Cooked Bacon",
+  "item.lawnchair.raw_squid": "Raw Squid",
+  "item.lawnchair.cooked_squid": "Cooked Squid",
 
 
   "---------------------------------------Category IV": "Blocks ------------------------------------------------",
@@ -68,6 +72,7 @@
 
   "---------------------------------------Category VI": "Entities ------------------------------------------------",
   "entity.lawnchair.white_item_frame": "White Item Frame",
+  "entity.lawnchair.goliath": "Goliath",
 
 
   "---------------------------------------Category VII": "Effects ------------------------------------------------",
@@ -105,6 +110,20 @@
   "gamerule.creeperExplosions": "Creeper explosions destroy blocks",
   "gamerule.slimeSpawning": "[Broken] Slimes spawn",
   "commands.gamemode.invalid": "Unknown gamemode: %s",
+  "commands.lawnchair.action.invalid": "Unknown action",
+  "commands.lawnchair.action.cancel": "Cancelled action",
+  "commands.lawnchair.action.start": "Started action: %s",
+  "commands.lawnchair.action.start.stand": "Started action: Stand",
+  "commands.lawnchair.action.start.sit": "Started action: Sit",
+  "commands.lawnchair.action.start.swim": "Started action: Swim",
+  "commands.lawnchair.action.start.sleep": "Started action: Sleep",
+  "commands.lawnchair.action.start.sneak": "Started action: Sneak",
+  "commands.lawnchair.action.start.dead": "Started action: Dead",
+  "commands.lawnchair.action.start.glide": "Started action: Glide",
+  "commands.lawnchair.home.not_set": "No home set",
+  "commands.lawnchair.home.teleported": "TPed to the home of %s",
+  "commands.lawnchair.home.reset": "Reset the home of %s",
+  "commands.lawnchair.home.set": "Set the home of %s at %s",
 
 
   "---------------------------------------Category X": "Containers ------------------------------------------------",
@@ -126,6 +145,37 @@
 
   "---------------------------------------Category XIV": "Damage ------------------------------------------------",
   "damage.lawnchair.ran_over": "Ran over",
+
+
+  "---------------------------------------Category XV": "Advancements ------------------------------------------------",
+  "advancements.lawnchair.root.title": "Lawnchair",
+  "advancements.lawnchair.root.description": "There's no lawnchairs in this mod!",
+  "advancements.lawnchair.boss_rush.title": "Boss Rush",
+  "advancements.lawnchair.boss_rush.description": "Kill all the bosses, including mini-bosses",
+  "advancements.lawnchair.mile_high.title": "Mile High Club",
+  "advancements.lawnchair.mile_high.description": "Breed two animals at the top of the world",
+  "advancements.lawnchair.seriouser_dedication.title": "Serious-er Dedication",
+  "advancements.lawnchair.seriouser_dedication.description": "Fully use up a Netherite Hoe",
+  "advancements.lawnchair.scammed.title": "Scammed!",
+  "advancements.lawnchair.scammed.description": "Use an exorbitant amount of emeralds to purchase a full set of Emerald armor from a villager",
+  "advancements.lawnchair.moar_ores.title": "MOAR Ores",
+  "advancements.lawnchair.moar_ores.description": "Obtain one of every ore",
+  "advancements.lawnchair.even_moar_ores.title": "Even MOAR Ores",
+  "advancements.lawnchair.even_moar_ores.description": "Obtain one of EVERY ore",
+  "advancements.lawnchair.find_pyramid.title": "What Is This, a Desert?",
+  "advancements.lawnchair.find_pyramid.description": "Find a pyramid",
+  "advancements.lawnchair.freshly_squeezed.title": "Freshly Squeezed",
+  "advancements.lawnchair.freshly_squeezed.description": "Milk every mob",
+  "advancements.lawnchair.cold_tourist_destinations.title": "Cold Tourist Destinations",
+  "advancements.lawnchair.cold_tourist_destinations.description": "Visit every biome in the End",
+  "advancements.lawnchair.david.title": "David",
+  "advancements.lawnchair.david.description": "Slay Goliath",
+  "advancements.lawnchair.better_use_headphones.title": "Better Use Headphones",
+  "advancements.lawnchair.better_use_headphones.description": "Obtain one of every music disc",
+  "advancements.lawnchair.space.title": "ecapS ni era eW",
+  "advancements.lawnchair.space.description": "So, uhh, this is space.",
+  "advancements.lawnchair.when_in_rome.title": "When in Rome",
+  "advancements.lawnchair.when_in_rome.description": "Listen to Pigstep while wearing a full set of Golden Armor in a Bastion Remnant",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

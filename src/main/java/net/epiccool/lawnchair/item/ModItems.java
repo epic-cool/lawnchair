@@ -2,8 +2,10 @@ package net.epiccool.lawnchair.item;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.entity.ModEntities;
 import net.epiccool.lawnchair.item.custom.EvilGoopFragmentItem;
 import net.epiccool.lawnchair.item.custom.IcePickItem;
+import net.epiccool.lawnchair.item.custom.RawFoodItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
@@ -57,6 +59,24 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.colored"))
             .build();
 
+    public static final RegistryKey<ItemGroup> ENCHANTS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "enchants_group"));
+    public static final ItemGroup ENCHANTS_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(Items.BARRIER))
+            .displayName(Text.translatable("itemGroup.lawnchair.enchants"))
+            .build();
+
+    public static final RegistryKey<ItemGroup> SPAWN_EGGS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "spawn_egg_group"));
+    public static final ItemGroup SPAWN_EGGS_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(Items.BARRIER))
+            .displayName(Text.translatable("itemGroup.lawnchair.spawn_egg"))
+            .build();
+
+    public static final RegistryKey<ItemGroup> FOOD_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "food_group"));
+    public static final ItemGroup FOOD_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModItems.COOKED_SAUSAGE))
+            .displayName(Text.translatable("itemGroup.lawnchair.food"))
+            .build();
+
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
@@ -77,6 +97,8 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, COMBAT_ITEM_GROUP_KEY, COMBAT_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, ROBOT_ITEM_GROUP_KEY, ROBOT_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COLORED_ITEM_GROUP_KEY, COLORED_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, SPAWN_EGGS_ITEM_GROUP_KEY, SPAWN_EGGS_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, FOOD_ITEM_GROUP_KEY, FOOD_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
@@ -153,6 +175,26 @@ public class ModItems {
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
         });
+
+//        ItemGroupEvents.modifyEntriesEvent(ENCHANTS_ITEM_GROUP_KEY).register(ModItems::addEnchantedBooks);
+
+        ItemGroupEvents.modifyEntriesEvent(SPAWN_EGGS_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModItems.GOLIATH_SPAWN_EGG);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModItems.RAW_HAM);
+            entries.add(ModItems.COOKED_HAM);
+
+            entries.add(ModItems.RAW_BACON);
+            entries.add(ModItems.COOKED_BACON);
+
+            entries.add(ModItems.RAW_SAUSAGE);
+            entries.add(ModItems.COOKED_SAUSAGE);
+
+            entries.add(ModItems.RAW_SQUID);
+            entries.add(ModItems.COOKED_SQUID);
+        });
     }
 
     public static final Item ICE_PICK = register("ice_pick", settings -> new IcePickItem(settings) {
@@ -164,15 +206,21 @@ public class ModItems {
     }, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()).enchantable(4));
 
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
-    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", settings -> new EvilGoopFragmentItem(settings) {}, new Item.Settings());
+    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", settings -> new EvilGoopFragmentItem(settings) {
+    }, new Item.Settings());
     public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
-    public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.05F).build()));
-    public static final Item RAW_HAM = register("raw_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item COOKED_HAM = register("cooked_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item RAW_BACON = register("raw_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item RAW_SAUSAGE = register("raw_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
-    public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(20).saturationModifier(1.0F).build())); //placeholder stats
+    public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.1F).build()));
+    public static final Item RAW_HAM = register("raw_ham", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).build()));
+    public static final Item COOKED_HAM = register("cooked_ham", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.8F).build()));
+    public static final Item RAW_BACON = register("raw_bacon", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.2F).build()));
+    public static final Item COOKED_BACON = register("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6F).build()));
+    public static final Item RAW_SAUSAGE = register("raw_sausage", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.25F).build()));
+    public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(0.7F).build()));
+    public static final Item RAW_SQUID = register("raw_squid", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
+    public static final Item COOKED_SQUID = register("cooked_squid", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.6F).build()));
+
+    //Spawn eggs
+    public static final Item GOLIATH_SPAWN_EGG = register("goliath_spawn_egg", settings -> new SpawnEggItem(settings.spawnEgg(ModEntities.GOLIATH)), new Item.Settings());
 
     //Steel tools
     public static final Item STEEL_SWORD = register(
@@ -250,6 +298,11 @@ public class ModItems {
             new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.BOOTS)
     );
 
+    public static final Item GAS_MASK = register(
+            "gas_mask",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.GAS_MASK, EquipmentType.HELMET).maxCount(1)
+    );
 
     public static final Item UNLIT_TORCH = register(
             "unlit_torch",
@@ -257,11 +310,6 @@ public class ModItems {
             new Item.Settings()
     );
 
-    public static final Item GAS_MASK = register(
-            "gas_mask",
-            Item::new,
-            new Item.Settings().armor(ModArmorMaterials.GAS_MASK, EquipmentType.HELMET).maxCount(1)
-    );
 
 //    private static void addStickyPotions(ItemGroup.Entries entries) {
 //        Potion[] stickyPotions = new Potion[] {

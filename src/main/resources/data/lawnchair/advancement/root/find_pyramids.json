@@ -1,0 +1,40 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "fortress": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": [
+                  "minecraft:desert_pyramid",
+                  "minecraft:jungle_pyramid"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.find_pyramid.description"
+    },
+    "icon": {
+      "id": "minecraft:chiseled_sandstone"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.find_pyramid.title"
+    }
+  },
+  "requirements": [
+    [
+      "fortress"
+    ]
+  ]
+}

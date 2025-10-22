@@ -1,0 +1,64 @@
+{
+  "parent": "minecraft:nether/find_bastion",
+  "criteria": {
+    "play_jukebox": {
+      "conditions": {
+        "player": {
+          "equipment": {
+            "head": {
+              "items": "minecraft:golden_helmet"
+            },
+            "chest": {
+              "items": "minecraft:golden_chestplate"
+            },
+            "legs": {
+              "items": "minecraft:golden_leggings"
+            },
+            "feet": {
+              "items": "minecraft:golden_boots"
+            }
+          }
+        },
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "structures": "minecraft:bastion_remnant",
+              "block": {
+                "blocks": "minecraft:jukebox"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "predicates": {
+                "minecraft:jukebox_playable": {
+                  "song": "minecraft:pigstep"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.when_in_rome.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:piglin_head"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.when_in_rome.title"
+    }
+  },
+  "requirements": [
+    [
+      "play_jukebox"
+    ]
+  ]
+}

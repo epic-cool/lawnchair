@@ -1,0 +1,36 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "killed_dragon": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "lawnchair:goliath"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.david.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "lawnchair:goliath_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.david.title"
+    }
+  },
+  "requirements": [
+    [
+      "killed_dragon"
+    ]
+  ]
+}

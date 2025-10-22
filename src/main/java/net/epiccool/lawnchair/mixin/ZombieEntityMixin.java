@@ -31,18 +31,18 @@ public class ZombieEntityMixin {
         Random random = world.getRandom();
 
         if (world.getDifficulty() == Difficulty.HARD
-                && random.nextFloat() < 0.99F * difficulty.getClampedLocalDifficulty()) {
+                && random.nextFloat() < 0.1F * difficulty.getClampedLocalDifficulty()) {
 
             RegistryEntry<StatusEffect> effect = null;
-            int i = random.nextInt(5);
+            int i = random.nextInt(100);
 
-            if (i <= 1) {
+            if (i < 40) {
                 effect = StatusEffects.SPEED;
-            } else if (i == 2) {
+            } else if (i < 60) {
                 effect = StatusEffects.STRENGTH;
-            } else if (i == 3) {
+            } else if (i < 80) {
                 effect = StatusEffects.REGENERATION;
-            } else if (i == 4) {
+            } else {
                 effect = StatusEffects.INVISIBILITY;
             }
 

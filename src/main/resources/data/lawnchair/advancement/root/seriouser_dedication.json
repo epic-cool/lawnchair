@@ -1,0 +1,32 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "netherite_hoe": {
+      "conditions": {
+        "durability": 0,
+        "item": {
+          "items": "minecraft:netherite_hoe"
+        }
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.seriouser_dedication.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:netherite_hoe"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.seriouser_dedication.title"
+    }
+  },
+  "requirements": [
+    [
+      "netherite_hoe"
+    ]
+  ]
+}

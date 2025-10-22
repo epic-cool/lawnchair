@@ -1,4 +1,4 @@
-package net.epiccool.lawnchair.entity;
+package net.epiccool.lawnchair.util;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -7,12 +7,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.server.world.ServerWorld;
 
-public class VariantTagger {
+public class Tagger {
     public static void Initialize() {
-        Lawnchair.LOGGER.info("Tagging Variants with " + Lawnchair.MODID);
+        Lawnchair.LOGGER.info("Tagging Entities with " + Lawnchair.MODID);
+
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             for (ServerWorld world : server.getWorlds()) {
                 for (Entity entity : world.iterateEntities()) {
+                    //Pig tagger
                     if (entity.getType() == EntityType.PIG && entity instanceof PigEntity pig) {
                         String variant = pig.getVariant().getIdAsString();
                         if (variant.contains("cold")) {
@@ -24,6 +26,9 @@ public class VariantTagger {
                         }
                     }
                 }
+
+                //Squid ticker
+                UnnamedHelper.tick(world);
             }
         });
     }

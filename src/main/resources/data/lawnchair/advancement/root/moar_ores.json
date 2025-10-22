@@ -1,0 +1,161 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "coal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:coal_ore",
+              "minecraft:deepslate_coal_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:copper_ore",
+              "minecraft:deepslate_copper_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ore",
+              "minecraft:deepslate_iron_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gold_ore",
+              "minecraft:deepslate_gold_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "lapis": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lapis_ore",
+              "minecraft:deepslate_lapis_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:redstone_ore",
+              "minecraft:deepslate_redstone_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond_ore",
+              "minecraft:deepslate_diamond_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "emerald": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:emerald_ore",
+              "minecraft:deepslate_emerald_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "nether_quartz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:nether_quartz_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "ancient_debris": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ancient_debris"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "title": {
+      "translate": "advancements.lawnchair.moar_ores.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.moar_ores.description"
+    },
+    "icon": {
+      "id": "minecraft:diamond_ore"
+    },
+    "frame": "challenge"
+  },
+  "requirements": [
+      ["coal"],
+      ["copper"],
+      ["lapis"],
+      ["iron"],
+      ["gold"],
+      ["redstone"],
+      ["diamond"],
+      ["emerald"],
+      ["nether_quartz"],
+      ["ancient_debris"]
+  ],
+  "rewards": {
+    "loot": [],
+    "experience": 50
+  }
+}

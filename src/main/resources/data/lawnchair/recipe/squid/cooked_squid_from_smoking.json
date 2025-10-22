@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": [
+    "lawnchair:raw_squid"
+  ],
+  "result": {
+    "id": "lawnchair:cooked_squid"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

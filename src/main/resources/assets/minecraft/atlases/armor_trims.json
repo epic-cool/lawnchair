@@ -43,7 +43,7 @@
       ],
       "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {
-        "quartz": "trims/color_palettes/quartz",
+        "nether_quartz": "trims/color_palettes/quartz",
         "iron": "trims/color_palettes/iron",
         "gold": "trims/color_palettes/gold",
         "diamond": "trims/color_palettes/diamond",

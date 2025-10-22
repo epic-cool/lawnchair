@@ -1,0 +1,44 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "emerald_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lawnchair:emerald_helmet"
+          },
+          {
+            "items": "lawnchair:emerald_chestplate"
+          },
+          {
+            "items": "lawnchair:emerald_leggings"
+          },
+          {
+            "items": "lawnchair:emerald_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.scammed.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.scammed.title"
+    }
+  },
+  "requirements": [
+    [
+      "emerald_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  }
+}

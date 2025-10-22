@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:elytra"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.space.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.space.description"
+    },
+    "frame": "challenge"
+  },
+  "parent": "lawnchair:root",
+  "criteria": {
+    "in_space": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "location": {
+            "position": {
+              "y": {
+                "min": 4447
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_space"
+    ]
+  ]
+}

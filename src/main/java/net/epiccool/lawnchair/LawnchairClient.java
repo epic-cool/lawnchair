@@ -1,15 +1,24 @@
 package net.epiccool.lawnchair;
 
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.entity.ModEntities;
+import net.epiccool.lawnchair.entity.client.GoliathEntityModel;
+import net.epiccool.lawnchair.entity.client.GoliathEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.BlockRenderLayer;
+import net.minecraft.client.render.entity.EntityRendererFactories;
 
 public class LawnchairClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.putBlock(ModBlocks.STEEL_BARS, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.UNLIT_LANTERN, BlockRenderLayer.CUTOUT);
+
+        EntityModelLayerRegistry.registerModelLayer(GoliathEntityModel.GOLIATH, GoliathEntityModel::getTexturedModelData);
+        EntityRendererFactories.register(ModEntities.GOLIATH, GoliathEntityRenderer::new);
+
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);
 
