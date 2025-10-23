@@ -17,7 +17,7 @@ import java.util.function.Predicate;
 @Mixin(CarvedPumpkinBlock.class)
 public class CarvedPumpkinBlockMixin {
     private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE =
-            state -> state != null && (state.isOf(Blocks.CARVED_PUMPKIN) || state.isOf(Blocks.JACK_O_LANTERN));
+            state -> state != null && (state.isOf(Blocks.CARVED_PUMPKIN) || state.isOf(Blocks.JACK_O_LANTERN) || state.isOf(ModBlocks.SOUL_JACK_O_LANTERN));
 
     @Inject(method = "getIronGolemPattern", at = @At("RETURN"), cancellable = true)
     private void replaceIronBlockPattern(CallbackInfoReturnable<BlockPattern> cir) {

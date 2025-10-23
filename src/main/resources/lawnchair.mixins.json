@@ -5,10 +5,13 @@
   "mixins": [
     "AbstractMinecartEntityMixin",
     "BlockMixin",
+    "BoneMealItemMixin",
     "CarvedPumpkinBlockMixin",
     "CreeperEntityMixin",
     "EndermanEntityMixin",
     "GameModeCommandMixin",
+    "MobEntityAccessor",
+    "PigEntityMixin",
     "SnowballEntityMixin",
     "SquidEntityMixin",
     "ZombieEntityMixin"

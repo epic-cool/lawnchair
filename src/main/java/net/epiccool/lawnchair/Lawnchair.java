@@ -54,6 +54,7 @@ public class Lawnchair implements ModInitializer {
     public static final String MODID = "lawnchair";
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
     public static boolean creeperExplosions = true;
+    public static boolean bedExplosions = true;
     public static boolean slimeSpawning = true; //doesn't work
     private static final Path CONFIG = FabricLoader.getInstance().getConfigDir().resolve("lawnchair-config.json");
     private static final Map<String, BlockPos> PLAYER_HOMES = new HashMap<>();
@@ -66,6 +67,11 @@ public class Lawnchair implements ModInitializer {
     public static final GameRules.Key<GameRules.BooleanRule> CREEPER_EXPLOSIONS =
             GameRuleRegistry.register("creeperExplosions",
                     GameRules.Category.MOBS,
+                    GameRuleFactory.createBooleanRule(true));
+
+    public static final GameRules.Key<GameRules.BooleanRule> BED_EXPLOSIONS =
+            GameRuleRegistry.register("bedExplosions",
+                    GameRules.Category.PLAYER,
                     GameRuleFactory.createBooleanRule(true));
 
     @Override
@@ -175,6 +181,7 @@ public class Lawnchair implements ModInitializer {
 //        EVIL_FLUID_BUCKET = Registry.register(Registries.ITEM, Identifier.of(MODID, "evil_fluid_bucket"),
 //                new BucketItem(EVIL_FLUID_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
+        LOGGER.info("Registering Entity Attributes for " + MODID);
         FabricDefaultAttributeRegistry.register(ModEntities.GOLIATH, GoliathEntity.createGoliathAttributes());
     }
 
@@ -196,6 +203,7 @@ public class Lawnchair implements ModInitializer {
                 String json = Files.readString(CONFIG);
                 LOGGER.info("Loading config for " + MODID);
                 creeperExplosions = !json.contains("false");
+                bedExplosions = !json.contains("false");
                 slimeSpawning = !json.contains("false"); //doesn't work
             } catch (IOException e) {
                 e.printStackTrace();
@@ -206,7 +214,7 @@ public class Lawnchair implements ModInitializer {
     //Why not used?
     public static void saveConfig() {
         try {
-            Files.writeString(CONFIG, "{ \"creeperExplosions\": " + creeperExplosions + " }");
+            Files.writeString(CONFIG, "{ \"creeperExplosions\": " + creeperExplosions + " }"); //save bedExplosions
         } catch (IOException e) {
             e.printStackTrace();
         }
