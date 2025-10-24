@@ -99,17 +99,28 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, COLORED_ITEM_GROUP_KEY, COLORED_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, SPAWN_EGGS_ITEM_GROUP_KEY, SPAWN_EGGS_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, FOOD_ITEM_GROUP_KEY, FOOD_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, ENCHANTS_ITEM_GROUP_KEY, ENCHANTS_ITEM_GROUP);
 
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.AZALEA_LOG.asItem());
+            entries.add(ModBlocks.AZALEA_PLANKS.asItem());
+            entries.add(ModBlocks.AZALEA_WOOD.asItem());
             entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
             entries.add(ModItems.COOKED_BACON);
             entries.add(ModItems.COOKED_HAM);
             entries.add(ModItems.COOKED_SAUSAGE);
+            entries.add(ModItems.COOKED_SQUID);
             entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModItems.DUCK_SPAWN_EGG);
+            entries.add(ModItems.EMERALD_BOOTS);
+            entries.add(ModItems.EMERALD_CHESTPLATE);
+            entries.add(ModItems.EMERALD_HELMET);
+            entries.add(ModItems.EMERALD_LEGGINGS);
             entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
             entries.add(ModBlocks.EVIL_GOOP.asItem());
             entries.add(ModItems.EVIL_GOOP_FRAGMENT);
             entries.add(ModItems.GAS_MASK);
+            entries.add(ModItems.GOLIATH_SPAWN_EGG);
             entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
             entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
             entries.add(ModItems.ICE_PICK);
@@ -118,6 +129,7 @@ public class ModItems {
             entries.add(ModItems.RAW_BACON);
             entries.add(ModItems.RAW_HAM);
             entries.add(ModItems.RAW_SAUSAGE);
+            entries.add(ModItems.RAW_SQUID);
             entries.add(ModItems.ROBOT_CORE);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
             entries.add(ModItems.STEEL_AXE);
@@ -132,6 +144,8 @@ public class ModItems {
             entries.add(ModItems.STEEL_PICKAXE);
             entries.add(ModItems.STEEL_SHOVEL);
             entries.add(ModItems.STEEL_SWORD);
+            entries.add(ModBlocks.STRIPPED_AZALEA_LOG.asItem());
+            entries.add(ModBlocks.STRIPPED_AZALEA_WOOD.asItem());
             entries.add(ModBlocks.UNLIT_LANTERN.asItem());
             entries.add(ModItems.UNLIT_TORCH);
             entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
@@ -154,6 +168,7 @@ public class ModItems {
             entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
         });
 
+        //Equipment
         ItemGroupEvents.modifyEntriesEvent(COMBAT_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModItems.STEEL_HELMET);
             entries.add(ModItems.STEEL_CHESTPLATE);
@@ -169,6 +184,7 @@ public class ModItems {
             entries.add(ModItems.EMERALD_LEGGINGS);
             entries.add(ModItems.EMERALD_BOOTS);
             entries.add(ModItems.GAS_MASK);
+            entries.add(ModItems.ICE_PICK);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
@@ -180,6 +196,7 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(SPAWN_EGGS_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModItems.GOLIATH_SPAWN_EGG);
+            entries.add(ModItems.DUCK_SPAWN_EGG);
         });
 
         ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {
@@ -194,6 +211,8 @@ public class ModItems {
 
             entries.add(ModItems.RAW_SQUID);
             entries.add(ModItems.COOKED_SQUID);
+
+            entries.add(ModItems.PUMPKIN_SLICE);
         });
     }
 
@@ -221,6 +240,7 @@ public class ModItems {
 
     //Spawn eggs
     public static final Item GOLIATH_SPAWN_EGG = register("goliath_spawn_egg", settings -> new SpawnEggItem(settings.spawnEgg(ModEntities.GOLIATH)), new Item.Settings());
+    public static final Item DUCK_SPAWN_EGG = register("duck_spawn_egg", settings -> new SpawnEggItem(settings.spawnEgg(ModEntities.DUCK)), new Item.Settings());
 
     //Steel tools
     public static final Item STEEL_SWORD = register(

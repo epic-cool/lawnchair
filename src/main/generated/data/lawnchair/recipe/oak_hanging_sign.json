@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:stick",
+    "1": "lawnchair:azalea_planks"
+  },
+  "pattern": [
+    "0 0",
+    "111",
+    "111"
+  ],
+  "result": {
+    "count": 6,
+    "id": "minecraft:oak_hanging_sign"
+  }
+}

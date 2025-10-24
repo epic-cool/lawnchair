@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "lawnchair:block/azalea_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "lawnchair:block/azalea_wood"
+    },
+    "axis=z": {
+      "model": "lawnchair:block/azalea_wood",
+      "x": 90
+    }
+  }
+}

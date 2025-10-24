@@ -48,12 +48,12 @@ public class WarpedWartBlock extends PlantBlock {
 
     @Override
     protected boolean hasRandomTicks(BlockState state) {
-        return (Integer)state.get(AGE) < 3;
+        return state.get(AGE) < 3;
     }
 
     @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int i = (Integer)state.get(AGE);
+        int i = state.get(AGE);
         if (i < 3 && random.nextInt(10) == 0) {
             state = state.with(AGE, i + 1);
             world.setBlockState(pos, state, Block.NOTIFY_LISTENERS);

@@ -1,0 +1,99 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "lucy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:axolotl_bucket",
+            "components": {
+              "minecraft:axolotl/variant": "lucy"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "wild": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:axolotl_bucket",
+            "components": {
+              "minecraft:axolotl/variant": "wild"
+            }
+          }
+        ]
+      }
+    },
+    "gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:axolotl_bucket",
+            "components": {
+              "minecraft:axolotl/variant": "gold"
+            }
+          }
+        ]
+      }
+    },
+    "cyan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:axolotl_bucket",
+            "components": {
+              "minecraft:axolotl/variant": "cyan"
+            }
+          }
+        ]
+      }
+    },
+    "blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:axolotl_bucket",
+            "components": {
+              "minecraft:axolotl/variant": "blue"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.rainbow_of_cuties.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:axolotl_bucket"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.rainbow_of_cuties.title"
+    }
+  },
+  "requirements": [
+    [
+      "lucy"
+    ],
+    [
+      "wild"
+    ],
+    [
+      "gold"
+    ],
+    [
+      "cyan"
+    ],
+    [
+      "blue"
+    ]
+  ]
+}

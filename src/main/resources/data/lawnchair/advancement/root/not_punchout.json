@@ -1,0 +1,32 @@
+{
+  "parent": "lawnchair:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:player_head"
+    },
+    "title": "advancements.lawnchair.not_punchout.title",
+    "description": "advancements.lawnchair.not_punchout.description"
+  },
+  "criteria": {
+    "killed": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "killing_blow": {
+          "source_entity": {
+            "equipment": {
+              "mainhand": {
+                "items": "minecraft:air"
+              }
+            }
+          },
+          "is_direct": true
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed"
+    ]
+  ]
+}

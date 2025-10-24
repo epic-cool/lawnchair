@@ -1,5 +1,6 @@
 package net.epiccool.lawnchair.datagen;
 
+import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
 import net.epiccool.lawnchair.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -66,5 +67,11 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
         valueLookupBuilder(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.STEEL_INGOT);
+
+        valueLookupBuilder(ModTags.Items.AZALEA_LOGS)
+                .add(ModBlocks.AZALEA_LOG.asItem())
+                .add(ModBlocks.AZALEA_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_AZALEA_LOG.asItem())
+                .add(ModBlocks.STRIPPED_AZALEA_WOOD.asItem());
     }
 }

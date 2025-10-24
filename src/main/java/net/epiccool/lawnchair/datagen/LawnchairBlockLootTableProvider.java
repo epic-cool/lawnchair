@@ -31,5 +31,10 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.UNLIT_LANTERN);
         addDrop(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
 //        addDrop(ModBlocks.ALLOY_MIXER);
+        addDrop(ModBlocks.AZALEA_LOG);
+        addDrop(ModBlocks.AZALEA_WOOD);
+        addDrop(ModBlocks.STRIPPED_AZALEA_LOG);
+        addDrop(ModBlocks.STRIPPED_AZALEA_WOOD);
+        addDrop(ModBlocks.AZALEA_PLANKS);
     }
 }

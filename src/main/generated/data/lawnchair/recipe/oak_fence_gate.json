@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "0": "minecraft:stick",
+    "1": "lawnchair:azalea_planks"
+  },
+  "pattern": [
+    "010",
+    "010"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_fence_gate"
+  }
+}

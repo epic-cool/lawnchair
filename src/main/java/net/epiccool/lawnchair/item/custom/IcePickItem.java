@@ -31,7 +31,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -104,7 +103,10 @@ public class IcePickItem extends Item {
     private void damageAndSound(ItemUsageContext context, World world, BlockPos pos) {
         if (!world.isClient()) {
             context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
-                    item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+                    item -> {
+                        assert context.getPlayer() != null;
+                        context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND);
+                    });
         }
         world.playSound(null, pos, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS,
                 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
@@ -131,7 +133,6 @@ public class IcePickItem extends Item {
         BlockState blockState = world.getBlockState(pos.offset(facing));
 
         if (blockState.isOf(Blocks.ICE) || blockState.isOf(Blocks.PACKED_ICE) || blockState.isOf(Blocks.BLUE_ICE)) {
-            Vec3d motion = player.getVelocity();
             double stickX = 0;
             double stickZ = 0;
 

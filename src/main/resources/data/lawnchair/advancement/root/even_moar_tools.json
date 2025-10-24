@@ -1,0 +1,255 @@
+{
+  "parent": "lawnchair:root/moar_tools",
+  "criteria": {
+    "sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_sword",
+              "minecraft:golden_sword",
+              "minecraft:stone_sword",
+              "minecraft:copper_sword",
+              "minecraft:iron_sword",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_axe",
+              "minecraft:golden_sword",
+              "minecraft:stone_axe",
+              "minecraft:copper_axe",
+              "minecraft:iron_sword",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_shovel",
+              "minecraft:golden_sword",
+              "minecraft:stone_shovel",
+              "minecraft:copper_shovel",
+              "minecraft:iron_shovel",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_pickaxe",
+              "minecraft:golden_pickaxe",
+              "minecraft:stone_sword",
+              "minecraft:copper_pickaxe",
+              "minecraft:iron_pickaxe",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_sword",
+              "minecraft:golden_hoe",
+              "minecraft:stone_sword",
+              "minecraft:copper_hoe",
+              "minecraft:iron_hoe",
+              "minecraft:diamond_hoe",
+              "minecraft:netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bow"
+          }
+        ]
+      }
+    },
+    "crossbow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crossbow"
+          }
+        ]
+      }
+    },
+    "trident": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "trident"
+          }
+        ]
+      }
+    },
+    "mace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:mace"
+          }
+        ]
+      }
+    },
+    "rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:fishing_rod"
+          }
+        ]
+      }
+    },
+    "shears": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:shears"
+          }
+        ]
+      }
+    },
+    "fns": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:flint_and_steel"
+          }
+        ]
+      }
+    },
+    "stick_carrot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:carrot_on_a_stick"
+          }
+        ]
+      }
+    },
+    "stick_fungus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:warped_fungus_on_a_stick"
+          }
+        ]
+      }
+    },
+    "brush": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "brush"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.even_moar_tools.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:diamond_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.even_moar_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "sword"
+    ],
+    [
+      "axe"
+    ],
+    [
+      "shovel"
+    ],
+    [
+      "pickaxe"
+    ],
+    [
+      "hoe"
+    ],
+    [
+      "bow"
+    ],
+    [
+      "crossbow"
+    ],
+    [
+      "trident"
+    ],
+    [
+      "mace"
+    ],
+    [
+      "rod"
+    ],
+    [
+      "shears"
+    ],
+    [
+      "fns"
+    ],
+    [
+      "stick_carrot"
+    ],
+    [
+      "stick_fungus"
+    ],
+    [
+      "brush"
+    ]
+  ]
+}

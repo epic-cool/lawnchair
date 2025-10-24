@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "0": "lawnchair:azalea_planks"
+  },
+  "pattern": [
+    "00"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_pressure_plate"
+  }
+}

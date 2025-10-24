@@ -1,0 +1,123 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_sword",
+              "minecraft:golden_sword",
+              "minecraft:stone_sword",
+              "minecraft:copper_sword",
+              "minecraft:iron_sword",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_axe",
+              "minecraft:golden_sword",
+              "minecraft:stone_axe",
+              "minecraft:copper_axe",
+              "minecraft:iron_sword",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_shovel",
+              "minecraft:golden_sword",
+              "minecraft:stone_shovel",
+              "minecraft:copper_shovel",
+              "minecraft:iron_shovel",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_pickaxe",
+              "minecraft:golden_pickaxe",
+              "minecraft:stone_sword",
+              "minecraft:copper_pickaxe",
+              "minecraft:iron_pickaxe",
+              "minecraft:diamond_sword",
+              "minecraft:netherite_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wooden_sword",
+              "minecraft:golden_hoe",
+              "minecraft:stone_sword",
+              "minecraft:copper_hoe",
+              "minecraft:iron_hoe",
+              "minecraft:diamond_hoe",
+              "minecraft:netherite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.moar_tools.description"
+    },
+    "icon": {
+      "id": "minecraft:iron_shovel"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.moar_tools.title"
+    }
+  },
+  "requirements": [
+    [
+      "sword"
+    ],
+    [
+      "axe"
+    ],
+    [
+      "shovel"
+    ],
+    [
+      "pickaxe"
+    ],
+    [
+      "hoe"
+    ]
+  ]
+}

@@ -19,18 +19,27 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BoneMealItem.class)
 public abstract class BoneMealItemMixin {
+    @Unique
     private static final TagKey<Block> SMALL_FLOWERS =
             TagKey.of(RegistryKeys.BLOCK, Identifier.ofVanilla("small_flowers"));
+    @Unique
+    private static final TagKey<Block> LAWNCHAIR_SMALL_FLOWERS =
+            TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "small_flowers"));
+    @Unique
     private static final TagKey<Block> TALL_FLOWERS =
             TagKey.of(RegistryKeys.BLOCK, Identifier.ofVanilla("tall_flowers"));
+    @Unique
+    private static final TagKey<Block> LAWNCHAIR_TALL_FLOWERS =
+            TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "tall_flowers"));
 
-    @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "useOnBlock", at = @At("HEAD"))
     private void bonemealFlower(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
         if (!(context.getWorld() instanceof ServerWorld serverWorld)) return;
 
@@ -46,7 +55,8 @@ public abstract class BoneMealItemMixin {
 
         boolean duplicated = false;
 
-        if (block.getDefaultState().isIn(SMALL_FLOWERS) || block.getDefaultState().isIn(TALL_FLOWERS)) {
+        if (block.getDefaultState().isIn(SMALL_FLOWERS) || block.getDefaultState().isIn(TALL_FLOWERS) ||
+                block.getDefaultState().isIn(LAWNCHAIR_SMALL_FLOWERS) || block.getDefaultState().isIn(LAWNCHAIR_TALL_FLOWERS)) {
             ItemStack stack = new ItemStack(block.asItem());
             ItemScatterer.spawn(serverWorld, pos.getX(), pos.getY(), pos.getZ(), stack);
             duplicated = true;

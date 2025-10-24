@@ -47,7 +47,6 @@ public class ModBlocks {
     }
 
     private static AbstractBlock.Settings copyLootTable(Block block, boolean copyTranslationKey) {
-        AbstractBlock.Settings settings = block.getSettings();
         AbstractBlock.Settings settings2 = AbstractBlock.Settings.create().lootTable(block.getLootTableKey());
         if (copyTranslationKey) {
             settings2 = settings2.overrideTranslationKey(block.getTranslationKey());
@@ -72,6 +71,13 @@ public class ModBlocks {
 //    public static final Block ALLOY_MIXER = register("alloy_mixer", AlloyMixerBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.GRAY).strength(2F, 2F).sounds(BlockSoundGroup.STONE), true);
     public static final Block WARPED_WART = register("warped_wart", WarpedWartBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.CYAN).noCollision().ticksRandomly().sounds(BlockSoundGroup.NETHER_WART).pistonBehavior(PistonBehavior.DESTROY), true);
     public static final Block EVIL_GOOP = register("evil_goop", EvilGoopBlock::new, AbstractBlock.Settings.create().strength(0.1F, 0.1F).sounds(BlockSoundGroup.SLIME).luminance(state -> 3).breakInstantly(), true); //todo: prevent spawning
+
+    //wood - azalea
+    public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
+    public static final Block AZALEA_WOOD = register("azalea_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_WOOD), true);
+    public static final Block STRIPPED_AZALEA_LOG = register("stripped_azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
+    public static final Block STRIPPED_AZALEA_WOOD = register("stripped_azalea_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
+    public static final Block AZALEA_PLANKS = register("azalea_planks", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(

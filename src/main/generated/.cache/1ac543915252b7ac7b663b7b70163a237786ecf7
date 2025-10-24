@@ -1,4 +1,7 @@
 // 1.21.10	-999999999-01-01T00:00:00	Lawnchair/Block Loot Tables
+983442f2dfee2e90e487eaba504c962495690fc4 data/lawnchair/loot_table/blocks/azalea_log.json
+8bfc80cd2f93ba25d8400eddd59e7cc9ea4acce0 data/lawnchair/loot_table/blocks/azalea_planks.json
+6fecfe7660c388fd60909f3436fc1e963abc29de data/lawnchair/loot_table/blocks/azalea_wood.json
 50f28a172f541591260412da9125fec907d856e0 data/lawnchair/loot_table/blocks/charcoal_block.json
 165393b71625c52ca2b6dad71825538e2980f477 data/lawnchair/loot_table/blocks/copper_chain_block.json
 81765ef0ba37970b5e92d7fd3b1b9bd6af90d68d data/lawnchair/loot_table/blocks/exposed_copper_chain_block.json
@@ -8,6 +11,8 @@ c407e0628fedeee19229d9537b5e7127a00a5993 data/lawnchair/loot_table/blocks/oxidiz
 d9c1b728e30185ef6395cc58413d9e4807a1b17f data/lawnchair/loot_table/blocks/soul_jack_o_lantern.json
 acec12dfdb192494279df2c19760da1dc553047f data/lawnchair/loot_table/blocks/steel_bars.json
 0b577237d300b608ef93fa55029a02c057fbabb8 data/lawnchair/loot_table/blocks/steel_block.json
+e32c990c92d5f1fc638faabf15e856180ec6268e data/lawnchair/loot_table/blocks/stripped_azalea_log.json
+58fedaa5edf24556f1fbf7a07dfaba5122b80d2d data/lawnchair/loot_table/blocks/stripped_azalea_wood.json
 8e6142d02e3d7b9a3110bb576010fa98a98f177f data/lawnchair/loot_table/blocks/unlit_lantern.json
 11785c41ed472e1bfdb61935b68ba417ea79e0dc data/lawnchair/loot_table/blocks/unlit_torch.json
 4acbd79ad78352f46eaa4af2489a5b09f2c513b3 data/lawnchair/loot_table/blocks/waxed_copper_chain_block.json

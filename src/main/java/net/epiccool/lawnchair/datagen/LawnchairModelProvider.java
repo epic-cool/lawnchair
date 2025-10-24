@@ -29,6 +29,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EVIL_GOOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AZALEA_PLANKS);
 
         blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
 
@@ -36,7 +37,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerLantern(ModBlocks.UNLIT_LANTERN);
 
-
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.AZALEA_LOG).log(ModBlocks.AZALEA_LOG).wood(ModBlocks.AZALEA_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AZALEA_LOG).log(ModBlocks.STRIPPED_AZALEA_LOG).wood(ModBlocks.STRIPPED_AZALEA_WOOD);
 
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
     }
@@ -56,6 +58,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_BACON, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROBOT_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLIATH_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_AXE, Models.HANDHELD);

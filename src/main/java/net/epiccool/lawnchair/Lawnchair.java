@@ -2,13 +2,12 @@ package net.epiccool.lawnchair;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
 import net.epiccool.lawnchair.entity.ModEntities;
-import net.epiccool.lawnchair.entity.custom.GoliathEntity;
 import net.epiccool.lawnchair.item.ModItems;
+import net.epiccool.lawnchair.sound.ModSoundEvents;
 import net.epiccool.lawnchair.stat.ModStats;
 import net.epiccool.lawnchair.util.Tagger;
 import net.epiccool.lawnchair.util.UnnamedHelper;
@@ -16,7 +15,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
@@ -85,6 +83,7 @@ public class Lawnchair implements ModInitializer {
         ModStats.Initialize();
         ModBlockEntities.Initialize();
         UnnamedHelper.Initialize();
+        ModSoundEvents.Initialize();
 //        StickyEffectListener.Initialize();
 //        ModEffects.Initialize();
 //        ModPotions.Initialize();
@@ -124,33 +123,29 @@ public class Lawnchair implements ModInitializer {
 
 
         LOGGER.info("Registering /grav for " + MODID);
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-            dispatcher.register(CommandManager.literal("grav")
-                    .requires(source -> source.hasPermissionLevel(0))
-                    .executes(Lawnchair::toggleGravity)
-            );
-        });
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("grav")
+                .requires(source -> source.hasPermissionLevel(0))
+                .executes(Lawnchair::toggleGravity)
+        ));
 
         LOGGER.info("Registering /home for " + MODID);
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-            dispatcher.register(CommandManager.literal("home")
-                    .requires(source -> source.hasPermissionLevel(2))
-                    .executes(ctx -> executeHome(ctx, null))
-                    .then(CommandManager.argument("player", EntityArgumentType.player())
-                            .executes(ctx -> executeHome(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
-                    .then(CommandManager.literal("reset")
-                            .executes(ctx -> resetHome(ctx, null))
-                            .then(CommandManager.argument("player", EntityArgumentType.player())
-                                    .executes(ctx -> resetHome(ctx, EntityArgumentType.getPlayer(ctx, "player")))))
-                    .then(CommandManager.literal("set")
-                            .executes(ctx -> setHome(ctx, null, null))
-                            .then(CommandManager.argument("player", EntityArgumentType.player())
-                                    .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"), null))
-                                    .then(CommandManager.argument("pos", Vec3ArgumentType.vec3())
-                                            .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
-                                                    Vec3ArgumentType.getVec3(ctx, "pos"))))))
-            );
-        });
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("home")
+                .requires(source -> source.hasPermissionLevel(2))
+                .executes(ctx -> executeHome(ctx, null))
+                .then(CommandManager.argument("player", EntityArgumentType.player())
+                        .executes(ctx -> executeHome(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
+                .then(CommandManager.literal("reset")
+                        .executes(ctx -> resetHome(ctx, null))
+                        .then(CommandManager.argument("player", EntityArgumentType.player())
+                                .executes(ctx -> resetHome(ctx, EntityArgumentType.getPlayer(ctx, "player")))))
+                .then(CommandManager.literal("set")
+                        .executes(ctx -> setHome(ctx, null, null))
+                        .then(CommandManager.argument("player", EntityArgumentType.player())
+                                .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"), null))
+                                .then(CommandManager.argument("pos", Vec3ArgumentType.vec3())
+                                        .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
+                                                Vec3ArgumentType.getVec3(ctx, "pos"))))))
+        ));
 
 
         LOGGER.info("Registering Villager Trades for " + MODID);
@@ -180,14 +175,12 @@ public class Lawnchair implements ModInitializer {
 //        EVIL_FLUID = Registry.register(Registries.BLOCK, Identifier.of(MODID, "evil_fluid"), new FluidBlock(EVIL_FLUID_STILL, AbstractBlock.Settings.create().mapColor(MapColor.LIME).replaceable().noCollision().ticksRandomly().strength(100.0F).luminance((state) -> 3).pistonBehavior(PistonBehavior.DESTROY).dropsNothing().liquid().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY)));
 //        EVIL_FLUID_BUCKET = Registry.register(Registries.ITEM, Identifier.of(MODID, "evil_fluid_bucket"),
 //                new BucketItem(EVIL_FLUID_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
-
-        LOGGER.info("Registering Entity Attributes for " + MODID);
-        FabricDefaultAttributeRegistry.register(ModEntities.GOLIATH, GoliathEntity.createGoliathAttributes());
     }
 
     private static int toggleGravity(CommandContext<ServerCommandSource> context) {
         ServerPlayerEntity player = context.getSource().getPlayer();
 
+        assert player != null;
         boolean newGravityState = !player.hasNoGravity();
         player.setNoGravity(newGravityState);
 
@@ -211,19 +204,24 @@ public class Lawnchair implements ModInitializer {
         }
     }
 
-    //Why not used?
     public static void saveConfig() {
         try {
-            Files.writeString(CONFIG, "{ \"creeperExplosions\": " + creeperExplosions + " }"); //save bedExplosions
+            String json = "{\n" +
+                    "  \"creeperExplosions\": " + creeperExplosions + ",\n" +
+                    "  \"bedExplosions\": " + bedExplosions + "\n" +
+                    "}";
+            Files.writeString(CONFIG, json);
+            LOGGER.info("Saved config for " + MODID);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Failed to save config for " + MODID, e);
         }
     }
 
-    private static int executeHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) throws CommandSyntaxException {
+    private static int executeHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
         ServerPlayerEntity executor = ctx.getSource().getPlayer();
         if (target == null) target = executor;
 
+        assert target != null;
         ServerWorld world = target.getEntityWorld();
         BlockPos home = PLAYER_HOMES.getOrDefault(target.getUuidAsString(), world.getSpawnPoint().getPos());
 
@@ -232,16 +230,18 @@ public class Lawnchair implements ModInitializer {
             return 0;
         }
 
+        assert executor != null;
         executor.teleport(world, home.getX(), home.getY(), home.getZ(), Set.of(), executor.getYaw(), executor.getPitch(), true);
         ServerPlayerEntity finalTarget = target;
         ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.teleported", finalTarget.getName()), true);
         return Command.SINGLE_SUCCESS;
     }
 
-    private static int resetHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) throws CommandSyntaxException {
+    private static int resetHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
         ServerPlayerEntity executor = ctx.getSource().getPlayer();
         if (target == null) target = executor;
 
+        assert executor != null;
         ServerWorld world = executor.getEntityWorld();
         BlockPos spawn = world.getSpawnPoint().getPos();
         PLAYER_HOMES.put(target.getUuidAsString(), spawn);
@@ -251,11 +251,13 @@ public class Lawnchair implements ModInitializer {
         return Command.SINGLE_SUCCESS;
     }
 
-    private static int setHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target, Vec3d position) throws CommandSyntaxException {
+    private static int setHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target, Vec3d position) {
+        if (position == null) return 0;
         ServerPlayerEntity executor = ctx.getSource().getPlayer();
         if (target == null) target = executor;
 
         BlockPos blockPos = new BlockPos((int) position.x, (int) position.y, (int) position.z);
+        assert target != null;
         PLAYER_HOMES.put(target.getUuidAsString(), blockPos);
 
         ServerPlayerEntity finalTarget = target;

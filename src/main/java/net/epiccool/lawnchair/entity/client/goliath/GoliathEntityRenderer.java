@@ -1,4 +1,4 @@
-package net.epiccool.lawnchair.entity.client;
+package net.epiccool.lawnchair.entity.client.goliath;
 
 import net.epiccool.lawnchair.entity.custom.GoliathEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;

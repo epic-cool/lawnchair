@@ -23,7 +23,7 @@ public abstract class ZombieEntityRendererMixin extends ZombieBaseEntityRenderer
         super(context, mainModel, babyMainModel, equipmentModelData, equipmentModelData2);
     }
 
-    @Inject(method = "<init>", at = @At("RETURN"))
+    @Inject(method = "<init>*", at = @At("RETURN"))
     private void addEyesFeature(CallbackInfo ci) {
         this.addFeature(new ZombieEyesFeatureRenderer((ZombieEntityRenderer) (Object) this));
     }

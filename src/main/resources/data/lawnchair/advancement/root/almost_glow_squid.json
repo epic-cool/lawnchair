@@ -1,0 +1,19 @@
+{
+  "parent": "lawnchair:root",
+  "display": {
+    "description": {
+      "translate": "advancements.lawnchair.almost_glow_squid.description"
+    },
+    "icon": {
+      "id": "minecraft:spectral_arrow"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.almost_glow_squid.title"
+    }
+  },
+  "requirements": [
+    [
+      "effects_changed"
+    ]
+  ]
+}

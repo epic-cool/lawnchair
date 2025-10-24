@@ -2,8 +2,10 @@ package net.epiccool.lawnchair;
 
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.entity.ModEntities;
-import net.epiccool.lawnchair.entity.client.GoliathEntityModel;
-import net.epiccool.lawnchair.entity.client.GoliathEntityRenderer;
+import net.epiccool.lawnchair.entity.client.duck.DuckEntityModel;
+import net.epiccool.lawnchair.entity.client.duck.DuckEntityRenderer;
+import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityModel;
+import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -18,6 +20,9 @@ public class LawnchairClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(GoliathEntityModel.GOLIATH, GoliathEntityModel::getTexturedModelData);
         EntityRendererFactories.register(ModEntities.GOLIATH, GoliathEntityRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(DuckEntityModel.DUCK, DuckEntityModel::getTexturedModelData);
+        EntityRendererFactories.register(ModEntities.DUCK, DuckEntityRenderer::new);
 
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AbstractMinecartEntityMixin",
+    "BedBlockMixin",
     "BlockMixin",
     "BoneMealItemMixin",
     "CarvedPumpkinBlockMixin",
@@ -14,7 +15,8 @@
     "PigEntityMixin",
     "SnowballEntityMixin",
     "SquidEntityMixin",
-    "ZombieEntityMixin"
+    "ZombieEntityMixin",
+    "ZombieEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

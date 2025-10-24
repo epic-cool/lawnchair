@@ -2,6 +2,7 @@ package net.epiccool.lawnchair.datagen;
 
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.item.ModItems;
+import net.epiccool.lawnchair.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
@@ -468,6 +469,125 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input(ModItems.ROBOT_CORE)
                         .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
                         .criterion(hasItem(ModItems.ROBOT_CORE), conditionsFromItem(ModItems.ROBOT_CORE))
+                        .offerTo(exporter);
+
+
+                //Wooden recipes
+                //Azalea
+                createShaped(RecipeCategory.MISC, Items.OAK_BOAT, 1)
+                        .pattern("0 0")
+                        .pattern("000")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.REDSTONE, Items.OAK_BUTTON, 1)
+                        .input(ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, Items.OAK_CHEST_BOAT, 1)
+                        .input(ModBlocks.AZALEA_PLANKS)
+                        .input(Blocks.CHEST)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .criterion(hasItem(Blocks.CHEST), conditionsFromItem(Blocks.CHEST))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, Items.OAK_DOOR, 3)
+                        .pattern("00")
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.OAK_FENCE, 3)
+                        .pattern("010")
+                        .pattern("010")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, Items.OAK_FENCE_GATE, 1)
+                        .pattern("010")
+                        .pattern("010")
+                        .input('0', Items.STICK)
+                        .input('1', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.OAK_HANGING_SIGN, 6)
+                        .pattern("0 0")
+                        .pattern("111")
+                        .pattern("111")
+                        .input('0', Items.STICK)
+                        .input('1', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.AZALEA_PLANKS, 4)
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', ModTags.Items.AZALEA_LOGS)
+                        .criterion(hasItem(ModBlocks.AZALEA_WOOD), conditionsFromItem(ModBlocks.AZALEA_WOOD))
+                        .criterion(hasItem(ModBlocks.AZALEA_LOG), conditionsFromItem(ModBlocks.AZALEA_LOG))
+                        .criterion(hasItem(ModBlocks.STRIPPED_AZALEA_WOOD), conditionsFromItem(ModBlocks.STRIPPED_AZALEA_WOOD))
+                        .criterion(hasItem(ModBlocks.STRIPPED_AZALEA_LOG), conditionsFromItem(ModBlocks.STRIPPED_AZALEA_LOG))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, Items.OAK_PRESSURE_PLATE, 1)
+                        .pattern("00")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Items.OAK_SIGN, 3)
+                        .pattern("000")
+                        .pattern("000")
+                        .pattern(" 1 ")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .input('1', Items.STICK)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, Items.OAK_SLAB, 6)
+                        .pattern("000")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, Items.OAK_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, Items.OAK_TRAPDOOR, 2)
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModBlocks.AZALEA_PLANKS)
+                        .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_WOOD, 3)
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', ModBlocks.AZALEA_LOG)
+                        .criterion(hasItem(ModBlocks.AZALEA_LOG), conditionsFromItem(ModBlocks.AZALEA_LOG))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_AZALEA_WOOD, 3)
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', ModBlocks.STRIPPED_AZALEA_LOG)
+                        .criterion(hasItem(ModBlocks.STRIPPED_AZALEA_LOG), conditionsFromItem(ModBlocks.STRIPPED_AZALEA_LOG))
                         .offerTo(exporter);
             }
         };

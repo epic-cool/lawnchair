@@ -27,6 +27,7 @@ import java.util.List;
 
 @Mixin(GameModeCommand.class)
 public abstract class GameModeCommandMixin {
+    @Unique
     private static final List<String> GAMEMODE_SUGGESTIONS = Arrays.asList(
             "survival", "creative", "adventure", "spectator"
     );
@@ -37,6 +38,7 @@ public abstract class GameModeCommandMixin {
         registerCommand(dispatcher, "gm");
     }
 
+    @Unique
     private static void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher, String literal) {
         dispatcher.register(CommandManager.literal(literal)
                 .requires(source -> source.hasPermissionLevel(2))
@@ -68,6 +70,7 @@ public abstract class GameModeCommandMixin {
                                 }))));
     }
 
+    @Unique
     private static GameMode parseGamemode(String input) throws CommandSyntaxException {
         return switch (input.toLowerCase()) {
             case "0", "s", "survival" -> GameMode.SURVIVAL;

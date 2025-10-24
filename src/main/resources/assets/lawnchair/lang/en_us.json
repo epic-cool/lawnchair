@@ -1,12 +1,14 @@
 {
   "---------------------------------------Category I": "ItemGroups ------------------------------------------------",
-  "itemGroup.lawnchair.generic": "Lawnchair: Generic",
-  "itemGroup.lawnchair.colored": "Lawnchair: Colored",
-  "itemGroup.lawnchair.potions": "Lawnchair: Potions",
-  "itemGroup.lawnchair.copper": "Lawnchair: Copper",
-  "itemGroup.lawnchair.combat": "Lawnchair: Equipment",
-  "itemGroup.lawnchair.robot": "Lawnchair: Robots",
-  "itemGroup.lawnchair.spawn_egg": "Lawnchair: Spawn Eggs",
+  "itemGroup.lawnchair.generic": "Generic",
+  "itemGroup.lawnchair.colored": "Colored",
+  "itemGroup.lawnchair.potions": "Potions",
+  "itemGroup.lawnchair.copper": "Copper",
+  "itemGroup.lawnchair.combat": "Equipment",
+  "itemGroup.lawnchair.robot": "Robots",
+  "itemGroup.lawnchair.spawn_egg": "Spawn Eggs",
+  "itemGroup.lawnchair.food": "Foodstuffs",
+  "itemGroup.lawnchair.enchants": "Enchanted Books",
 
 
   "---------------------------------------Category II": "Items ------------------------------------------------",
@@ -17,6 +19,7 @@
   "item.lawnchair.evil_goop_fragment": "Evil Goop Fragment",
   "item.lawnchair.evil_goop_fragment.tooltip": "Use on mob to make it into an evil goop variant! [not implemented]",
   "item.lawnchair.goliath_spawn_egg": "Goliath Spawn Egg",
+  "item.lawnchair.duck_spawn_egg": "Duck Spawn Egg",
 
 
   "---------------------------------------Category III": "Foodstuffs ------------------------------------------------",
@@ -32,6 +35,7 @@
 
 
   "---------------------------------------Category IV": "Blocks ------------------------------------------------",
+  "block.minecraft.bed.lawnchair.dontexplode": "You may not rest now; the dimension is wrong",
   "block.lawnchair.charcoal_block": "Block of Charcoal",
   "block.lawnchair.iron_chain_block": "Block of Iron Chains",
   "block.lawnchair.steel_block": "Block of Steel",
@@ -49,6 +53,11 @@
   "block.lawnchair.iron_block_with_robot_core": "Iron Block with Robot Core",
   "block.lawnchair.alloy_mixer": "Alloy Mixer",
   "block.lawnchair.evil_goop": "Evil Goop",
+  "block.lawnchair.azalea_log": "Azalea Log",
+  "block.lawnchair.azalea_wood": "Azalea Wood",
+  "block.lawnchair.stripped_azalea_log": "Stripped Azalea Log",
+  "block.lawnchair.stripped_azalea_wood": "Stripped Azalea Wood",
+  "block.lawnchair.azalea_planks": "Azalea Planks",
 
 
   "---------------------------------------Category V": "Tools, Armour ------------------------------------------------",
@@ -73,6 +82,7 @@
   "---------------------------------------Category VI": "Entities ------------------------------------------------",
   "entity.lawnchair.white_item_frame": "White Item Frame",
   "entity.lawnchair.goliath": "Goliath",
+  "entity.lawnchair.duck": "duck",
 
 
   "---------------------------------------Category VII": "Effects ------------------------------------------------",
@@ -176,6 +186,24 @@
   "advancements.lawnchair.space.description": "So, uhh, this is space.",
   "advancements.lawnchair.when_in_rome.title": "When in Rome",
   "advancements.lawnchair.when_in_rome.description": "Listen to Pigstep while wearing a full set of Golden Armor in a Bastion Remnant",
+  "advancements.lawnchair.passing_the_time.title": "Passing the Time...",
+  "advancements.lawnchair.passing_the_time.description": "100-Days challenge",
+  "advancements.lawnchair.double_digits.title": "Double Digits",
+  "advancements.lawnchair.double_digits.description": "Play for 10 in-game years",
+  "advancements.lawnchair.moar_tools.title": "MOAR Tools",
+  "advancements.lawnchair.moar_tools.description": "Construct one type of each tool",
+  "advancements.lawnchair.even_moar_tools.title": "Even MOAR Tools",
+  "advancements.lawnchair.even_moar_tools.description": "Construct every tool, including non-standard tools",
+  "advancements.lawnchair.not_punchout.title": "This isn't Punch-Out",
+  "advancements.lawnchair.not_punchout.description": "Kill an enemy with your fist",
+  "advancements.lawnchair.time_to_go_hiking.title": "Time to Go Hiking",
+  "advancements.lawnchair.time_to_go_hiking.description": "Kill an enemy with your fist",
+  "advancements.lawnchair.conservationist.title": "Conservationist",
+  "advancements.lawnchair.conservationist.description": "Breed endangered animals",
+  "advancements.lawnchair.almost_glow_squid.title": "Almost Glow Squid",
+  "advancements.lawnchair.almost_glow_squid.description": "Shoot a squid with a spectral arrow",
+  "advancements.lawnchair.rainbow_of_cuties.title": "Rainbow of Cuties",
+  "advancements.lawnchair.rainbow_of_cuties.description": "Shoot a squid with a spectral arrow",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "lawnchair:azalea_planks",
+    "minecraft:chest"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_chest_boat"
+  }
+}

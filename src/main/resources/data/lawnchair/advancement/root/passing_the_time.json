@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.passing_the_time.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.passing_the_time.description"
+    }
+  },
+  "parent": "lawnchair:root",
+  "criteria": {
+    "passing_time": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "periodic_tick": 2400000
+        }
+      }
+    }
+  }
+}

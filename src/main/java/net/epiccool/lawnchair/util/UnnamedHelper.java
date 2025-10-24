@@ -4,16 +4,25 @@ import net.epiccool.lawnchair.Lawnchair;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.passive.SquidEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 
 import java.util.WeakHashMap;
@@ -115,6 +124,34 @@ public class UnnamedHelper {
             } else {
                 loveTicksMap.remove(squid);
                 lovePlayerMap.remove(squid);
+            }
+        }
+    }
+
+    public static void injectEffects(
+            ServerWorldAccess world,
+            LocalDifficulty difficulty,
+            LivingEntity self) {
+        Random random = world.getRandom();
+
+        if (world.getDifficulty() == Difficulty.HARD
+                && random.nextFloat() < 0.1F * difficulty.getClampedLocalDifficulty()) {
+
+            RegistryEntry<StatusEffect> effect;
+            int i = random.nextInt(100);
+
+            if (i < 40) {
+                effect = StatusEffects.SPEED;
+            } else if (i < 60) {
+                effect = StatusEffects.STRENGTH;
+            } else if (i < 80) {
+                effect = StatusEffects.REGENERATION;
+            } else {
+                effect = StatusEffects.INVISIBILITY;
+            }
+
+            if (effect != null) {
+                self.addStatusEffect(new StatusEffectInstance(effect, -1));
             }
         }
     }

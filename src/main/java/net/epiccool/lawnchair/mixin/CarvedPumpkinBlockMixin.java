@@ -8,6 +8,7 @@ import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -16,6 +17,7 @@ import java.util.function.Predicate;
 
 @Mixin(CarvedPumpkinBlock.class)
 public class CarvedPumpkinBlockMixin {
+    @Unique
     private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE =
             state -> state != null && (state.isOf(Blocks.CARVED_PUMPKIN) || state.isOf(Blocks.JACK_O_LANTERN) || state.isOf(ModBlocks.SOUL_JACK_O_LANTERN));
 

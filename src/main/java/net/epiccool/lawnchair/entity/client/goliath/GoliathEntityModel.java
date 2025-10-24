@@ -1,4 +1,4 @@
-package net.epiccool.lawnchair.entity.client;
+package net.epiccool.lawnchair.entity.client.goliath;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.minecraft.client.model.*;
@@ -44,14 +44,11 @@ public class GoliathEntityModel extends EntityModel<LivingEntityRenderState> {
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        int i = 15;
         modelPartData.addChild(EntityModelPartNames.HEAD, ModelPartBuilder.create().uv(32, 4).cuboid(-4.0f, -4.0f, -8.0f, 8.0f, 8.0f, 8.0f), ModelTransform.origin(0.0f, 15.0f, -3.0f));
         modelPartData.addChild(BODY0, ModelPartBuilder.create().uv(0, 0).cuboid(-3.0f, -3.0f, -3.0f, 6.0f, 6.0f, 6.0f), ModelTransform.origin(0.0f, 15.0f, 0.0f));
         modelPartData.addChild(BODY1, ModelPartBuilder.create().uv(0, 12).cuboid(-5.0f, -4.0f, -6.0f, 10.0f, 8.0f, 12.0f), ModelTransform.origin(0.0f, 15.0f, 9.0f));
         ModelPartBuilder modelPartBuilder = ModelPartBuilder.create().uv(18, 0).cuboid(-15.0f, -1.0f, -1.0f, 16.0f, 2.0f, 2.0f);
         ModelPartBuilder modelPartBuilder2 = ModelPartBuilder.create().uv(18, 0).mirrored().cuboid(-1.0f, -1.0f, -1.0f, 16.0f, 2.0f, 2.0f);
-        float f = 0.7853982f;
-        float g = 0.3926991f;
         modelPartData.addChild(EntityModelPartNames.RIGHT_HIND_LEG, modelPartBuilder, ModelTransform.of(-4.0f, 15.0f, 2.0f, 0.0f, 0.7853982f, -0.7853982f));
         modelPartData.addChild(EntityModelPartNames.LEFT_HIND_LEG, modelPartBuilder2, ModelTransform.of(4.0f, 15.0f, 2.0f, 0.0f, -0.7853982f, 0.7853982f));
         modelPartData.addChild(RIGHT_MIDDLE_HIND_LEG, modelPartBuilder, ModelTransform.of(-4.0f, 15.0f, 1.0f, 0.0f, 0.3926991f, -0.58119464f));
