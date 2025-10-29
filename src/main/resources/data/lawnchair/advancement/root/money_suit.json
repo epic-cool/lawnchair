@@ -23,14 +23,14 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.lawnchair.scammed.description"
+      "translate": "advancements.lawnchair.money_suit.description"
     },
     "icon": {
       "count": 1,
       "id": "minecraft:emerald"
     },
     "title": {
-      "translate": "advancements.lawnchair.scammed.title"
+      "translate": "advancements.lawnchair.money_suit.title"
     }
   },
   "requirements": [

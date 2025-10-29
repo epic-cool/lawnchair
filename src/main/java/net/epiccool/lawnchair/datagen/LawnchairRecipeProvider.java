@@ -441,6 +441,13 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.WHEAT_SEEDS), conditionsFromItem(Items.WHEAT_SEEDS))
                         .offerTo(exporter);
 
+                createShapeless(RecipeCategory.TOOLS, Items.FLINT_AND_STEEL, 1)
+                        .input(ModItems.STEEL_INGOT)
+                        .input(Items.FLINT)
+                        .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT))
+                        .offerTo(exporter);
+
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
 //                        .pattern("000")
 //                        .pattern("010")

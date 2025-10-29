@@ -64,7 +64,7 @@ public class DuckEntity extends AnimalEntity {
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
-        this.dataTracker.set(GENDER, this.random.nextInt(7) == 0 ? 1 : 0);
+        builder.add(GENDER, this.random.nextInt(3) == 0 ? 1 : 0);
     }
 
     public boolean isMale() {
@@ -149,7 +149,7 @@ public class DuckEntity extends AnimalEntity {
         DuckEntity child = ModEntities.DUCK.create(world, SpawnReason.BREEDING);
         if (child != null) {
             child.setBaby(true);
-            child.setGender(world.random.nextBoolean()); // randomly male or female
+            child.setGender(world.random.nextInt(3) == 0);
         }
         return child;
     }
