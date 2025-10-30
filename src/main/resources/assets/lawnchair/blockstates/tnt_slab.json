@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lawnchair:block/tnt_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/tnt"
+    },
+    "type=top": {
+      "model": "lawnchair:block/tnt_slab_top"
+    }
+  }
+}

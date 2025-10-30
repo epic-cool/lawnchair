@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:azalea_leaves"
+  },
+  "pattern": [
+    "000"
+  ],
+  "result": {
+    "count": 6,
+    "id": "lawnchair:azalea_leaves_slab"
+  }
+}

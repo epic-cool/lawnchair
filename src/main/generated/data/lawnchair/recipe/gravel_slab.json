@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:gravel"
+  },
+  "pattern": [
+    "000"
+  ],
+  "result": {
+    "count": 6,
+    "id": "lawnchair:gravel_slab"
+  }
+}

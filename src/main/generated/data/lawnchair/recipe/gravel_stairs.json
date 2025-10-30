@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:gravel"
+  },
+  "pattern": [
+    "0  ",
+    "00 ",
+    "000"
+  ],
+  "result": {
+    "count": 4,
+    "id": "lawnchair:gravel_stairs"
+  }
+}

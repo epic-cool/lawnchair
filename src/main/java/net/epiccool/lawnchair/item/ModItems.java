@@ -77,6 +77,12 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.lawnchair.food"))
             .build();
 
+    public static final RegistryKey<ItemGroup> SLABS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "slabs_group"));
+    public static final ItemGroup SLABS_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(Items.BARRIER))
+            .displayName(Text.translatable("itemGroup.lawnchair.slabs"))
+            .build();
+
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Lawnchair.MODID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
@@ -100,72 +106,38 @@ public class ModItems {
         Registry.register(Registries.ITEM_GROUP, SPAWN_EGGS_ITEM_GROUP_KEY, SPAWN_EGGS_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, FOOD_ITEM_GROUP_KEY, FOOD_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, ENCHANTS_ITEM_GROUP_KEY, ENCHANTS_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, SLABS_ITEM_GROUP_KEY, SLABS_ITEM_GROUP);
 
+        //Misc.
         ItemGroupEvents.modifyEntriesEvent(GENERIC_ITEM_GROUP_KEY).register(entries -> {
-            entries.add(ModBlocks.AZALEA_LOG.asItem());
-            entries.add(ModBlocks.AZALEA_PLANKS.asItem());
-            entries.add(ModBlocks.AZALEA_WOOD.asItem());
-            entries.add(ModBlocks.CHARCOAL_BLOCK.asItem());
-            entries.add(ModItems.COOKED_BACON);
-            entries.add(ModItems.COOKED_HAM);
-            entries.add(ModItems.COOKED_SAUSAGE);
-            entries.add(ModItems.COOKED_SQUID);
-            entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModItems.DUCK_SPAWN_EGG);
-            entries.add(ModItems.EMERALD_BOOTS);
-            entries.add(ModItems.EMERALD_CHESTPLATE);
-            entries.add(ModItems.EMERALD_HELMET);
-            entries.add(ModItems.EMERALD_LEGGINGS);
-            entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.EVIL_GOOP.asItem());
+            entries.add(ModBlocks.AZALEA_LOG);
+            entries.add(ModBlocks.AZALEA_PLANKS);
+            entries.add(ModBlocks.AZALEA_WOOD);
+            entries.add(ModBlocks.CHARCOAL_BLOCK);
+            entries.add(ModBlocks.EVIL_GOOP);
             entries.add(ModItems.EVIL_GOOP_FRAGMENT);
-            entries.add(ModItems.GAS_MASK);
-            entries.add(ModItems.GOLIATH_SPAWN_EGG);
-            entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
-            entries.add(ModBlocks.IRON_CHAIN_BLOCK.asItem());
-            entries.add(ModItems.ICE_PICK);
-            entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModItems.PUMPKIN_SLICE);
-            entries.add(ModItems.RAW_BACON);
-            entries.add(ModItems.RAW_HAM);
-            entries.add(ModItems.RAW_SAUSAGE);
-            entries.add(ModItems.RAW_SQUID);
-            entries.add(ModItems.ROBOT_CORE);
-            entries.add(ModBlocks.SOUL_JACK_O_LANTERN.asItem());
-            entries.add(ModItems.STEEL_AXE);
-            entries.add(ModBlocks.STEEL_BARS.asItem());
-            entries.add(ModBlocks.STEEL_BLOCK.asItem());
-            entries.add(ModItems.STEEL_BOOTS);
-            entries.add(ModItems.STEEL_CHESTPLATE);
-            entries.add(ModItems.STEEL_HELMET);
-            entries.add(ModItems.STEEL_HOE);
+            entries.add(ModBlocks.IRON_CHAIN_BLOCK);
+            entries.add(ModBlocks.SOUL_JACK_O_LANTERN);
+            entries.add(ModBlocks.STEEL_BARS);
+            entries.add(ModBlocks.STEEL_BLOCK);
             entries.add(ModItems.STEEL_INGOT);
-            entries.add(ModItems.STEEL_LEGGINGS);
-            entries.add(ModItems.STEEL_PICKAXE);
-            entries.add(ModItems.STEEL_SHOVEL);
-            entries.add(ModItems.STEEL_SWORD);
-            entries.add(ModBlocks.STRIPPED_AZALEA_LOG.asItem());
-            entries.add(ModBlocks.STRIPPED_AZALEA_WOOD.asItem());
-            entries.add(ModBlocks.UNLIT_LANTERN.asItem());
+            entries.add(ModBlocks.STRIPPED_AZALEA_LOG);
+            entries.add(ModBlocks.STRIPPED_AZALEA_WOOD);
+            entries.add(ModBlocks.UNLIT_LANTERN);
             entries.add(ModItems.UNLIT_TORCH);
-            entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK.asItem());
         });
 
 //        ItemGroupEvents.modifyEntriesEvent(POTIONS_ITEM_GROUP_KEY).register(ModItems::addStickyPotions);
 
         ItemGroupEvents.modifyEntriesEvent(COPPER_ITEM_GROUP_KEY).register(entries -> {
-            entries.add(ModBlocks.COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK.asItem());
-            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK.asItem());
+            entries.add(ModBlocks.COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.EXPOSED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.WEATHERED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.WAXED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
         });
 
         //Equipment
@@ -189,7 +161,7 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModItems.ROBOT_CORE);
-            entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE.asItem());
+            entries.add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE);
         });
 
 //        ItemGroupEvents.modifyEntriesEvent(ENCHANTS_ITEM_GROUP_KEY).register(ModItems::addEnchantedBooks);
@@ -197,6 +169,48 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(SPAWN_EGGS_ITEM_GROUP_KEY).register(entries -> {
             entries.add(ModItems.GOLIATH_SPAWN_EGG);
             entries.add(ModItems.DUCK_SPAWN_EGG);
+        });
+
+        //Stairs, Slabs, Buttons, Plates, Fences, Gates, Walls, Doors, Trapdoors
+        ItemGroupEvents.modifyEntriesEvent(SLABS_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.TNT_STAIRS);
+            entries.add(ModBlocks.TNT_SLAB);
+            entries.add(ModBlocks.DIRT_STAIRS);
+            entries.add(ModBlocks.DIRT_SLAB);
+            entries.add(ModBlocks.COARSE_DIRT_STAIRS);
+            entries.add(ModBlocks.COARSE_DIRT_SLAB);
+            entries.add(ModBlocks.OAK_LEAVES_SLAB);
+            entries.add(ModBlocks.OAK_LEAVES_STAIRS);
+            entries.add(ModBlocks.SPRUCE_LEAVES_SLAB);
+            entries.add(ModBlocks.SPRUCE_LEAVES_STAIRS);
+            entries.add(ModBlocks.BIRCH_LEAVES_SLAB);
+            entries.add(ModBlocks.BIRCH_LEAVES_STAIRS);
+            entries.add(ModBlocks.JUNGLE_LEAVES_SLAB);
+            entries.add(ModBlocks.JUNGLE_LEAVES_STAIRS);
+            entries.add(ModBlocks.ACACIA_LEAVES_SLAB);
+            entries.add(ModBlocks.ACACIA_LEAVES_STAIRS);
+            entries.add(ModBlocks.DARK_OAK_LEAVES_SLAB);
+            entries.add(ModBlocks.DARK_OAK_LEAVES_STAIRS);
+            entries.add(ModBlocks.MANGROVE_LEAVES_SLAB);
+            entries.add(ModBlocks.MANGROVE_LEAVES_STAIRS);
+            entries.add(ModBlocks.CHERRY_LEAVES_SLAB);
+            entries.add(ModBlocks.CHERRY_LEAVES_STAIRS);
+            entries.add(ModBlocks.PALE_OAK_LEAVES_SLAB);
+            entries.add(ModBlocks.PALE_OAK_LEAVES_STAIRS);
+            entries.add(ModBlocks.AZALEA_LEAVES_SLAB);
+            entries.add(ModBlocks.AZALEA_LEAVES_STAIRS);
+            entries.add(ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB);
+            entries.add(ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS);
+            entries.add(ModBlocks.GRAVEL_SLAB);
+            entries.add(ModBlocks.GRAVEL_STAIRS);
+            entries.add(ModBlocks.SNOW_BLOCK_SLAB);
+            entries.add(ModBlocks.SNOW_BLOCK_STAIRS);
+            entries.add(ModBlocks.SAND_SLAB);
+            entries.add(ModBlocks.SAND_STAIRS);
+            entries.add(ModBlocks.RED_SAND_SLAB);
+            entries.add(ModBlocks.RED_SAND_STAIRS);
+            entries.add(ModBlocks.QUARTZ_BRICKS_SLAB);
+            entries.add(ModBlocks.QUARTZ_BRICKS_STAIRS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {

@@ -5,6 +5,8 @@ import net.epiccool.lawnchair.item.ModArmorMaterials;
 import net.epiccool.lawnchair.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
@@ -39,6 +41,44 @@ public class LawnchairModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createLogTexturePool(ModBlocks.AZALEA_LOG).log(ModBlocks.AZALEA_LOG).wood(ModBlocks.AZALEA_WOOD);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AZALEA_LOG).log(ModBlocks.STRIPPED_AZALEA_LOG).wood(ModBlocks.STRIPPED_AZALEA_WOOD);
+
+        BlockStateModelGenerator.BlockTexturePool dirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
+        BlockStateModelGenerator.BlockTexturePool coarseDirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COARSE_DIRT);
+        BlockStateModelGenerator.BlockTexturePool oakLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OAK_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool spruceLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SPRUCE_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool birchLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.BIRCH_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool jungleLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.JUNGLE_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool acaciaLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.ACACIA_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool darkOakLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DARK_OAK_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool mangroveLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.MANGROVE_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool cherryLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.CHERRY_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool paleOakLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.PALE_OAK_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool azaleaLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.AZALEA_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool floweringAzaleaLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.FLOWERING_AZALEA_LEAVES);
+        BlockStateModelGenerator.BlockTexturePool gravelPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GRAVEL);
+        BlockStateModelGenerator.BlockTexturePool snowPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SNOW_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool sandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SAND);
+        BlockStateModelGenerator.BlockTexturePool redSandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_SAND);
+        BlockStateModelGenerator.BlockTexturePool quartzBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.QUARTZ_BRICKS);
+
+        registerSlabAndStairs(dirtPool, ModBlocks.DIRT_SLAB, ModBlocks.DIRT_STAIRS);
+        registerSlabAndStairs(coarseDirtPool, ModBlocks.COARSE_DIRT_SLAB, ModBlocks.COARSE_DIRT_STAIRS);
+        registerSlabAndStairs(oakLeavesPool, ModBlocks.OAK_LEAVES_SLAB, ModBlocks.OAK_LEAVES_STAIRS);
+        registerSlabAndStairs(spruceLeavesPool, ModBlocks.SPRUCE_LEAVES_SLAB, ModBlocks.SPRUCE_LEAVES_STAIRS);
+        registerSlabAndStairs(birchLeavesPool, ModBlocks.BIRCH_LEAVES_SLAB, ModBlocks.BIRCH_LEAVES_STAIRS);
+        registerSlabAndStairs(jungleLeavesPool, ModBlocks.JUNGLE_LEAVES_SLAB, ModBlocks.JUNGLE_LEAVES_STAIRS);
+        registerSlabAndStairs(acaciaLeavesPool, ModBlocks.ACACIA_LEAVES_SLAB, ModBlocks.ACACIA_LEAVES_STAIRS);
+        registerSlabAndStairs(darkOakLeavesPool, ModBlocks.DARK_OAK_LEAVES_SLAB, ModBlocks.DARK_OAK_LEAVES_STAIRS);
+        registerSlabAndStairs(mangroveLeavesPool, ModBlocks.MANGROVE_LEAVES_SLAB, ModBlocks.MANGROVE_LEAVES_STAIRS);
+        registerSlabAndStairs(cherryLeavesPool, ModBlocks.CHERRY_LEAVES_SLAB, ModBlocks.CHERRY_LEAVES_STAIRS);
+        registerSlabAndStairs(paleOakLeavesPool, ModBlocks.PALE_OAK_LEAVES_SLAB, ModBlocks.PALE_OAK_LEAVES_STAIRS);
+        registerSlabAndStairs(azaleaLeavesPool, ModBlocks.AZALEA_LEAVES_SLAB, ModBlocks.AZALEA_LEAVES_STAIRS);
+        registerSlabAndStairs(floweringAzaleaLeavesPool, ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB, ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS);
+        registerSlabAndStairs(gravelPool, ModBlocks.GRAVEL_SLAB, ModBlocks.GRAVEL_STAIRS);
+        registerSlabAndStairs(snowPool, ModBlocks.SNOW_BLOCK_SLAB, ModBlocks.SNOW_BLOCK_STAIRS);
+        registerSlabAndStairs(sandPool, ModBlocks.SAND_SLAB, ModBlocks.SAND_STAIRS);
+        registerSlabAndStairs(redSandPool, ModBlocks.RED_SAND_SLAB, ModBlocks.RED_SAND_STAIRS);
+        registerSlabAndStairs(quartzBricksPool, ModBlocks.QUARTZ_BRICKS_SLAB, ModBlocks.QUARTZ_BRICKS_STAIRS);
 
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
     }
@@ -77,6 +117,11 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(ModItems.EMERALD_BOOTS, ModArmorMaterials.EMERALD_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
 
         itemModelGenerator.registerArmor(ModItems.GAS_MASK, ModArmorMaterials.GAS_MASK_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, true);
+    }
+
+    private void registerSlabAndStairs(BlockStateModelGenerator.BlockTexturePool pool, Block slab, Block stairs) {
+        pool.slab(slab);
+        pool.stairs(stairs);
     }
 
     @Override

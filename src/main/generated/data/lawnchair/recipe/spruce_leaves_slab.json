@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:spruce_leaves"
+  },
+  "pattern": [
+    "000"
+  ],
+  "result": {
+    "count": 6,
+    "id": "lawnchair:spruce_leaves_slab"
+  }
+}

@@ -596,6 +596,281 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input('0', ModBlocks.STRIPPED_AZALEA_LOG)
                         .criterion(hasItem(ModBlocks.STRIPPED_AZALEA_LOG), conditionsFromItem(ModBlocks.STRIPPED_AZALEA_LOG))
                         .offerTo(exporter);
+
+
+                //Unblock Recipes
+                //TNT
+                createShaped(RecipeCategory.MISC, ModBlocks.TNT_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.TNT)
+                        .criterion(hasItem(Blocks.TNT), conditionsFromItem(Blocks.TNT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.TNT_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.TNT)
+                        .criterion(hasItem(Blocks.TNT), conditionsFromItem(Blocks.TNT))
+                        .offerTo(exporter);
+
+                //dirt
+                createShaped(RecipeCategory.MISC, ModBlocks.DIRT_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.DIRT)
+                        .criterion(hasItem(Blocks.DIRT), conditionsFromItem(Blocks.DIRT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.DIRT_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.DIRT)
+                        .criterion(hasItem(Blocks.DIRT), conditionsFromItem(Blocks.DIRT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.COARSE_DIRT_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.COARSE_DIRT)
+                        .criterion(hasItem(Blocks.COARSE_DIRT), conditionsFromItem(Blocks.COARSE_DIRT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.COARSE_DIRT_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.COARSE_DIRT)
+                        .criterion(hasItem(Blocks.COARSE_DIRT), conditionsFromItem(Blocks.COARSE_DIRT))
+                        .offerTo(exporter);
+
+                //leaves
+                createShaped(RecipeCategory.MISC, ModBlocks.OAK_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.OAK_LEAVES)
+                        .criterion(hasItem(Blocks.OAK_LEAVES), conditionsFromItem(Blocks.OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.OAK_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.OAK_LEAVES)
+                        .criterion(hasItem(Blocks.OAK_LEAVES), conditionsFromItem(Blocks.OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.SPRUCE_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.SPRUCE_LEAVES)
+                        .criterion(hasItem(Blocks.SPRUCE_LEAVES), conditionsFromItem(Blocks.SPRUCE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.SPRUCE_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.SPRUCE_LEAVES)
+                        .criterion(hasItem(Blocks.SPRUCE_LEAVES), conditionsFromItem(Blocks.SPRUCE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.BIRCH_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.BIRCH_LEAVES)
+                        .criterion(hasItem(Blocks.BIRCH_LEAVES), conditionsFromItem(Blocks.BIRCH_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.BIRCH_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.BIRCH_LEAVES)
+                        .criterion(hasItem(Blocks.BIRCH_LEAVES), conditionsFromItem(Blocks.BIRCH_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.JUNGLE_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.JUNGLE_LEAVES)
+                        .criterion(hasItem(Blocks.JUNGLE_LEAVES), conditionsFromItem(Blocks.JUNGLE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.JUNGLE_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.JUNGLE_LEAVES)
+                        .criterion(hasItem(Blocks.JUNGLE_LEAVES), conditionsFromItem(Blocks.JUNGLE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.ACACIA_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.ACACIA_LEAVES)
+                        .criterion(hasItem(Blocks.ACACIA_LEAVES), conditionsFromItem(Blocks.ACACIA_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.ACACIA_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.ACACIA_LEAVES)
+                        .criterion(hasItem(Blocks.ACACIA_LEAVES), conditionsFromItem(Blocks.ACACIA_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.DARK_OAK_LEAVES)
+                        .criterion(hasItem(Blocks.DARK_OAK_LEAVES), conditionsFromItem(Blocks.DARK_OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.DARK_OAK_LEAVES)
+                        .criterion(hasItem(Blocks.DARK_OAK_LEAVES), conditionsFromItem(Blocks.DARK_OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.MANGROVE_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.MANGROVE_LEAVES)
+                        .criterion(hasItem(Blocks.MANGROVE_LEAVES), conditionsFromItem(Blocks.MANGROVE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.MANGROVE_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.MANGROVE_LEAVES)
+                        .criterion(hasItem(Blocks.MANGROVE_LEAVES), conditionsFromItem(Blocks.MANGROVE_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.CHERRY_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.CHERRY_LEAVES)
+                        .criterion(hasItem(Blocks.CHERRY_LEAVES), conditionsFromItem(Blocks.CHERRY_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.CHERRY_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.CHERRY_LEAVES)
+                        .criterion(hasItem(Blocks.CHERRY_LEAVES), conditionsFromItem(Blocks.CHERRY_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.PALE_OAK_LEAVES)
+                        .criterion(hasItem(Blocks.PALE_OAK_LEAVES), conditionsFromItem(Blocks.PALE_OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.PALE_OAK_LEAVES)
+                        .criterion(hasItem(Blocks.PALE_OAK_LEAVES), conditionsFromItem(Blocks.PALE_OAK_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.AZALEA_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.AZALEA_LEAVES)
+                        .criterion(hasItem(Blocks.AZALEA_LEAVES), conditionsFromItem(Blocks.AZALEA_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.AZALEA_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.AZALEA_LEAVES)
+                        .criterion(hasItem(Blocks.AZALEA_LEAVES), conditionsFromItem(Blocks.AZALEA_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.FLOWERING_AZALEA_LEAVES)
+                        .criterion(hasItem(Blocks.FLOWERING_AZALEA_LEAVES), conditionsFromItem(Blocks.FLOWERING_AZALEA_LEAVES))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.FLOWERING_AZALEA_LEAVES)
+                        .criterion(hasItem(Blocks.FLOWERING_AZALEA_LEAVES), conditionsFromItem(Blocks.FLOWERING_AZALEA_LEAVES))
+                        .offerTo(exporter);
+
+                //gravel
+                createShaped(RecipeCategory.MISC, ModBlocks.GRAVEL_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.GRAVEL)
+                        .criterion(hasItem(Blocks.GRAVEL), conditionsFromItem(Blocks.GRAVEL))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.GRAVEL_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.GRAVEL)
+                        .criterion(hasItem(Blocks.GRAVEL), conditionsFromItem(Blocks.GRAVEL))
+                        .offerTo(exporter);
+
+                //snow
+                createShaped(RecipeCategory.MISC, ModBlocks.SNOW_BLOCK_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.SNOW)
+                        .criterion(hasItem(Blocks.SNOW), conditionsFromItem(Blocks.SNOW))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.SNOW_BLOCK_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.SNOW_BLOCK)
+                        .criterion(hasItem(Blocks.SNOW_BLOCK), conditionsFromItem(Blocks.SNOW_BLOCK))
+                        .offerTo(exporter);
+
+                //sand
+                createShaped(RecipeCategory.MISC, ModBlocks.SAND_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.SAND)
+                        .criterion(hasItem(Blocks.SAND), conditionsFromItem(Blocks.SAND))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.SAND_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.SAND)
+                        .criterion(hasItem(Blocks.SAND), conditionsFromItem(Blocks.SAND))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.RED_SAND_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.RED_SAND)
+                        .criterion(hasItem(Blocks.RED_SAND), conditionsFromItem(Blocks.RED_SAND))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.RED_SAND_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.RED_SAND)
+                        .criterion(hasItem(Blocks.RED_SAND), conditionsFromItem(Blocks.RED_SAND))
+                        .offerTo(exporter);
+
+                //quartz bricks
+                createShaped(RecipeCategory.MISC, ModBlocks.QUARTZ_BRICKS_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.QUARTZ_BRICKS)
+                        .criterion(hasItem(Blocks.QUARTZ_BRICKS), conditionsFromItem(Blocks.QUARTZ_BRICKS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.QUARTZ_BRICKS_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.QUARTZ_BRICKS)
+                        .criterion(hasItem(Blocks.QUARTZ_BRICKS), conditionsFromItem(Blocks.QUARTZ_BRICKS))
+                        .offerTo(exporter);
             }
         };
     }

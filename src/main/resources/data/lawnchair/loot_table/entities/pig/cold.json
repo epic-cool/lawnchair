@@ -62,11 +62,11 @@
               "function": "minecraft:enchanted_count_increase"
             }
           ],
-          "name": "lawnchair:raw_sausage"
+          "name": "lawnchair:raw_squid"
         }
       ],
       "rolls": 1
     }
   ],
-  "random_sequence": "lawnchair:entities/pig/cold"
+  "random_sequence": "minecraft:entities/axolotl"
 }

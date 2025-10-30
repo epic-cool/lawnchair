@@ -3,6 +3,7 @@ package net.epiccool.lawnchair.block;
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.custom.EvilGoopBlock;
 import net.epiccool.lawnchair.block.custom.WarpedWartBlock;
+import net.epiccool.lawnchair.block.custom.tnt.TntSlabBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -58,6 +59,9 @@ public class ModBlocks {
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Blocks for " + Lawnchair.MODID);
     }
+    //debug
+    public static final Block DUMMY_DIRT = register("dummy_dirt", Block::new, AbstractBlock.Settings.copy(Blocks.DIRT), false);
+
 
     public static final Block CHARCOAL_BLOCK = register("charcoal_block", Block::new, AbstractBlock.Settings.copy(Blocks.COAL_BLOCK), true);
     public static final Block STEEL_BLOCK = register("steel_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK), true);
@@ -78,6 +82,48 @@ public class ModBlocks {
     public static final Block STRIPPED_AZALEA_LOG = register("stripped_azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
     public static final Block STRIPPED_AZALEA_WOOD = register("stripped_azalea_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD), true);
     public static final Block AZALEA_PLANKS = register("azalea_planks", Block::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS), true);
+
+    //Slabs
+    public static final Block TNT_SLAB = register("tnt_slab", TntSlabBlock::new, AbstractBlock.Settings.create().hardness(5f).sounds(BlockSoundGroup.GRASS), true);
+    public static final Block DIRT_SLAB = register("dirt_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.DIRT), true);
+    public static final Block COARSE_DIRT_SLAB = register("coarse_dirt_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.COARSE_DIRT), true);
+    public static final Block OAK_LEAVES_SLAB = register("oak_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
+    public static final Block SPRUCE_LEAVES_SLAB = register("spruce_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), true);
+    public static final Block BIRCH_LEAVES_SLAB = register("birch_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.BIRCH_LEAVES), true);
+    public static final Block JUNGLE_LEAVES_SLAB = register("jungle_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.JUNGLE_LEAVES), true);
+    public static final Block ACACIA_LEAVES_SLAB = register("acacia_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES), true);
+    public static final Block DARK_OAK_LEAVES_SLAB = register("dark_oak_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.DARK_OAK_LEAVES), true);
+    public static final Block MANGROVE_LEAVES_SLAB = register("mangrove_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES), true);
+    public static final Block CHERRY_LEAVES_SLAB = register("cherry_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES), true);
+    public static final Block PALE_OAK_LEAVES_SLAB = register("pale_oak_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_OAK_LEAVES), true);
+    public static final Block AZALEA_LEAVES_SLAB = register("azalea_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES), true);
+    public static final Block FLOWERING_AZALEA_LEAVES_SLAB = register("flowering_azalea_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.FLOWERING_AZALEA_LEAVES), true);
+    public static final Block GRAVEL_SLAB = register("gravel_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.GRAVEL), true);
+    public static final Block SNOW_BLOCK_SLAB = register("snow_block_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK), true);
+    public static final Block SAND_SLAB = register("sand_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.SAND), true);
+    public static final Block RED_SAND_SLAB = register("red_sand_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
+    public static final Block QUARTZ_BRICKS_SLAB = register("quartz_bricks_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
+
+    //stairs
+    public static final Block TNT_STAIRS = register("tnt_stairs", settings -> new StairsBlock(Blocks.TNT.getDefaultState(), settings), AbstractBlock.Settings.create().hardness(5f).sounds(BlockSoundGroup.GRASS), true);
+    public static final Block DIRT_STAIRS = register("dirt_stairs", settings -> new StairsBlock(Blocks.DIRT.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.DIRT), true);
+    public static final Block COARSE_DIRT_STAIRS = register("coarse_dirt_stairs", settings -> new StairsBlock(Blocks.COARSE_DIRT.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.COARSE_DIRT), true);
+    public static final Block OAK_LEAVES_STAIRS = register("oak_leaves_stairs", settings -> new StairsBlock(Blocks.OAK_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
+    public static final Block SPRUCE_LEAVES_STAIRS = register("spruce_leaves_stairs", settings -> new StairsBlock(Blocks.SPRUCE_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), true);
+    public static final Block BIRCH_LEAVES_STAIRS = register("birch_leaves_stairs", settings -> new StairsBlock(Blocks.BIRCH_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.BIRCH_LEAVES), true);
+    public static final Block JUNGLE_LEAVES_STAIRS = register("jungle_leaves_stairs", settings -> new StairsBlock(Blocks.JUNGLE_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.JUNGLE_LEAVES), true);
+    public static final Block ACACIA_LEAVES_STAIRS = register("acacia_leaves_stairs", settings -> new StairsBlock(Blocks.ACACIA_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES), true);
+    public static final Block DARK_OAK_LEAVES_STAIRS = register("dark_oak_leaves_stairs", settings -> new StairsBlock(Blocks.DARK_OAK_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.DARK_OAK_LEAVES), true);
+    public static final Block MANGROVE_LEAVES_STAIRS = register("mangrove_leaves_stairs", settings -> new StairsBlock(Blocks.MANGROVE_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES), true);
+    public static final Block CHERRY_LEAVES_STAIRS = register("cherry_leaves_stairs", settings -> new StairsBlock(Blocks.CHERRY_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES), true);
+    public static final Block PALE_OAK_LEAVES_STAIRS = register("pale_oak_leaves_stairs", settings -> new StairsBlock(Blocks.PALE_OAK_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.PALE_OAK_LEAVES), true);
+    public static final Block AZALEA_LEAVES_STAIRS = register("azalea_leaves_stairs", settings -> new StairsBlock(Blocks.AZALEA_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES), true);
+    public static final Block FLOWERING_AZALEA_LEAVES_STAIRS = register("flowering_azalea_leaves_stairs", settings -> new StairsBlock(Blocks.FLOWERING_AZALEA_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.FLOWERING_AZALEA_LEAVES), true);
+    public static final Block GRAVEL_STAIRS = register("gravel_stairs", settings -> new StairsBlock(Blocks.GRAVEL.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.GRAVEL), true);
+    public static final Block SNOW_BLOCK_STAIRS = register("snow_block_stairs", settings -> new StairsBlock(Blocks.SNOW_BLOCK.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK), true);
+    public static final Block SAND_STAIRS = register("sand_stairs", settings -> new StairsBlock(Blocks.SAND.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.SAND), true);
+    public static final Block RED_SAND_STAIRS = register("red_sand_stairs", settings -> new StairsBlock(Blocks.RED_SAND.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
+    public static final Block QUARTZ_BRICKS_STAIRS = register("quartz_bricks_stairs", settings -> new StairsBlock(Blocks.QUARTZ_BRICKS.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(
