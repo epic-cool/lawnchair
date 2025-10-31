@@ -4,7 +4,7 @@
       "model": "lawnchair:block/snow_block_slab"
     },
     "type=double": {
-      "model": "minecraft:block/snow_block"
+      "model": "minecraft:block/snow"
     },
     "type=top": {
       "model": "lawnchair:block/snow_block_slab_top"

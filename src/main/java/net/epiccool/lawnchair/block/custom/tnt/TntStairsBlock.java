@@ -31,7 +31,6 @@ import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
-//todo: does this work?
 public class TntStairsBlock extends StairsBlock {
     public static final BooleanProperty UNSTABLE = Properties.UNSTABLE;
 

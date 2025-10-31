@@ -32,6 +32,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EVIL_GOOP);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AZALEA_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SUGAR_CUBE);
 
         blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
 
@@ -56,7 +57,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool azaleaLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.AZALEA_LEAVES);
         BlockStateModelGenerator.BlockTexturePool floweringAzaleaLeavesPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.FLOWERING_AZALEA_LEAVES);
         BlockStateModelGenerator.BlockTexturePool gravelPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GRAVEL);
-        BlockStateModelGenerator.BlockTexturePool snowPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SNOW_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool snowPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SNOW);
         BlockStateModelGenerator.BlockTexturePool sandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SAND);
         BlockStateModelGenerator.BlockTexturePool redSandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_SAND);
         BlockStateModelGenerator.BlockTexturePool quartzBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.QUARTZ_BRICKS);
@@ -99,6 +100,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROBOT_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLIATH_SPAWN_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_FROG_LEGS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_FROG_LEGS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STEEL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_AXE, Models.HANDHELD);

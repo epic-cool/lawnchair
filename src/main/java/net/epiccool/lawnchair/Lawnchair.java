@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair;
 
 import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
@@ -126,6 +127,13 @@ public class Lawnchair implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("grav")
                 .requires(source -> source.hasPermissionLevel(0))
                 .executes(Lawnchair::toggleGravity)
+        ));
+
+        LOGGER.info("Registering /phase for " + MODID);
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("phase")
+                .requires(source -> source.hasPermissionLevel(2))
+                .then(CommandManager.argument("phase", IntegerArgumentType.integer(0, 7))
+                        .executes(ctx -> setPhase(ctx, IntegerArgumentType.getInteger(ctx, "phase"))))
         ));
 
         LOGGER.info("Registering /home for " + MODID);
@@ -263,5 +271,33 @@ public class Lawnchair implements ModInitializer {
         ServerPlayerEntity finalTarget = target;
         ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.set", finalTarget.getName(), blockPos.toShortString()), true);
         return Command.SINGLE_SUCCESS;
+    }
+//todo: make this better, i.e. not change the day. Use a mixin
+    private static int setPhase(CommandContext<ServerCommandSource> ctx, int phase) {
+        ServerWorld world = ctx.getSource().getWorld();
+        phase = Math.floorMod(phase, 8);
+
+        long currentTime = world.getTimeOfDay();
+        long days = currentTime / 24000L;
+        long newTime = (days - (days % 8) + phase) * 24000L + (currentTime % 24000L);
+
+        world.setTimeOfDay(newTime);
+        int finalPhase = phase;
+        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.phase.set", finalPhase, getPhase(finalPhase)), true);
+        return Command.SINGLE_SUCCESS;
+    }
+
+    private static String getPhase(int phase) {
+        return switch (phase) {
+            case 0 -> "Full Moon";
+            case 1 -> "Waning Gibbous";
+            case 2 -> "Last Quarter";
+            case 3 -> "Waning Crescent";
+            case 4 -> "New Moon";
+            case 5 -> "Waxing Crescent";
+            case 6 -> "First Quarter";
+            case 7 -> "Waxing Gibbous";
+            default -> throw new IllegalStateException("Unexpected value: " + phase);
+        };
     }
 }

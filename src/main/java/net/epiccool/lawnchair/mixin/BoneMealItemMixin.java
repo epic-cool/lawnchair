@@ -2,6 +2,7 @@ package net.epiccool.lawnchair.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
@@ -74,6 +75,55 @@ public abstract class BoneMealItemMixin {
         }
 
         if (duplicated) {
+            serverWorld.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
+
+            if (context.getPlayer() != null) {
+                context.getPlayer().swingHand(context.getHand(), true);
+                context.getStack().decrementUnlessCreative(1, context.getPlayer());
+                context.getPlayer().emitGameEvent(GameEvent.ITEM_INTERACT_FINISH);
+            }
+        }
+    }
+
+    @Inject(method = "useOnBlock", at = @At("HEAD"))
+    private void bonemealCane(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
+        if (!(context.getWorld() instanceof ServerWorld serverWorld)) return;
+
+        BlockPos pos = context.getBlockPos();
+        BlockState state = serverWorld.getBlockState(pos);
+        Block block = state.getBlock();
+
+        boolean boned = false;
+
+        if (block.getDefaultState().isOf(Blocks.SUGAR_CANE)) {
+            BlockPos top = pos;
+            while (serverWorld.getBlockState(top.up()).isOf(Blocks.SUGAR_CANE)) {
+                top = top.up();
+            }
+
+            BlockPos cancelT = top;
+            BlockPos cancelM = cancelT.down();
+            BlockPos cancelB = cancelM.down();
+            if (serverWorld.getBlockState(cancelT).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelM).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelB).isOf(Blocks.SUGAR_CANE)) return;
+
+            if (serverWorld.isAir(top.up()) && top.getY() - pos.getY() < 2) {
+                serverWorld.setBlockState(top.up(), Blocks.SUGAR_CANE.getDefaultState());
+
+                boned = true;
+                Random random = serverWorld.random;
+                for (int i = 0; i < 15; i++) {
+                    double x = pos.getX() + 0.5 + (random.nextDouble() - 0.5);
+                    double y = pos.getY() + 0.5 + random.nextDouble();
+                    double z = pos.getZ() + 0.5 + (random.nextDouble() - 0.5);
+                    double vx = random.nextGaussian() * 0.02;
+                    double vy = random.nextGaussian() * 0.02;
+                    double vz = random.nextGaussian() * 0.02;
+                    serverWorld.spawnParticles(ParticleTypes.HAPPY_VILLAGER, x, y, z, 1, vx, vy, vz, 0.1);
+                }
+            }
+        }
+
+        if (boned) {
             serverWorld.syncWorldEvent(WorldEvents.BONE_MEAL_USED, pos, 0);
 
             if (context.getPlayer() != null) {

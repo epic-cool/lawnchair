@@ -2,8 +2,13 @@ package net.epiccool.lawnchair.block;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.custom.EvilGoopBlock;
+import net.epiccool.lawnchair.block.custom.SugarCubeBlock;
+import net.epiccool.lawnchair.block.custom.SugarCubeBlockItem;
 import net.epiccool.lawnchair.block.custom.WarpedWartBlock;
+import net.epiccool.lawnchair.block.custom.gravity.ColoredFallingSlabBlock;
+import net.epiccool.lawnchair.block.custom.gravity.SandSlabBlock;
 import net.epiccool.lawnchair.block.custom.tnt.TntSlabBlock;
+import net.epiccool.lawnchair.block.custom.tnt.TntStairsBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -14,6 +19,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
@@ -75,6 +81,7 @@ public class ModBlocks {
 //    public static final Block ALLOY_MIXER = register("alloy_mixer", AlloyMixerBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.GRAY).strength(2F, 2F).sounds(BlockSoundGroup.STONE), true);
     public static final Block WARPED_WART = register("warped_wart", WarpedWartBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.CYAN).noCollision().ticksRandomly().sounds(BlockSoundGroup.NETHER_WART).pistonBehavior(PistonBehavior.DESTROY), true);
     public static final Block EVIL_GOOP = register("evil_goop", EvilGoopBlock::new, AbstractBlock.Settings.create().strength(0.1F, 0.1F).sounds(BlockSoundGroup.SLIME).luminance(state -> 3).breakInstantly(), true); //todo: prevent spawning
+    public static final Block SUGAR_CUBE = register("sugar_cube", SugarCubeBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRAVEL).breakInstantly(), false);
 
     //wood - azalea
     public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
@@ -98,14 +105,14 @@ public class ModBlocks {
     public static final Block PALE_OAK_LEAVES_SLAB = register("pale_oak_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_OAK_LEAVES), true);
     public static final Block AZALEA_LEAVES_SLAB = register("azalea_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES), true);
     public static final Block FLOWERING_AZALEA_LEAVES_SLAB = register("flowering_azalea_leaves_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.FLOWERING_AZALEA_LEAVES), true);
-    public static final Block GRAVEL_SLAB = register("gravel_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.GRAVEL), true);
+    public static final Block GRAVEL_SLAB = register("gravel_slab", settings -> new ColoredFallingSlabBlock(new ColorCode(-8356741), settings), AbstractBlock.Settings.copy(Blocks.GRAVEL), true);
     public static final Block SNOW_BLOCK_SLAB = register("snow_block_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK), true);
-    public static final Block SAND_SLAB = register("sand_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.SAND), true);
-    public static final Block RED_SAND_SLAB = register("red_sand_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
+    public static final Block SAND_SLAB = register("sand_slab", settings -> new SandSlabBlock(new ColorCode(14406560), settings), AbstractBlock.Settings.copy(Blocks.SAND), true);
+    public static final Block RED_SAND_SLAB = register("red_sand_slab", settings -> new SandSlabBlock(new ColorCode(11098145), settings), AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
     public static final Block QUARTZ_BRICKS_SLAB = register("quartz_bricks_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
 
     //stairs
-    public static final Block TNT_STAIRS = register("tnt_stairs", settings -> new StairsBlock(Blocks.TNT.getDefaultState(), settings), AbstractBlock.Settings.create().hardness(5f).sounds(BlockSoundGroup.GRASS), true);
+    public static final Block TNT_STAIRS = register("tnt_stairs", settings -> new TntStairsBlock(Blocks.TNT.getDefaultState(), settings), AbstractBlock.Settings.create().hardness(5f).sounds(BlockSoundGroup.GRASS), true);
     public static final Block DIRT_STAIRS = register("dirt_stairs", settings -> new StairsBlock(Blocks.DIRT.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.DIRT), true);
     public static final Block COARSE_DIRT_STAIRS = register("coarse_dirt_stairs", settings -> new StairsBlock(Blocks.COARSE_DIRT.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.COARSE_DIRT), true);
     public static final Block OAK_LEAVES_STAIRS = register("oak_leaves_stairs", settings -> new StairsBlock(Blocks.OAK_LEAVES.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), true);
@@ -151,4 +158,12 @@ public class ModBlocks {
     public static final Block WAXED_WEATHERED_COPPER_CHAIN_BLOCK = register("waxed_weathered_copper_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.WEATHERED_COPPER), true);
     public static final Block WAXED_EXPOSED_COPPER_CHAIN_BLOCK = register("waxed_exposed_copper_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.EXPOSED_COPPER), true);
     public static final Block WAXED_OXIDIZED_COPPER_CHAIN_BLOCK = register("waxed_oxidized_copper_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.OXIDIZED_COPPER), true);
+
+    static {
+        Registry.register(
+                Registries.ITEM,
+                keyOfItem("sugar_cube"),
+                new SugarCubeBlockItem(SUGAR_CUBE, new Item.Settings().registryKey(keyOfItem("sugar_cube")).useBlockPrefixedTranslationKey())
+        );
+    }
 }

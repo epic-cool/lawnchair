@@ -123,6 +123,7 @@ public class ModItems {
             entries.add(ModItems.STEEL_INGOT);
             entries.add(ModBlocks.STRIPPED_AZALEA_LOG);
             entries.add(ModBlocks.STRIPPED_AZALEA_WOOD);
+            entries.add(ModBlocks.SUGAR_CUBE);
             entries.add(ModBlocks.UNLIT_LANTERN);
             entries.add(ModItems.UNLIT_TORCH);
         });
@@ -226,6 +227,9 @@ public class ModItems {
             entries.add(ModItems.RAW_SQUID);
             entries.add(ModItems.COOKED_SQUID);
 
+            entries.add(ModItems.RAW_FROG_LEGS);
+            entries.add(ModItems.COOKED_FROG_LEGS);
+
             entries.add(ModItems.PUMPKIN_SLICE);
         });
     }
@@ -239,8 +243,7 @@ public class ModItems {
     }, new Item.Settings().maxCount(1).maxDamage(128).component(DataComponentTypes.TOOL, IcePickItem.createToolComponent()).enchantable(4));
 
     public static final Item STEEL_INGOT = register("steel_ingot", Item::new, new Item.Settings());
-    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", settings -> new EvilGoopFragmentItem(settings) {
-    }, new Item.Settings());
+    public static final Item EVIL_GOOP_FRAGMENT = register("evil_goop_fragment", settings -> new EvilGoopFragmentItem(settings) {}, new Item.Settings());
     public static final Item ROBOT_CORE = register("robot_core", Item::new, new Item.Settings());
     public static final Item PUMPKIN_SLICE = register("pumpkin_slice", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.1F).build()));
     public static final Item RAW_HAM = register("raw_ham", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).build()));
@@ -251,6 +254,8 @@ public class ModItems {
     public static final Item COOKED_SAUSAGE = register("cooked_sausage", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(0.7F).build()));
     public static final Item RAW_SQUID = register("raw_squid", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
     public static final Item COOKED_SQUID = register("cooked_squid", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.6F).build()));
+    public static final Item RAW_FROG_LEGS = register("raw_frog_legs", RawFoodItem::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.25F).build()));
+    public static final Item COOKED_FROG_LEGS = register("cooked_frog_legs", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.55F).build()));
 
     //Spawn eggs
     public static final Item GOLIATH_SPAWN_EGG = register("goliath_spawn_egg", settings -> new SpawnEggItem(settings.spawnEgg(ModEntities.GOLIATH)), new Item.Settings());

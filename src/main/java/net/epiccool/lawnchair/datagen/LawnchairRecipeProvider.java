@@ -448,6 +448,13 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, ModBlocks.SUGAR_CUBE, 1)
+                        .pattern("00")
+                        .pattern("00")
+                        .input('0', Items.SUGAR)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .offerTo(exporter);
+
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
 //                        .pattern("000")
 //                        .pattern("010")

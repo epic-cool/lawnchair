@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:sugar"
+  },
+  "pattern": [
+    "00",
+    "00"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:sugar_cube"
+  }
+}

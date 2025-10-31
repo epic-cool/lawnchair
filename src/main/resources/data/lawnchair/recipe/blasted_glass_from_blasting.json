@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": [
+    "minecraft:glass"
+  ],
+  "result": {
+    "id": "lawnchair:blasted_glass"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

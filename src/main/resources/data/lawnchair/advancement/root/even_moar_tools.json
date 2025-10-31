@@ -203,7 +203,8 @@
     },
     "title": {
       "translate": "advancements.lawnchair.even_moar_tools.title"
-    }
+    },
+    "hidden": true
   },
   "requirements": [
     [
