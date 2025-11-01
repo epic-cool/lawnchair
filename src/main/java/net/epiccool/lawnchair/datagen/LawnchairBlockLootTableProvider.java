@@ -75,5 +75,7 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.QUARTZ_BRICKS_STAIRS);
         addDrop(ModBlocks.QUARTZ_BRICKS_SLAB);
         addDrop(ModBlocks.SUGAR_CUBE);
+        addDrop(ModBlocks.NETHERITE_BLOCK_STAIRS);
+        addDrop(ModBlocks.NETHERITE_BLOCK_SLAB);
     }
 }

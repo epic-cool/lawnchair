@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:sugar",
+    "1": "minecraft:honey_bottle",
+    "2": "minecraft:yellow_dye"
+  },
+  "pattern": [
+    " 0 ",
+    "010",
+    " 02"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:yellow_wrapped_hard_candy"
+  }
+}

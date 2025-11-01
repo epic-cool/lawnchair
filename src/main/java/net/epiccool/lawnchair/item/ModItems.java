@@ -2,14 +2,18 @@ package net.epiccool.lawnchair.item;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.effect.ModEffects;
 import net.epiccool.lawnchair.entity.ModEntities;
 import net.epiccool.lawnchair.item.custom.EvilGoopFragmentItem;
 import net.epiccool.lawnchair.item.custom.IcePickItem;
 import net.epiccool.lawnchair.item.custom.RawFoodItem;
+import net.epiccool.lawnchair.item.custom.WrappedHardCandyItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
@@ -79,7 +83,7 @@ public class ModItems {
 
     public static final RegistryKey<ItemGroup> SLABS_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "slabs_group"));
     public static final ItemGroup SLABS_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(Items.BARRIER))
+            .icon(() -> new ItemStack(ModBlocks.TNT_SLAB))
             .displayName(Text.translatable("itemGroup.lawnchair.slabs"))
             .build();
 
@@ -212,6 +216,8 @@ public class ModItems {
             entries.add(ModBlocks.RED_SAND_STAIRS);
             entries.add(ModBlocks.QUARTZ_BRICKS_SLAB);
             entries.add(ModBlocks.QUARTZ_BRICKS_STAIRS);
+            entries.add(ModBlocks.NETHERITE_BLOCK_SLAB);
+            entries.add(ModBlocks.NETHERITE_BLOCK_STAIRS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {
@@ -231,6 +237,13 @@ public class ModItems {
             entries.add(ModItems.COOKED_FROG_LEGS);
 
             entries.add(ModItems.PUMPKIN_SLICE);
+
+            entries.add(ModItems.BLUE_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.RED_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.YELLOW_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.GREEN_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.PURPLE_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.ORANGE_WRAPPED_HARD_CANDY);
         });
     }
 
@@ -348,6 +361,26 @@ public class ModItems {
             settings -> new VerticallyAttachableBlockItem(ModBlocks.UNLIT_TORCH, ModBlocks.UNLIT_WALL_TORCH, Direction.DOWN, settings),
             new Item.Settings()
     );
+
+    //Candy
+    public static final Item BLUE_WRAPPED_HARD_CANDY = register("blue_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            StatusEffects.SPEED, 250, 20
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item RED_WRAPPED_HARD_CANDY = register("red_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            ModEffects.SMALL, 250
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item YELLOW_WRAPPED_HARD_CANDY = register("yellow_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            StatusEffects.JUMP_BOOST, 250, 20
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item GREEN_WRAPPED_HARD_CANDY = register("green_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            ModEffects.STRENGTH, 250, 20
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item PURPLE_WRAPPED_HARD_CANDY = register("purple_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            ModEffects.FEATHER_FALLING, 250
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item ORANGE_WRAPPED_HARD_CANDY = register("orange_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            StatusEffects.LUCK, 250, 20
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
 
 
 //    private static void addStickyPotions(ItemGroup.Entries entries) {

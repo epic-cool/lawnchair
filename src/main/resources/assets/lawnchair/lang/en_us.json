@@ -109,6 +109,9 @@
   "item.minecraft.splash_potion.effect.sticky_strong2": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_strong3": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion",
+  "effect.lawnchair.small": "Small",
+  "effect.lawnchair.strength": "Strength",
+  "effect.lawnchair.feather_falling": "Feather Falling",
 
 
   "---------------------------------------Category VIII": "Enchantments ---------------------------------------",
@@ -209,6 +212,8 @@
   "advancements.lawnchair.almost_glow_squid.description": "Shoot a squid with a spectral arrow",
   "advancements.lawnchair.rainbow_of_cuties.title": "Rainbow of Cuties",
   "advancements.lawnchair.rainbow_of_cuties.description": "Collect one of every axolotl variant",
+  "advancements.lawnchair.swaggiest_stairs_ever.title": "Swaggiest stairs ever",
+  "advancements.lawnchair.swaggiest_stairs_ever.description": "Craft some extremely swaggy stairs",
 
 
   "---------------------------------------Category XVI": "Stairs, Slabs, and Such---------------------------------",
@@ -250,6 +255,18 @@
   "block.lawnchair.red_sand_stairs": "Red Sand Stairs",
   "block.lawnchair.quartz_bricks_slab": "Quartz Bricks Slab",
   "block.lawnchair.quartz_bricks_stairs": "Quartz Bricks Stairs",
+  "block.lawnchair.netherite_block_slab": "Netherite Block Slab",
+  "block.lawnchair.netherite_block_stairs": "Netherite Block Stairs",
+
+
+  "---------------------------------------Category XVII": "Candy---------------------------------",
+  "item.lawnchair.candy.ill": "You feel sick",
+  "item.lawnchair.blue_wrapped_hard_candy": "Blue Wrapped Hard Candy",
+  "item.lawnchair.red_wrapped_hard_candy": "Red Wrapped Hard Candy",
+  "item.lawnchair.yellow_wrapped_hard_candy": "Yellow Wrapped Hard Candy",
+  "item.lawnchair.green_wrapped_hard_candy": "Green Wrapped Hard Candy",
+  "item.lawnchair.purple_wrapped_hard_candy": "Purple Wrapped Hard Candy",
+  "item.lawnchair.orange_wrapped_hard_candy": "Orange Wrapped Hard Candy",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

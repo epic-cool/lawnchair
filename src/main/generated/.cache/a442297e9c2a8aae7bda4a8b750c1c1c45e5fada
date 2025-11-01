@@ -4,6 +4,8 @@ f8c69575215863c835f560299feeb75712ce6683 data/lawnchair/tags/block/tall_flowers.
 2da5f16525c01f1d58d13a33312ac939f5f23680 data/minecraft/tags/block/infiniburn_overworld.json
 f308aa113f35b15f94d0bbfcf7becd1eda0fb8a6 data/minecraft/tags/block/logs_that_burn.json
 d952bd73c6649a8a5a81fa8521e20dfd5f44cf1b data/minecraft/tags/block/mineable/axe.json
-04679060da376d494e94e319ef87f42395d9062e data/minecraft/tags/block/mineable/hoe.json
-caee8f908500b4417f13b82f571605997e7ee11c data/minecraft/tags/block/mineable/pickaxe.json
+a6975ca4864e5ab8de172fc555565fb85879f2a6 data/minecraft/tags/block/mineable/hoe.json
+5a051534f0c934e13d7eb38b429ba582b24c3543 data/minecraft/tags/block/mineable/pickaxe.json
+8169884699e9a37641f0c288d9957f7da8ee2f80 data/minecraft/tags/block/mineable/shovel.json
+950e0cb82f9b1ad53e68aee836dc3e9ccb22c11f data/minecraft/tags/block/needs_diamond_tool.json
 0ed7df924beedefa2dbbb7499442c29272019910 data/minecraft/tags/block/needs_stone_tool.json

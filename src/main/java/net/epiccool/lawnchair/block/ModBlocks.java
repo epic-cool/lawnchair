@@ -110,6 +110,7 @@ public class ModBlocks {
     public static final Block SAND_SLAB = register("sand_slab", settings -> new SandSlabBlock(new ColorCode(14406560), settings), AbstractBlock.Settings.copy(Blocks.SAND), true);
     public static final Block RED_SAND_SLAB = register("red_sand_slab", settings -> new SandSlabBlock(new ColorCode(11098145), settings), AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
     public static final Block QUARTZ_BRICKS_SLAB = register("quartz_bricks_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
+    public static final Block NETHERITE_BLOCK_SLAB = register("netherite_block_slab", SlabBlock::new, AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), true);
 
     //stairs
     public static final Block TNT_STAIRS = register("tnt_stairs", settings -> new TntStairsBlock(Blocks.TNT.getDefaultState(), settings), AbstractBlock.Settings.create().hardness(5f).sounds(BlockSoundGroup.GRASS), true);
@@ -131,6 +132,7 @@ public class ModBlocks {
     public static final Block SAND_STAIRS = register("sand_stairs", settings -> new StairsBlock(Blocks.SAND.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.SAND), true);
     public static final Block RED_SAND_STAIRS = register("red_sand_stairs", settings -> new StairsBlock(Blocks.RED_SAND.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
     public static final Block QUARTZ_BRICKS_STAIRS = register("quartz_bricks_stairs", settings -> new StairsBlock(Blocks.QUARTZ_BRICKS.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
+    public static final Block NETHERITE_BLOCK_STAIRS = register("netherite_block_stairs", settings -> new StairsBlock(Blocks.NETHERITE_BLOCK.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(

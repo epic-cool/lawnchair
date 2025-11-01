@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "lawnchair:netherite_block_stairs"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.swaggiest_stairs_ever.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.swaggiest_stairs_ever.description"
+    },
+    "frame": "challenge"
+  },
+  "parent": "lawnchair:root",
+  "criteria": {
+    "craft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "lawnchair:netherite_block_stairs"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "craft"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

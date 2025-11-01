@@ -455,6 +455,80 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
                         .offerTo(exporter);
 
+                //Candy
+                //Wrapped Hard
+                createShaped(RecipeCategory.MISC, ModItems.BLUE_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.BLUE_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.RED_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.RED_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.YELLOW_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.YELLOW_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.GREEN_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.GREEN_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.GREEN_DYE), conditionsFromItem(Items.GREEN_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.PURPLE_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.PURPLE_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.ORANGE_WRAPPED_HARD_CANDY, 1)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.ORANGE_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.ORANGE_DYE), conditionsFromItem(Items.ORANGE_DYE))
+                        .offerTo(exporter);
+
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
 //                        .pattern("000")
 //                        .pattern("010")
@@ -488,6 +562,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
 
                 //Wooden recipes
                 //Azalea
+                //todo: placeholder
                 createShaped(RecipeCategory.MISC, Items.OAK_BOAT, 1)
                         .pattern("0 0")
                         .pattern("000")
@@ -495,11 +570,13 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShapeless(RecipeCategory.REDSTONE, Items.OAK_BUTTON, 1)
                         .input(ModBlocks.AZALEA_PLANKS)
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShapeless(RecipeCategory.MISC, Items.OAK_CHEST_BOAT, 1)
                         .input(ModBlocks.AZALEA_PLANKS)
                         .input(Blocks.CHEST)
@@ -507,6 +584,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.CHEST), conditionsFromItem(Blocks.CHEST))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.REDSTONE, Items.OAK_DOOR, 3)
                         .pattern("00")
                         .pattern("00")
@@ -515,6 +593,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.MISC, Items.OAK_FENCE, 3)
                         .pattern("010")
                         .pattern("010")
@@ -524,6 +603,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.REDSTONE, Items.OAK_FENCE_GATE, 1)
                         .pattern("010")
                         .pattern("010")
@@ -533,6 +613,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.MISC, Items.OAK_HANGING_SIGN, 6)
                         .pattern("0 0")
                         .pattern("111")
@@ -553,12 +634,14 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModBlocks.STRIPPED_AZALEA_LOG), conditionsFromItem(ModBlocks.STRIPPED_AZALEA_LOG))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.REDSTONE, Items.OAK_PRESSURE_PLATE, 1)
                         .pattern("00")
                         .input('0', ModBlocks.AZALEA_PLANKS)
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.MISC, Items.OAK_SIGN, 3)
                         .pattern("000")
                         .pattern("000")
@@ -569,12 +652,14 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.BUILDING_BLOCKS, Items.OAK_SLAB, 6)
                         .pattern("000")
                         .input('0', ModBlocks.AZALEA_PLANKS)
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.BUILDING_BLOCKS, Items.OAK_STAIRS, 4)
                         .pattern("0  ")
                         .pattern("00 ")
@@ -583,6 +668,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModBlocks.AZALEA_PLANKS), conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                         .offerTo(exporter);
 
+                //todo: placeholder
                 createShaped(RecipeCategory.REDSTONE, Items.OAK_TRAPDOOR, 2)
                         .pattern("000")
                         .pattern("000")
@@ -877,6 +963,21 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .pattern("000")
                         .input('0', Blocks.QUARTZ_BRICKS)
                         .criterion(hasItem(Blocks.QUARTZ_BRICKS), conditionsFromItem(Blocks.QUARTZ_BRICKS))
+                        .offerTo(exporter);
+
+                //netherite block
+                createShaped(RecipeCategory.MISC, ModBlocks.NETHERITE_BLOCK_SLAB, 6)
+                        .pattern("000")
+                        .input('0', Blocks.NETHERITE_BLOCK)
+                        .criterion(hasItem(Blocks.QUARTZ_BRICKS), conditionsFromItem(Blocks.NETHERITE_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.NETHERITE_BLOCK_STAIRS, 4)
+                        .pattern("0  ")
+                        .pattern("00 ")
+                        .pattern("000")
+                        .input('0', Blocks.NETHERITE_BLOCK)
+                        .criterion(hasItem(Blocks.NETHERITE_BLOCK), conditionsFromItem(Blocks.NETHERITE_BLOCK))
                         .offerTo(exporter);
             }
         };

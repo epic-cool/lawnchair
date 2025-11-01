@@ -13,6 +13,7 @@
     "GameModeCommandMixin",
     "MobEntityAccessor",
     "PigEntityMixin",
+    "PlayerEntityMixin",
     "SnowballEntityMixin",
     "SquidEntityMixin",
     "ZombieEntityMixin",

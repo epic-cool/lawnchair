@@ -12,6 +12,10 @@
     "lawnchair:waxed_weathered_copper_chain_block",
     "lawnchair:waxed_oxidized_copper_chain_block",
     "lawnchair:steel_bars",
-    "lawnchair:iron_block_with_robot_core"
+    "lawnchair:iron_block_with_robot_core",
+    "lawnchair:quartz_bricks_stairs",
+    "lawnchair:quartz_bricks_slab",
+    "lawnchair:netherite_block_stairs",
+    "lawnchair:netherite_block_slab"
   ]
 }

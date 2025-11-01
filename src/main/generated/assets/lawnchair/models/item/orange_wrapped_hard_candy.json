@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lawnchair:item/orange_wrapped_hard_candy"
+  }
+}
