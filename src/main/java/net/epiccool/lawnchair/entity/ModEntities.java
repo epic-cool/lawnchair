@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.entity;
 
 import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.entity.custom.ColoredItemFrameEntity;
 import net.epiccool.lawnchair.entity.custom.DuckEntity;
 import net.epiccool.lawnchair.entity.custom.GoliathEntity;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -12,8 +13,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeKeys;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ModEntities {
     private static final RegistryKey<EntityType<?>> GOLIATH_KEY =
@@ -25,6 +31,7 @@ public class ModEntities {
             Identifier.of(Lawnchair.MODID, "goliath"),
             EntityType.Builder.create(GoliathEntity::new, SpawnGroup.MONSTER)
                     .dimensions(5.6f, 3.6f)
+                    .eyeHeight(0.644f)
                     .notAllowedInPeaceful()
                     .maxTrackingRange(512)
                     .build(GOLIATH_KEY));
@@ -37,8 +44,30 @@ public class ModEntities {
                     .maxTrackingRange(10)
                     .build(DUCK_KEY));
 
+    public static final Map<DyeColor, EntityType<ColoredItemFrameEntity>> DYED_ITEM_FRAMES = new HashMap<>();
+
+    private static void registerDyedItemFrames() {
+        for (DyeColor color : DyeColor.values()) {
+            String name = color.getId() + "_item_frame";
+            Identifier id = Identifier.of(Lawnchair.MODID, name);
+            RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, id);
+
+            EntityType<ColoredItemFrameEntity> type = Registry.register(
+                    Registries.ENTITY_TYPE,
+                    id,
+                    EntityType.Builder.create((EntityType<ColoredItemFrameEntity> entityType, World world) -> new ColoredItemFrameEntity(entityType, world), SpawnGroup.MISC)
+                            .dimensions(0.5f, 0.5f)
+                            .eyeHeight(0.4f)
+                            .build(key)
+            );
+
+            DYED_ITEM_FRAMES.put(color, type);
+        }
+    }
+
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Entities for " + Lawnchair.MODID);
+        registerDyedItemFrames();
 
         //Attributes
         FabricDefaultAttributeRegistry.register(ModEntities.GOLIATH, GoliathEntity.createAttributes());

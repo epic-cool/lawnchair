@@ -1,19 +1,37 @@
 {
   "parent": "lawnchair:root",
   "display": {
+    "title": {
+      "translate": "advancements.lawnchair.almost_glow_squid.title"
+    },
     "description": {
       "translate": "advancements.lawnchair.almost_glow_squid.description"
     },
     "icon": {
       "id": "minecraft:spectral_arrow"
     },
-    "title": {
-      "translate": "advancements.lawnchair.almost_glow_squid.title"
+    "frame": "task"
+  },
+  "criteria": {
+    "hit_with_spectral_arrow": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "minecraft:spectral_arrow"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:squid"
+        }
+      }
     }
   },
   "requirements": [
     [
-      "effects_changed"
+      "hit_with_spectral_arrow"
     ]
   ]
 }

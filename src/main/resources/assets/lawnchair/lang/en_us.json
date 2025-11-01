@@ -81,6 +81,10 @@
   "item.lawnchair.emerald_leggings": "Emerald Leggings",
   "item.lawnchair.emerald_boots": "Emerald Boots",
   "item.lawnchair.gas_mask": "Gas Mask",
+  "item.lawnchair.wood_helmet": "Wood Helmet",
+  "item.lawnchair.wood_chestplate": "Wood Chestplate",
+  "item.lawnchair.wood_leggings": "Wood Leggings",
+  "item.lawnchair.wood_boots": "Wood Boots",
 
 
   "---------------------------------------Category VI": "Entities ---------------------------------------------",
@@ -207,13 +211,19 @@
   "advancements.lawnchair.time_to_go_hiking.title": "Time to Go Hiking",
   "advancements.lawnchair.time_to_go_hiking.description": "Kill an enemy with your fist",
   "advancements.lawnchair.conservationist.title": "Conservationist",
-  "advancements.lawnchair.conservationist.description": "Breed endangered animals",
+  "advancements.lawnchair.conservationist.description": "Breed two endangered animals together",
   "advancements.lawnchair.almost_glow_squid.title": "Almost Glow Squid",
   "advancements.lawnchair.almost_glow_squid.description": "Shoot a squid with a spectral arrow",
   "advancements.lawnchair.rainbow_of_cuties.title": "Rainbow of Cuties",
   "advancements.lawnchair.rainbow_of_cuties.description": "Collect one of every axolotl variant",
   "advancements.lawnchair.swaggiest_stairs_ever.title": "Swaggiest stairs ever",
   "advancements.lawnchair.swaggiest_stairs_ever.description": "Craft some extremely swaggy stairs",
+  "advancements.lawnchair.hybrid.title": "Hybrid",
+  "advancements.lawnchair.hybrid.description": "Create a mule",
+  "advancements.lawnchair.pro_fisher.title": "Pro Fisher",
+  "advancements.lawnchair.pro_fisher.description": "Catch junk with a fishing rod",
+  "advancements.lawnchair.underwhelming.title": "Underwhelming",
+  "advancements.lawnchair.underwhelming.description": "Throw an ender pearl underwater",
 
 
   "---------------------------------------Category XVI": "Stairs, Slabs, and Such---------------------------------",

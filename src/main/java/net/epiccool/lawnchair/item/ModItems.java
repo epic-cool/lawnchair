@@ -59,7 +59,7 @@ public class ModItems {
 
     public static final RegistryKey<ItemGroup> COLORED_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Lawnchair.MODID, "colored_group"));
     public static final ItemGroup COLORED_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(Items.BARRIER))
+            .icon(() -> new ItemStack(Items.RED_DYE))
             .displayName(Text.translatable("itemGroup.lawnchair.colored"))
             .build();
 
@@ -101,6 +101,7 @@ public class ModItems {
 
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Items for " + Lawnchair.MODID);
+//        registerDyedItemFrames();
         Registry.register(Registries.ITEM_GROUP, GENERIC_ITEM_GROUP_KEY, GENERIC_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COPPER_ITEM_GROUP_KEY, COPPER_ITEM_GROUP);
@@ -160,6 +161,10 @@ public class ModItems {
             entries.add(ModItems.EMERALD_CHESTPLATE);
             entries.add(ModItems.EMERALD_LEGGINGS);
             entries.add(ModItems.EMERALD_BOOTS);
+            entries.add(ModItems.WOOD_HELMET);
+            entries.add(ModItems.WOOD_CHESTPLATE);
+            entries.add(ModItems.WOOD_LEGGINGS);
+            entries.add(ModItems.WOOD_BOOTS);
             entries.add(ModItems.GAS_MASK);
             entries.add(ModItems.ICE_PICK);
         });
@@ -245,6 +250,8 @@ public class ModItems {
             entries.add(ModItems.PURPLE_WRAPPED_HARD_CANDY);
             entries.add(ModItems.ORANGE_WRAPPED_HARD_CANDY);
         });
+
+//        ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(ModItems::addColoredItems);
     }
 
     public static final Item ICE_PICK = register("ice_pick", settings -> new IcePickItem(settings) {
@@ -350,6 +357,31 @@ public class ModItems {
             new Item.Settings().armor(ModArmorMaterials.EMERALD_ARMOR_MATERIAL, EquipmentType.BOOTS)
     );
 
+    //Wood Armor
+    public static final Item WOOD_HELMET = register(
+            "wood_helmet",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.WOOD_ARMOR_MATERIAL, EquipmentType.HELMET)
+    );
+
+    public static final Item WOOD_CHESTPLATE = register(
+            "wood_chestplate",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.WOOD_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
+    );
+
+    public static final Item WOOD_LEGGINGS = register(
+            "wood_leggings",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.WOOD_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
+    );
+
+    public static final Item WOOD_BOOTS = register(
+            "wood_boots",
+            Item::new,
+            new Item.Settings().armor(ModArmorMaterials.WOOD_ARMOR_MATERIAL, EquipmentType.BOOTS)
+    );
+
     public static final Item GAS_MASK = register(
             "gas_mask",
             Item::new,
@@ -381,6 +413,27 @@ public class ModItems {
     public static final Item ORANGE_WRAPPED_HARD_CANDY = register("orange_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
             StatusEffects.LUCK, 250, 20
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+
+//    public static final Map<DyeColor, Item> DYED_ITEM_FRAME_ITEMS = new HashMap<>();
+//    public static void registerDyedItemFrames() {
+//        for (DyeColor color : DyeColor.values()) {
+//            String name = color.getId() + "_item_frame";
+//            Item item = Registry.register(
+//                    Registries.ITEM,
+//                    Identifier.of(Lawnchair.MODID, name),
+//                    new ColoredItemFrameItem(color, ModEntities.DYED_ITEM_FRAMES.get(color), new Item.Settings()));
+//            DYED_ITEM_FRAME_ITEMS.put(color, item);
+//        }
+//    }
+//
+//    public static void addColoredItems(FabricItemGroupEntries entries) {
+//        for (DyeColor color : DyeColor.values()) {
+//            EntityType<ColoredItemFrameEntity> item = ModEntities.DYED_ITEM_FRAMES.get(color);
+//            if (item != null) {
+//                entries.add(new ItemStack((ItemConvertible) item));
+//            }
+//        }
+//    }
 
 
 //    private static void addStickyPotions(ItemGroup.Entries entries) {

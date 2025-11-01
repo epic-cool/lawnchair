@@ -1,0 +1,32 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "near_ender_pearl_in_water": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "vehicle": {
+            "type": "minecraft:ender_pearl",
+            "location": {
+              "fluid": {
+                "fluids": "minecraft:water"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "minecraft:ender_pearl"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.underwhelming.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.underwhelming.description"
+    },
+    "frame": "task"
+  }
+}

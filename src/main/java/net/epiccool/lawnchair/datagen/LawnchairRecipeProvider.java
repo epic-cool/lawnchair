@@ -14,6 +14,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -317,6 +318,36 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .pattern("0 0")
                         .input('0', ModItems.STEEL_INGOT)
                         .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.WOOD_HELMET, 1)
+                        .pattern("000")
+                        .pattern("0 0")
+                        .input('0', ItemTags.LOGS)
+                        .criterion(hasItem(Items.OAK_LOG), conditionsFromItem(Items.OAK_LOG))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.WOOD_CHESTPLATE, 1)
+                        .pattern("0 0")
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ItemTags.LOGS)
+                        .criterion(hasItem(Items.OAK_LOG), conditionsFromItem(Items.OAK_LOG))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.WOOD_LEGGINGS, 1)
+                        .pattern("000")
+                        .pattern("0 0")
+                        .pattern("0 0")
+                        .input('0', ItemTags.LOGS)
+                        .criterion(hasItem(Items.OAK_LOG), conditionsFromItem(Items.OAK_LOG))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.WOOD_BOOTS, 1)
+                        .pattern("0 0")
+                        .pattern("0 0")
+                        .input('0', ItemTags.LOGS)
+                        .criterion(hasItem(Items.OAK_LOG), conditionsFromItem(Items.OAK_LOG))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, ModBlocks.UNLIT_TORCH, 4)

@@ -65,6 +65,7 @@ public class ModBlocks {
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Blocks for " + Lawnchair.MODID);
     }
+
     //debug
     public static final Block DUMMY_DIRT = register("dummy_dirt", Block::new, AbstractBlock.Settings.copy(Blocks.DIRT), false);
 
@@ -75,10 +76,10 @@ public class ModBlocks {
     public static final Block IRON_CHAIN_BLOCK = register("iron_chain_block", Block::new, AbstractBlock.Settings.copy(Blocks.IRON_CHAIN), true);
     public static final Block STEEL_BARS = register("steel_bars", PaneBlock::new, AbstractBlock.Settings.create().requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.IRON).nonOpaque(), true);
     public static final Block UNLIT_TORCH = register("unlit_torch", settings -> new TorchBlock(ParticleTypes.ASH, settings), AbstractBlock.Settings.create().noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);
-	public static final Block UNLIT_WALL_TORCH = register("unlit_wall_torch", settings -> new WallTorchBlock(ParticleTypes.ASH, settings), copyLootTable(UNLIT_TORCH, true).noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);
+    public static final Block UNLIT_WALL_TORCH = register("unlit_wall_torch", settings -> new WallTorchBlock(ParticleTypes.ASH, settings), copyLootTable(UNLIT_TORCH, true).noCollision().breakInstantly().luminance(state -> 0).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), false);
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).strength(1.0F).sounds(BlockSoundGroup.WOOD).luminance(state -> 10).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY), true);
     public static final Block UNLIT_LANTERN = register("unlit_lantern", LanternBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).solid().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 0).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), true); //todo: right click w/ f+s to light it. same w/ torch.
-//    public static final Block ALLOY_MIXER = register("alloy_mixer", AlloyMixerBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.GRAY).strength(2F, 2F).sounds(BlockSoundGroup.STONE), true);
+    //    public static final Block ALLOY_MIXER = register("alloy_mixer", AlloyMixerBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.GRAY).strength(2F, 2F).sounds(BlockSoundGroup.STONE), true);
     public static final Block WARPED_WART = register("warped_wart", WarpedWartBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.CYAN).noCollision().ticksRandomly().sounds(BlockSoundGroup.NETHER_WART).pistonBehavior(PistonBehavior.DESTROY), true);
     public static final Block EVIL_GOOP = register("evil_goop", EvilGoopBlock::new, AbstractBlock.Settings.create().strength(0.1F, 0.1F).sounds(BlockSoundGroup.SLIME).luminance(state -> 3).breakInstantly(), true); //todo: prevent spawning
     public static final Block SUGAR_CUBE = register("sugar_cube", SugarCubeBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRAVEL).breakInstantly(), false);

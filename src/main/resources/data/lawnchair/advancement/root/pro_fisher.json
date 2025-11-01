@@ -1,0 +1,56 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "junk_hooked": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:bamboo",
+            "minecraft:lily_pad",
+            "minecraft:bone",
+            "minecraft:bowl",
+            "minecraft:leather",
+            "minecraft:leather_boots",
+            "minecraft:rotten_flesh",
+            "minecraft:tripwire_hook",
+            "minecraft:stick",
+            "minecraft:string",
+            "minecraft:fishing_rod",
+            "minecraft:ink_sac"
+          ]
+        }
+      }
+    },
+    "water_bottle_hooked": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "items": "minecraft:potion",
+          "components": {
+            "minecraft:potion_contents": {
+              "potion": "minecraft:water"
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "title": {
+      "translate": "advancements.lawnchair.pro_fisher.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.pro_fisher.description"
+    },
+    "icon": {
+      "id": "minecraft:fishing_rod"
+    }
+  },
+  "requirements": [
+    [
+      "junk_hooked",
+      "water_bottle_hooked"
+    ]
+  ]
+}

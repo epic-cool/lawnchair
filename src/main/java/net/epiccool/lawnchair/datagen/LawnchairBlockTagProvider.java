@@ -94,6 +94,9 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(ModBlocks.NETHERITE_BLOCK_STAIRS)
                 .add(ModBlocks.NETHERITE_BLOCK_SLAB);
 
+        valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.AZALEA_LOG);
+
         valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
                 .add(ModBlocks.CHARCOAL_BLOCK);
 

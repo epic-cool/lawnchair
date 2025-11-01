@@ -6,7 +6,9 @@
     "title": {
       "translate": "advancements.lawnchair.root.title"
     },
-    "description": "advancements.lawnchair.root.description",
+    "description": {
+      "translate": "advancements.lawnchair.root.description"
+    },
     "background": "minecraft:item/barrier",
     "frame": "task",
     "show_toast": false,

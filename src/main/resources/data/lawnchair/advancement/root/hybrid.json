@@ -1,0 +1,29 @@
+{
+  "parent": "lawnchair:root",
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:bred_animals",
+      "conditions": {
+        "child": {
+          "type": "minecraft:mule"
+        }
+      }
+    }
+  },
+  "display": {
+    "title": {
+      "translate": "advancements.lawnchair.hybrid.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.hybrid.description"
+    },
+    "icon": {
+      "id": "minecraft:saddle"
+    }
+  },
+  "requirements": [
+    [
+      "bred"
+    ]
+  ]
+}

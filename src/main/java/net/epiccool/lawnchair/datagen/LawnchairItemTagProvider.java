@@ -44,22 +44,30 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
                 .add(ModItems.EMERALD_HELMET)
                 .add(ModItems.EMERALD_CHESTPLATE)
                 .add(ModItems.EMERALD_LEGGINGS)
-                .add(ModItems.EMERALD_BOOTS);
+                .add(ModItems.EMERALD_BOOTS)
+                .add(ModItems.WOOD_HELMET)
+                .add(ModItems.WOOD_CHESTPLATE)
+                .add(ModItems.WOOD_LEGGINGS)
+                .add(ModItems.WOOD_BOOTS);
 
         valueLookupBuilder(ItemTags.HEAD_ARMOR_ENCHANTABLE)
                 .add(ModItems.STEEL_HELMET)
+                .add(ModItems.WOOD_HELMET)
                 .add(ModItems.EMERALD_HELMET);
 
         valueLookupBuilder(ItemTags.CHEST_ARMOR_ENCHANTABLE)
                 .add(ModItems.STEEL_CHESTPLATE)
+                .add(ModItems.WOOD_CHESTPLATE)
                 .add(ModItems.EMERALD_CHESTPLATE);
 
         valueLookupBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE)
                 .add(ModItems.STEEL_LEGGINGS)
+                .add(ModItems.WOOD_LEGGINGS)
                 .add(ModItems.EMERALD_LEGGINGS);
 
         valueLookupBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE)
                 .add(ModItems.STEEL_BOOTS)
+                .add(ModItems.WOOD_BOOTS)
                 .add(ModItems.EMERALD_BOOTS);
 
         valueLookupBuilder(ItemTags.DYEABLE)

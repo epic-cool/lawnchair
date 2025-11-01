@@ -83,6 +83,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         registerSlabAndStairs(quartzBricksPool, ModBlocks.QUARTZ_BRICKS_SLAB, ModBlocks.QUARTZ_BRICKS_STAIRS);
         registerSlabAndStairs(netheriteBlockPool, ModBlocks.NETHERITE_BLOCK_SLAB, ModBlocks.NETHERITE_BLOCK_STAIRS);
 
+
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
     }
 
@@ -126,6 +127,11 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(ModItems.EMERALD_CHESTPLATE, ModArmorMaterials.EMERALD_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.EMERALD_LEGGINGS, ModArmorMaterials.EMERALD_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.EMERALD_BOOTS, ModArmorMaterials.EMERALD_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+
+        itemModelGenerator.registerArmor(ModItems.WOOD_HELMET, ModArmorMaterials.WOOD_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.WOOD_CHESTPLATE, ModArmorMaterials.WOOD_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.WOOD_LEGGINGS, ModArmorMaterials.WOOD_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.WOOD_BOOTS, ModArmorMaterials.WOOD_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
 
         itemModelGenerator.registerArmor(ModItems.GAS_MASK, ModArmorMaterials.GAS_MASK_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, true);
     }

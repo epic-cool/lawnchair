@@ -1,82 +1,77 @@
 {
-  "parent": "lawnchair:root",
   "display": {
     "icon": {
       "id": "minecraft:player_head"
     },
-    "title": "advancements.lawnchair.not_punchout.title",
-    "description": "advancements.lawnchair.not_punchout.description"
+    "title": {
+      "translate": "advancements.lawnchair.not_punchout.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.not_punchout.description"
+    }
   },
+  "parent": "lawnchair:root",
   "criteria": {
     "killed": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "target_entity",
-            "predicate": {
-              "type": [
-                "minecraft:cave_spider",
-                "minecraft:drowned",
-                "minecraft:enderman",
-                "minecraft:piglin",
-                "minecraft:spider",
-                "minecraft:zombified_piglin",
-                "minecraft:blaze",
-                "minecraft:bogged",
-                "minecraft:breeze",
-                "minecraft:creeper",
-                "minecraft:elder_guardian",
-                "minecraft:endermite",
-                "minecraft:evoker",
-                "minecraft:ghast",
-                "minecraft:guardian",
-                "minecraft:hoglin",
-                "minecraft:husk",
-                "minecraft:magma_cube",
-                "minecraft:phantom",
-                "minecraft:piglin_brute",
-                "minecraft:pillager",
-                "minecraft:ravager",
-                "minecraft:shulker",
-                "minecraft:silverfish",
-                "minecraft:skeleton",
-                "minecraft:slime",
-                "minecraft:stray",
-                "minecraft:vex",
-                "minecraft:vindicator",
-                "minecraft:warden",
-                "minecraft:witch",
-                "minecraft:wither_skeleton",
-                "minecraft:zoglin",
-                "minecraft:zombie",
-                "minecraft:zombie_villager",
-                "minecraft:ender_dragon",
-                "minecraft:wither",
-                "minecraft:giant",
-                "lawnchair:goliath",
-                "minecraft:illusioner"
-              ]
-            }
-          }
-        ],
+        "entity": {
+          "type": [
+            "minecraft:cave_spider",
+            "minecraft:drowned",
+            "minecraft:enderman",
+            "minecraft:piglin",
+            "minecraft:spider",
+            "minecraft:zombified_piglin",
+            "minecraft:blaze",
+            "minecraft:bogged",
+            "minecraft:breeze",
+            "minecraft:creeper",
+            "minecraft:elder_guardian",
+            "minecraft:endermite",
+            "minecraft:evoker",
+            "minecraft:ghast",
+            "minecraft:guardian",
+            "minecraft:hoglin",
+            "minecraft:husk",
+            "minecraft:magma_cube",
+            "minecraft:phantom",
+            "minecraft:piglin_brute",
+            "minecraft:pillager",
+            "minecraft:ravager",
+            "minecraft:shulker",
+            "minecraft:silverfish",
+            "minecraft:skeleton",
+            "minecraft:slime",
+            "minecraft:stray",
+            "minecraft:vex",
+            "minecraft:vindicator",
+            "minecraft:warden",
+            "minecraft:witch",
+            "minecraft:wither_skeleton",
+            "minecraft:zoglin",
+            "minecraft:zombie",
+            "minecraft:zombie_villager",
+            "minecraft:ender_dragon",
+            "minecraft:wither",
+            "minecraft:giant",
+            "lawnchair:goliath",
+            "minecraft:illusioner"
+          ]
+        },
         "killing_blow": {
+          "is_direct": true,
           "source_entity": {
             "equipment": {
               "mainhand": {
-                "items": "minecraft:air"
+                "items": [
+                  "minecraft:air"
+                ]
               }
             }
-          },
-          "is_direct": true
+          }
         }
       }
     }
-  },
-  "requirements": [
-    [
-      "killed"
-    ]
-  ]
+  }
 }
