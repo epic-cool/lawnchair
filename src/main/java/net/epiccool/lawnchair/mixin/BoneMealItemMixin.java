@@ -28,17 +28,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BoneMealItem.class)
 public abstract class BoneMealItemMixin {
     @Unique
-    private static final TagKey<Block> SMALL_FLOWERS =
-            TagKey.of(RegistryKeys.BLOCK, Identifier.ofVanilla("small_flowers"));
-    @Unique
-    private static final TagKey<Block> LAWNCHAIR_SMALL_FLOWERS =
+    private static final TagKey<Block> FLOWERS =
             TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "small_flowers"));
-    @Unique
-    private static final TagKey<Block> TALL_FLOWERS =
-            TagKey.of(RegistryKeys.BLOCK, Identifier.ofVanilla("tall_flowers"));
-    @Unique
-    private static final TagKey<Block> LAWNCHAIR_TALL_FLOWERS =
-            TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "tall_flowers"));
 
     @Inject(method = "useOnBlock", at = @At("HEAD"))
     private void bonemealFlower(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
@@ -56,9 +47,11 @@ public abstract class BoneMealItemMixin {
 
         boolean duplicated = false;
 
-        if (block.getDefaultState().isIn(SMALL_FLOWERS) || block.getDefaultState().isIn(TALL_FLOWERS) ||
-                block.getDefaultState().isIn(LAWNCHAIR_SMALL_FLOWERS) || block.getDefaultState().isIn(LAWNCHAIR_TALL_FLOWERS)) {
+        if (block.getDefaultState().isIn(FLOWERS)) {
             ItemStack stack = new ItemStack(block.asItem());
+            if (block.getDefaultState().isOf(Blocks.PEONY) || block.getDefaultState().isOf(Blocks.LILAC) || block.getDefaultState().isOf(Blocks.SUNFLOWER) || block.getDefaultState().isOf(Blocks.ROSE_BUSH)) {
+                return;
+            }
             ItemScatterer.spawn(serverWorld, pos.getX(), pos.getY(), pos.getZ(), stack);
             duplicated = true;
 
@@ -104,7 +97,8 @@ public abstract class BoneMealItemMixin {
             BlockPos cancelT = top;
             BlockPos cancelM = cancelT.down();
             BlockPos cancelB = cancelM.down();
-            if (serverWorld.getBlockState(cancelT).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelM).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelB).isOf(Blocks.SUGAR_CANE)) return;
+            if (serverWorld.getBlockState(cancelT).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelM).isOf(Blocks.SUGAR_CANE) && serverWorld.getBlockState(cancelB).isOf(Blocks.SUGAR_CANE))
+                return;
 
             if (serverWorld.isAir(top.up()) && top.getY() - pos.getY() < 2) {
                 serverWorld.setBlockState(top.up(), Blocks.SUGAR_CANE.getDefaultState());

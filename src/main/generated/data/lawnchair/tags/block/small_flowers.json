@@ -1,5 +1,36 @@
 {
   "values": [
-    "minecraft:cactus_flower"
+    "minecraft:allium",
+    "minecraft:azure_bluet",
+    "minecraft:blue_orchid",
+    "minecraft:cornflower",
+    "minecraft:dandelion",
+    "minecraft:open_eyeblossom",
+    "minecraft:closed_eyeblossom",
+    "minecraft:lily_of_the_valley",
+    "minecraft:oxeye_daisy",
+    "minecraft:poppy",
+    "minecraft:torchflower",
+    "minecraft:orange_tulip",
+    "minecraft:pink_tulip",
+    "minecraft:red_tulip",
+    "minecraft:white_tulip",
+    "minecraft:lilac",
+    "minecraft:peony",
+    "minecraft:pitcher_plant",
+    "minecraft:rose_bush",
+    "minecraft:sunflower",
+    "minecraft:cherry_leaves",
+    "lawnchair:cherry_leaves_slab",
+    "lawnchair:cherry_leaves_stairs",
+    "minecraft:chorus_flower",
+    "minecraft:flowering_azalea_leaves",
+    "lawnchair:flowering_azalea_leaves_slab",
+    "lawnchair:flowering_azalea_leaves_stairs",
+    "minecraft:pink_petals",
+    "minecraft:spore_blossom",
+    "minecraft:wildflowers",
+    "minecraft:cactus_flower",
+    "minecraft:wither_rose"
   ]
 }

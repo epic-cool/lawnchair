@@ -100,11 +100,47 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
         valueLookupBuilder(BlockTags.INFINIBURN_OVERWORLD)
                 .add(ModBlocks.CHARCOAL_BLOCK);
 
-        valueLookupBuilder(ModTags.Blocks.SMALL_FLOWERS)
-                .add(Blocks.CACTUS_FLOWER);
+        valueLookupBuilder(ModTags.Blocks.FLOWERS)
+                .add(Blocks.ALLIUM)
+                .add(Blocks.AZURE_BLUET)
+                .add(Blocks.BLUE_ORCHID)
+                .add(Blocks.CORNFLOWER)
+                .add(Blocks.DANDELION)
+                .add(Blocks.OPEN_EYEBLOSSOM)
+                .add(Blocks.CLOSED_EYEBLOSSOM)
+                .add(Blocks.LILY_OF_THE_VALLEY)
+                .add(Blocks.OXEYE_DAISY)
+                .add(Blocks.POPPY)
+                .add(Blocks.TORCHFLOWER)
+                .add(Blocks.ORANGE_TULIP)
+                .add(Blocks.PINK_TULIP)
+                .add(Blocks.RED_TULIP)
+                .add(Blocks.WHITE_TULIP)
+                .add(Blocks.LILAC)
+                .add(Blocks.PEONY)
+                .add(Blocks.PITCHER_PLANT)
+                .add(Blocks.ROSE_BUSH)
+                .add(Blocks.SUNFLOWER)
+                .add(Blocks.CHERRY_LEAVES)
+                .add(ModBlocks.CHERRY_LEAVES_SLAB)
+                .add(ModBlocks.CHERRY_LEAVES_STAIRS)
+                .add(Blocks.CHORUS_FLOWER)
+                .add(Blocks.FLOWERING_AZALEA_LEAVES)
+                .add(ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB)
+                .add(ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS)
+                .add(Blocks.PINK_PETALS)
+                .add(Blocks.SPORE_BLOSSOM)
+                .add(Blocks.WILDFLOWERS)
+                .add(Blocks.CACTUS_FLOWER)
+                .add(Blocks.WITHER_ROSE);
 
-        valueLookupBuilder(ModTags.Blocks.TALL_FLOWERS)
-                .add(Blocks.PITCHER_PLANT);
+        valueLookupBuilder(ModTags.Blocks.LIGHT_EMITTING_BLOCKS_10)
+                .add(Blocks.TORCHFLOWER_CROP)
+                .add(Blocks.POTTED_TORCHFLOWER)
+                .add(Blocks.TORCHFLOWER);
+
+        valueLookupBuilder(ModTags.Blocks.TURN_TO_LAVA)
+                .add(Blocks.MAGMA_BLOCK);
 
         valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.AZALEA_LOG)

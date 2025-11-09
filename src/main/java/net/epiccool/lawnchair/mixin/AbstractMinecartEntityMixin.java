@@ -1,15 +1,16 @@
 package net.epiccool.lawnchair.mixin;
 
-import net.epiccool.lawnchair.util.ModDamageSources;
+import net.epiccool.lawnchair.util.ModDamageTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -39,15 +40,16 @@ public class AbstractMinecartEntityMixin {
                         case HARD -> damage = 8f;
                     }
 
-                    DamageSource source;
-                    try {
-                        ModDamageSources damageSources = new ModDamageSources(serverWorld.getRegistryManager());
-                        source = damageSources.ranOver();
-                    } catch (Exception e) {
-                        source = new DamageSources(serverWorld.getRegistryManager()).generic();
-                    }
-
                     if (entity instanceof PlayerEntity player && !player.hasVehicle() && !player.isCreative()) {
+                        World world = self.getEntityWorld();
+
+                        DamageSource source = new DamageSource(
+                                world.getRegistryManager()
+                                        .getOrThrow(RegistryKeys.DAMAGE_TYPE)
+                                        .getEntry(ModDamageTypes.RAN_OVER.getValue()).get()
+                                , self, self
+                        );
+
                         entity.damage(serverWorld, source, damage);
 
                         Difficulty difficulty = player.getEntityWorld().getDifficulty();

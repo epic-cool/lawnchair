@@ -68,11 +68,14 @@ public class GrassStompGoal extends Goal {
                 if (state.isOf(Blocks.GRASS_BLOCK)) {
                     world.setBlockState(pos, Blocks.DIRT.getDefaultState(), 3);
                     pig.playSound(SoundEvents.BLOCK_GRASS_BREAK, 1.0f, 1.0f);
+//                    makeItem();
                 } else if (state.isOf(Blocks.DIRT)) {
                     world.setBlockState(pos, Blocks.COARSE_DIRT.getDefaultState(), 3);
                     pig.playSound(SoundEvents.BLOCK_GRASS_BREAK, 1.0f, 1.0f);
+//                    makeItem();
                 } else if (state.isOf(Blocks.COARSE_DIRT)) {
                     pig.playSound(SoundEvents.BLOCK_GRASS_BREAK, 1.0f, 1.0f);
+//                    makeItem();
                 }
             }
         }

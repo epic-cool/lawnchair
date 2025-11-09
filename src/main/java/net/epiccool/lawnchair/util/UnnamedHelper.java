@@ -1,7 +1,13 @@
 package net.epiccool.lawnchair.util;
 
 import net.epiccool.lawnchair.Lawnchair;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -14,17 +20,21 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 
+import java.util.Map;
 import java.util.WeakHashMap;
 
 public class UnnamedHelper {
@@ -66,6 +76,48 @@ public class UnnamedHelper {
 
             return ActionResult.PASS;
         });
+
+        PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
+            onBlockBreak(world, pos, state);
+        });
+
+        //todo : doesnt owrk
+        DynamicRegistrySetupCallback.EVENT.register(registryManager -> {
+            registryManager.getOptional(RegistryKeys.BLOCK).ifPresent(blockRegistry -> {
+                for (Map.Entry<RegistryKey<Block>, Block> entry : blockRegistry.getEntrySet()) {
+                    Block block = entry.getValue();
+                    if (block.getDefaultState().isIn(ModTags.Blocks.LIGHT_EMITTING_BLOCKS_10)) {
+                        Block.Settings newSettings = AbstractBlock.Settings.copy(block).luminance(state -> 10);
+                        try {
+                            var field = Block.class.getDeclaredField("settings");
+                            field.setAccessible(true);
+                            field.set(block, newSettings);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+        });
+
+//        DynamicRegistrySetupCallback.EVENT.register(new DynamicRegistrySetupCallback() {
+//            @Override
+//            public void onRegistrySetup(DynamicRegistryView registryManager) {
+//                for (Map.Entry<RegistryKey<Block>, Block> entry : registryManager.asDynamicRegistryManager().getOrThrow(RegistryKeys.BLOCK).getEntrySet()) {
+//                    Block block = entry.getValue();
+//                    if (block.getDefaultState().isIn(ModTags.Blocks.LIGHT_EMITTING_BLOCKS_10)) {
+//                        Block.Settings newSettings = AbstractBlock.Settings.copy(block).luminance(state -> 10);
+//                        try {
+//                            var field = Block.class.getDeclaredField("settings");
+//                            field.setAccessible(true);
+//                            field.set(block, newSettings);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
+//            }
+//        });
     }
 
     private static ActionResult milk(PlayerEntity player, World world, Hand hand, Entity entity) {
@@ -152,6 +204,17 @@ public class UnnamedHelper {
 
             if (effect != null) {
                 self.addStatusEffect(new StatusEffectInstance(effect, -1));
+            }
+        }
+    }
+
+    public static void onBlockBreak(World world, BlockPos pos, BlockState state) {
+        if (state.isIn(ModTags.Blocks.TURN_TO_LAVA) && !world.isClient()) {
+            Random random = world.getRandom();
+
+            //15% chance to turn into lava
+            if (random.nextFloat() < 0.15f) {
+                world.setBlockState(pos, Blocks.LAVA.getStateManager().getDefaultState(), 3);
             }
         }
     }

@@ -251,7 +251,9 @@ public class ModItems {
             entries.add(ModItems.ORANGE_WRAPPED_HARD_CANDY);
         });
 
-//        ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(ModItems::addColoredItems);
+        ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(entries -> {
+            entries.add(ModBlocks.RAINBOW_WOOL);
+        });
     }
 
     public static final Item ICE_PICK = register("ice_pick", settings -> new IcePickItem(settings) {

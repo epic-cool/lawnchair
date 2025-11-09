@@ -6,8 +6,10 @@ import net.epiccool.lawnchair.entity.client.duck.DuckEntityModel;
 import net.epiccool.lawnchair.entity.client.duck.DuckEntityRenderer;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityModel;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityRenderer;
+import net.epiccool.lawnchair.util.RainbowWoolColorProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.entity.EntityRendererFactories;
@@ -45,6 +47,8 @@ public class LawnchairClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(DuckEntityModel.DUCK, DuckEntityModel::getTexturedModelData);
         EntityRendererFactories.register(ModEntities.DUCK, DuckEntityRenderer::new);
+
+        ColorProviderRegistry.BLOCK.register(new RainbowWoolColorProvider(), ModBlocks.RAINBOW_WOOL);
 
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);

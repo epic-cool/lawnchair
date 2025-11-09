@@ -2,6 +2,7 @@ package net.epiccool.lawnchair;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
@@ -28,6 +29,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.village.TradeOffer;
@@ -41,6 +43,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -154,6 +157,32 @@ public class Lawnchair implements ModInitializer {
                                         .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
                                                 Vec3ArgumentType.getVec3(ctx, "pos"))))))
         ));
+
+        LOGGER.info("Registering /emoji for " + MODID);
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+                dispatcher.register(CommandManager.literal("emoji")
+                        .requires(source -> source.hasPermissionLevel(0))
+                        .then(CommandManager.argument("emoji", StringArgumentType.word())
+                                .suggests((context, builder) -> {
+                                    String typed = builder.getRemaining().toLowerCase();
+                                    for (String key : EMOJIS.keySet()) {
+                                        if (key.toLowerCase().startsWith(typed)) {
+                                            builder.suggest(key);
+                                        }
+                                    }
+                                    return builder.buildFuture();
+                                })
+                                .executes(ctx -> {
+                                    String typedName = StringArgumentType.getString(ctx, "emoji").toLowerCase();
+                                    String matchedKey = EMOJIS.keySet().stream()
+                                            .filter(k -> k.equalsIgnoreCase(typedName))
+                                            .findFirst()
+                                            .orElse(null);
+                                    return sendEmoji(ctx, matchedKey);
+                                })
+                        )
+                )
+        );
 
 
         LOGGER.info("Registering Villager Trades for " + MODID);
@@ -300,4 +329,127 @@ public class Lawnchair implements ModInitializer {
             default -> throw new IllegalStateException("Unexpected value: " + phase);
         };
     }
+
+    private static final Map<String, String> EMOJIS = Map.<String, String>ofEntries(
+            Map.entry("amazed", "( ﾟдﾟ)"),
+            Map.entry("angel", "☜(⌒▽⌒)☞"),
+            Map.entry("angry", "(＃ﾟДﾟ)"),
+            Map.entry("angry1", "ヽ(o`皿′o)ﾉ"),
+            Map.entry("bad", "（・Ａ・）"),
+            Map.entry("bear", "ʕ •ᴥ•ʔ"),
+            Map.entry("bellyslide", "⊂（ﾟДﾟ⊂⌒｀つ≡≡≡(´⌒;;;≡≡≡"),
+            Map.entry("bored", "(ΘεΘ;)"),
+            Map.entry("carefree", "（´∀｀）"),
+            Map.entry("carefree1", "⊂二二二（＾ω＾）二⊃"),
+            Map.entry("carrymoney", "（･∀･)つ⑩"),
+            Map.entry("cat", "(=^ェ^=)"),
+            Map.entry("cat1", "=＾● ⋏ ●＾="),
+            Map.entry("comeon", "щ(ﾟДﾟщ)"),
+            Map.entry("comeon1", "(屮ﾟДﾟ)屮"),
+            Map.entry("disapprove", "ಠ_ಠ"),
+            Map.entry("disapprove1", "ಠ__ಠ"),
+            Map.entry("disapprove2", "ಠ益ಠ"),
+            Map.entry("discombobulated", "┌(；`～,)┐"),
+            Map.entry("dog", "(ᵔᴥᵔ)"),
+            Map.entry("doit", "(☞ﾟヮﾟ)☞"),
+            Map.entry("doit1", "☜(ﾟヮﾟ☜)"),
+            Map.entry("flowergirl", "(◕‿◕✿)"),
+            Map.entry("friendly", "ヽ(´ー`)人(´∇｀)人(`Д´)ノ"),
+            Map.entry("good", "（・∀・）"),
+            Map.entry("grimace", "(╬ ಠ益ಠ)"),
+            Map.entry("happy", "( ﾟヮﾟ)"),
+            Map.entry("happy1", "♪┏(・o･)┛♪"),
+            Map.entry("happy2", "♪┗ (･o･) ┓♪"),
+            Map.entry("happy3", "♪┏(・o･)┛♪┗ ( ･o･) ┓"),
+            Map.entry("happy4", "d(*⌒▽⌒*)b"),
+            Map.entry("happy5", "ヽ(´▽`)/"),
+            Map.entry("happy6", "^ㅂ^"),
+            Map.entry("impatient", "(ﾟДﾟ;≡;ﾟДﾟ)"),
+            Map.entry("indifferent", "（　´_ゝ`）"),
+            Map.entry("intuition", "m9(・∀・)"),
+            Map.entry("irritable", "ヽ(`Д´)ﾉ"),
+            Map.entry("kick", "＼ ￣ヘ￣"),
+            Map.entry("kowtow", "m(_ _)m"),
+            Map.entry("lenny", "( ͡° ͜ʖ ͡°)"),
+            Map.entry("lonely", "('A`)"),
+            Map.entry("peaceful", "ヽ(´ー｀)ﾉ"),
+            Map.entry("perky", "(`･ω･´)"),
+            Map.entry("poke", "( ´∀｀)σ)∀`)"),
+            Map.entry("run", "ε=ε=ε=┌(;*´Д`)ﾉ"),
+            Map.entry("sad", "(´；ω；`)"),
+            Map.entry("sad1", "（ ´,_ゝ`)"),
+            Map.entry("sad2", "（つ Д ｀）"),
+            Map.entry("salute", "(｀-´)>"),
+            Map.entry("shock", "(l'o'l)"),
+            Map.entry("shock1", "Σ(゜д゜;)"),
+            Map.entry("shout", "(≧ロ≦)"),
+            Map.entry("shrug", "¯\\_(ツ)_/¯"),
+            Map.entry("snubbed", "(´･ω･`)"),
+            Map.entry("snorlax", "(￣ー￣)"),
+            Map.entry("smoking", "(´ー`)y-~~"),
+            Map.entry("spook", "(((( ；ﾟДﾟ)))"),
+            Map.entry("surprise", "Σ(ﾟДﾟ)"),
+            Map.entry("surprise1", "（　ﾟДﾟ）"),
+            Map.entry("tableflip", "(╯°□°）╯︵ ┻━┻"),
+            Map.entry("tableflip1", "┻━┻ ︵ ヽ(°□°ヽ)"),
+            Map.entry("tableflip2", "┻━┻ ︵ ＼( °□° )／ ︵ ┻━┻"),
+            Map.entry("tableflip3", "┬─┬ノ( º _ ºノ)"),
+            Map.entry("tableflip4", "(ﾉಥ益ಥ）ﾉ ┻━┻"),
+            Map.entry("tableflip5", "┬──┬ ¯\\_(ツ)"),
+            Map.entry("tableflip6", "┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻"),
+            Map.entry("tableflip7", "┻━┻ ︵ ¯\\(ツ)/¯ ︵ ┻━┻"),
+            Map.entry("tableflip8", "(╯°Д°）╯︵ /(.□ . \\)"),
+            Map.entry("tableflip9", "ʕノ•ᴥ•ʔノ ︵ ┻━┻"),
+            Map.entry("thinking", "（´-`）.｡oO( ... )"),
+            Map.entry("toast", "（ ^_^）o自自o（^_^ ）"),
+            Map.entry("unconvinced", "エェェ(´д｀)ェェエ"),
+            Map.entry("unsure", "┐('～`；)┌"),
+            Map.entry("whisper", "( ´д)ﾋｿ(´Д｀)ﾋｿ(Д｀)"),
+            Map.entry("yell", "（ ´Д｀）")
+    );
+
+    public static final Set<Text> EMOJI_MESSAGES = new HashSet<>();
+
+//    private static int sendEmoji(CommandContext<ServerCommandSource> ctx, String name) {
+//        ServerPlayerEntity player = ctx.getSource().getPlayer();
+//        MinecraftClient client = MinecraftClient.getInstance();
+//
+//        if (player == null) return 0;
+//
+//        String emoji = EMOJIS.get(name);
+//        if (emoji == null) {
+//            player.sendMessage(Text.translatable("commands.lawnchair.emoji.invalid", name).formatted(Formatting.RED));
+//            return 0;
+//        }
+//
+//        Text message = Text.literal(emoji);
+//        Lawnchair.EMOJI_MESSAGES.add(message);
+//
+//        if (client != null && client.player != null) {
+//            client.player.networkHandler.sendChatMessage(message.getString());
+//        }
+//
+//        return Command.SINGLE_SUCCESS;
+//    }
+
+    private static int sendEmoji(CommandContext<ServerCommandSource> ctx, String name) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+
+        if (player == null) return 0;
+
+        String emoji = EMOJIS.get(name);
+        if (emoji == null) {
+            player.sendMessage(Text.translatable("commands.lawnchair.emoji.invalid", name).formatted(Formatting.RED));
+            return 0;
+        }
+
+        Text message = Text.literal("<" + player.getName().getString() + "> " + emoji);
+
+        Lawnchair.EMOJI_MESSAGES.add(Text.literal(emoji));
+
+        player.getEntityWorld().getServer().getPlayerManager().broadcast(message, false);
+
+        return Command.SINGLE_SUCCESS;
+    }
+
 }

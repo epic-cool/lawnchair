@@ -146,6 +146,7 @@
   "commands.lawnchair.home.reset": "Reset the home of %s",
   "commands.lawnchair.home.set": "Set the home of %s at %s",
   "commands.lawnchair.phase.set": "Set moon phase to %s (%s)",
+  "commands.lawnchair.emoji.invalid": "Unknown emoji: %s",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",
@@ -167,6 +168,7 @@
 
   "---------------------------------------Category XIV": "Damage ------------------------------------------------",
   "damage.lawnchair.ran_over": "Ran over",
+  "death.attack.ran_over": "%1$s was ran over by %2$s",
 
 
   "---------------------------------------Category XV": "Advancements -------------------------------------------",
