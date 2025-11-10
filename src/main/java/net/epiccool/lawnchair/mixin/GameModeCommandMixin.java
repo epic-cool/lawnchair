@@ -78,7 +78,7 @@ public abstract class GameModeCommandMixin {
             case "2", "a", "adventure" -> GameMode.ADVENTURE;
             case "3", "sp", "spectator" -> GameMode.SPECTATOR;
             case "9" -> {
-                Lawnchair.LOGGER.info("Create an Origins-esque thing.");
+                Lawnchair.LOGGER.info("Create an Origins-esque thing."); //todo
                 yield GameMode.SURVIVAL;
             }
             default -> throw new SimpleCommandExceptionType(Text.translatable("commands.gamemode.invalid", input.toLowerCase())).create();

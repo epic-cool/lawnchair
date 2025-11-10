@@ -1,0 +1,31 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.lawnchair.bow_frost"
+  },
+  "effects": {
+    "minecraft:projectile_spawned": [
+      {
+        "effect": {
+          "type": "lawnchair:bow_frost_effect",
+          "amount": 100.0
+        }
+      }
+    ]
+  },
+  "exclusive_set": "minecraft:flame",
+  "max_cost": {
+    "base": 1,
+    "per_level_above_first": 50
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 20
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/bow",
+  "weight": 2
+}

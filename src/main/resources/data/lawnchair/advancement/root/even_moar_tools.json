@@ -181,6 +181,16 @@
         ]
       }
     },
+    "shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:shield"
+          }
+        ]
+      }
+    },
     "brush": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -248,6 +258,9 @@
     ],
     [
       "stick_fungus"
+    ],
+    [
+      "shield"
     ],
     [
       "brush"

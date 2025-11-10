@@ -6,6 +6,7 @@ import net.epiccool.lawnchair.entity.client.duck.DuckEntityModel;
 import net.epiccool.lawnchair.entity.client.duck.DuckEntityRenderer;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityModel;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityRenderer;
+import net.epiccool.lawnchair.item.custom.ShieldFactory;
 import net.epiccool.lawnchair.util.RainbowWoolColorProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
@@ -50,6 +51,7 @@ public class LawnchairClient implements ClientModInitializer {
 
         ColorProviderRegistry.BLOCK.register(new RainbowWoolColorProvider(), ModBlocks.RAINBOW_WOOL);
 
+        ShieldFactory.registerTooltips();
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);
 

@@ -4,10 +4,7 @@ import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.effect.ModEffects;
 import net.epiccool.lawnchair.entity.ModEntities;
-import net.epiccool.lawnchair.item.custom.EvilGoopFragmentItem;
-import net.epiccool.lawnchair.item.custom.IcePickItem;
-import net.epiccool.lawnchair.item.custom.RawFoodItem;
-import net.epiccool.lawnchair.item.custom.WrappedHardCandyItem;
+import net.epiccool.lawnchair.item.custom.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
@@ -102,6 +99,8 @@ public class ModItems {
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Items for " + Lawnchair.MODID);
 //        registerDyedItemFrames();
+        registerShields();
+
         Registry.register(Registries.ITEM_GROUP, GENERIC_ITEM_GROUP_KEY, GENERIC_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, COPPER_ITEM_GROUP_KEY, COPPER_ITEM_GROUP);
@@ -167,6 +166,12 @@ public class ModItems {
             entries.add(ModItems.WOOD_BOOTS);
             entries.add(ModItems.GAS_MASK);
             entries.add(ModItems.ICE_PICK);
+            entries.add(ModItems.GOLDEN_SHIELD);
+            entries.add(ModItems.COPPER_SHIELD);
+            entries.add(ModItems.STONE_SHIELD);
+            entries.add(ModItems.STEEL_SHIELD);
+            entries.add(ModItems.DIAMOND_SHIELD);
+            entries.add(ModItems.NETHERITE_SHIELD);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
@@ -415,6 +420,26 @@ public class ModItems {
     public static final Item ORANGE_WRAPPED_HARD_CANDY = register("orange_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
             StatusEffects.LUCK, 250, 20
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+
+    //Shields
+    public static Item GOLDEN_SHIELD;
+    public static Item COPPER_SHIELD;
+    public static Item STONE_SHIELD;
+    public static Item IRON_SHIELD;
+    public static Item STEEL_SHIELD;
+    public static Item DIAMOND_SHIELD;
+    public static Item NETHERITE_SHIELD;
+
+    public static void registerShields() {
+        Lawnchair.LOGGER.info("Registering Shields for " + Lawnchair.MODID);
+        GOLDEN_SHIELD = ShieldFactory.registerShield("golden_shield", 120, 0.65f, 0.25f, 0.4f);
+        COPPER_SHIELD = ShieldFactory.registerShield("copper_shield", 260, 0.7f, 0.25f, 1.0f);
+        STONE_SHIELD = ShieldFactory.registerShield("stone_shield", 300, 0.75f, 0.25f, 1.0f);
+        STEEL_SHIELD = ShieldFactory.registerShield("steel_shield", 500, 1f, 0.25f, 1.0f);
+        DIAMOND_SHIELD = ShieldFactory.registerShield("diamond_shield", 800, 1.2f, 0.25f, 1.0f);
+        NETHERITE_SHIELD = ShieldFactory.registerShieldFireproof("netherite_shield", 1200, 1.6f, 0.25f, 1.3f);
+    }
+
 
 //    public static final Map<DyeColor, Item> DYED_ITEM_FRAME_ITEMS = new HashMap<>();
 //    public static void registerDyedItemFrames() {

@@ -2,6 +2,7 @@ package net.epiccool.lawnchair.enchantment;
 
 import com.mojang.serialization.MapCodec;
 import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.enchantment.effect.BowFrostEnchantmentEffect;
 import net.epiccool.lawnchair.enchantment.effect.FrostEnchantmentEffect;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
@@ -14,6 +15,10 @@ import net.minecraft.util.Identifier;
 public class ModEnchantmentEffects {
     public static final RegistryKey<Enchantment> FROST = of("frost");
     public static MapCodec<FrostEnchantmentEffect> FROST_EFFECT = register("frost_effect", FrostEnchantmentEffect.CODEC);
+
+    public static final RegistryKey<Enchantment> BOW_FROST = of("bow_frost");
+    public static MapCodec<BowFrostEnchantmentEffect> BOW_FROST_EFFECT = register("bow_frost_effect", BowFrostEnchantmentEffect.CODEC);
+
     private static RegistryKey<Enchantment> of(String path) {
         Identifier id = Identifier.of(Lawnchair.MODID, path);
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, id);
@@ -26,5 +31,6 @@ public class ModEnchantmentEffects {
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering EnchantmentEffects for" + Lawnchair.MODID);
         FrostEnchantmentEffect.Initialize();
+        BowFrostEnchantmentEffect.Initialize();
     }
 }

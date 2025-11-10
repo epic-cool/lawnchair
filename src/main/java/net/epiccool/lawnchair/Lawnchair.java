@@ -1,22 +1,20 @@
 package net.epiccool.lawnchair;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.context.CommandContext;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
+import net.epiccool.lawnchair.command.CommandUtil;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
 import net.epiccool.lawnchair.entity.ModEntities;
 import net.epiccool.lawnchair.item.ModItems;
 import net.epiccool.lawnchair.sound.ModSoundEvents;
 import net.epiccool.lawnchair.stat.ModStats;
+import net.epiccool.lawnchair.util.ModGameRules;
 import net.epiccool.lawnchair.util.Tagger;
 import net.epiccool.lawnchair.util.UnnamedHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
@@ -25,27 +23,15 @@ import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
-import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
@@ -55,26 +41,11 @@ import java.util.Set;
 public class Lawnchair implements ModInitializer {
     public static final String MODID = "lawnchair";
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
-    public static boolean creeperExplosions = true;
-    public static boolean bedExplosions = true;
-    public static boolean slimeSpawning = true; //doesn't work
     private static final Path CONFIG = FabricLoader.getInstance().getConfigDir().resolve("lawnchair-config.json");
-    private static final Map<String, BlockPos> PLAYER_HOMES = new HashMap<>();
     //    public static FlowableFluid EVIL_FLUID_STILL;
 //    public static FlowableFluid EVIL_FLUID_FLOWING;
 //    public static Item EVIL_FLUID_BUCKET;
 //    public static Block EVIL_FLUID;
-
-
-    public static final GameRules.Key<GameRules.BooleanRule> CREEPER_EXPLOSIONS =
-            GameRuleRegistry.register("creeperExplosions",
-                    GameRules.Category.MOBS,
-                    GameRuleFactory.createBooleanRule(true));
-
-    public static final GameRules.Key<GameRules.BooleanRule> BED_EXPLOSIONS =
-            GameRuleRegistry.register("bedExplosions",
-                    GameRules.Category.PLAYER,
-                    GameRuleFactory.createBooleanRule(true));
 
     @Override
     public void onInitialize() {
@@ -88,6 +59,7 @@ public class Lawnchair implements ModInitializer {
         ModBlockEntities.Initialize();
         UnnamedHelper.Initialize();
         ModSoundEvents.Initialize();
+        ModGameRules.Initialize();
 //        StickyEffectListener.Initialize();
 //        ModEffects.Initialize();
 //        ModPotions.Initialize();
@@ -129,32 +101,32 @@ public class Lawnchair implements ModInitializer {
         LOGGER.info("Registering /grav for " + MODID);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("grav")
                 .requires(source -> source.hasPermissionLevel(0))
-                .executes(Lawnchair::toggleGravity)
+                .executes(CommandUtil::toggleGravity)
         ));
 
         LOGGER.info("Registering /phase for " + MODID);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("phase")
                 .requires(source -> source.hasPermissionLevel(2))
                 .then(CommandManager.argument("phase", IntegerArgumentType.integer(0, 7))
-                        .executes(ctx -> setPhase(ctx, IntegerArgumentType.getInteger(ctx, "phase"))))
+                        .executes(ctx -> CommandUtil.setPhase(ctx, IntegerArgumentType.getInteger(ctx, "phase"))))
         ));
 
         LOGGER.info("Registering /home for " + MODID);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(CommandManager.literal("home")
                 .requires(source -> source.hasPermissionLevel(2))
-                .executes(ctx -> executeHome(ctx, null))
+                .executes(ctx -> CommandUtil.executeHome(ctx, null))
                 .then(CommandManager.argument("player", EntityArgumentType.player())
-                        .executes(ctx -> executeHome(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
+                        .executes(ctx -> CommandUtil.executeHome(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
                 .then(CommandManager.literal("reset")
-                        .executes(ctx -> resetHome(ctx, null))
+                        .executes(ctx -> CommandUtil.resetHome(ctx, null))
                         .then(CommandManager.argument("player", EntityArgumentType.player())
-                                .executes(ctx -> resetHome(ctx, EntityArgumentType.getPlayer(ctx, "player")))))
+                                .executes(ctx -> CommandUtil.resetHome(ctx, EntityArgumentType.getPlayer(ctx, "player")))))
                 .then(CommandManager.literal("set")
-                        .executes(ctx -> setHome(ctx, null, null))
+                        .executes(ctx -> CommandUtil.setHome(ctx, null, null))
                         .then(CommandManager.argument("player", EntityArgumentType.player())
-                                .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"), null))
+                                .executes(ctx -> CommandUtil.setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"), null))
                                 .then(CommandManager.argument("pos", Vec3ArgumentType.vec3())
-                                        .executes(ctx -> setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
+                                        .executes(ctx -> CommandUtil.setHome(ctx, EntityArgumentType.getPlayer(ctx, "player"),
                                                 Vec3ArgumentType.getVec3(ctx, "pos"))))))
         ));
 
@@ -165,7 +137,7 @@ public class Lawnchair implements ModInitializer {
                         .then(CommandManager.argument("emoji", StringArgumentType.word())
                                 .suggests((context, builder) -> {
                                     String typed = builder.getRemaining().toLowerCase();
-                                    for (String key : EMOJIS.keySet()) {
+                                    for (String key : CommandUtil.EMOJIS.keySet()) {
                                         if (key.toLowerCase().startsWith(typed)) {
                                             builder.suggest(key);
                                         }
@@ -174,11 +146,11 @@ public class Lawnchair implements ModInitializer {
                                 })
                                 .executes(ctx -> {
                                     String typedName = StringArgumentType.getString(ctx, "emoji").toLowerCase();
-                                    String matchedKey = EMOJIS.keySet().stream()
+                                    String matchedKey = CommandUtil.EMOJIS.keySet().stream()
                                             .filter(k -> k.equalsIgnoreCase(typedName))
                                             .findFirst()
                                             .orElse(null);
-                                    return sendEmoji(ctx, matchedKey);
+                                    return CommandUtil.sendEmoji(ctx, matchedKey);
                                 })
                         )
                 )
@@ -214,27 +186,15 @@ public class Lawnchair implements ModInitializer {
 //                new BucketItem(EVIL_FLUID_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
 
-    private static int toggleGravity(CommandContext<ServerCommandSource> context) {
-        ServerPlayerEntity player = context.getSource().getPlayer();
-
-        assert player != null;
-        boolean newGravityState = !player.hasNoGravity();
-        player.setNoGravity(newGravityState);
-
-        String message = newGravityState ? "commands.lawnchair.grav.disabled" : "commands.lawnchair.grav.enabled";
-        context.getSource().sendFeedback(() -> Text.translatable(message), true);
-
-        return Command.SINGLE_SUCCESS;
-    }
-
     public static void loadConfig() {
         if (Files.exists(CONFIG)) {
             try {
                 String json = Files.readString(CONFIG);
                 LOGGER.info("Loading config for " + MODID);
-                creeperExplosions = !json.contains("false");
-                bedExplosions = !json.contains("false");
-                slimeSpawning = !json.contains("false"); //doesn't work
+                ModGameRules.creeperExplosions = !json.contains("false");
+                ModGameRules.silkyCreepers = !json.contains("true");
+                ModGameRules.bedExplosions = !json.contains("false");
+                ModGameRules.slimeSpawning = !json.contains("false"); //doesn't work
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -244,8 +204,9 @@ public class Lawnchair implements ModInitializer {
     public static void saveConfig() {
         try {
             String json = "{\n" +
-                    "  \"creeperExplosions\": " + creeperExplosions + ",\n" +
-                    "  \"bedExplosions\": " + bedExplosions + "\n" +
+                    "  \"creeperExplosions\": " + ModGameRules.creeperExplosions + ",\n" +
+                    "  \"silkyCreepers\": " + ModGameRules.silkyCreepers + ",\n" +
+                    "  \"bedExplosions\": " + ModGameRules.bedExplosions + "\n" +
                     "}";
             Files.writeString(CONFIG, json);
             LOGGER.info("Saved config for " + MODID);
@@ -253,203 +214,4 @@ public class Lawnchair implements ModInitializer {
             LOGGER.error("Failed to save config for " + MODID, e);
         }
     }
-
-    private static int executeHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
-        ServerPlayerEntity executor = ctx.getSource().getPlayer();
-        if (target == null) target = executor;
-
-        assert target != null;
-        ServerWorld world = target.getEntityWorld();
-        BlockPos home = PLAYER_HOMES.getOrDefault(target.getUuidAsString(), world.getSpawnPoint().getPos());
-
-        if (home == null) {
-            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.not_set"), false);
-            return 0;
-        }
-
-        assert executor != null;
-        executor.teleport(world, home.getX(), home.getY(), home.getZ(), Set.of(), executor.getYaw(), executor.getPitch(), true);
-        ServerPlayerEntity finalTarget = target;
-        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.teleported", finalTarget.getName()), true);
-        return Command.SINGLE_SUCCESS;
-    }
-
-    private static int resetHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
-        ServerPlayerEntity executor = ctx.getSource().getPlayer();
-        if (target == null) target = executor;
-
-        assert executor != null;
-        ServerWorld world = executor.getEntityWorld();
-        BlockPos spawn = world.getSpawnPoint().getPos();
-        PLAYER_HOMES.put(target.getUuidAsString(), spawn);
-
-        ServerPlayerEntity finalTarget = target;
-        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.reset", finalTarget.getName()), true);
-        return Command.SINGLE_SUCCESS;
-    }
-
-    private static int setHome(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target, Vec3d position) {
-        if (position == null) return 0;
-        ServerPlayerEntity executor = ctx.getSource().getPlayer();
-        if (target == null) target = executor;
-
-        BlockPos blockPos = new BlockPos((int) position.x, (int) position.y, (int) position.z);
-        assert target != null;
-        PLAYER_HOMES.put(target.getUuidAsString(), blockPos);
-
-        ServerPlayerEntity finalTarget = target;
-        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.home.set", finalTarget.getName(), blockPos.toShortString()), true);
-        return Command.SINGLE_SUCCESS;
-    }
-//todo: make this better, i.e. not change the day. Use a mixin
-    private static int setPhase(CommandContext<ServerCommandSource> ctx, int phase) {
-        ServerWorld world = ctx.getSource().getWorld();
-        phase = Math.floorMod(phase, 8);
-
-        long currentTime = world.getTimeOfDay();
-        long days = currentTime / 24000L;
-        long newTime = (days - (days % 8) + phase) * 24000L + (currentTime % 24000L);
-
-        world.setTimeOfDay(newTime);
-        int finalPhase = phase;
-        ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.phase.set", finalPhase, getPhase(finalPhase)), true);
-        return Command.SINGLE_SUCCESS;
-    }
-
-    private static String getPhase(int phase) {
-        return switch (phase) {
-            case 0 -> "Full Moon";
-            case 1 -> "Waning Gibbous";
-            case 2 -> "Last Quarter";
-            case 3 -> "Waning Crescent";
-            case 4 -> "New Moon";
-            case 5 -> "Waxing Crescent";
-            case 6 -> "First Quarter";
-            case 7 -> "Waxing Gibbous";
-            default -> throw new IllegalStateException("Unexpected value: " + phase);
-        };
-    }
-
-    private static final Map<String, String> EMOJIS = Map.<String, String>ofEntries(
-            Map.entry("amazed", "( ﾟдﾟ)"),
-            Map.entry("angel", "☜(⌒▽⌒)☞"),
-            Map.entry("angry", "(＃ﾟДﾟ)"),
-            Map.entry("angry1", "ヽ(o`皿′o)ﾉ"),
-            Map.entry("bad", "（・Ａ・）"),
-            Map.entry("bear", "ʕ •ᴥ•ʔ"),
-            Map.entry("bellyslide", "⊂（ﾟДﾟ⊂⌒｀つ≡≡≡(´⌒;;;≡≡≡"),
-            Map.entry("bored", "(ΘεΘ;)"),
-            Map.entry("carefree", "（´∀｀）"),
-            Map.entry("carefree1", "⊂二二二（＾ω＾）二⊃"),
-            Map.entry("carrymoney", "（･∀･)つ⑩"),
-            Map.entry("cat", "(=^ェ^=)"),
-            Map.entry("cat1", "=＾● ⋏ ●＾="),
-            Map.entry("comeon", "щ(ﾟДﾟщ)"),
-            Map.entry("comeon1", "(屮ﾟДﾟ)屮"),
-            Map.entry("disapprove", "ಠ_ಠ"),
-            Map.entry("disapprove1", "ಠ__ಠ"),
-            Map.entry("disapprove2", "ಠ益ಠ"),
-            Map.entry("discombobulated", "┌(；`～,)┐"),
-            Map.entry("dog", "(ᵔᴥᵔ)"),
-            Map.entry("doit", "(☞ﾟヮﾟ)☞"),
-            Map.entry("doit1", "☜(ﾟヮﾟ☜)"),
-            Map.entry("flowergirl", "(◕‿◕✿)"),
-            Map.entry("friendly", "ヽ(´ー`)人(´∇｀)人(`Д´)ノ"),
-            Map.entry("good", "（・∀・）"),
-            Map.entry("grimace", "(╬ ಠ益ಠ)"),
-            Map.entry("happy", "( ﾟヮﾟ)"),
-            Map.entry("happy1", "♪┏(・o･)┛♪"),
-            Map.entry("happy2", "♪┗ (･o･) ┓♪"),
-            Map.entry("happy3", "♪┏(・o･)┛♪┗ ( ･o･) ┓"),
-            Map.entry("happy4", "d(*⌒▽⌒*)b"),
-            Map.entry("happy5", "ヽ(´▽`)/"),
-            Map.entry("happy6", "^ㅂ^"),
-            Map.entry("impatient", "(ﾟДﾟ;≡;ﾟДﾟ)"),
-            Map.entry("indifferent", "（　´_ゝ`）"),
-            Map.entry("intuition", "m9(・∀・)"),
-            Map.entry("irritable", "ヽ(`Д´)ﾉ"),
-            Map.entry("kick", "＼ ￣ヘ￣"),
-            Map.entry("kowtow", "m(_ _)m"),
-            Map.entry("lenny", "( ͡° ͜ʖ ͡°)"),
-            Map.entry("lonely", "('A`)"),
-            Map.entry("peaceful", "ヽ(´ー｀)ﾉ"),
-            Map.entry("perky", "(`･ω･´)"),
-            Map.entry("poke", "( ´∀｀)σ)∀`)"),
-            Map.entry("run", "ε=ε=ε=┌(;*´Д`)ﾉ"),
-            Map.entry("sad", "(´；ω；`)"),
-            Map.entry("sad1", "（ ´,_ゝ`)"),
-            Map.entry("sad2", "（つ Д ｀）"),
-            Map.entry("salute", "(｀-´)>"),
-            Map.entry("shock", "(l'o'l)"),
-            Map.entry("shock1", "Σ(゜д゜;)"),
-            Map.entry("shout", "(≧ロ≦)"),
-            Map.entry("shrug", "¯\\_(ツ)_/¯"),
-            Map.entry("snubbed", "(´･ω･`)"),
-            Map.entry("snorlax", "(￣ー￣)"),
-            Map.entry("smoking", "(´ー`)y-~~"),
-            Map.entry("spook", "(((( ；ﾟДﾟ)))"),
-            Map.entry("surprise", "Σ(ﾟДﾟ)"),
-            Map.entry("surprise1", "（　ﾟДﾟ）"),
-            Map.entry("tableflip", "(╯°□°）╯︵ ┻━┻"),
-            Map.entry("tableflip1", "┻━┻ ︵ ヽ(°□°ヽ)"),
-            Map.entry("tableflip2", "┻━┻ ︵ ＼( °□° )／ ︵ ┻━┻"),
-            Map.entry("tableflip3", "┬─┬ノ( º _ ºノ)"),
-            Map.entry("tableflip4", "(ﾉಥ益ಥ）ﾉ ┻━┻"),
-            Map.entry("tableflip5", "┬──┬ ¯\\_(ツ)"),
-            Map.entry("tableflip6", "┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻"),
-            Map.entry("tableflip7", "┻━┻ ︵ ¯\\(ツ)/¯ ︵ ┻━┻"),
-            Map.entry("tableflip8", "(╯°Д°）╯︵ /(.□ . \\)"),
-            Map.entry("tableflip9", "ʕノ•ᴥ•ʔノ ︵ ┻━┻"),
-            Map.entry("thinking", "（´-`）.｡oO( ... )"),
-            Map.entry("toast", "（ ^_^）o自自o（^_^ ）"),
-            Map.entry("unconvinced", "エェェ(´д｀)ェェエ"),
-            Map.entry("unsure", "┐('～`；)┌"),
-            Map.entry("whisper", "( ´д)ﾋｿ(´Д｀)ﾋｿ(Д｀)"),
-            Map.entry("yell", "（ ´Д｀）")
-    );
-
-    public static final Set<Text> EMOJI_MESSAGES = new HashSet<>();
-
-//    private static int sendEmoji(CommandContext<ServerCommandSource> ctx, String name) {
-//        ServerPlayerEntity player = ctx.getSource().getPlayer();
-//        MinecraftClient client = MinecraftClient.getInstance();
-//
-//        if (player == null) return 0;
-//
-//        String emoji = EMOJIS.get(name);
-//        if (emoji == null) {
-//            player.sendMessage(Text.translatable("commands.lawnchair.emoji.invalid", name).formatted(Formatting.RED));
-//            return 0;
-//        }
-//
-//        Text message = Text.literal(emoji);
-//        Lawnchair.EMOJI_MESSAGES.add(message);
-//
-//        if (client != null && client.player != null) {
-//            client.player.networkHandler.sendChatMessage(message.getString());
-//        }
-//
-//        return Command.SINGLE_SUCCESS;
-//    }
-
-    private static int sendEmoji(CommandContext<ServerCommandSource> ctx, String name) {
-        ServerPlayerEntity player = ctx.getSource().getPlayer();
-
-        if (player == null) return 0;
-
-        String emoji = EMOJIS.get(name);
-        if (emoji == null) {
-            player.sendMessage(Text.translatable("commands.lawnchair.emoji.invalid", name).formatted(Formatting.RED));
-            return 0;
-        }
-
-        Text message = Text.literal("<" + player.getName().getString() + "> " + emoji);
-
-        Lawnchair.EMOJI_MESSAGES.add(Text.literal(emoji));
-
-        player.getEntityWorld().getServer().getPlayerManager().broadcast(message, false);
-
-        return Command.SINGLE_SUCCESS;
-    }
-
 }

@@ -85,6 +85,15 @@
   "item.lawnchair.wood_chestplate": "Wood Chestplate",
   "item.lawnchair.wood_leggings": "Wood Leggings",
   "item.lawnchair.wood_boots": "Wood Boots",
+  "item.lawnchair.golden_shield": "Golden Shield",
+  "item.lawnchair.copper_shield": "Copper Shield",
+  "item.lawnchair.stone_shield": "Stone Shield",
+  "item.lawnchair.steel_shield": "Steel Shield",
+  "item.lawnchair.diamond_shield": "Diamond Shield",
+  "item.lawnchair.netherite_shield": "Netherite Shield",
+  "shield.lawnchair.tooltip.block_power": "Blocks %s of damage",
+  "shield.lawnchair.tooltip.block_delay": "Block delay: %s",
+  "shield.lawnchair.tooltip.cooldown_scale": "Cooldown scale: %s",
 
 
   "---------------------------------------Category VI": "Entities ---------------------------------------------",
@@ -119,7 +128,8 @@
 
 
   "---------------------------------------Category VIII": "Enchantments ---------------------------------------",
-  "enchantment.lawnchair.frost": "Frost",
+  "enchantment.lawnchair.frost": "Frost Aspect",
+  "enchantment.lawnchair.bow_frost": "Frost",
   "enchantment.lawnchair.felling": "Felling",
 
 
@@ -128,8 +138,10 @@
   "commands.lawnchair.grav.enabled": "Gravity enabled",
   "commands.creeperExplosions": "Creeper explosions destroy blocks",
   "commands.slimeSpawning": "Slimes spawn",
+  "commands.silkyCreepers": "Creeper explosions use silk touch",
   "gamerule.creeperExplosions": "Creeper explosions destroy blocks",
   "gamerule.slimeSpawning": "[Broken] Slimes spawn",
+  "gamerule.silkyCreepers": "Creeper explosions use silk touch",
   "commands.gamemode.invalid": "Unknown gamemode: %s",
   "commands.lawnchair.action.invalid": "Unknown action",
   "commands.lawnchair.action.cancel": "Cancelled action",
@@ -197,7 +209,7 @@
   "advancements.lawnchair.better_use_headphones.title": "Better Use Headphones",
   "advancements.lawnchair.better_use_headphones.description": "Obtain one of every music disc",
   "advancements.lawnchair.space.title": "ecapS ni era eW",
-  "advancements.lawnchair.space.description": "So, uhh, this is space.",
+  "advancements.lawnchair.space.description": "In Space, everything is backwards",
   "advancements.lawnchair.when_in_rome.title": "When in Rome",
   "advancements.lawnchair.when_in_rome.description": "Listen to Pigstep while wearing a full set of Golden Armor in a Bastion Remnant",
   "advancements.lawnchair.passing_the_time.title": "Passing the Time...",
@@ -226,6 +238,8 @@
   "advancements.lawnchair.pro_fisher.description": "Catch junk with a fishing rod",
   "advancements.lawnchair.underwhelming.title": "Underwhelming",
   "advancements.lawnchair.underwhelming.description": "Throw an ender pearl underwater",
+  "advancements.lawnchair.epic_fail.title": "Epic Fail",
+  "advancements.lawnchair.epic_fail.description": "Not a certified MLG",
 
 
   "---------------------------------------Category XVI": "Stairs, Slabs, and Such---------------------------------",

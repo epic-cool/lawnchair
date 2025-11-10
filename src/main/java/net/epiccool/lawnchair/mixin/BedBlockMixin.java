@@ -1,6 +1,6 @@
 package net.epiccool.lawnchair.mixin;
 
-import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.util.ModGameRules;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,7 +26,7 @@ public abstract class BedBlockMixin {
 
         if (world.getRegistryKey() == World.NETHER || world.getRegistryKey() == World.END) {
             boolean allowBedExplosions = serverWorld.getGameRules()
-                    .getBoolean(Lawnchair.BED_EXPLOSIONS);
+                    .getBoolean(ModGameRules.BED_EXPLOSIONS);
 
             if (!allowBedExplosions) {
                 player.swingHand(Hand.MAIN_HAND);

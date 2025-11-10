@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.datagen;
 
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
+import net.epiccool.lawnchair.enchantment.effect.BowFrostEnchantmentEffect;
 import net.epiccool.lawnchair.enchantment.effect.FrostEnchantmentEffect;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -31,7 +32,9 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
         var enchantmentRegistry = registries.getOrThrow(RegistryKeys.ENCHANTMENT);
 
         RegistryEntry<Enchantment> fireAspect = enchantmentRegistry.getOrThrow(Enchantments.FIRE_ASPECT);
+        RegistryEntry<Enchantment> flame = enchantmentRegistry.getOrThrow(Enchantments.FLAME);
         RegistryEntryList<Enchantment> frostExclusive = RegistryEntryList.of(fireAspect);
+        RegistryEntryList<Enchantment> bowFrostExclusive = RegistryEntryList.of(flame);
 
         register(entries, ModEnchantmentEffects.FROST, Enchantment.builder(
                                 Enchantment.definition(
@@ -62,6 +65,29 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
                 .exclusiveSet(frostExclusive)
         );
 
+        register(entries, ModEnchantmentEffects.BOW_FROST, Enchantment.builder(
+                                Enchantment.definition(
+                                        registries.getOrThrow(RegistryKeys.ITEM).getOrThrow(ItemTags.BOW_ENCHANTABLE),
+                                        // this is the "weight" or probability of our enchantment showing up in the table
+                                        2,
+                                        // the maximum level of the enchantment
+                                        1,
+                                        // base cost for level 1 of the enchantment, and min levels required for something higher
+                                        Enchantment.leveledCost(1, 20),
+                                        // same fields as above but for max cost
+                                        Enchantment.leveledCost(1, 50),
+                                        // anvil cost
+                                        4,
+                                        // valid slots
+                                        AttributeModifierSlot.MAINHAND
+                                )
+                        )
+                .addEffect(
+                        EnchantmentEffectComponentTypes.PROJECTILE_SPAWNED,
+                        new BowFrostEnchantmentEffect(
+                                EnchantmentLevelBasedValue.constant(100.0f)))
+                .exclusiveSet(bowFrostExclusive)
+        );
     }
 
     private void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition... resourceConditions) {

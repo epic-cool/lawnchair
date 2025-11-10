@@ -51,6 +51,10 @@ public record FrostEnchantmentEffect(EnchantmentLevelBasedValue amount) implemen
     }
 
     public static void Initialize() {
+        freeze();
+    }
+
+    public static void freeze() {
         ServerTickEvents.END_WORLD_TICK.register(world -> {
             if (!(world instanceof ServerWorld serverWorld)) return;
 

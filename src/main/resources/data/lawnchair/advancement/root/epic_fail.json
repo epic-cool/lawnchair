@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:water_bucket"
+    },
+    "title": {
+      "translate": "advancements.lawnchair.epic_fail.title"
+    },
+    "description": {
+      "translate": "advancements.lawnchair.epic_fail.description"
+    }
+  },
+  "parent": "lawnchair:root",
+  "criteria": {
+    "holding": {
+      "trigger": "minecraft:fall_from_height",
+      "conditions": {
+        "player": {
+          "slots": {
+            "weapon.mainhand": {
+              "items": "minecraft:water_bucket"
+            }
+          }
+        },
+        "distance": {
+          "y": {
+            "min": 15
+          }
+        }
+      }
+    }
+  }
+}

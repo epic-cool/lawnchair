@@ -1,6 +1,6 @@
 package net.epiccool.lawnchair.mixin;
 
-import net.epiccool.lawnchair.Lawnchair;
+import net.epiccool.lawnchair.command.CommandUtil;
 import net.minecraft.network.PacketCallbacks;
 import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,7 +16,7 @@ public class ServerPlayerEntityMixin {
     private void fixEmojiSendMessage(Text message, boolean overlay, CallbackInfo ci) {
         ServerPlayerEntity player = (ServerPlayerEntity) (Object) this;
 
-        if (Lawnchair.EMOJI_MESSAGES.contains(message)) {
+        if (CommandUtil.EMOJI_MESSAGES.contains(message)) {
             String fullMessage = "<" + player.getName().getString() + "> " + message.getString();
             Text packetText = Text.literal(fullMessage);
 
@@ -25,8 +25,8 @@ public class ServerPlayerEntityMixin {
                     PacketCallbacks.always(() -> {})
             );
 
-            Lawnchair.EMOJI_MESSAGES.remove(message);
-//            ci.cancel();
+            CommandUtil.EMOJI_MESSAGES.remove(message);
+            ci.cancel();
         }
     }
 }
