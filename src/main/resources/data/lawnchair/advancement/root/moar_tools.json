@@ -11,6 +11,7 @@
               "minecraft:stone_sword",
               "minecraft:copper_sword",
               "minecraft:iron_sword",
+              "lawnchair:steel_sword",
               "minecraft:diamond_sword",
               "minecraft:netherite_sword"
             ]
@@ -25,11 +26,12 @@
           {
             "items": [
               "minecraft:wooden_axe",
-              "minecraft:golden_sword",
+              "minecraft:golden_axe",
               "minecraft:stone_axe",
               "minecraft:copper_axe",
-              "minecraft:iron_sword",
-              "minecraft:diamond_sword",
+              "minecraft:iron_axe",
+              "lawnchair:steel_axe",
+              "minecraft:diamond_axe",
               "minecraft:netherite_axe"
             ]
           }
@@ -43,11 +45,12 @@
           {
             "items": [
               "minecraft:wooden_shovel",
-              "minecraft:golden_sword",
+              "minecraft:golden_shovel",
               "minecraft:stone_shovel",
               "minecraft:copper_shovel",
               "minecraft:iron_shovel",
-              "minecraft:diamond_sword",
+              "lawnchair:steel_shovel",
+              "minecraft:diamond_shovel",
               "minecraft:netherite_shovel"
             ]
           }
@@ -62,10 +65,11 @@
             "items": [
               "minecraft:wooden_pickaxe",
               "minecraft:golden_pickaxe",
-              "minecraft:stone_sword",
+              "minecraft:stone_pickaxe",
               "minecraft:copper_pickaxe",
               "minecraft:iron_pickaxe",
-              "minecraft:diamond_sword",
+              "lawnchair:steel_pickaxe",
+              "minecraft:diamond_pickaxe",
               "minecraft:netherite_pickaxe"
             ]
           }
@@ -78,11 +82,12 @@
         "items": [
           {
             "items": [
-              "minecraft:wooden_sword",
+              "minecraft:wooden_hoe",
               "minecraft:golden_hoe",
-              "minecraft:stone_sword",
+              "minecraft:stone_hoe",
               "minecraft:copper_hoe",
               "minecraft:iron_hoe",
+              "lawnchair:steel_hoe",
               "minecraft:diamond_hoe",
               "minecraft:netherite_hoe"
             ]
