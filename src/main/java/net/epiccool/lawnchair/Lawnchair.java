@@ -32,6 +32,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
@@ -146,11 +147,11 @@ public class Lawnchair implements ModInitializer {
                                 })
                                 .executes(ctx -> {
                                     String typedName = StringArgumentType.getString(ctx, "emoji").toLowerCase();
-                                    String matchedKey = CommandUtil.EMOJIS.keySet().stream()
+
+                                    Optional<String> match = CommandUtil.EMOJIS.keySet().stream()
                                             .filter(k -> k.equalsIgnoreCase(typedName))
-                                            .findFirst()
-                                            .orElse(null);
-                                    return CommandUtil.sendEmoji(ctx, matchedKey);
+                                            .findFirst();
+                                    return match.map(s -> CommandUtil.sendEmoji(ctx, s)).orElseGet(() -> CommandUtil.emojiError(ctx, typedName));
                                 })
                         )
                 )
@@ -193,6 +194,7 @@ public class Lawnchair implements ModInitializer {
                 LOGGER.info("Loading config for " + MODID);
                 ModGameRules.creeperExplosions = !json.contains("false");
                 ModGameRules.silkyCreepers = !json.contains("true");
+                ModGameRules.minecartScatters = !json.contains("true");
                 ModGameRules.bedExplosions = !json.contains("false");
                 ModGameRules.slimeSpawning = !json.contains("false"); //doesn't work
             } catch (IOException e) {
@@ -206,6 +208,7 @@ public class Lawnchair implements ModInitializer {
             String json = "{\n" +
                     "  \"creeperExplosions\": " + ModGameRules.creeperExplosions + ",\n" +
                     "  \"silkyCreepers\": " + ModGameRules.silkyCreepers + ",\n" +
+                    "  \"minecartScatters\": " + ModGameRules.minecartScatters + ",\n" +
                     "  \"bedExplosions\": " + ModGameRules.bedExplosions + "\n" +
                     "}";
             Files.writeString(CONFIG, json);

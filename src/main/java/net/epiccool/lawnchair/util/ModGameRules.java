@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.gamerule.v1.CustomGameRuleCategory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 
@@ -13,11 +14,12 @@ public class ModGameRules {
     public static boolean silkyCreepers = false;
     public static boolean bedExplosions = true;
     public static boolean slimeSpawning = true; //doesn't work
+    public static boolean minecartScatters = true;
 
     public static final CustomGameRuleCategory LAWNCHAIR =
             new CustomGameRuleCategory(
                     Identifier.of("lawnchair", "lawnchair"),
-                    Text.of("gamerule.category.lawnchair")
+                    Text.translatable("gamerule.category.lawnchair").formatted(Formatting.YELLOW, Formatting.BOLD)
             );
 
     public static final GameRules.Key<GameRules.BooleanRule> CREEPER_EXPLOSIONS =
@@ -32,6 +34,11 @@ public class ModGameRules {
 
     public static final GameRules.Key<GameRules.BooleanRule> BED_EXPLOSIONS =
             GameRuleRegistry.register("bedExplosions",
+                    ModGameRules.LAWNCHAIR,
+                    GameRuleFactory.createBooleanRule(true));
+
+    public static final GameRules.Key<GameRules.BooleanRule> MINECART_SCATTERS =
+            GameRuleRegistry.register("minecartScatters",
                     ModGameRules.LAWNCHAIR,
                     GameRuleFactory.createBooleanRule(true));
 

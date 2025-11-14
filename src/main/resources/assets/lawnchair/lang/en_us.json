@@ -62,6 +62,7 @@
   "block.lawnchair.stripped_azalea_wood": "Stripped Azalea Wood",
   "block.lawnchair.azalea_planks": "Azalea Planks",
   "block.lawnchair.sugar_cube": "Sugar Cube",
+  "block.lawnchair.fluorescent_light": "Fluorescent Light",
 
 
   "---------------------------------------Category V": "Tools, Armour ----------------------------------------",
@@ -123,8 +124,10 @@
   "item.minecraft.splash_potion.effect.sticky_strong3": "Splashing Sticky Potion",
   "item.minecraft.splash_potion.effect.sticky_long": "Splashing Sticky Potion",
   "effect.lawnchair.small": "Small",
-  "effect.lawnchair.strength": "Strength",
-  "effect.lawnchair.feather_falling": "Feather Falling",
+  "effect.lawnchair.muscle": "Muscle",
+  "effect.lawnchair.light": "Light",
+  "effect.lawnchair.big": "Big",
+  "effect.lawnchair.gloom": "Gloom",
 
 
   "---------------------------------------Category VIII": "Enchantments ---------------------------------------",
@@ -138,10 +141,10 @@
   "commands.lawnchair.grav.enabled": "Gravity enabled",
   "commands.creeperExplosions": "Creeper explosions destroy blocks",
   "commands.slimeSpawning": "Slimes spawn",
-  "commands.silkyCreepers": "Creeper explosions use silk touch",
+  "commands.silkyCreepers": "Creeper explosions will use silk touch when destroying blocks",
   "gamerule.creeperExplosions": "Creeper explosions destroy blocks",
   "gamerule.slimeSpawning": "[Broken] Slimes spawn",
-  "gamerule.silkyCreepers": "Creeper explosions use silk touch",
+  "gamerule.silkyCreepers": "Creeper explosions will use silk touch when destroying blocks",
   "commands.gamemode.invalid": "Unknown gamemode: %s",
   "commands.lawnchair.action.invalid": "Unknown action",
   "commands.lawnchair.action.cancel": "Cancelled action",
@@ -159,6 +162,11 @@
   "commands.lawnchair.home.set": "Set the home of %s at %s",
   "commands.lawnchair.phase.set": "Set moon phase to %s (%s)",
   "commands.lawnchair.emoji.invalid": "Unknown emoji: %s",
+  "gamerule.category.lawnchair": "Lawnchair",
+  "commands.bedExplosions": "Beds can explode in certain dimensions",
+  "gamerule.bedExplosions": "Beds can explode in certain dimensions",
+  "commands.minecartScatters": "Minecarts scatter a player's inventory",
+  "gamerule.minecartScatters": "Minecarts scatter a player's inventory",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",
@@ -293,6 +301,17 @@
   "item.lawnchair.green_wrapped_hard_candy": "Green Wrapped Hard Candy",
   "item.lawnchair.purple_wrapped_hard_candy": "Purple Wrapped Hard Candy",
   "item.lawnchair.orange_wrapped_hard_candy": "Orange Wrapped Hard Candy",
+  "item.lawnchair.pink_wrapped_hard_candy": "Pink Wrapped Hard Candy",
+
+
+  "--------------------------------------Category XVIII": "Sounds---------------------------------",
+  "sounds.lawnchair.fluorescent_light.idle": "Fluorescent Light buzzes",
+  "sounds.lawnchair.fluorescent_light.turn_off": "Fluorescent Light switches off",
+  "sounds.lawnchair.duck.ambient": "Duck quacks",
+  "sounds.lawnchair.duck.death": "Duck dies",
+  "sounds.lawnchair.duck.step": "Footsteps",
+  "sounds.lawnchair.duck.hurt": "Duck hurts",
+  "sounds.lawnchair.duck.egg": "Duck plops",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

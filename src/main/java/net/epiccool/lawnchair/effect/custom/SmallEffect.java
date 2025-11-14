@@ -13,6 +13,7 @@ import java.util.WeakHashMap;
 
 public class SmallEffect extends StatusEffect {
     private final Map<AttributeContainer, LivingEntity> map = new WeakHashMap<>();
+    private final Map<LivingEntity, Backup> og = new WeakHashMap<>();
 
     public SmallEffect() {
         super(StatusEffectCategory.NEUTRAL, 0xD031C9);
@@ -23,12 +24,38 @@ public class SmallEffect extends StatusEffect {
         super.onApplied(entity, amplifier);
 
         var scale = entity.getAttributeInstance(EntityAttributes.SCALE);
-
-        if (scale != null) {
-            scale.setBaseValue(0.1);
-        }
+        var blockRange = entity.getAttributeInstance(EntityAttributes.BLOCK_INTERACTION_RANGE);
+        var entityRange = entity.getAttributeInstance(EntityAttributes.ENTITY_INTERACTION_RANGE);
+        var walkSpeed = entity.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
+        var jumpHeight = entity.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
 
         map.put(entity.getAttributes(), entity);
+        Backup backup = og.computeIfAbsent(entity, e -> new Backup());
+
+        if (scale != null) {
+            backup.scale = scale.getBaseValue();
+            scale.setBaseValue(backup.scale * 0.1);
+        }
+
+        if (entityRange != null) {
+            backup.entityRange = entityRange.getBaseValue();
+            entityRange.setBaseValue(backup.entityRange * 0.1);
+        }
+
+        if (blockRange != null) {
+            backup.blockRange = blockRange.getBaseValue();
+            blockRange.setBaseValue(backup.blockRange * 0.1);
+        }
+
+        if (walkSpeed != null) {
+            backup.walkSpeed = walkSpeed.getBaseValue();
+            walkSpeed.setBaseValue(backup.walkSpeed * 1.25);
+        }
+
+        if (jumpHeight != null) {
+            backup.jumpHeight = jumpHeight.getBaseValue();
+            jumpHeight.setBaseValue(backup.jumpHeight * 0.1);
+        }
     }
 
     @Override
@@ -36,21 +63,37 @@ public class SmallEffect extends StatusEffect {
         super.onRemoved(attributeContainer);
 
         LivingEntity entity = map.remove(attributeContainer);
-        resetScale(entity);
+        resetAttr(entity);
     }
 
     @Override
     public void onEntityRemoval(ServerWorld world, LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
         super.onEntityRemoval(world, entity, amplifier, reason);
 
-        resetScale(entity);
+        resetAttr(entity);
     }
 
-    private void resetScale(LivingEntity entity) {
-        var scale = entity.getAttributeInstance(EntityAttributes.SCALE);
+    private void resetAttr(LivingEntity entity) {
+        Backup backup = og.remove(entity);
 
-        if (scale != null) {
-            scale.setBaseValue(1.0);
-        }
+        var scale = entity.getAttributeInstance(EntityAttributes.SCALE);
+        var blockRange = entity.getAttributeInstance(EntityAttributes.BLOCK_INTERACTION_RANGE);
+        var entityRange = entity.getAttributeInstance(EntityAttributes.ENTITY_INTERACTION_RANGE);
+        var walkSpeed = entity.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
+        var jumpHeight = entity.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
+
+        if (scale != null) scale.setBaseValue(backup.scale);
+        if (blockRange != null) blockRange.setBaseValue(backup.blockRange);
+        if (entityRange != null) entityRange.setBaseValue(backup.entityRange);
+        if (walkSpeed != null) walkSpeed.setBaseValue(backup.walkSpeed);
+        if (jumpHeight != null) jumpHeight.setBaseValue(backup.jumpHeight);
+    }
+
+    private static class Backup {
+        double scale;
+        double blockRange;
+        double entityRange;
+        double walkSpeed;
+        double jumpHeight;
     }
 }

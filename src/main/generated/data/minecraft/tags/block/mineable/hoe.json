@@ -1,27 +1,5 @@
 {
   "values": [
-    "lawnchair:evil_goop",
-    "lawnchair:oak_leaves_stairs",
-    "lawnchair:oak_leaves_slab",
-    "lawnchair:spruce_leaves_stairs",
-    "lawnchair:spruce_leaves_slab",
-    "lawnchair:birch_leaves_stairs",
-    "lawnchair:birch_leaves_slab",
-    "lawnchair:jungle_leaves_stairs",
-    "lawnchair:jungle_leaves_slab",
-    "lawnchair:acacia_leaves_stairs",
-    "lawnchair:acacia_leaves_slab",
-    "lawnchair:dark_oak_leaves_slab",
-    "lawnchair:dark_oak_leaves_stairs",
-    "lawnchair:mangrove_leaves_slab",
-    "lawnchair:mangrove_leaves_stairs",
-    "lawnchair:cherry_leaves_slab",
-    "lawnchair:cherry_leaves_stairs",
-    "lawnchair:pale_oak_leaves_stairs",
-    "lawnchair:pale_oak_leaves_slab",
-    "lawnchair:azalea_leaves_stairs",
-    "lawnchair:azalea_leaves_slab",
-    "lawnchair:flowering_azalea_leaves_stairs",
-    "lawnchair:flowering_azalea_leaves_slab"
+    "lawnchair:evil_goop"
   ]
 }

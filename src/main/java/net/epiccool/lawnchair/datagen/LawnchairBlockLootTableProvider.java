@@ -42,32 +42,8 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.DIRT_SLAB);
         addDrop(ModBlocks.COARSE_DIRT_STAIRS);
         addDrop(ModBlocks.COARSE_DIRT_SLAB);
-        addDrop(ModBlocks.OAK_LEAVES_STAIRS);
-        addDrop(ModBlocks.OAK_LEAVES_SLAB);
-        addDrop(ModBlocks.SPRUCE_LEAVES_STAIRS);
-        addDrop(ModBlocks.SPRUCE_LEAVES_SLAB);
-        addDrop(ModBlocks.BIRCH_LEAVES_STAIRS);
-        addDrop(ModBlocks.BIRCH_LEAVES_SLAB);
-        addDrop(ModBlocks.JUNGLE_LEAVES_STAIRS);
-        addDrop(ModBlocks.JUNGLE_LEAVES_SLAB);
-        addDrop(ModBlocks.ACACIA_LEAVES_STAIRS);
-        addDrop(ModBlocks.ACACIA_LEAVES_SLAB);
-        addDrop(ModBlocks.DARK_OAK_LEAVES_STAIRS);
-        addDrop(ModBlocks.DARK_OAK_LEAVES_SLAB);
-        addDrop(ModBlocks.MANGROVE_LEAVES_STAIRS);
-        addDrop(ModBlocks.MANGROVE_LEAVES_SLAB);
-        addDrop(ModBlocks.CHERRY_LEAVES_STAIRS);
-        addDrop(ModBlocks.CHERRY_LEAVES_SLAB);
-        addDrop(ModBlocks.PALE_OAK_LEAVES_STAIRS);
-        addDrop(ModBlocks.PALE_OAK_LEAVES_SLAB);
-        addDrop(ModBlocks.AZALEA_LEAVES_STAIRS);
-        addDrop(ModBlocks.AZALEA_LEAVES_SLAB);
-        addDrop(ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS);
-        addDrop(ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB);
         addDrop(ModBlocks.GRAVEL_STAIRS);
         addDrop(ModBlocks.GRAVEL_SLAB);
-        addDrop(ModBlocks.SNOW_BLOCK_STAIRS);
-        addDrop(ModBlocks.SNOW_BLOCK_SLAB);
         addDrop(ModBlocks.SAND_STAIRS);
         addDrop(ModBlocks.SAND_SLAB);
         addDrop(ModBlocks.RED_SAND_STAIRS);
@@ -77,5 +53,11 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.SUGAR_CUBE);
         addDrop(ModBlocks.NETHERITE_BLOCK_STAIRS);
         addDrop(ModBlocks.NETHERITE_BLOCK_SLAB);
+        addDrop(ModBlocks.FLUORESCENT_LIGHT);
+    }
+
+    @Override
+    public String getName() {
+        return "LootTables";
     }
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "on=true": {
+      "model": "lawnchair:block/fluorescent_light"
+    },
+    "on=false": {
+      "model": "lawnchair:block/fluorescent_light_off"
+    }
+  }
+}

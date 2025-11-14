@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.mixin;
 
 import net.epiccool.lawnchair.util.ModDamageTypes;
+import net.epiccool.lawnchair.util.ModGameRules;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,52 +43,56 @@ public class AbstractMinecartEntityMixin {
 
                     if (entity instanceof PlayerEntity player && !player.hasVehicle() && !player.isCreative()) {
                         World world = self.getEntityWorld();
+                        Entity attacker = self.hasPassengers() ? self.getFirstPassenger() : self;
 
                         DamageSource source = new DamageSource(
                                 world.getRegistryManager()
                                         .getOrThrow(RegistryKeys.DAMAGE_TYPE)
                                         .getEntry(ModDamageTypes.RAN_OVER.getValue()).get()
-                                , self, self
+                                , self, attacker
                         );
 
                         entity.damage(serverWorld, source, damage);
 
-                        Difficulty difficulty = player.getEntityWorld().getDifficulty();
-
                         //drop your shit
-                        Random random = new Random();
-                        int inventorySize = player.getInventory().size();
+                        boolean dropItems = serverWorld.getGameRules()
+                                .getBoolean(ModGameRules.MINECART_SCATTERS);
+                        if (dropItems) {
+                            Difficulty difficulty = player.getEntityWorld().getDifficulty();
+                            Random random = new Random();
+                            int inventorySize = player.getInventory().size();
 
-                        double dropChance = switch (difficulty) {
-                            case PEACEFUL -> 0.0;
-                            case EASY -> 0.2;
-                            case NORMAL -> 0.5;
-                            case HARD -> 1.0;
-                        };
+                            double dropChance = switch (difficulty) {
+                                case PEACEFUL -> 0;
+                                case EASY -> 0.2;
+                                case NORMAL -> 0.5;
+                                case HARD -> 1.0;
+                            };
 
-                        int maxDrops = switch (difficulty) {
-                            case PEACEFUL -> 0;
-                            case EASY -> 9;
-                            case NORMAL -> 18;
-                            case HARD -> 100;
-                        };
+                            int maxDrops = switch (difficulty) {
+                                case PEACEFUL -> 0;
+                                case EASY -> 9;
+                                case NORMAL -> 18;
+                                case HARD -> 100;
+                            };
 
-                        for (int i = 0; i < maxDrops; i++) {
-                            if (random.nextDouble() < dropChance) {
-                                int randomSlot = random.nextInt(inventorySize);
-                                ItemStack stack = player.getInventory().getStack(randomSlot);
+                            for (int i = 0; i < maxDrops; i++) {
+                                if (random.nextDouble() < dropChance) {
+                                    int randomSlot = random.nextInt(inventorySize);
+                                    ItemStack stack = player.getInventory().getStack(randomSlot);
 
-                                if (!stack.isEmpty()) {
-                                    var droppedStack = player.dropStack(serverWorld, stack);
+                                    if (!stack.isEmpty()) {
+                                        var droppedStack = player.dropStack(serverWorld, stack);
 
-                                    if (droppedStack != null) {
-                                        double velocityX = (random.nextDouble() - 0.5) * 0.5;
-                                        double velocityY = 0.2 + random.nextDouble() * 0.2;
-                                        double velocityZ = (random.nextDouble() - 0.5) * 0.5;
-                                        droppedStack.setVelocity(velocityX, velocityY, velocityZ);
+                                        if (droppedStack != null) {
+                                            double velocityX = (random.nextDouble() - 0.5) * 0.5;
+                                            double velocityY = 0.2 + random.nextDouble() * 0.2;
+                                            double velocityZ = (random.nextDouble() - 0.5) * 0.5;
+                                            droppedStack.setVelocity(velocityX, velocityY, velocityZ);
+                                        }
+
+                                        player.getInventory().setStack(randomSlot, ItemStack.EMPTY);
                                     }
-
-                                    player.getInventory().setStack(randomSlot, ItemStack.EMPTY);
                                 }
                             }
                         }

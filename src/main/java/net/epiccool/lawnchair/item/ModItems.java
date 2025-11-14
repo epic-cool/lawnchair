@@ -120,6 +120,7 @@ public class ModItems {
             entries.add(ModBlocks.CHARCOAL_BLOCK);
             entries.add(ModBlocks.EVIL_GOOP);
             entries.add(ModItems.EVIL_GOOP_FRAGMENT);
+            entries.add(ModBlocks.FLUORESCENT_LIGHT);
             entries.add(ModBlocks.IRON_CHAIN_BLOCK);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN);
             entries.add(ModBlocks.STEEL_BARS);
@@ -194,32 +195,8 @@ public class ModItems {
             entries.add(ModBlocks.DIRT_SLAB);
             entries.add(ModBlocks.COARSE_DIRT_STAIRS);
             entries.add(ModBlocks.COARSE_DIRT_SLAB);
-            entries.add(ModBlocks.OAK_LEAVES_SLAB);
-            entries.add(ModBlocks.OAK_LEAVES_STAIRS);
-            entries.add(ModBlocks.SPRUCE_LEAVES_SLAB);
-            entries.add(ModBlocks.SPRUCE_LEAVES_STAIRS);
-            entries.add(ModBlocks.BIRCH_LEAVES_SLAB);
-            entries.add(ModBlocks.BIRCH_LEAVES_STAIRS);
-            entries.add(ModBlocks.JUNGLE_LEAVES_SLAB);
-            entries.add(ModBlocks.JUNGLE_LEAVES_STAIRS);
-            entries.add(ModBlocks.ACACIA_LEAVES_SLAB);
-            entries.add(ModBlocks.ACACIA_LEAVES_STAIRS);
-            entries.add(ModBlocks.DARK_OAK_LEAVES_SLAB);
-            entries.add(ModBlocks.DARK_OAK_LEAVES_STAIRS);
-            entries.add(ModBlocks.MANGROVE_LEAVES_SLAB);
-            entries.add(ModBlocks.MANGROVE_LEAVES_STAIRS);
-            entries.add(ModBlocks.CHERRY_LEAVES_SLAB);
-            entries.add(ModBlocks.CHERRY_LEAVES_STAIRS);
-            entries.add(ModBlocks.PALE_OAK_LEAVES_SLAB);
-            entries.add(ModBlocks.PALE_OAK_LEAVES_STAIRS);
-            entries.add(ModBlocks.AZALEA_LEAVES_SLAB);
-            entries.add(ModBlocks.AZALEA_LEAVES_STAIRS);
-            entries.add(ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB);
-            entries.add(ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS);
             entries.add(ModBlocks.GRAVEL_SLAB);
             entries.add(ModBlocks.GRAVEL_STAIRS);
-            entries.add(ModBlocks.SNOW_BLOCK_SLAB);
-            entries.add(ModBlocks.SNOW_BLOCK_STAIRS);
             entries.add(ModBlocks.SAND_SLAB);
             entries.add(ModBlocks.SAND_STAIRS);
             entries.add(ModBlocks.RED_SAND_SLAB);
@@ -248,12 +225,13 @@ public class ModItems {
 
             entries.add(ModItems.PUMPKIN_SLICE);
 
-            entries.add(ModItems.BLUE_WRAPPED_HARD_CANDY);
             entries.add(ModItems.RED_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.ORANGE_WRAPPED_HARD_CANDY);
             entries.add(ModItems.YELLOW_WRAPPED_HARD_CANDY);
             entries.add(ModItems.GREEN_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.BLUE_WRAPPED_HARD_CANDY);
+            entries.add(ModItems.PINK_WRAPPED_HARD_CANDY);
             entries.add(ModItems.PURPLE_WRAPPED_HARD_CANDY);
-            entries.add(ModItems.ORANGE_WRAPPED_HARD_CANDY);
         });
 
         ItemGroupEvents.modifyEntriesEvent(COLORED_ITEM_GROUP_KEY).register(entries -> {
@@ -412,13 +390,16 @@ public class ModItems {
             StatusEffects.JUMP_BOOST, 250, 20
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
     public static final Item GREEN_WRAPPED_HARD_CANDY = register("green_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
-            ModEffects.STRENGTH, 250, 20
+            ModEffects.MUSCLE, 250, 20
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
     public static final Item PURPLE_WRAPPED_HARD_CANDY = register("purple_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
-            ModEffects.FEATHER_FALLING, 250
+            ModEffects.LIGHT, 250
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
     public static final Item ORANGE_WRAPPED_HARD_CANDY = register("orange_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
             StatusEffects.LUCK, 250, 20
+    )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
+    public static final Item PINK_WRAPPED_HARD_CANDY = register("pink_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
+            ModEffects.BIG, 250
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
 
     //Shields

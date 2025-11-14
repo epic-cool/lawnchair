@@ -1,0 +1,45 @@
+{
+  "block_fluorescentlight_idle": {
+    "subtitle": "sounds.lawnchair.fluorescent_light.idle",
+    "sounds": [
+      "lawnchair:block_fluorescentlight_idle"
+    ]
+  },
+  "block_fluorescentlight_turnoff": {
+    "subtitle": "sounds.lawnchair.fluorescent_light.turn_off",
+    "sounds": [
+      "lawnchair:block_fluorescentlight_turnoff"
+    ]
+  },
+
+  "entity_duck_ambient": {
+    "subtitle": "sounds.lawnchair.duck.ambient",
+    "sounds": [
+      "lawnchair:entity_duck_ambient"
+    ]
+  },
+  "entity_duck_death": {
+    "subtitle": "sounds.lawnchair.duck.death",
+    "sounds": [
+      "lawnchair:entity_duck_death"
+    ]
+  },
+  "entity_duck_step": {
+    "subtitle": "sounds.lawnchair.duck.step",
+    "sounds": [
+      "lawnchair:entity_duck_step"
+    ]
+  },
+  "entity_duck_hurt": {
+    "subtitle": "sounds.lawnchair.duck.hurt",
+    "sounds": [
+      "lawnchair:entity_duck_hurt"
+    ]
+  },
+  "entity_duck_egg": {
+    "subtitle": "sounds.lawnchair.duck.egg",
+    "sounds": [
+      "lawnchair:entity_duck_egg"
+    ]
+  }
+}

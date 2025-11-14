@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "lawnchair:block/fluorescent_light_off"
+  }
+}

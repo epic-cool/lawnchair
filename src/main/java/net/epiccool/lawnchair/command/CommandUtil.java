@@ -202,6 +202,13 @@ public class CommandUtil {
         return Command.SINGLE_SUCCESS;
     }
 
+    public static int emojiError(CommandContext<ServerCommandSource> ctx, String name) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+
+        player.sendMessage(Text.translatable("commands.lawnchair.emoji.invalid", name).formatted(Formatting.RED));
+        return 0;
+    }
+
     public static int toggleGravity(CommandContext<ServerCommandSource> context) {
         ServerPlayerEntity player = context.getSource().getPlayer();
 

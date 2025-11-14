@@ -7,6 +7,9 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class ModSoundEvents {
+    public static final SoundEvent BLOCK_FLUORESCENTLIGHT_IDLE = registerSoundEvent("block_fluorescentlight_idle");
+    public static final SoundEvent BLOCK_FLUORESCENTLIGHT_TURNOFF = registerSoundEvent("block_fluorescentlight_turnoff");
+
     public static final SoundEvent ENTITY_DUCK_AMBIENT = registerSoundEvent("entity_duck_ambient");
     public static final SoundEvent ENTITY_DUCK_DEATH = registerSoundEvent("entity_duck_death");
     public static final SoundEvent ENTITY_DUCK_STEP = registerSoundEvent("entity_duck_step");

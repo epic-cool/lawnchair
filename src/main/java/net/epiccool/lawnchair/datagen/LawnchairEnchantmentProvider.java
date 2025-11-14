@@ -24,7 +24,6 @@ import java.util.concurrent.CompletableFuture;
 public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider {
     public LawnchairEnchantmentProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
-        System.out.println("REGISTERING ENCHANTS");
     }
 
     @Override
@@ -96,6 +95,6 @@ public class LawnchairEnchantmentProvider extends FabricDynamicRegistryProvider 
 
     @Override
     public String getName() {
-        return "LawnchairEnchantmentGenerator";
+        return "Enchantment";
     }
 }

@@ -1,12 +1,12 @@
 // 1.21.10	-999999999-01-01T00:00:00	Lawnchair/Tags for minecraft:block
-9267a0a99ab88aee90a13e51b524afed6453ec81 data/lawnchair/tags/block/flowers.json
+fc8d13acf1ca9d534a52c72c2317bff2520e38ee data/lawnchair/tags/block/flowers.json
 0e7913201a51fcb26c3733d782040c0451c50cb8 data/lawnchair/tags/block/flowers_that_emit_light_10.json
 f0f92c5f0b5c5412980a4ca8436b4cb180919deb data/lawnchair/tags/block/turn_to_lava.json
 2da5f16525c01f1d58d13a33312ac939f5f23680 data/minecraft/tags/block/infiniburn_overworld.json
 93f9dd2e5809ff919ca3bfa4fac00f7991c2ca34 data/minecraft/tags/block/logs_that_burn.json
 d952bd73c6649a8a5a81fa8521e20dfd5f44cf1b data/minecraft/tags/block/mineable/axe.json
-a6975ca4864e5ab8de172fc555565fb85879f2a6 data/minecraft/tags/block/mineable/hoe.json
+04679060da376d494e94e319ef87f42395d9062e data/minecraft/tags/block/mineable/hoe.json
 5a051534f0c934e13d7eb38b429ba582b24c3543 data/minecraft/tags/block/mineable/pickaxe.json
-8169884699e9a37641f0c288d9957f7da8ee2f80 data/minecraft/tags/block/mineable/shovel.json
+da61d3f269af666d48c64fdf2608677351eabc65 data/minecraft/tags/block/mineable/shovel.json
 950e0cb82f9b1ad53e68aee836dc3e9ccb22c11f data/minecraft/tags/block/needs_diamond_tool.json
 0ed7df924beedefa2dbbb7499442c29272019910 data/minecraft/tags/block/needs_stone_tool.json

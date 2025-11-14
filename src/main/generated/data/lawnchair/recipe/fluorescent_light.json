@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "0": "minecraft:glass",
+    "1": "minecraft:glowstone_dust"
+  },
+  "pattern": [
+    "000",
+    "010",
+    "000"
+  ],
+  "result": {
+    "count": 8,
+    "id": "lawnchair:fluorescent_light"
+  }
+}

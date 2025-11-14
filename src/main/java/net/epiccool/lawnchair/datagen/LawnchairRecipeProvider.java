@@ -373,9 +373,9 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .pattern("010")
                         .pattern("000")
                         .input('0', Items.IRON_NUGGET)
-                        .input('1', ModItems.UNLIT_TORCH)
+                        .input('1', ModBlocks.UNLIT_TORCH)
                         .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
-                        .criterion(hasItem(ModItems.UNLIT_TORCH), conditionsFromItem(ModItems.UNLIT_TORCH))
+                        .criterion(hasItem(ModBlocks.UNLIT_TORCH), conditionsFromItem(ModBlocks.UNLIT_TORCH))
                         .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, ModItems.EVIL_GOOP_FRAGMENT, 1)
@@ -488,7 +488,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
 
                 //Candy
                 //Wrapped Hard
-                createShaped(RecipeCategory.MISC, ModItems.BLUE_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.BLUE_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -500,7 +500,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModItems.RED_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.RED_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -512,7 +512,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModItems.YELLOW_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.YELLOW_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -524,7 +524,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModItems.GREEN_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.GREEN_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -536,7 +536,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.GREEN_DYE), conditionsFromItem(Items.GREEN_DYE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModItems.PURPLE_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.PURPLE_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -548,7 +548,7 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.MISC, ModItems.ORANGE_WRAPPED_HARD_CANDY, 1)
+                createShaped(RecipeCategory.MISC, ModItems.ORANGE_WRAPPED_HARD_CANDY, 16)
                         .pattern(" 0 ")
                         .pattern("010")
                         .pattern(" 02")
@@ -558,6 +558,18 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
                         .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                         .criterion(hasItem(Items.ORANGE_DYE), conditionsFromItem(Items.ORANGE_DYE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.PINK_WRAPPED_HARD_CANDY, 16)
+                        .pattern(" 0 ")
+                        .pattern("010")
+                        .pattern(" 02")
+                        .input('0', Items.SUGAR)
+                        .input('1', Items.HONEY_BOTTLE)
+                        .input('2', Items.PINK_DYE)
+                        .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
                         .offerTo(exporter);
 
 //                createShaped(RecipeCategory.MISC, ModBlocks.ALLOY_MIXER, 1)
@@ -767,161 +779,6 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.COARSE_DIRT), conditionsFromItem(Blocks.COARSE_DIRT))
                         .offerTo(exporter);
 
-                //leaves
-                createShaped(RecipeCategory.MISC, ModBlocks.OAK_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.OAK_LEAVES)
-                        .criterion(hasItem(Blocks.OAK_LEAVES), conditionsFromItem(Blocks.OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.OAK_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.OAK_LEAVES)
-                        .criterion(hasItem(Blocks.OAK_LEAVES), conditionsFromItem(Blocks.OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.SPRUCE_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.SPRUCE_LEAVES)
-                        .criterion(hasItem(Blocks.SPRUCE_LEAVES), conditionsFromItem(Blocks.SPRUCE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.SPRUCE_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.SPRUCE_LEAVES)
-                        .criterion(hasItem(Blocks.SPRUCE_LEAVES), conditionsFromItem(Blocks.SPRUCE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.BIRCH_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.BIRCH_LEAVES)
-                        .criterion(hasItem(Blocks.BIRCH_LEAVES), conditionsFromItem(Blocks.BIRCH_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.BIRCH_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.BIRCH_LEAVES)
-                        .criterion(hasItem(Blocks.BIRCH_LEAVES), conditionsFromItem(Blocks.BIRCH_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.JUNGLE_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.JUNGLE_LEAVES)
-                        .criterion(hasItem(Blocks.JUNGLE_LEAVES), conditionsFromItem(Blocks.JUNGLE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.JUNGLE_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.JUNGLE_LEAVES)
-                        .criterion(hasItem(Blocks.JUNGLE_LEAVES), conditionsFromItem(Blocks.JUNGLE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.ACACIA_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.ACACIA_LEAVES)
-                        .criterion(hasItem(Blocks.ACACIA_LEAVES), conditionsFromItem(Blocks.ACACIA_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.ACACIA_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.ACACIA_LEAVES)
-                        .criterion(hasItem(Blocks.ACACIA_LEAVES), conditionsFromItem(Blocks.ACACIA_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.DARK_OAK_LEAVES)
-                        .criterion(hasItem(Blocks.DARK_OAK_LEAVES), conditionsFromItem(Blocks.DARK_OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.DARK_OAK_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.DARK_OAK_LEAVES)
-                        .criterion(hasItem(Blocks.DARK_OAK_LEAVES), conditionsFromItem(Blocks.DARK_OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.MANGROVE_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.MANGROVE_LEAVES)
-                        .criterion(hasItem(Blocks.MANGROVE_LEAVES), conditionsFromItem(Blocks.MANGROVE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.MANGROVE_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.MANGROVE_LEAVES)
-                        .criterion(hasItem(Blocks.MANGROVE_LEAVES), conditionsFromItem(Blocks.MANGROVE_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.CHERRY_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.CHERRY_LEAVES)
-                        .criterion(hasItem(Blocks.CHERRY_LEAVES), conditionsFromItem(Blocks.CHERRY_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.CHERRY_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.CHERRY_LEAVES)
-                        .criterion(hasItem(Blocks.CHERRY_LEAVES), conditionsFromItem(Blocks.CHERRY_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.PALE_OAK_LEAVES)
-                        .criterion(hasItem(Blocks.PALE_OAK_LEAVES), conditionsFromItem(Blocks.PALE_OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.PALE_OAK_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.PALE_OAK_LEAVES)
-                        .criterion(hasItem(Blocks.PALE_OAK_LEAVES), conditionsFromItem(Blocks.PALE_OAK_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.AZALEA_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.AZALEA_LEAVES)
-                        .criterion(hasItem(Blocks.AZALEA_LEAVES), conditionsFromItem(Blocks.AZALEA_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.AZALEA_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.AZALEA_LEAVES)
-                        .criterion(hasItem(Blocks.AZALEA_LEAVES), conditionsFromItem(Blocks.AZALEA_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.FLOWERING_AZALEA_LEAVES_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.FLOWERING_AZALEA_LEAVES)
-                        .criterion(hasItem(Blocks.FLOWERING_AZALEA_LEAVES), conditionsFromItem(Blocks.FLOWERING_AZALEA_LEAVES))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.FLOWERING_AZALEA_LEAVES_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.FLOWERING_AZALEA_LEAVES)
-                        .criterion(hasItem(Blocks.FLOWERING_AZALEA_LEAVES), conditionsFromItem(Blocks.FLOWERING_AZALEA_LEAVES))
-                        .offerTo(exporter);
-
                 //gravel
                 createShaped(RecipeCategory.MISC, ModBlocks.GRAVEL_SLAB, 6)
                         .pattern("000")
@@ -935,21 +792,6 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .pattern("000")
                         .input('0', Blocks.GRAVEL)
                         .criterion(hasItem(Blocks.GRAVEL), conditionsFromItem(Blocks.GRAVEL))
-                        .offerTo(exporter);
-
-                //snow
-                createShaped(RecipeCategory.MISC, ModBlocks.SNOW_BLOCK_SLAB, 6)
-                        .pattern("000")
-                        .input('0', Blocks.SNOW)
-                        .criterion(hasItem(Blocks.SNOW), conditionsFromItem(Blocks.SNOW))
-                        .offerTo(exporter);
-
-                createShaped(RecipeCategory.MISC, ModBlocks.SNOW_BLOCK_STAIRS, 4)
-                        .pattern("0  ")
-                        .pattern("00 ")
-                        .pattern("000")
-                        .input('0', Blocks.SNOW_BLOCK)
-                        .criterion(hasItem(Blocks.SNOW_BLOCK), conditionsFromItem(Blocks.SNOW_BLOCK))
                         .offerTo(exporter);
 
                 //sand
@@ -1010,12 +852,23 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .input('0', Blocks.NETHERITE_BLOCK)
                         .criterion(hasItem(Blocks.NETHERITE_BLOCK), conditionsFromItem(Blocks.NETHERITE_BLOCK))
                         .offerTo(exporter);
+
+
+                createShaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLUORESCENT_LIGHT, 8)
+                        .pattern("000")
+                        .pattern("010")
+                        .pattern("000")
+                        .input('0', Blocks.GLASS)
+                        .input('1', Items.GLOWSTONE_DUST)
+                        .criterion(hasItem(Blocks.GLASS), conditionsFromItem(Blocks.GLASS))
+                        .criterion(hasItem(Items.GLOWSTONE_DUST), conditionsFromItem(Items.GLOWSTONE_DUST))
+                        .offerTo(exporter);
             }
         };
     }
 
     @Override
     public String getName() {
-        return "LawnchairRecipeProvider";
+        return "Recipe";
     }
 }

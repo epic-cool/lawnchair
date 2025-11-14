@@ -19,6 +19,6 @@ public class LawnchairRegistryDataGenerator extends FabricDynamicRegistryProvide
 
     @Override
     public String getName() {
-        return "Lawnchair Registry Generator";
+        return "Registry";
     }
 }

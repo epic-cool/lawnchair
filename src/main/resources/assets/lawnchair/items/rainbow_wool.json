@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "lawnchair:item/rainbow_wool"
+    "model": "lawnchair:block/rainbow_wool"
   }
 }

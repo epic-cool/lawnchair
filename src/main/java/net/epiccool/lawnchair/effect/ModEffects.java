@@ -1,9 +1,7 @@
 package net.epiccool.lawnchair.effect;
 
 import net.epiccool.lawnchair.Lawnchair;
-import net.epiccool.lawnchair.effect.custom.FeatherFallingEffect;
-import net.epiccool.lawnchair.effect.custom.SmallEffect;
-import net.epiccool.lawnchair.effect.custom.StrengthEffect;
+import net.epiccool.lawnchair.effect.custom.*;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -14,16 +12,20 @@ public class ModEffects {
 //    public static final RegistryEntry<StatusEffect> STICKY =
 //            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "sticky"), new StickyEffect());
 
-
     public static final RegistryEntry<StatusEffect> SMALL =
             Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "small"), new SmallEffect());
 
-    public static final RegistryEntry<StatusEffect> STRENGTH =
-            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "strength"), new StrengthEffect());
+    public static final RegistryEntry<StatusEffect> MUSCLE =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "muscle"), new MuscleEffect());
 
-    public static final RegistryEntry<StatusEffect> FEATHER_FALLING =
-            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "feather_falling"), new FeatherFallingEffect());
+    public static final RegistryEntry<StatusEffect> LIGHT =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "light"), new LightEffect());
 
+    public static final RegistryEntry<StatusEffect> BIG =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "big"), new BigEffect());
+
+    public static final RegistryEntry<StatusEffect> GLOOM =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Lawnchair.MODID, "gloom"), new GloomEffect());
 
 
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
