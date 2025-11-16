@@ -22,7 +22,8 @@ public class ServerPlayerEntityMixin {
 
             player.networkHandler.send(
                     new GameMessageS2CPacket(packetText, false),
-                    PacketCallbacks.always(() -> {})
+                    PacketCallbacks.always(() -> {
+                    })
             );
 
             CommandUtil.EMOJI_MESSAGES.remove(message);

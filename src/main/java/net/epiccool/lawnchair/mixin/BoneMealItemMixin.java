@@ -29,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BoneMealItemMixin {
     @Unique
     private static final TagKey<Block> FLOWERS =
-            TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "small_flowers"));
+            TagKey.of(RegistryKeys.BLOCK, Identifier.of("lawnchair", "flowers"));
 
     @Inject(method = "useOnBlock", at = @At("HEAD"))
     private void bonemealFlower(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {

@@ -43,12 +43,12 @@ public class FluorescentLightBlock extends BlockWithEntity {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
-            if (!world.isClient()) {
+            if (!world.isClient() && player.getAbilities().allowModifyWorld) {
                 boolean stateNow = state.get(ON);
                 BlockState newState = state.with(ON, !stateNow);
                 world.setBlockState(hit.getBlockPos(), newState);
 
-                if (stateNow) {
+                if (stateNow && ModSoundEvents.BLOCK_FLUORESCENTLIGHT_TURNOFF != null) {
                     world.playSound(null, hit.getBlockPos(), ModSoundEvents.BLOCK_FLUORESCENTLIGHT_TURNOFF, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 }
             }

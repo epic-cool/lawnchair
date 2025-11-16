@@ -167,6 +167,8 @@
   "gamerule.bedExplosions": "Beds can explode in certain dimensions",
   "commands.minecartScatters": "Minecarts scatter a player's inventory",
   "gamerule.minecartScatters": "Minecarts scatter a player's inventory",
+  "commands.naturalExhaustion": "Lose hunger",
+  "gamerule.naturalExhaustion": "Lose hunger",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",

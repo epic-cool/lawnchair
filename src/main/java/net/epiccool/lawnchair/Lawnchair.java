@@ -196,6 +196,7 @@ public class Lawnchair implements ModInitializer {
                 ModGameRules.silkyCreepers = !json.contains("true");
                 ModGameRules.minecartScatters = !json.contains("true");
                 ModGameRules.bedExplosions = !json.contains("false");
+                ModGameRules.naturalExhaustion = !json.contains("false"); //doesnt work
                 ModGameRules.slimeSpawning = !json.contains("false"); //doesn't work
             } catch (IOException e) {
                 e.printStackTrace();
@@ -209,6 +210,7 @@ public class Lawnchair implements ModInitializer {
                     "  \"creeperExplosions\": " + ModGameRules.creeperExplosions + ",\n" +
                     "  \"silkyCreepers\": " + ModGameRules.silkyCreepers + ",\n" +
                     "  \"minecartScatters\": " + ModGameRules.minecartScatters + ",\n" +
+                    "  \"naturalExhaustion\": " + ModGameRules.naturalExhaustion + ",\n" +
                     "  \"bedExplosions\": " + ModGameRules.bedExplosions + "\n" +
                     "}";
             Files.writeString(CONFIG, json);

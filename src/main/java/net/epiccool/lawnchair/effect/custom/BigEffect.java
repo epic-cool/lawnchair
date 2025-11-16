@@ -28,23 +28,25 @@ public class BigEffect extends StatusEffect {
         var entityRange = entity.getAttributeInstance(EntityAttributes.ENTITY_INTERACTION_RANGE);
         var walkSpeed = entity.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
         var jumpHeight = entity.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
+        var maxHealth = entity.getAttributeInstance(EntityAttributes.MAX_HEALTH);
+        var fallDamageMultiplier = entity.getAttributeInstance(EntityAttributes.FALL_DAMAGE_MULTIPLIER);
 
         map.put(entity.getAttributes(), entity);
         Backup backup = og.computeIfAbsent(entity, e -> new Backup());
 
         if (scale != null) {
             backup.scale = scale.getBaseValue();
-            scale.setBaseValue(backup.scale * 10);
+            scale.setBaseValue(backup.scale * 6);
         }
 
         if (entityRange != null) {
             backup.entityRange = entityRange.getBaseValue();
-            entityRange.setBaseValue(backup.entityRange * 10);
+            entityRange.setBaseValue(backup.entityRange * 6);
         }
 
         if (blockRange != null) {
             backup.blockRange = blockRange.getBaseValue();
-            blockRange.setBaseValue(backup.blockRange * 10);
+            blockRange.setBaseValue(backup.blockRange * 6);
         }
 
         if (walkSpeed != null) {
@@ -54,7 +56,19 @@ public class BigEffect extends StatusEffect {
 
         if (jumpHeight != null) {
             backup.jumpHeight = jumpHeight.getBaseValue();
-            jumpHeight.setBaseValue(backup.jumpHeight * 10);
+            jumpHeight.setBaseValue(backup.jumpHeight * 6);
+        }
+
+        if (maxHealth != null) {
+            backup.maxHealth = maxHealth.getBaseValue();
+            backup.currentHealth = entity.getHealth();
+            maxHealth.setBaseValue(backup.maxHealth * 6);
+            entity.setHealth(backup.currentHealth * 6);
+        }
+
+        if (fallDamageMultiplier != null) {
+            backup.fallDamageMultiplier = fallDamageMultiplier.getBaseValue();
+            fallDamageMultiplier.setBaseValue(0);
         }
     }
 
@@ -74,19 +88,28 @@ public class BigEffect extends StatusEffect {
     }
 
     private void resetAttr(LivingEntity entity) {
+        if (entity == null) return;
         Backup backup = og.remove(entity);
+        if (backup == null) return;
 
         var scale = entity.getAttributeInstance(EntityAttributes.SCALE);
         var blockRange = entity.getAttributeInstance(EntityAttributes.BLOCK_INTERACTION_RANGE);
         var entityRange = entity.getAttributeInstance(EntityAttributes.ENTITY_INTERACTION_RANGE);
         var walkSpeed = entity.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
         var jumpHeight = entity.getAttributeInstance(EntityAttributes.JUMP_STRENGTH);
+        var maxHealth = entity.getAttributeInstance(EntityAttributes.MAX_HEALTH);
+        var fallDamageMultiplier = entity.getAttributeInstance(EntityAttributes.FALL_DAMAGE_MULTIPLIER);
 
         if (scale != null) scale.setBaseValue(backup.scale);
         if (blockRange != null) blockRange.setBaseValue(backup.blockRange);
         if (entityRange != null) entityRange.setBaseValue(backup.entityRange);
         if (walkSpeed != null) walkSpeed.setBaseValue(backup.walkSpeed);
         if (jumpHeight != null) jumpHeight.setBaseValue(backup.jumpHeight);
+        if (maxHealth != null) {
+            maxHealth.setBaseValue(backup.maxHealth);
+            entity.setHealth(Math.min(backup.currentHealth, (float) backup.maxHealth));
+        }
+        if (fallDamageMultiplier != null) fallDamageMultiplier.setBaseValue(backup.fallDamageMultiplier);
     }
 
     private static class Backup {
@@ -95,5 +118,8 @@ public class BigEffect extends StatusEffect {
         double entityRange;
         double walkSpeed;
         double jumpHeight;
+        double maxHealth;
+        float currentHealth;
+        double fallDamageMultiplier;
     }
 }

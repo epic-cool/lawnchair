@@ -77,11 +77,11 @@ public class ModEntities {
         //Duck
         BiomeModifications.addSpawn(
                 BiomeSelectors.includeByKey(BiomeKeys.RIVER),
-                SpawnGroup.CREATURE,
+                SpawnGroup.WATER_CREATURE,
                 ModEntities.DUCK,
-                30,
+                15,
                 3,
-                7
+                4
         );
     }
 }

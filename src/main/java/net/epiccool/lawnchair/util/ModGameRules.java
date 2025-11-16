@@ -15,6 +15,7 @@ public class ModGameRules {
     public static boolean bedExplosions = true;
     public static boolean slimeSpawning = true; //doesn't work
     public static boolean minecartScatters = true;
+    public static boolean naturalExhaustion = true;
 
     public static final CustomGameRuleCategory LAWNCHAIR =
             new CustomGameRuleCategory(
@@ -39,6 +40,11 @@ public class ModGameRules {
 
     public static final GameRules.Key<GameRules.BooleanRule> MINECART_SCATTERS =
             GameRuleRegistry.register("minecartScatters",
+                    ModGameRules.LAWNCHAIR,
+                    GameRuleFactory.createBooleanRule(true));
+
+    public static final GameRules.Key<GameRules.BooleanRule> NATURAL_EXHAUSTION =
+            GameRuleRegistry.register("naturalExhaustion",
                     ModGameRules.LAWNCHAIR,
                     GameRuleFactory.createBooleanRule(true));
 
