@@ -129,6 +129,7 @@ public class ModItems {
             entries.add(ModBlocks.STRIPPED_AZALEA_LOG);
             entries.add(ModBlocks.STRIPPED_AZALEA_WOOD);
             entries.add(ModBlocks.SUGAR_CUBE);
+            entries.add(ModBlocks.UNCOVERED_BIRCH_DOOR);
             entries.add(ModBlocks.UNLIT_LANTERN);
             entries.add(ModItems.UNLIT_TORCH);
         });

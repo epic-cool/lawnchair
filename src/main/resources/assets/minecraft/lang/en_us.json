@@ -1,4 +1,6 @@
 {
-  "death.attack.sweetBerryBush": "%1$s was poked to death",
-  "death.attack.sweetBerryBush.player": "%1$s was poked to death while trying to escape %2$s"
+  "death.attack.sweetBerryBush": "%1$s was pricked to death in a Sweet Berry Bush",
+  "death.attack.sweetBerryBush.player": "%1$s was poked to death in a Sweet Berry Bush while trying to escape %2$s",
+  "block.minecraft.birch_door": "Covered Birch Door",
+  "block.minecraft.birch_trapdoor": "Cncovered Birch Trapdoor"
 }

@@ -83,6 +83,10 @@ public class ModBlocks {
     public static final Block RAINBOW_WOOL = register("rainbow_wool", Block::new, AbstractBlock.Settings.copy(Blocks.WHITE_WOOL), true);
     public static final Block FLUORESCENT_LIGHT = register("fluorescent_light", FluorescentLightBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GLASS).allowsSpawning(Blocks::never).luminance(state -> state.get(FluorescentLightBlock.ON) ? 15 : 0), true);
 
+    //doors
+    public static final Block UNCOVERED_BIRCH_DOOR = register("uncovered_birch_door",
+            settings -> new CoveredDoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_DOOR), true);
+
     //wood - azalea
     public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
     public static final Block AZALEA_WOOD = register("azalea_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_WOOD), true);

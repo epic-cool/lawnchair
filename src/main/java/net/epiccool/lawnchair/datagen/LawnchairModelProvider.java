@@ -60,6 +60,8 @@ public class LawnchairModelProvider extends FabricModelProvider {
         registerSlabAndStairs(netheriteBlockPool, ModBlocks.NETHERITE_BLOCK_SLAB, ModBlocks.NETHERITE_BLOCK_STAIRS);
 
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
+
+        blockStateModelGenerator.registerDoor(ModBlocks.UNCOVERED_BIRCH_DOOR);
     }
 
     @Override

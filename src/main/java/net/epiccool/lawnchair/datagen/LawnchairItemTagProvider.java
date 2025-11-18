@@ -81,5 +81,11 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
                 .add(ModBlocks.AZALEA_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_AZALEA_LOG.asItem())
                 .add(ModBlocks.STRIPPED_AZALEA_WOOD.asItem());
+
+        valueLookupBuilder(ItemTags.DOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_DOOR.asItem());
+
+        valueLookupBuilder(ItemTags.WOODEN_DOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_DOOR.asItem());
     }
 }

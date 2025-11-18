@@ -3,6 +3,7 @@ f308aa113f35b15f94d0bbfcf7becd1eda0fb8a6 data/lawnchair/tags/item/azalea_logs.js
 736f4ef35696340b932cdb679c5a32e7b28db783 data/lawnchair/tags/item/gas_mask_repair.json
 4121f1baa41f5525bc2e2d105e978a48cc6313b7 data/lawnchair/tags/item/steel_repair.json
 92f814eb69ff72b35d96bb62c6c4b6bdea1af2ab data/minecraft/tags/item/axes.json
+dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/item/doors.json
 20458fe5dfae2233941f31dcee2ac55f9f739900 data/minecraft/tags/item/dyeable.json
 7b38cb1327f13f72d183b4ca055323b955951170 data/minecraft/tags/item/enchantable/chest_armor.json
 8bc9281d6942eb144eb22095ced091a87ce3ffe3 data/minecraft/tags/item/enchantable/foot_armor.json
@@ -14,3 +15,4 @@ e968d7d1f5edcc54ba76df5c0a88b2e6f01bc839 data/minecraft/tags/item/enchantable/le
 e20075d3da2a707ae9e0aee57f0df784f507406a data/minecraft/tags/item/swords.json
 9b6c7cb3914547f21e7a11e94d5a3043235547e9 data/minecraft/tags/item/trim_materials.json
 d6bc7bbed1cec5b37e9c1e4ce0febee0c9d94f7b data/minecraft/tags/item/trimmable_armor.json
+dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/item/wooden_doors.json

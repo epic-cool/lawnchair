@@ -66,7 +66,7 @@ public class FluorescentLightBlock extends BlockWithEntity {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return validateTicker(type, ModBlockEntities.FLUORESCENT_LIGHT,
-                world.isClient() ? (w, pos, s, be) -> FluorescentLightBlockEntity.clientTick(be) : null
+                world.isClient() ? (w, pos, s, be) -> FluorescentLightBlockEntity.clientTick(w, pos, be) : null
         );
     }
 }

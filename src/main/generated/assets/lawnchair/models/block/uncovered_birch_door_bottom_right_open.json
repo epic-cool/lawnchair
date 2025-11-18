@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "lawnchair:block/uncovered_birch_door_bottom",
+    "top": "lawnchair:block/uncovered_birch_door_top"
+  }
+}

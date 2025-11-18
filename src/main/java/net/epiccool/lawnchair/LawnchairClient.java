@@ -21,6 +21,7 @@ public class LawnchairClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.putBlock(ModBlocks.STEEL_BARS, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.UNLIT_LANTERN, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.UNCOVERED_BIRCH_DOOR, BlockRenderLayer.CUTOUT);
 
         EntityModelLayerRegistry.registerModelLayer(GoliathEntityModel.GOLIATH, GoliathEntityModel::getTexturedModelData);
         EntityRendererFactories.register(ModEntities.GOLIATH, GoliathEntityRenderer::new);
