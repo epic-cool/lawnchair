@@ -863,6 +863,91 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.GLASS), conditionsFromItem(Blocks.GLASS))
                         .criterion(hasItem(Items.GLOWSTONE_DUST), conditionsFromItem(Items.GLOWSTONE_DUST))
                         .offerTo(exporter);
+
+                //Copper Golem Statues
+                createShaped(RecipeCategory.MISC, Blocks.COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.COPPER_BLOCK)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.COPPER_BLOCK), conditionsFromItem(Blocks.COPPER_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.EXPOSED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.EXPOSED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.EXPOSED_COPPER), conditionsFromItem(Blocks.EXPOSED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.WEATHERED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.WEATHERED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.WEATHERED_COPPER), conditionsFromItem(Blocks.WEATHERED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.OXIDIZED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.OXIDIZED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.OXIDIZED_COPPER), conditionsFromItem(Blocks.OXIDIZED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.WAXED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.WAXED_COPPER_BLOCK)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.WAXED_COPPER_BLOCK), conditionsFromItem(Blocks.WAXED_COPPER_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.WAXED_EXPOSED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.WAXED_EXPOSED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.WAXED_EXPOSED_COPPER), conditionsFromItem(Blocks.WAXED_EXPOSED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.WAXED_WEATHERED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.WAXED_WEATHERED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.WAXED_WEATHERED_COPPER), conditionsFromItem(Blocks.WAXED_WEATHERED_COPPER))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, Blocks.WAXED_OXIDIZED_COPPER_GOLEM_STATUE, 1)
+                        .pattern("0")
+                        .pattern("1")
+                        .input('0', Blocks.CARVED_PUMPKIN)
+                        .input('1', Blocks.WAXED_OXIDIZED_COPPER)
+                        .criterion(hasItem(Blocks.CARVED_PUMPKIN), conditionsFromItem(Blocks.CARVED_PUMPKIN))
+                        .criterion(hasItem(Blocks.WAXED_OXIDIZED_COPPER), conditionsFromItem(Blocks.WAXED_OXIDIZED_COPPER))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, ModBlocks.COPPER_BUTTON, 1)
+                        .input(Blocks.COPPER_BLOCK)
+                        .criterion(hasItem(Blocks.COPPER_BLOCK), conditionsFromItem(Blocks.COPPER_BLOCK))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.BLASTED_GLASS_PANE, 16)
+                        .pattern("000")
+                        .pattern("000")
+                        .input('0', ModBlocks.BLASTED_GLASS)
+                        .criterion(hasItem(ModBlocks.BLASTED_GLASS), conditionsFromItem(ModBlocks.BLASTED_GLASS))
+                        .offerTo(exporter);
             }
         };
     }

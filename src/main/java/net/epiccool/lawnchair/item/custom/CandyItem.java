@@ -59,4 +59,9 @@ public class CandyItem extends Item {
         int candyCount = 0;
         float chance = 10f;
     }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 16;
+    }
 }

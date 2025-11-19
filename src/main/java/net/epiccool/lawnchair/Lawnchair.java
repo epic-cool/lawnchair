@@ -195,6 +195,16 @@ public class Lawnchair implements ModInitializer {
                 )
         );
 
+        LOGGER.info("Registering /smite for " + MODID);
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+                dispatcher.register(CommandManager.literal("smite")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .then(CommandManager.argument("player", EntityArgumentType.player())
+                                .executes(ctx -> CommandUtil.smite(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
+                        .executes(ctx -> CommandUtil.smite(ctx, null))
+                )
+        );
+
 
         LOGGER.info("Registering Villager Trades for " + MODID);
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {

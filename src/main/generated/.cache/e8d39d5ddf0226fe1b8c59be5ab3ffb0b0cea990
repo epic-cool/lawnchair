@@ -10,9 +10,13 @@ dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/item/doors.json
 5df05c7fe26ef3cdfcf43488ecd0ab34d26be2d0 data/minecraft/tags/item/enchantable/head_armor.json
 e968d7d1f5edcc54ba76df5c0a88b2e6f01bc839 data/minecraft/tags/item/enchantable/leg_armor.json
 2f94c224cf7845a451b89c3b1072ae6a78aceb7a data/minecraft/tags/item/hoes.json
+65ca149db0eaef365f1836df0cbeea32fb26c5eb data/minecraft/tags/item/meat.json
 1cd4490ccfe98d25a07d1bb3c21fbcfe1facf5d2 data/minecraft/tags/item/pickaxes.json
 8bb0c9ba27a69c660e8801250d3ae9b9752cc70b data/minecraft/tags/item/shovels.json
 e20075d3da2a707ae9e0aee57f0df784f507406a data/minecraft/tags/item/swords.json
+f1d94c0608d3c6e6ea5d9f0865413614f52b5f45 data/minecraft/tags/item/trapdoors.json
 9b6c7cb3914547f21e7a11e94d5a3043235547e9 data/minecraft/tags/item/trim_materials.json
 d6bc7bbed1cec5b37e9c1e4ce0febee0c9d94f7b data/minecraft/tags/item/trimmable_armor.json
+65ca149db0eaef365f1836df0cbeea32fb26c5eb data/minecraft/tags/item/wolf_food.json
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/item/wooden_doors.json
+f1d94c0608d3c6e6ea5d9f0865413614f52b5f45 data/minecraft/tags/item/wooden_trapdoors.json

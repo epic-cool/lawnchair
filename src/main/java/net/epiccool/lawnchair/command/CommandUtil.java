@@ -2,6 +2,8 @@ package net.epiccool.lawnchair.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -11,6 +13,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class CommandUtil {
@@ -103,6 +106,26 @@ public class CommandUtil {
         String message = newGravityState ? "commands.lawnchair.grav.disabled" : "commands.lawnchair.grav.enabled";
         context.getSource().sendFeedback(() -> Text.translatable(message), true);
 
+        return Command.SINGLE_SUCCESS;
+    }
+
+    public static int smite(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
+        ServerWorld world = target.getEntityWorld();
+        Random random = new Random();
+        int feedback = random.nextInt(4);
+        LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
+        lightning.setPos(target.getX(), target.getY(), target.getZ());
+        world.spawnEntity(lightning);
+        if (feedback == 0) {
+            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite", target.getDisplayName()), true);
+        } else if (feedback == 1) {
+            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite1", target.getDisplayName()), true);
+        } else if (feedback == 2) {
+            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite2", target.getDisplayName()), true);
+        } else {
+            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite3", target.getDisplayName()), true);
+        }
+//todo: add feedback when no player
         return Command.SINGLE_SUCCESS;
     }
 }

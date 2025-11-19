@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carved_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:carved_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oxidized_copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:oxidized_copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lawnchair:oxidized_copper_golem_statue"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_carved_pumpkin",
+      "has_oxidized_copper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lawnchair:oxidized_copper_golem_statue"
+    ]
+  }
+}

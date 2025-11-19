@@ -93,5 +93,29 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
         valueLookupBuilder(ItemTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR.asItem());
+
+        valueLookupBuilder(ItemTags.WOLF_FOOD)
+                .add(ModItems.RAW_HAM)
+                .add(ModItems.COOKED_HAM)
+                .add(ModItems.RAW_BACON)
+                .add(ModItems.COOKED_BACON)
+                .add(ModItems.RAW_SAUSAGE)
+                .add(ModItems.COOKED_SAUSAGE)
+                .add(ModItems.RAW_SQUID)
+                .add(ModItems.COOKED_SQUID)
+                .add(ModItems.RAW_FROG_LEGS)
+                .add(ModItems.COOKED_FROG_LEGS);
+
+        valueLookupBuilder(ItemTags.MEAT)
+                .add(ModItems.RAW_HAM)
+                .add(ModItems.COOKED_HAM)
+                .add(ModItems.RAW_BACON)
+                .add(ModItems.COOKED_BACON)
+                .add(ModItems.RAW_SAUSAGE)
+                .add(ModItems.COOKED_SAUSAGE)
+                .add(ModItems.RAW_SQUID)
+                .add(ModItems.COOKED_SQUID)
+                .add(ModItems.RAW_FROG_LEGS)
+                .add(ModItems.COOKED_FROG_LEGS);
     }
 }

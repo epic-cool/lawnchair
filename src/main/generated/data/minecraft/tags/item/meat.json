@@ -1,0 +1,14 @@
+{
+  "values": [
+    "lawnchair:raw_ham",
+    "lawnchair:cooked_ham",
+    "lawnchair:raw_bacon",
+    "lawnchair:cooked_bacon",
+    "lawnchair:raw_sausage",
+    "lawnchair:cooked_sausage",
+    "lawnchair:raw_squid",
+    "lawnchair:cooked_squid",
+    "lawnchair:raw_frog_legs",
+    "lawnchair:cooked_frog_legs"
+  ]
+}

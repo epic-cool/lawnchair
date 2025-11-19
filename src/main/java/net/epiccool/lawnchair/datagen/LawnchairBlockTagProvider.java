@@ -34,6 +34,7 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
                 .add(ModBlocks.STEEL_BARS)
                 .add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE)
+                .add(ModBlocks.COPPER_BUTTON)
 
                 .add(ModBlocks.QUARTZ_BRICKS_STAIRS)
                 .add(ModBlocks.QUARTZ_BRICKS_SLAB)
@@ -62,6 +63,7 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(ModBlocks.SAND_SLAB)
                 .add(ModBlocks.SAND_STAIRS)
                 .add(ModBlocks.RED_SAND_SLAB)
+                .add(ModBlocks.SCORCHED_DIRT)
                 .add(ModBlocks.RED_SAND_STAIRS);
 
         valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
@@ -135,5 +137,32 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
         valueLookupBuilder(BlockTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
+
+        valueLookupBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.MOSS_REPLACEABLE)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.LUSH_GROUND_REPLACEABLE)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.ENDERMAN_HOLDABLE)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.DRY_VEGETATION_MAY_PLACE_ON)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.DRIPSTONE_REPLACEABLE_BLOCKS)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.DIRT)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
+                .add(ModBlocks.SCORCHED_DIRT);
+
+        valueLookupBuilder(BlockTags.BUTTONS)
+                .add(ModBlocks.COPPER_BUTTON);
     }
 }

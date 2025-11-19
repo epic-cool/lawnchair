@@ -65,6 +65,11 @@
   "block.lawnchair.fluorescent_light": "Fluorescent Light",
   "block.lawnchair.uncovered_birch_door": "Uncovered Birch Door",
   "block.lawnchair.uncovered_birch_trapdoor": "Uncovered Birch Trapdoor",
+  "block.lawnchair.scorched_dirt": "Scorched Dirt",
+  "block.lawnchair.copper_button": "Copper Button",
+  "block.lawnchair.rainbow_wool": "Rainbow Wool",
+  "block.lawnchair.blasted_glass": "Blasted Glass",
+  "block.lawnchair.blasted_glass_pane": "Blasted Glass Pane",
 
 
   "---------------------------------------Category V": "Tools, Armour ----------------------------------------",
@@ -173,6 +178,10 @@
   "gamerule.naturalExhaustion": "Lose hunger",
   "commands.lawnchair.emoji.invalid.name": "Unknown emoji: %s (category: %s)",
   "commands.lawnchair.emoji.invalid.category": "Unknown category: %s",
+  "commands.lawnchair.smite": "Smitten %s",
+  "commands.lawnchair.smite1": "Smote %s",
+  "commands.lawnchair.smite2": "Smitted %s",
+  "commands.lawnchair.smite3": "Smited %s",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",

@@ -18,6 +18,15 @@ public class LawnchairModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        BlockStateModelGenerator.BlockTexturePool dirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
+        BlockStateModelGenerator.BlockTexturePool coarseDirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COARSE_DIRT);
+        BlockStateModelGenerator.BlockTexturePool gravelPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GRAVEL);
+        BlockStateModelGenerator.BlockTexturePool sandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SAND);
+        BlockStateModelGenerator.BlockTexturePool redSandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_SAND);
+        BlockStateModelGenerator.BlockTexturePool quartzBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.QUARTZ_BRICKS);
+        BlockStateModelGenerator.BlockTexturePool netheriteBlockPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERITE_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool copperPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COPPER_BLOCK);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARCOAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_CHAIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
@@ -33,6 +42,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EVIL_GOOP);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AZALEA_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SUGAR_CUBE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCORCHED_DIRT);
 
         blockStateModelGenerator.registerBars(ModBlocks.STEEL_BARS);
 
@@ -42,14 +52,6 @@ public class LawnchairModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createLogTexturePool(ModBlocks.AZALEA_LOG).log(ModBlocks.AZALEA_LOG).wood(ModBlocks.AZALEA_WOOD);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AZALEA_LOG).log(ModBlocks.STRIPPED_AZALEA_LOG).wood(ModBlocks.STRIPPED_AZALEA_WOOD);
-
-        BlockStateModelGenerator.BlockTexturePool dirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
-        BlockStateModelGenerator.BlockTexturePool coarseDirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COARSE_DIRT);
-        BlockStateModelGenerator.BlockTexturePool gravelPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GRAVEL);
-        BlockStateModelGenerator.BlockTexturePool sandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.SAND);
-        BlockStateModelGenerator.BlockTexturePool redSandPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.RED_SAND);
-        BlockStateModelGenerator.BlockTexturePool quartzBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.QUARTZ_BRICKS);
-        BlockStateModelGenerator.BlockTexturePool netheriteBlockPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERITE_BLOCK);
 
         registerSlabAndStairs(dirtPool, ModBlocks.DIRT_SLAB, ModBlocks.DIRT_STAIRS);
         registerSlabAndStairs(coarseDirtPool, ModBlocks.COARSE_DIRT_SLAB, ModBlocks.COARSE_DIRT_STAIRS);
@@ -62,7 +64,12 @@ public class LawnchairModelProvider extends FabricModelProvider {
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
 
         blockStateModelGenerator.registerDoor(ModBlocks.UNCOVERED_BIRCH_DOOR);
+
         blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
+
+        copperPool.button(ModBlocks.COPPER_BUTTON);
+
+        blockStateModelGenerator.registerGlassAndPane(ModBlocks.BLASTED_GLASS, ModBlocks.BLASTED_GLASS_PANE);
     }
 
     @Override

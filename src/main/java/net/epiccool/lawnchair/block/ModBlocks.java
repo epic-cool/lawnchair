@@ -2,10 +2,12 @@ package net.epiccool.lawnchair.block;
 
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.custom.*;
+import net.epiccool.lawnchair.block.custom.debug.ButtonBlock2;
 import net.epiccool.lawnchair.block.custom.gravity.ColoredFallingSlabBlock;
 import net.epiccool.lawnchair.block.custom.gravity.SandSlabBlock;
 import net.epiccool.lawnchair.block.custom.tnt.TntSlabBlock;
 import net.epiccool.lawnchair.block.custom.tnt.TntStairsBlock;
+import net.epiccool.lawnchair.util.ModBlockSetTypes;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -82,14 +84,9 @@ public class ModBlocks {
     public static final Block SUGAR_CUBE = register("sugar_cube", SugarCubeBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRAVEL).breakInstantly(), false);
     public static final Block RAINBOW_WOOL = register("rainbow_wool", Block::new, AbstractBlock.Settings.copy(Blocks.WHITE_WOOL), true);
     public static final Block FLUORESCENT_LIGHT = register("fluorescent_light", FluorescentLightBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GLASS).allowsSpawning(Blocks::never).luminance(state -> state.get(FluorescentLightBlock.ON) ? 15 : 0), true);
-
-    //doors
-    public static final Block UNCOVERED_BIRCH_DOOR = register("uncovered_birch_door",
-            settings -> new CoveredDoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_DOOR), true);
-
-    //trapdoors
-    public static final Block UNCOVERED_BIRCH_TRAPDOOR = register("uncovered_birch_trapdoor",
-            settings -> new CoveredTrapdoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_TRAPDOOR), true);
+    public static final Block SCORCHED_DIRT = register("scorched_dirt", ScorchedDirtBlock::new, AbstractBlock.Settings.copy(Blocks.DIRT), true);
+    public static final Block BLASTED_GLASS = register("blasted_glass", TransparentBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS).strength(1.0F, Integer.MAX_VALUE), true);
+    public static final Block BLASTED_GLASS_PANE = register("blasted_glass_pane", PaneBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS_PANE).strength(1.0F, Integer.MAX_VALUE), true);
 
     //wood - azalea
     public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
@@ -117,6 +114,18 @@ public class ModBlocks {
     public static final Block RED_SAND_STAIRS = register("red_sand_stairs", settings -> new StairsBlock(Blocks.RED_SAND.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.RED_SAND), true);
     public static final Block QUARTZ_BRICKS_STAIRS = register("quartz_bricks_stairs", settings -> new StairsBlock(Blocks.QUARTZ_BRICKS.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.QUARTZ_BRICKS), true);
     public static final Block NETHERITE_BLOCK_STAIRS = register("netherite_block_stairs", settings -> new StairsBlock(Blocks.NETHERITE_BLOCK.getDefaultState(), settings), AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), true);
+
+    //doors
+    public static final Block UNCOVERED_BIRCH_DOOR = register("uncovered_birch_door",
+            settings -> new CoveredDoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_DOOR), true);
+
+    //trapdoors
+    public static final Block UNCOVERED_BIRCH_TRAPDOOR = register("uncovered_birch_trapdoor",
+            settings -> new CoveredTrapdoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_TRAPDOOR), true);
+
+    //buttons
+    public static final Block COPPER_BUTTON = register("copper_button",
+            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 1, settings), AbstractBlock.Settings.create().strength(0.5f), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(

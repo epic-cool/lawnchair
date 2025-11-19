@@ -117,11 +117,14 @@ public class ModItems {
             entries.add(ModBlocks.AZALEA_LOG);
             entries.add(ModBlocks.AZALEA_PLANKS);
             entries.add(ModBlocks.AZALEA_WOOD);
+            entries.add(ModBlocks.BLASTED_GLASS);
+            entries.add(ModBlocks.BLASTED_GLASS_PANE);
             entries.add(ModBlocks.CHARCOAL_BLOCK);
             entries.add(ModBlocks.EVIL_GOOP);
             entries.add(ModItems.EVIL_GOOP_FRAGMENT);
             entries.add(ModBlocks.FLUORESCENT_LIGHT);
             entries.add(ModBlocks.IRON_CHAIN_BLOCK);
+            entries.add(ModBlocks.SCORCHED_DIRT);
             entries.add(ModBlocks.SOUL_JACK_O_LANTERN);
             entries.add(ModBlocks.STEEL_BARS);
             entries.add(ModBlocks.STEEL_BLOCK);
@@ -129,7 +132,6 @@ public class ModItems {
             entries.add(ModBlocks.STRIPPED_AZALEA_LOG);
             entries.add(ModBlocks.STRIPPED_AZALEA_WOOD);
             entries.add(ModBlocks.SUGAR_CUBE);
-            entries.add(ModBlocks.UNCOVERED_BIRCH_DOOR);
             entries.add(ModBlocks.UNLIT_LANTERN);
             entries.add(ModItems.UNLIT_TORCH);
         });
@@ -145,6 +147,7 @@ public class ModItems {
             entries.add(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN_BLOCK);
             entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
             entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
+            entries.add(ModBlocks.COPPER_BUTTON);
         });
 
         //Equipment
@@ -206,6 +209,9 @@ public class ModItems {
             entries.add(ModBlocks.QUARTZ_BRICKS_STAIRS);
             entries.add(ModBlocks.NETHERITE_BLOCK_SLAB);
             entries.add(ModBlocks.NETHERITE_BLOCK_STAIRS);
+            entries.add(ModBlocks.UNCOVERED_BIRCH_DOOR);
+            entries.add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
+            entries.add(ModBlocks.COPPER_BUTTON);
         });
 
         ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {
