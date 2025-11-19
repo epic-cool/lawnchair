@@ -5,11 +5,13 @@ f0f92c5f0b5c5412980a4ca8436b4cb180919deb data/lawnchair/tags/block/turn_to_lava.
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/block/doors.json
 2da5f16525c01f1d58d13a33312ac939f5f23680 data/minecraft/tags/block/infiniburn_overworld.json
 93f9dd2e5809ff919ca3bfa4fac00f7991c2ca34 data/minecraft/tags/block/logs_that_burn.json
-14df2cb0fde26fc7386537098a37117bc2b7431f data/minecraft/tags/block/mineable/axe.json
+94b41d41e216fc24acb02c299a6f87858e62641c data/minecraft/tags/block/mineable/axe.json
 04679060da376d494e94e319ef87f42395d9062e data/minecraft/tags/block/mineable/hoe.json
 5a051534f0c934e13d7eb38b429ba582b24c3543 data/minecraft/tags/block/mineable/pickaxe.json
 da61d3f269af666d48c64fdf2608677351eabc65 data/minecraft/tags/block/mineable/shovel.json
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/block/mob_interactable_doors.json
 950e0cb82f9b1ad53e68aee836dc3e9ccb22c11f data/minecraft/tags/block/needs_diamond_tool.json
 0ed7df924beedefa2dbbb7499442c29272019910 data/minecraft/tags/block/needs_stone_tool.json
+f1d94c0608d3c6e6ea5d9f0865413614f52b5f45 data/minecraft/tags/block/trapdoors.json
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/block/wooden_doors.json
+f1d94c0608d3c6e6ea5d9f0865413614f52b5f45 data/minecraft/tags/block/wooden_trapdoors.json

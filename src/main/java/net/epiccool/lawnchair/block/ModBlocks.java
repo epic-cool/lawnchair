@@ -87,6 +87,10 @@ public class ModBlocks {
     public static final Block UNCOVERED_BIRCH_DOOR = register("uncovered_birch_door",
             settings -> new CoveredDoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_DOOR), true);
 
+    //trapdoors
+    public static final Block UNCOVERED_BIRCH_TRAPDOOR = register("uncovered_birch_trapdoor",
+            settings -> new CoveredTrapdoorBlock(BlockSetType.BIRCH, settings), AbstractBlock.Settings.copy(Blocks.BIRCH_TRAPDOOR), true);
+
     //wood - azalea
     public static final Block AZALEA_LOG = register("azalea_log", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_LOG), true);
     public static final Block AZALEA_WOOD = register("azalea_wood", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_WOOD), true);

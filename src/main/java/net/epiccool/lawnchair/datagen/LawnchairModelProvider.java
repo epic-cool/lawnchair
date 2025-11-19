@@ -62,6 +62,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
 //        blockStateModelGenerator.registerCrop(ModBlocks.WARPED_WART, ModBlocks.WARPED_WART.getStateManager().getProperties().);
 
         blockStateModelGenerator.registerDoor(ModBlocks.UNCOVERED_BIRCH_DOOR);
+        blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
     }
 
     @Override

@@ -87,5 +87,11 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
         valueLookupBuilder(ItemTags.WOODEN_DOORS)
                 .add(ModBlocks.UNCOVERED_BIRCH_DOOR.asItem());
+
+        valueLookupBuilder(ItemTags.TRAPDOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR.asItem());
+
+        valueLookupBuilder(ItemTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR.asItem());
     }
 }

@@ -5,6 +5,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.epiccool.lawnchair.block.ModBlockEntities;
 import net.epiccool.lawnchair.block.ModBlocks;
 import net.epiccool.lawnchair.command.CommandUtil;
+import net.epiccool.lawnchair.command.EmojiCommand;
 import net.epiccool.lawnchair.enchantment.ModEnchantmentEffects;
 import net.epiccool.lawnchair.entity.ModEntities;
 import net.epiccool.lawnchair.item.ModItems;
@@ -23,6 +24,7 @@ import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
+import net.minecraft.text.Text;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
@@ -32,7 +34,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Optional;
+import java.util.Map;
 
 //Create steel robots (can do whatever idc i want robots)
 //think iron golem but more useful
@@ -134,26 +136,62 @@ public class Lawnchair implements ModInitializer {
         LOGGER.info("Registering /emoji for " + MODID);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
                 dispatcher.register(CommandManager.literal("emoji")
-                        .requires(source -> source.hasPermissionLevel(0))
-                        .then(CommandManager.argument("emoji", StringArgumentType.word())
-                                .suggests((context, builder) -> {
+                        .requires(src -> src.hasPermissionLevel(0))
+                        .then(CommandManager.argument("category", StringArgumentType.word())
+                                .suggests((ctx, builder) -> {
                                     String typed = builder.getRemaining().toLowerCase();
-                                    for (String key : CommandUtil.EMOJIS.keySet()) {
-                                        if (key.toLowerCase().startsWith(typed)) {
-                                            builder.suggest(key);
+                                    EmojiCommand.EMOJI_CATEGORIES.keySet().forEach(cat -> {
+                                        if (cat.toLowerCase().startsWith(typed)) {
+                                            builder.suggest(cat);
                                         }
+                                    });
+                                    if ("random".startsWith(typed)) {
+                                        builder.suggest("random");
                                     }
                                     return builder.buildFuture();
                                 })
-                                .executes(ctx -> {
-                                    String typedName = StringArgumentType.getString(ctx, "emoji").toLowerCase();
+                                .then(CommandManager.argument("emoji", StringArgumentType.word())
+                                        .suggests((ctx, builder) -> {
+                                            String category = StringArgumentType.getString(ctx, "category").toLowerCase();
+                                            Map<String, String> emojiMap = EmojiCommand.EMOJI_CATEGORIES.get(category);
+                                            String typedEmoji = builder.getRemaining().toLowerCase();
 
-                                    Optional<String> match = CommandUtil.EMOJIS.keySet().stream()
-                                            .filter(k -> k.equalsIgnoreCase(typedName))
-                                            .findFirst();
-                                    return match.map(s -> CommandUtil.sendEmoji(ctx, s)).orElseGet(() -> CommandUtil.emojiError(ctx, typedName));
-                                })
+                                            if (emojiMap != null) {
+                                                emojiMap.forEach((key, value) -> {
+                                                    if (key.toLowerCase().startsWith(typedEmoji)) {
+                                                        builder.suggest(key, Text.literal(value));
+                                                    }
+                                                });
+                                            }
+
+                                            if ("random".startsWith(typedEmoji)) {
+                                                builder.suggest("random");
+                                            }
+                                            return builder.buildFuture();
+                                        })
+                                        .then(CommandManager.argument("message", StringArgumentType.greedyString())
+                                                .executes(ctx -> EmojiCommand.sendEmoji(
+                                                        ctx,
+                                                        StringArgumentType.getString(ctx, "category").toLowerCase(),
+                                                        StringArgumentType.getString(ctx, "emoji").toLowerCase(),
+                                                        StringArgumentType.getString(ctx, "message")
+                                                ))
+                                        )
+                                        .executes(ctx -> EmojiCommand.sendEmoji(
+                                                ctx,
+                                                StringArgumentType.getString(ctx, "category").toLowerCase(),
+                                                StringArgumentType.getString(ctx, "emoji").toLowerCase(),
+                                                ""
+                                        ))
+                                )
+                                .executes(ctx -> EmojiCommand.sendEmoji(
+                                        ctx,
+                                        StringArgumentType.getString(ctx, "category").toLowerCase(),
+                                        "random",
+                                        ""
+                                ))
                         )
+                        .executes(ctx -> EmojiCommand.sendEmoji(ctx, "random", "random", ""))
                 )
         );
 

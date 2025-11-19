@@ -20,6 +20,8 @@
     "ServerPlayerEntityMixin",
     "SnowballEntityMixin",
     "SquidEntityMixin",
+    "SweetBerryBushBlockMixin",
+    "TrapdoorBlockMixin",
     "ZombieEntityMixin",
     "ZombieEntityRendererMixin"
   ],

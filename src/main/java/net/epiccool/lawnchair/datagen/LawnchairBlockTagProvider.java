@@ -49,6 +49,7 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(ModBlocks.STRIPPED_AZALEA_LOG)
                 .add(ModBlocks.STRIPPED_AZALEA_WOOD)
                 .add(ModBlocks.UNCOVERED_BIRCH_DOOR)
+                .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR)
                 .add(ModBlocks.AZALEA_PLANKS);
 
         valueLookupBuilder(BlockTags.SHOVEL_MINEABLE)
@@ -128,5 +129,11 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
         valueLookupBuilder(BlockTags.WOODEN_DOORS)
                 .add(ModBlocks.UNCOVERED_BIRCH_DOOR);
+
+        valueLookupBuilder(BlockTags.TRAPDOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
+
+        valueLookupBuilder(BlockTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
     }
 }

@@ -171,6 +171,8 @@
   "gamerule.minecartScatters": "Minecarts scatter a player's inventory",
   "commands.naturalExhaustion": "Lose hunger",
   "gamerule.naturalExhaustion": "Lose hunger",
+  "commands.lawnchair.emoji.invalid.name": "Unknown emoji: %s (category: %s)",
+  "commands.lawnchair.emoji.invalid.category": "Unknown category: %s",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",
