@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": "minecraft:nether_star",
+    "1": "minecraft:diamond",
+    "2": "minecraft:bow",
+    "3": "minecraft:iron_ingot",
+    "4": "minecraft:obsidian"
+  },
+  "pattern": [
+    " 12",
+    "301",
+    "43 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "lawnchair:gravity_gun"
+  }
+}

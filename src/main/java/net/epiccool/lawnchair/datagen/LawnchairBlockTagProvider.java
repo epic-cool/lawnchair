@@ -34,7 +34,16 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
 
                 .add(ModBlocks.STEEL_BARS)
                 .add(ModBlocks.IRON_BLOCK_WITH_ROBOT_CORE)
+
                 .add(ModBlocks.COPPER_BUTTON)
+                .add(ModBlocks.EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.OXIDIZED_COPPER_BUTTON)
+
+                .add(ModBlocks.WAXED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON)
 
                 .add(ModBlocks.QUARTZ_BRICKS_STAIRS)
                 .add(ModBlocks.QUARTZ_BRICKS_SLAB)
@@ -163,6 +172,23 @@ public class LawnchairBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(ModBlocks.SCORCHED_DIRT);
 
         valueLookupBuilder(BlockTags.BUTTONS)
-                .add(ModBlocks.COPPER_BUTTON);
+                .add(ModBlocks.COPPER_BUTTON)
+                .add(ModBlocks.EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.OXIDIZED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
+
+        valueLookupBuilder(ModTags.Blocks.COPPER_BUTTONS)
+                .add(ModBlocks.COPPER_BUTTON)
+                .add(ModBlocks.EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.OXIDIZED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON)
+                .add(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
     }
 }

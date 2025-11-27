@@ -192,13 +192,7 @@
         "items": [
           {
             "items": [
-              "minecraft:shield",
-              "lawnchair:golden_shield",
-              "lawnchair:stone_shield",
-              "lawnchair:copper_shield",
-              "lawnchair:steel_shield",
-              "lawnchair:diamond_shield",
-              "lawnchair:netherite_shield"
+              "minecraft:shield"
             ]
           }
         ]

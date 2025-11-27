@@ -117,5 +117,14 @@ public class LawnchairItemTagProvider extends FabricTagProvider.ItemTagProvider 
                 .add(ModItems.COOKED_SQUID)
                 .add(ModItems.RAW_FROG_LEGS)
                 .add(ModItems.COOKED_FROG_LEGS);
+
+        valueLookupBuilder(ModTags.Items.CANDY)
+                .add(ModItems.RED_WRAPPED_HARD_CANDY)
+                .add(ModItems.ORANGE_WRAPPED_HARD_CANDY)
+                .add(ModItems.YELLOW_WRAPPED_HARD_CANDY)
+                .add(ModItems.GREEN_WRAPPED_HARD_CANDY)
+                .add(ModItems.BLUE_WRAPPED_HARD_CANDY)
+                .add(ModItems.PINK_WRAPPED_HARD_CANDY)
+                .add(ModItems.PURPLE_WRAPPED_HARD_CANDY);
     }
 }

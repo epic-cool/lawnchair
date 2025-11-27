@@ -55,6 +55,13 @@ public class LawnchairBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(ModBlocks.NETHERITE_BLOCK_SLAB);
         addDrop(ModBlocks.FLUORESCENT_LIGHT);
         addDrop(ModBlocks.COPPER_BUTTON);
+        addDrop(ModBlocks.EXPOSED_COPPER_BUTTON);
+        addDrop(ModBlocks.WEATHERED_COPPER_BUTTON);
+        addDrop(ModBlocks.OXIDIZED_COPPER_BUTTON);
+        addDrop(ModBlocks.WAXED_COPPER_BUTTON);
+        addDrop(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON);
+        addDrop(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON);
+        addDrop(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
 
         addDrop(ModBlocks.UNCOVERED_BIRCH_DOOR, doorDrops(ModBlocks.UNCOVERED_BIRCH_DOOR));
 

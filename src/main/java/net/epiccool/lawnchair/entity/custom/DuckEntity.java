@@ -1,6 +1,7 @@
 package net.epiccool.lawnchair.entity.custom;
 
 import net.epiccool.lawnchair.entity.ModEntities;
+import net.epiccool.lawnchair.entity.goal.SwimAroundGoal1;
 import net.epiccool.lawnchair.sound.ModSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityDimensions;
@@ -51,14 +52,13 @@ public class DuckEntity extends AnimalEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4));
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(3, new SwimAroundGoal(this, 1.0, 1));
-        this.goalSelector.add(4, new AnimalMateGoal(this, 1.0));
-        this.goalSelector.add(5, new TemptGoal(this, 1.0, stack -> stack.isIn(ItemTags.CHICKEN_FOOD), false));
-        this.goalSelector.add(6, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
+        this.goalSelector.add(0, new SwimAroundGoal1(this, 1.0));
+        this.goalSelector.add(1, new EscapeDangerGoal(this, 1.4));
+        this.goalSelector.add(2, new AnimalMateGoal(this, 1.0));
+        this.goalSelector.add(3, new TemptGoal(this, 1.0, stack -> stack.isIn(ItemTags.CHICKEN_FOOD), false));
+        this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
     }
 

@@ -4,12 +4,14 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -109,23 +111,32 @@ public class CommandUtil {
         return Command.SINGLE_SUCCESS;
     }
 
-    public static int smite(CommandContext<ServerCommandSource> ctx, ServerPlayerEntity target) {
-        ServerWorld world = target.getEntityWorld();
+    public static int smite(CommandContext<ServerCommandSource> ctx, LivingEntity target) {
+        String[] messages = {
+                "commands.lawnchair.smite.0",
+                "commands.lawnchair.smite.1",
+                "commands.lawnchair.smite.2",
+                "commands.lawnchair.smite.3",
+                "commands.lawnchair.smite.4"
+        };
+
+        World world = target.getEntityWorld();
         Random random = new Random();
-        int feedback = random.nextInt(4);
+        int feedback = random.nextInt(5);
         LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
         lightning.setPos(target.getX(), target.getY(), target.getZ());
         world.spawnEntity(lightning);
-        if (feedback == 0) {
-            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite", target.getDisplayName()), true);
-        } else if (feedback == 1) {
-            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite1", target.getDisplayName()), true);
-        } else if (feedback == 2) {
-            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite2", target.getDisplayName()), true);
-        } else {
-            ctx.getSource().sendFeedback(() -> Text.translatable("commands.lawnchair.smite3", target.getDisplayName()), true);
+
+        ctx.getSource().sendFeedback(
+                () -> Text.translatable(messages[feedback], target.getDisplayName()),
+                true
+        );
+
+        if (target == null) {
+            ctx.getSource().sendError(Text.translatable("commands.lawnchair.smite.wrong_entity"));
+            return 0;
         }
-//todo: add feedback when no player
+
         return Command.SINGLE_SUCCESS;
     }
 }

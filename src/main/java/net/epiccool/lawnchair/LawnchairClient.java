@@ -7,7 +7,7 @@ import net.epiccool.lawnchair.entity.client.duck.DuckEntityModel;
 import net.epiccool.lawnchair.entity.client.duck.DuckEntityRenderer;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityModel;
 import net.epiccool.lawnchair.entity.client.goliath.GoliathEntityRenderer;
-import net.epiccool.lawnchair.item.custom.ShieldFactory;
+import net.epiccool.lawnchair.util.ModKeybinds;
 import net.epiccool.lawnchair.util.RainbowWoolColorProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
@@ -24,6 +24,13 @@ public class LawnchairClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlock(ModBlocks.UNCOVERED_BIRCH_DOOR, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.EXPOSED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.WEATHERED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.OXIDIZED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.WAXED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.BLASTED_GLASS, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.BLASTED_GLASS_PANE, BlockRenderLayer.CUTOUT);
 
@@ -35,9 +42,9 @@ public class LawnchairClient implements ClientModInitializer {
 
         ColorProviderRegistry.BLOCK.register(new RainbowWoolColorProvider(), ModBlocks.RAINBOW_WOOL);
 
-        ShieldFactory.registerTooltips();
-
         GloomOverlay.Initialize();
+
+        ModKeybinds.Initialize();
 
 //        HandledScreens.register(ModScreenHandlers.ALLOY_MIXER_SCREEN_HANDLER, AlloyMixerScreen::new);
 

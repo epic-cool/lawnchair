@@ -99,7 +99,6 @@ public class ModItems {
     public static void Initialize() {
         Lawnchair.LOGGER.info("Registering Mod Items for " + Lawnchair.MODID);
 //        registerDyedItemFrames();
-        registerShields();
 
         Registry.register(Registries.ITEM_GROUP, GENERIC_ITEM_GROUP_KEY, GENERIC_ITEM_GROUP);
         Registry.register(Registries.ITEM_GROUP, POTIONS_ITEM_GROUP_KEY, POTIONS_ITEM_GROUP);
@@ -148,6 +147,13 @@ public class ModItems {
             entries.add(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN_BLOCK);
             entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK);
             entries.add(ModBlocks.COPPER_BUTTON);
+            entries.add(ModBlocks.EXPOSED_COPPER_BUTTON);
+            entries.add(ModBlocks.WEATHERED_COPPER_BUTTON);
+            entries.add(ModBlocks.OXIDIZED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
         });
 
         //Equipment
@@ -171,12 +177,7 @@ public class ModItems {
             entries.add(ModItems.WOOD_BOOTS);
             entries.add(ModItems.GAS_MASK);
             entries.add(ModItems.ICE_PICK);
-            entries.add(ModItems.GOLDEN_SHIELD);
-            entries.add(ModItems.COPPER_SHIELD);
-            entries.add(ModItems.STONE_SHIELD);
-            entries.add(ModItems.STEEL_SHIELD);
-            entries.add(ModItems.DIAMOND_SHIELD);
-            entries.add(ModItems.NETHERITE_SHIELD);
+            entries.add(ModItems.GRAVITY_GUN);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ROBOT_ITEM_GROUP_KEY).register(entries -> {
@@ -212,6 +213,13 @@ public class ModItems {
             entries.add(ModBlocks.UNCOVERED_BIRCH_DOOR);
             entries.add(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
             entries.add(ModBlocks.COPPER_BUTTON);
+            entries.add(ModBlocks.EXPOSED_COPPER_BUTTON);
+            entries.add(ModBlocks.WEATHERED_COPPER_BUTTON);
+            entries.add(ModBlocks.OXIDIZED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON);
+            entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
         });
 
         ItemGroupEvents.modifyEntriesEvent(FOOD_ITEM_GROUP_KEY).register(entries -> {
@@ -386,6 +394,8 @@ public class ModItems {
             new Item.Settings()
     );
 
+    public static final Item GRAVITY_GUN = register("gravity_gun", GravityGunItem::new, new Item.Settings().useCooldown(5).maxCount(1).maxDamage(640));
+
     //Candy
     public static final Item BLUE_WRAPPED_HARD_CANDY = register("blue_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
             StatusEffects.SPEED, 250, 20
@@ -408,25 +418,6 @@ public class ModItems {
     public static final Item PINK_WRAPPED_HARD_CANDY = register("pink_wrapped_hard_candy", settings -> new WrappedHardCandyItem(settings, new StatusEffectInstance(
             ModEffects.BIG, 250
     )), new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().nutrition(1).saturationModifier(1f).build()));
-
-    //Shields
-    public static Item GOLDEN_SHIELD;
-    public static Item COPPER_SHIELD;
-    public static Item STONE_SHIELD;
-    public static Item IRON_SHIELD;
-    public static Item STEEL_SHIELD;
-    public static Item DIAMOND_SHIELD;
-    public static Item NETHERITE_SHIELD;
-
-    public static void registerShields() {
-        Lawnchair.LOGGER.info("Registering Shields for " + Lawnchair.MODID);
-        GOLDEN_SHIELD = ShieldFactory.registerShield("golden_shield", 120, 0.65f, 0.25f, 0.4f);
-        COPPER_SHIELD = ShieldFactory.registerShield("copper_shield", 260, 0.7f, 0.25f, 1.0f);
-        STONE_SHIELD = ShieldFactory.registerShield("stone_shield", 300, 0.75f, 0.25f, 1.0f);
-        STEEL_SHIELD = ShieldFactory.registerShield("steel_shield", 500, 1f, 0.25f, 1.0f);
-        DIAMOND_SHIELD = ShieldFactory.registerShield("diamond_shield", 800, 1.2f, 0.25f, 1.0f);
-        NETHERITE_SHIELD = ShieldFactory.registerShieldFireproof("netherite_shield", 1200, 1.6f, 0.25f, 1.3f);
-    }
 
 
 //    public static final Map<DyeColor, Item> DYED_ITEM_FRAME_ITEMS = new HashMap<>();

@@ -937,16 +937,36 @@ public class LawnchairRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Blocks.WAXED_OXIDIZED_COPPER), conditionsFromItem(Blocks.WAXED_OXIDIZED_COPPER))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.MISC, ModBlocks.COPPER_BUTTON, 1)
-                        .input(Blocks.COPPER_BLOCK)
-                        .criterion(hasItem(Blocks.COPPER_BLOCK), conditionsFromItem(Blocks.COPPER_BLOCK))
-                        .offerTo(exporter);
+                createButtonRecipe(ModBlocks.COPPER_BUTTON, Ingredient.ofItem(Blocks.COPPER_BLOCK));
+                createButtonRecipe(ModBlocks.EXPOSED_COPPER_BUTTON, Ingredient.ofItem(Blocks.EXPOSED_COPPER));
+                createButtonRecipe(ModBlocks.WEATHERED_COPPER_BUTTON, Ingredient.ofItem(Blocks.WEATHERED_COPPER));
+                createButtonRecipe(ModBlocks.OXIDIZED_COPPER_BUTTON, Ingredient.ofItem(Blocks.OXIDIZED_COPPER));
+                createButtonRecipe(ModBlocks.WAXED_COPPER_BUTTON, Ingredient.ofItems(ModBlocks.COPPER_BUTTON, Items.HONEYCOMB));
+                createButtonRecipe(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON, Ingredient.ofItems(ModBlocks.EXPOSED_COPPER_BUTTON, Items.HONEYCOMB));
+                createButtonRecipe(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON, Ingredient.ofItems(ModBlocks.WEATHERED_COPPER_BUTTON, Items.HONEYCOMB));
+                createButtonRecipe(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON, Ingredient.ofItems(ModBlocks.OXIDIZED_COPPER_BUTTON, Items.HONEYCOMB));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.BLASTED_GLASS_PANE, 16)
                         .pattern("000")
                         .pattern("000")
                         .input('0', ModBlocks.BLASTED_GLASS)
                         .criterion(hasItem(ModBlocks.BLASTED_GLASS), conditionsFromItem(ModBlocks.BLASTED_GLASS))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModItems.GRAVITY_GUN, 1)
+                        .pattern(" 12")
+                        .pattern("301")
+                        .pattern("43 ")
+                        .input('0', Items.NETHER_STAR)
+                        .input('1', Items.DIAMOND)
+                        .input('2', Items.BOW)
+                        .input('3', Items.IRON_INGOT)
+                        .input('4', Blocks.OBSIDIAN)
+                        .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
+                        .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
+                        .criterion(hasItem(Items.BOW), conditionsFromItem(Items.BOW))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .criterion(hasItem(Items.OBSIDIAN), conditionsFromItem(Items.OBSIDIAN))
                         .offerTo(exporter);
             }
         };

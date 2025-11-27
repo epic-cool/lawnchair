@@ -27,6 +27,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -178,7 +179,7 @@ public class IcePickItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        textConsumer.accept(Text.translatable("item.lawnchair.ice_pick.tooltip"));
+        textConsumer.accept(Text.translatable("item.lawnchair.ice_pick.tooltip").formatted(Formatting.GRAY));
         super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 }

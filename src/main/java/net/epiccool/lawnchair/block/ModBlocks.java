@@ -3,6 +3,7 @@ package net.epiccool.lawnchair.block;
 import net.epiccool.lawnchair.Lawnchair;
 import net.epiccool.lawnchair.block.custom.*;
 import net.epiccool.lawnchair.block.custom.debug.ButtonBlock2;
+import net.epiccool.lawnchair.block.custom.debug.OxidizableButtonBlock2;
 import net.epiccool.lawnchair.block.custom.gravity.ColoredFallingSlabBlock;
 import net.epiccool.lawnchair.block.custom.gravity.SandSlabBlock;
 import net.epiccool.lawnchair.block.custom.tnt.TntSlabBlock;
@@ -125,7 +126,21 @@ public class ModBlocks {
 
     //buttons
     public static final Block COPPER_BUTTON = register("copper_button",
-            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 1, settings), AbstractBlock.Settings.create().strength(0.5f), true);
+            settings -> new OxidizableButtonBlock2(Oxidizable.OxidationLevel.UNAFFECTED, ModBlockSetTypes.COPPER, 4, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block EXPOSED_COPPER_BUTTON = register("exposed_copper_button",
+            settings -> new OxidizableButtonBlock2(Oxidizable.OxidationLevel.EXPOSED, ModBlockSetTypes.COPPER, 3, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block WEATHERED_COPPER_BUTTON = register("weathered_copper_button",
+            settings -> new OxidizableButtonBlock2(Oxidizable.OxidationLevel.WEATHERED, ModBlockSetTypes.COPPER, 2, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block OXIDIZED_COPPER_BUTTON = register("oxidized_copper_button",
+            settings -> new OxidizableButtonBlock2(Oxidizable.OxidationLevel.OXIDIZED, ModBlockSetTypes.COPPER, 1, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block WAXED_COPPER_BUTTON = register("waxed_copper_button",
+            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 1, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block WAXED_EXPOSED_COPPER_BUTTON = register("waxed_exposed_copper_button",
+            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 2, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block WAXED_WEATHERED_COPPER_BUTTON = register("waxed_weathered_copper_button",
+            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 3, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
+    public static final Block WAXED_OXIDIZED_COPPER_BUTTON = register("waxed_oxidized_copper_button",
+            settings -> new ButtonBlock2(ModBlockSetTypes.COPPER, 4, settings), AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.COPPER), true);
 
     //copper chain blocks
     public static final Block COPPER_CHAIN_BLOCK = register(

@@ -26,6 +26,9 @@ public class LawnchairModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool quartzBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.QUARTZ_BRICKS);
         BlockStateModelGenerator.BlockTexturePool netheriteBlockPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.NETHERITE_BLOCK);
         BlockStateModelGenerator.BlockTexturePool copperPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.COPPER_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool exposedPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.EXPOSED_COPPER);
+        BlockStateModelGenerator.BlockTexturePool weatheredPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.WEATHERED_COPPER);
+        BlockStateModelGenerator.BlockTexturePool oxidizedPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.OXIDIZED_COPPER);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARCOAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_CHAIN_BLOCK);
@@ -68,6 +71,13 @@ public class LawnchairModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.UNCOVERED_BIRCH_TRAPDOOR);
 
         copperPool.button(ModBlocks.COPPER_BUTTON);
+        copperPool.button(ModBlocks.WAXED_COPPER_BUTTON);
+        exposedPool.button(ModBlocks.EXPOSED_COPPER_BUTTON);
+        exposedPool.button(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON);
+        weatheredPool.button(ModBlocks.WEATHERED_COPPER_BUTTON);
+        weatheredPool.button(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON);
+        oxidizedPool.button(ModBlocks.OXIDIZED_COPPER_BUTTON);
+        oxidizedPool.button(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON);
 
         blockStateModelGenerator.registerGlassAndPane(ModBlocks.BLASTED_GLASS, ModBlocks.BLASTED_GLASS_PANE);
     }
@@ -103,6 +113,7 @@ public class LawnchairModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STEEL_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GRAVITY_GUN, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(ModItems.STEEL_HELMET, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.STEEL_CHESTPLATE, ModArmorMaterials.STEEL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);

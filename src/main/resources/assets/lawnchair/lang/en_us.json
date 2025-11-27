@@ -67,6 +67,13 @@
   "block.lawnchair.uncovered_birch_trapdoor": "Uncovered Birch Trapdoor",
   "block.lawnchair.scorched_dirt": "Scorched Dirt",
   "block.lawnchair.copper_button": "Copper Button",
+  "block.lawnchair.exposed_copper_button": "Exposed Copper Button",
+  "block.lawnchair.weathered_copper_button": "Weathered Copper Button",
+  "block.lawnchair.oxidized_copper_button": "Oxidized Copper Button",
+  "block.lawnchair.waxed_copper_button": "Waxed Copper Button",
+  "block.lawnchair.waxed_exposed_copper_button": "Waxed Exposed Copper Button",
+  "block.lawnchair.waxed_weathered_copper_button": "Waxed Weathered Copper Button",
+  "block.lawnchair.waxed_oxidized_copper_button": "Waxed Oxidized Copper Button",
   "block.lawnchair.rainbow_wool": "Rainbow Wool",
   "block.lawnchair.blasted_glass": "Blasted Glass",
   "block.lawnchair.blasted_glass_pane": "Blasted Glass Pane",
@@ -102,6 +109,11 @@
   "shield.lawnchair.tooltip.block_power": "Blocks %s of damage",
   "shield.lawnchair.tooltip.block_delay": "Block delay: %s",
   "shield.lawnchair.tooltip.cooldown_scale": "Cooldown scale: %s",
+  "item.lawnchair.gravity_gun": "Gravity Gun",
+  "item.lawnchair.gravity_gun.tooltip": "No mode selected",
+  "item.lawnchair.gravity_gun.tooltip.push": "Push",
+  "item.lawnchair.gravity_gun.tooltip.pull": "Pull",
+  "item.lawnchair.gravity_gun.tooltip._static": "Static",
 
 
   "---------------------------------------Category VI": "Entities ---------------------------------------------",
@@ -178,10 +190,12 @@
   "gamerule.naturalExhaustion": "Lose hunger",
   "commands.lawnchair.emoji.invalid.name": "Unknown emoji: %s (category: %s)",
   "commands.lawnchair.emoji.invalid.category": "Unknown category: %s",
-  "commands.lawnchair.smite": "Smitten %s",
-  "commands.lawnchair.smite1": "Smote %s",
-  "commands.lawnchair.smite2": "Smitted %s",
-  "commands.lawnchair.smite3": "Smited %s",
+  "commands.lawnchair.smite.0": "Smitten %s",
+  "commands.lawnchair.smite.1": "Smote %s",
+  "commands.lawnchair.smite.2": "Smitted %s",
+  "commands.lawnchair.smite.3": "Smited %s",
+  "commands.lawnchair.smite.4": "Smate %s",
+  "commands.lawnchair.smite.wrong_entity": "Wrong entity type",
 
 
   "---------------------------------------Category X": "Containers --------------------------------------------",
@@ -327,6 +341,10 @@
   "sounds.lawnchair.duck.step": "Footsteps",
   "sounds.lawnchair.duck.hurt": "Duck hurts",
   "sounds.lawnchair.duck.egg": "Duck plops",
+
+
+  "--------------------------------------Category XIX": "Keybinds---------------------------------",
+  "keybind.lawnchair.gravity_gun.change": "Change Gravity Gun's mode",
 
 
   "--------------------------------------------------": "--------------------------------------------------------"

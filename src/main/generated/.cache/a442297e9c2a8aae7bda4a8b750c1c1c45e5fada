@@ -1,9 +1,10 @@
 // 1.21.10	-999999999-01-01T00:00:00	Lawnchair/Tags for minecraft:block
+18b577aee3732326a3a22c04169e55337c664902 data/lawnchair/tags/block/copper_buttons.json
 fc8d13acf1ca9d534a52c72c2317bff2520e38ee data/lawnchair/tags/block/flowers.json
 0e7913201a51fcb26c3733d782040c0451c50cb8 data/lawnchair/tags/block/flowers_that_emit_light_10.json
 f0f92c5f0b5c5412980a4ca8436b4cb180919deb data/lawnchair/tags/block/turn_to_lava.json
 fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/bamboo_plantable_on.json
-52cf6a318d4c91f964c02ab20e6e50e9c7857501 data/minecraft/tags/block/buttons.json
+18b577aee3732326a3a22c04169e55337c664902 data/minecraft/tags/block/buttons.json
 fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/dirt.json
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/block/doors.json
 fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/dripstone_replaceable_blocks.json
@@ -14,7 +15,7 @@ fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/enderman_hold
 fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/lush_ground_replaceable.json
 94b41d41e216fc24acb02c299a6f87858e62641c data/minecraft/tags/block/mineable/axe.json
 04679060da376d494e94e319ef87f42395d9062e data/minecraft/tags/block/mineable/hoe.json
-225061ef1623ceefbbf2041b654728a021f0e8c7 data/minecraft/tags/block/mineable/pickaxe.json
+04768919bd3c13c41359c13716ef564d9f38371a data/minecraft/tags/block/mineable/pickaxe.json
 9159d33c282e23b5703bb268f04389b49c84145b data/minecraft/tags/block/mineable/shovel.json
 dae449604c5dd724360badf11b26b8237e04b575 data/minecraft/tags/block/mob_interactable_doors.json
 fa60f6bb21e79313087723ea0ba536372e35d08e data/minecraft/tags/block/moss_replaceable.json

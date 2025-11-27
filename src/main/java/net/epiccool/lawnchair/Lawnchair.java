@@ -21,6 +21,8 @@ import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.Vec3ArgumentType;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
@@ -82,6 +84,19 @@ public class Lawnchair implements ModInitializer {
                 ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK
         );
 
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.COPPER_BUTTON,
+                ModBlocks.EXPOSED_COPPER_BUTTON
+        );
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.EXPOSED_COPPER_BUTTON,
+                ModBlocks.WEATHERED_COPPER_BUTTON
+        );
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(
+                ModBlocks.WEATHERED_COPPER_BUTTON,
+                ModBlocks.OXIDIZED_COPPER_BUTTON
+        );
+
         LOGGER.info("Creating Waxed Copper Blocks for " + MODID);
         OxidizableBlocksRegistry.registerWaxableBlockPair(
                 ModBlocks.COPPER_CHAIN_BLOCK,
@@ -98,6 +113,23 @@ public class Lawnchair implements ModInitializer {
         OxidizableBlocksRegistry.registerWaxableBlockPair(
                 ModBlocks.OXIDIZED_COPPER_CHAIN_BLOCK,
                 ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN_BLOCK
+        );
+
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.COPPER_BUTTON,
+                ModBlocks.WAXED_COPPER_BUTTON
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.EXPOSED_COPPER_BUTTON,
+                ModBlocks.WAXED_EXPOSED_COPPER_BUTTON
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.WEATHERED_COPPER_BUTTON,
+                ModBlocks.WAXED_WEATHERED_COPPER_BUTTON
+        );
+        OxidizableBlocksRegistry.registerWaxableBlockPair(
+                ModBlocks.OXIDIZED_COPPER_BUTTON,
+                ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON
         );
 
 
@@ -199,8 +231,18 @@ public class Lawnchair implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
                 dispatcher.register(CommandManager.literal("smite")
                         .requires(source -> source.hasPermissionLevel(2))
-                        .then(CommandManager.argument("player", EntityArgumentType.player())
-                                .executes(ctx -> CommandUtil.smite(ctx, EntityArgumentType.getPlayer(ctx, "player"))))
+                        .then(CommandManager.argument("entity", EntityArgumentType.entity())
+                                .executes(ctx -> {
+                                    Entity entity = EntityArgumentType.getEntity(ctx, "entity");
+
+                                    if (entity instanceof LivingEntity living) {
+                                        return CommandUtil.smite(ctx, living);
+                                    } else {
+                                        ctx.getSource().sendError(Text.translatable("commands.lawnchair.smite.wrong_entity"));
+                                        return 0;
+                                    }
+                                })
+                        )
                         .executes(ctx -> CommandUtil.smite(ctx, null))
                 )
         );
